@@ -1,0 +1,24 @@
+{
+  "name": "mecafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gruposeisdh/grupo_6_cafeMeca.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gruposeisdh/grupo_6_cafeMeca/issues"
+  },
+  "homepage": "https://github.com/gruposeisdh/grupo_6_cafeMeca#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
