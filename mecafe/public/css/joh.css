@@ -1,0 +1,110 @@
+body{
+    background-color:red;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+.col {
+   flex: 1 0 0%;
+}
+  
+
+.content-center{
+    justify-content:center;
+}
+
+.content-rigth{
+    justify-content:flex-end;
+}
+.content-left{
+    justify-content:flex-start;
+}
+
+.content-around{
+    justify-content:space-around;
+}
+
+.content-between{
+    justify-content:space-between;
+}
+.display-flex{
+    display: flex;
+}
+
+/******* Login *******/
+
+.containerLogin{    
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+.modalLogin{
+    border:1px solid black;
+    padding:10px;
+    float: right;
+    height: 100vh;
+    position: absolute;
+    z-index: 99999;
+    background-color: white;
+    top: 0;    
+    width:100%;
+    min-width: 150px;
+}
+
+.modalLogin form{
+    margin-top: 15px;
+    padding:10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.modalLogin form label{
+    margin-bottom:5px;
+}
+
+.modalLogin form input{
+    margin-bottom:15px;
+    width:80%;
+}
+
+.modalLogin form div a{
+    margin-left:20px;
+}
+
+.modalLogin form input[type="button"]{
+    margin-top: 10px;
+    align-self: center;
+    width: 30%;
+}
+
+@media(min-width:361px ){
+
+    /** login */
+    .modalLogin{
+        width:361px;
+        top: 0;
+        right: 0px;
+    }
+    .modalLogin form input{
+      
+        width:auto;
+    }
+    
+}
+
+@media(min-width:769px){
+
+    /** login */
+    .modalLogin{
+        width:500px;
+    }
+}
