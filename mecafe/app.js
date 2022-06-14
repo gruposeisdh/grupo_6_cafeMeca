@@ -41,3 +41,6 @@ app.get('/product', (req,res) => {
     let html= path.resolve(__dirname,"./views/product.html")
     res.sendFile (html);
 })
+
+
+
