@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --naranja: #f78b2d;
+  --naranja-oscuro: #e16d09;
+  --naranja-saturado: #ff8914;
+  --negro-intenso: #0a0a0a;
+  --lime: #c7db00;
+  --lime-saturado: #ddf600;
+  --lime-oscuro: #9faf00;
+  --cilantro: #7aa802;
+  --cilantro-saturado: #83bd00;
+  --cilantro-oscuro: #628602;
+  --toast: #e4b600;
+  --toast-saturado: #ffc700;
+  --toast-oscuro: #b69200;
+  --blano-original: #fbfcfc;
+  --piel-original: #f6ddcc;
+  --piel-saturado: #fbdcc7;
+  --piel-oscuro: #e9aa7f;
+  --marron-original: #d5a16a;
+  --marron-oscuro: #c78238;
+  --azul:rgba(5, 5, 242,0.7);
+}
+
+main {
+  width: 100%;
+  background-color: var(--blano-original);
+}
+
+.product-detail {
+  font-size: 24px;
+  margin-top: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  color: var(--negro-intenso);
+  font-weight: bold;
+}
+
+.detail {
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+}
+
+.img-product {
+  margin-top: 0;
+  padding: 0 1em;
+  width: 100%;
+  border: solid 20px var(--blano-original);
+  border-radius: 20px;
+}
+
+.price {
+  border-top: solid 1px var(--naranja-oscuro);
+  border-bottom: solid 1px var(--naranja-oscuro);
+  margin: 20px;
+  padding: 10px 0px;
+}
+
+.price-us {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product {
+  width: 100%;
+  display: flex;
+ justify-content: space-between;
+ padding-left: 1em;
+ padding-right: 1em;
+}
+
+.description-product {
+  width: 50%;
+}
+
+.name-product {
+  font-size: 18px;
+  margin: 2px;
+  color: var(--negro-intenso);
+  font-weight: bold;
+  background-color: rgba(255, 137, 20, 0.4);
+  border-radius: 1em;
+}
+
+.characteristic {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 8px 5px;
+}
+
+.description2 {
+  width: 50%;
+}
+
+.description2 h4 {
+  font-size: 18px;
+  margin: 2px 2px 6px;
+  color: var(--negro-intenso);
+  font-weight: bold;
+  background-color: rgba(255, 137, 20, 0.4);
+  border-radius: 1em;
+}
+
+.description2 p{
+  font-size: 14px;
+  line-height: 22px;
+  text-align: justify;
+}
+
+.buttons-payment{
+  border-top: dashed 1.5px var(--naranja);
+  border-bottom: dashed 1.5px var(--naranja);
+  margin:20px;
+  padding: 5px;
+}
+
+.payment{
+  text-align: center
+}
+
+.payment i{
+  font-size: 20px;
+  color:var(--azul);
+}
+
+.destacados {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.product-img {
+  width: 100%;
+}
