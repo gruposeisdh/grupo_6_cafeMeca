@@ -11,42 +11,53 @@
 </head>
 <body>
     <div class="container">
-
-        <div class="products">
-            <article>
-                <img src="/img/img-cafetera-moulinex.jpg" alt="">
-                <div class="text-center">                     
-                    <p>Nombre Producto</p>
-                    <p><b>Formato</b> 500grs</p>
-                    <p><b>$35.000</b></p>
-                </div>
-                <div class="mas-menos">
-                    <i class="fas fa-plus-circle"></i>
-                    <p>3</p>
-                    <i class="fas fa-minus-circle"></i>
-                </div>
-                <p>$70.000</p>
-            </article>   
-            <article>
-                <img src="/img/img-cafetera-moulinex.jpg" alt="">
-                <div class="text-center">                     
-                    <p>Nombre Producto</p>
-                    <p><b>Formato</b> 500grs</p>
-                    <p><b>$35.000</b></p>
-                </div>
-                <div class="mas-menos">
-                    <i class="fas fa-plus-circle"></i>
-                    <p>3</p>
-                    <i class="fas fa-minus-circle"></i>
-                </div>
-                <p>$70.000</p>
-            </article>           
+        <div class="containerProgress">  
+            <div class="progress">
+                <hr> 
+                <i class="fas fa-circle selected"><span>1</span></i>
+                <i class="fas fa-circle"><span>2</span></i>
+                <i class="fas fa-circle"><span>3</span></i>
+            </div>
         </div>
-        <div class="text-center">
-            <p>Total</p>
-            <p>$175.000</p>
-            <button>Continuar Compra</button>
-        </div>
+        <main>
+            <div class="products">
+                <article>
+                    <img src="/img/img-cafetera-moulinex.jpg" alt="">
+                    <div class="text-center">                     
+                        <p class="nombre">Nombre Producto</p>
+                        <p  class="formato"><b>Formato</b> 500grs</p>
+                        <p class="precio"><b>$35.000</b></p>
+                    </div>
+                    <div class="mas-menos">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>3</span>
+                        <i class="fas fa-minus-circle"></i>
+                    </div>
+                    <p class="total">$70.000</p>
+                </article>   
+                <article>
+                    <img src="/img/img-cafetera-moulinex.jpg" alt="">
+                    <div class="text-center">                     
+                        <p>Nombre Producto</p>
+                        <p><b>Formato</b> 500grs</p>
+                        <p><b>$35.000</b></p>
+                    </div>
+                    <div class="mas-menos">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>3</span>
+                        <i class="fas fa-minus-circle"></i>
+                    </div>
+                    <p>$70.000</p>
+                </article> 
+            </div>
+            <div class="text-center total">
+                <p>Total</p>
+                <p>$175.000</p>
+                <button>Continuar Compra</button>
+            </div>    
+        </main>
+          
+       
     </div>
 </body>
 </html>
