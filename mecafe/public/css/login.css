@@ -18,8 +18,7 @@
     --piel-oscuro:#e9aa7f;
     --marron-original:#d5a16a;
     --marron-oscuro:#c78238;
-
-  }
+}
 
 
 .red{
@@ -47,7 +46,6 @@
 .col {
    flex: 1 0 0%;
 }
-  
 
 .content-center{
     justify-content:center;
