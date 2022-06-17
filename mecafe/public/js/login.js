@@ -14,9 +14,7 @@ function closeModalLogin(){
 
 /** cerrar modal si se hace click fuera de ella */
 window.addEventListener('click', function(e) {
-    if (document.getElementById('modalLogin').contains(e.target) || document.getElementById('btnOpenModalLogin').contains(e.target)) {
-        console.log(e.target);
-    } else {
+    if (!document.getElementById('modalLogin').contains(e.target) && !document.getElementById('btnOpenModalLogin').contains(e.target)) {
         closeModalLogin();
     }
 })
