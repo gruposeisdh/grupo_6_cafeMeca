@@ -134,7 +134,7 @@ main{
     align-items: center;
 }
 
-.continuar-compra{
+.continue-buy{
     align-self: flex-end;
     padding: 10px;
     margin:10px;
@@ -142,7 +142,7 @@ main{
     right: 0;
 }
 
-.continuar-compra button{
+.continue-buy button{
     margin: 5px;
     width: 100%;
     padding: 8px;
@@ -156,7 +156,7 @@ main{
     border-style: hidden;
 }
 
-.continuar-compra .total{
+.continue-buy .total{
     font-size:var(--font-size-20);
 }
 
@@ -179,24 +179,24 @@ article p{
     margin: 5px;
 }
 
-article .nombre{
+article .name{
     font-size: var(--font-size-14);
 }
 
-article .formato{
+article .format{
     font-size:  var(--font-size-12);
 }
 
-article .precio{
+article .price{
     font-size: var(--font-size-11);
 }
 
-article .mas-menos{
+article .more-less{
     display: flex;
     justify-content: space-evenly;
 }
 
-article .mas-menos{
+article .more-less{
     position: relative;
     color: var(--naranja-oscuro);
     display: flex;
@@ -204,7 +204,7 @@ article .mas-menos{
     width:50%;
 }
 
-article .totalP{
+article .total-product{
     font-size:  var(--font-size-13);
 }
 
@@ -248,7 +248,7 @@ article span{
         width: 25%;
     }
 
-    article .mas-menos{
+    article .more-less{
         width:25%;
     }
     
@@ -257,11 +257,11 @@ article span{
 
 @media(min-width:768px){
 
-    .continuar-compra .total{
+    .continue-buy .total{
         font-size: var(--font-size-20);
     }
 
-    .continuar-compra button{
+    .continue-buy button{
         font-size: var(--font-size-18);
     }
 }
