@@ -1,0 +1,128 @@
+ 
+/** --------------- Importar Fuentes Localmente (Carpeta Fonts) --------------- **/
+
+@font-face {
+    font-family: "proximanova";
+    src: url("../fonts/proximanova-regular.otf") /* format("truetype"); */
+} 
+
+@font-face {
+    font-family: "proximanovaBold";
+    src: url("../fonts/proximanova-semibolditalic.otf") /* format("truetype"); */
+}
+
+/** --------------- Globales --------------- **/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: proximanova;
+}
+
+a:link, a:visited,  a:hover, a:active
+{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+:root {
+
+    --lime: #c7db00;
+    --cilantro: #7aa802;
+    --lox: #f78b2d;
+    --toas: #e4b600;
+    --black: #000000;
+    --green-pastel-btn: #77dd77;
+    --red-pastel-btn: #ff6961;
+    --gray-pastel: #cdcdcd;
+}
+
+/** --------------- Header --------------- **/
+
+/** --------------- Main --------------- **/
+
+.registerForm__form{
+    width: 85%;
+    max-width: 1200px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+}
+
+.registerForm__form div{
+    padding: 5px;
+    margin: 1em 0;
+}
+
+.registerForm__form label{
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.registerForm__form input{
+    padding: 0.7em;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.registerForm__Btns{
+    padding: 5px;
+}
+
+.btn{
+    padding: 0.7em;
+    font-size: 16px;
+    margin: 0.5em 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    box-shadow: 2px 5px 16px 0px #cdcdcd;
+}
+
+.btnSend{
+    background: var(--green-pastel-btn);
+}
+
+.btnDelete{
+    background: var(--red-pastel-btn);
+}
+
+
+/** --------------- Footer --------------- **/
+
+
+@media (min-width : 769px) {
+
+    .registerForm__form .Hola{
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 1em;
+        align-items: center;
+    }
+
+    .registerForm__form label{
+        margin-bottom: 0;
+    }
+
+    .registerForm__Btns{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        align-items: center;
+    }
+
+    .btn{
+        height: 3.5em;
+    }
+
+    .registerForm__form input{
+        padding: 1em;
+    }
+
+}
