@@ -226,7 +226,8 @@
 }
 
 @media(min-width:768px){
-
+    
+     /** cart */
     .continue-buy .total{
         font-size: var(--font-size-20);
     }
