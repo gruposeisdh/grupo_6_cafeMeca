@@ -186,7 +186,7 @@ main {
 }
 
 .payment i {
-  font-size: 20px;
+  font-size: 10px;
   color: var(--azul);
 }
 
@@ -194,8 +194,8 @@ main {
   margin: 10px;
 }
 
-.featured-global h3 {
-  font-size: 22px;
+ .title-global h3 {
+  font-size: 18px;
   background-color: var(--naranja-transparante);
   border-radius: 5px;
   text-align: center;
@@ -207,23 +207,27 @@ main {
   justify-content: space-between;
 }
 
-.product {
+.product-coffe {
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 30%;
+  box-shadow: 0px 1px 10px var(--negro-intenso);
 }
 
 .product-img {
   width: 100%;
-  border: solid 2px var(--naranja);
+  height: 100%;
+  border-radius: 5px;
+  margin:1%
 }
 
 .btn-shopp{
   position: fixed;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  bottom: 7em;
-  right: 30px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  bottom: 0;
+  right: 10px;
   background-color: var(--naranja-oscuro);
   color:var(--blano-original);
   border-radius: 50px;
@@ -233,308 +237,264 @@ main {
   z-index: 100;
 }
 
-.btn-shopp:hover{
-  text-decoration: none;
-  color: var(--blano-original);
-  background-color: var(--naranja-oscuro);
+.product-complete{
+  display: none;
 }
 
 
-/*                           MEDIAS QUERIES                     */
+/*                           MEDIAS QUERIES    480px              */
 
 
-@media(min-width:361px){
-  .btn-shopp{
-    bottom: 6.5em;
+@media(min-width:480px){
+
+  .img {
+    width: 80%;
+    margin: auto;
   }
 }
+
+
+
+/*                           MEDIAS QUERIES      768px             */
 
 @media(min-width:768px){
   .product-detail {
     font-size: 40px;
   }
 
-  .img {
-    width: 80%;
-    margin:auto;
+  .img-product {
+  display: none;
   }
-
-  .price-us {
-    font-size: 30px;
-    margin-top: 10px;
-    margin-left:15px;
-    margin-bottom: 10px;
-  }
-
-  .cant{
-    margin-left:30px;
-    padding-top:1em;
-    padding-bottom: 1em;
-  }
-
-  .cant-valor{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-  }
-
-  .cant-valor p{
-    font-size: 24px;
-  }
-
-  .cant i{
-    font-size: 30px;
-    margin:15px;
-  }
-
-  .shipping{
-    margin:5px;
-    font-size: 30px;
-  }
-
-  .truck i{
-    margin-left: 5px;
-    font-size: 30px;
-  }
-  
+   .img{
+    display: none;
+   }
+ 
   .price-truck {
-    margin: 35px;
+    display: none;
   }
 
   .product {
-    padding-left: 35px;
-    padding-right: 35px;
+    display: none;
   }
 
-  .name-product p{
-    font-size: 30px;
+  .product-complete{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding:15px;
+    margin-left: 5px;
+    margin-right: -5px;
   }
 
-  .characteristic p{
-    font-size: 22px;
-    line-height: 30px;
+  .img2{
+    width: 48%;
+    margin: 1%;
   }
 
-  .description2 h4{
-    font-size: 30px;
+  .img-product2{
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+    box-shadow: 0px 1px 10px var(--negro-intenso);
   }
 
-  .description2 p{
-    font-size: 22px;
-    line-height: 30px;
+  .description-complete{
+    width: 48%;
+    height: 100%;
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    border: solid 3px var(--naranja);
+    border-radius: 8px;
   }
 
-  .payment i {
-    font-size: 30px;
-  }
-
-  .featured-global h3 {
-    font-size: 30px;
-  }
-
-  .featured-global {
-    margin: 0px;
-  }
-
-  .btn-shopp{
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    bottom: 17.5em;
-    right: 80px;
-  }
-
-  .btn-shopp i{
+  .name-product2{
     font-size: 32px;
+    margin:15px 0;
+    font-weight: bold;
   }
+
+  .price-truck2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 19%;
+    margin:1%
+  }
+
+  .price-us2 p{
+    font-size: 25px;
+    margin-bottom:10px;
+  }
+
+  .cant2{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top:15px;
+    margin-bottom: 15px;
+  }
+
+  .cant2 i{
+    font-size: 25px;
+    color:var(--naranja-oscuro);
+    background-color: var(--blano-original);
+  }
+
+  .cant2 p{
+    font-size: 25px;
+  }
+
+  .option-shipping2{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  .truck2 i{
+    font-size: 35px;
+    margin:15px;
+    color:var(--naranja-oscuro);
+  }
+
+  .shipping2 a{
+    font-size: 25px;
+  }
+
+  .buttons2{
+   display: none;
+  }
+
+  .btn-shopp2 i{
+    font-size: 25px;
+    color: var(--blano-original);
+    border: solid 10px var(--naranja-oscuro);
+    border-radius: 50%;
+    background-color: var(--naranja-oscuro);
+  }
+
+  .product2{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description-product2{
+    width: 100%;
+    height: 48%;
+    margin-bottom: 1%;
+  }
+
+  .characteristic2{
+    font-size: 25px;
+    margin:18px 15px;
+    text-align: justify;
+  }
+
+  .description3{
+    width: 100%;
+    height: 48%;
+    margin-bottom: 1%;
+  }
+
+  .description3 h4{
+    font-size: 30px;
+    margin:18px 15px;
+    
+  }
+
+  .description3 p{
+    font-size: 25px;
+    margin:18px 15px;
+    text-align: justify;
+  }
+
+  .payment i{
+    font-size: 35px;
+  }
+
+ .title-global h3{
+  font-size: 30px;
+ }
 }
 
 
+/*                           MEDIAS QUERIES  992px                   */
+
+
 @media(min-width:992px){
-  .product-detail {
-    font-size: 40px;
-  }
+}
 
-  .img {
-    width: 80%;
-    margin:auto;
-  }
+.name-product2{
+  font-size: 35px;
+  margin-left: 10px;
+}
 
-  .cant{
-    margin-left:10px;
-  }
+.price-us2 p{
+  font-size: 28px;
+  margin-bottom:15px;
+  margin-left: 10px;
+}
 
-  .cant-valor{
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin: 0;
-  }
+.cant2 i{
+  font-size: 30px;
+  margin: 0px 10px;
+}
 
-  .cant-valor p{
-    font-size: 28px;
-  }
+.cant2 p{
+  font-size: 30px;
+}
 
-  .cant i{
-    font-size: 40px;
-    margin:15px 0px;
-  }
+.truck2 i{
+  font-size: 40px;
+}
 
-  .shipping{
-    margin:5px;
-    font-size: 30px;
-  }
+.shipping2 a{
+  font-size: 30px;
+}
 
-  .truck i{
-    margin-left: 5px;
-    font-size: 30px;
-  }
-  
-  .price-truck {
-    margin: 35px;
-  }
+.btn-shopp2 i{
+  font-size: 30px;
+  border: solid 12px var(--naranja-oscuro);
+}
 
-  .product {
-    padding-left: 35px;
-    padding-right: 35px;
-  }
+.characteristic2{
+  font-size: 30px;
+}
 
-  .name-product p{
-    font-size: 30px;
-  }
+.description3 h4{
+  font-size: 35px;  
+}
 
-  .characteristic p{
-    font-size: 22px;
-    line-height: 30px;
-  }
+.description3 p{
+  font-size: 30px;
+}
 
-  .description2 h4{
-    font-size: 30px;
-  }
+.payment i{
+  font-size: 40px;
+}
 
-  .description2 p{
-    font-size: 22px;
-    line-height: 30px;
-  }
-
-  .payment i {
-    font-size: 30px;
-  }
-
-  .featured-global h3 {
-    font-size: 30px;
-  }
-
-  .featured-global {
-    margin: 0px;
-  }
-
-  .btn-shopp{
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    bottom: 11.5em;
-    right: 95px;
-  }
-
-  .btn-shopp i{
-    font-size: 32px;
-  }
+.title-global h3{
+font-size: 35px;
 }
 
 
 @media(min-width:1200px){
-  .product-detail {
-    font-size: 60px;
-  }
-
-  .price-us p{
+  .detail {
     font-size: 45px;
   }
 
-  .cant-valor{
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    margin: 0;
-  }
-
-  .cant-valor p{
-    font-size: 32px;
-  }
-
-  .cant i{
-    font-size: 60px;
-    margin:15px 0px;
-  }
-
-  .shipping{
-    margin:auto;
-  }
-
-  .shipping a{
+  .cant2 i{
     font-size: 35px;
-    margin: auto;
   }
 
-  .truck{
-   padding-top:20px;
-   padding-bottom:20px;
+  .shipping2 a{
+    font-size: 35px;
   }
 
-  .truck i{
+  .title-global h3{
     font-size: 40px;
-  }
+    }
   
-  .price-truck {
-    margin: 35px;
-  }
-
-  .product {
-    padding-left: 35px;
-    padding-right: 35px;
-  }
-
-  .name-product p{
-    font-size: 40px;
-  }
-
-  .characteristic p{
-    font-size: 30px;
-    line-height: 38px;
-  }
-
-  .description2 h4{
-    font-size: 40px;
-  }
-
-  .description2 p{
-    font-size: 30px;
-    line-height: 38px;
-  }
-
-  .payment i {
-    font-size: 45px;
-  }
-
-  .featured-global h3 {
-    font-size: 40px;
-  }
-
-  .featured-global {
-    margin: 0px;
-  }
-
-  .btn-shopp{
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    bottom: 11em;
-    right: 100px;
-  }
-
-  .btn-shopp i{
-    font-size: 40px;
-  }
 }
 
