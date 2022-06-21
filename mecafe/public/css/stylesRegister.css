@@ -99,7 +99,7 @@ a:link, a:visited,  a:hover, a:active
 
 @media (min-width : 769px) {
 
-    .registerForm__form .Hola{
+    .registerForm__form .registerForm__container-label{
         display: grid;
         grid-template-columns: 1fr 1.5fr;
         gap: 1em;
