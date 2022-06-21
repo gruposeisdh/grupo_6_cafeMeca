@@ -142,6 +142,7 @@ body{
 }
 
 .home__containerColumns{
+    width: 85%;
     margin-top: .5em;
 }
 
@@ -258,3 +259,4 @@ body{
     }
 
 }
+
