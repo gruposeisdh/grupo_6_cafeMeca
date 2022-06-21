@@ -68,30 +68,37 @@ a:link, a:visited,  a:hover, a:active
     width: 100%;
 }
 
-.registerForm__Btns{
-    padding: 5px;
-}
 
 .btn{
-    padding: 0.7em;
-    font-size: 16px;
-    margin: 0.5em 0;
+    font-size: 18px;
+    padding: 0.8em;
     width: 100%;
     border: none;
     border-radius: 5px;
+    color: #000000;
+    font-weight: 600
 }
 
 .btn:hover{
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
 
+.errorCampoDiv input{
+    box-shadow: 0px 0px 6px red;
+}
+
 .btnSend{
     background: var(--green-pastel-btn);
 }
 
-.btnDelete{
-    background: var(--red-pastel-btn);
+.register__formError{
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
 }
+
 
 
 /** --------------- Footer --------------- **/
@@ -99,11 +106,33 @@ a:link, a:visited,  a:hover, a:active
 
 @media (min-width : 769px) {
 
+    .register__formLabel{
+        grid-area: register__formLabel
+    }
+
+    .register__formInput{
+        grid-area: register__formInput
+    }
+
+    .register__formError{
+        grid-area: register__formError
+    }
+
+
     .registerForm__form .registerForm__container-label{
         display: grid;
         grid-template-columns: 1fr 1.5fr;
         gap: 1em;
         align-items: center;
+
+        grid-template-areas:
+            "register__formLabel register__formInput"
+            ". register__formError"
+        
+    }
+
+    .register__formError{
+        margin-top: 0;
     }
 
     .registerForm__form label{
@@ -111,15 +140,13 @@ a:link, a:visited,  a:hover, a:active
     }
 
     .registerForm__Btns{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2em;
-        align-items: center;
+        text-align: right;
     }
 
     .btn{
-        height: 3.5em;
+        width: 30%;
     }
+
 
     .registerForm__form input{
         padding: 1em;

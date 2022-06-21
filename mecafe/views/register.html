@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/stylesRegister.css">
     <title>Formulario de Registro</title>
 </head>
-<body>
+<body> 
     
     <div class="registerForm__container-form">
 
@@ -28,9 +28,10 @@
                 <input type="email" required>
             </div>
 
-            <div class="registerForm__container-label">
-                <label for="">Ingresa tu Contraseña:</label>
-                <input type="text" required>
+            <div class="registerForm__container-label errorCampoDiv">
+                <label class="register__formLabel" for="">Ingresa tu Contraseña:</label>
+                <input class="register__formInput" type="text" required>
+                <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p>
             </div>
 
             <div class="registerForm__container-label">
@@ -39,8 +40,7 @@
             </div>
 
             <div class="registerForm__Btns">
-                <button type="submit" class="btn btnSend">Registrarme</button>
-                <button type="reset" class="btn btnDelete">Borrar</button>
+                    <button type="submit" class="btn btnSend">Registrarme</button>
             </div>
 
         </form>
