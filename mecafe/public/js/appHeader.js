@@ -1,6 +1,6 @@
 /*  JavaScript del Header */
 
-// nav toggle - select button and links
+// nav toggle - select button and links 
 
 const navToggle = document.querySelector("#navToggle")
 const nav = document.querySelector("#nav-links")
@@ -10,6 +10,3 @@ const nav = document.querySelector("#nav-links")
 navToggle.addEventListener("click", () => {
     nav.classList.toggle('nav-open')
 })
-
-console.log(navToggle)
-console.log(nav)
