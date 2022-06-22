@@ -36,6 +36,28 @@ a:link, a:visited,  a:hover, a:active
     --blue-pastel: #4E89E5;
 }
 
+.home__clusterOne{
+    grid-area: home__clusterOne;
+}
+
+.home__clusterTwo{
+    grid-area: home__clusterTwo;
+}
+
+.home__clusterThree{
+    grid-area: home__clusterThree;
+}
+
+.home__clusterFor{
+    grid-area: home__clusterFor;
+}
+
+.home__clusterFive{
+    grid-area: home__clusterFive;
+}
+
+
+
 /** --------------- Header --------------- **/
 
 
@@ -122,6 +144,12 @@ border-radius: 10px;*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+
+    grid-template-areas: 
+    "home__clusterOne home__clusterTwo"
+    "home__clusterThree home__clusterFor"
+    "home__clusterFive home__clusterFive"
+    ;
 }
 
 .home__containerColumns{
@@ -203,6 +231,11 @@ border-radius: 10px;*/
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
+
+        grid-template-areas: 
+            "home__clusterOne home__clusterTwo home__clusterThree"
+            "home__clusterFor home__clusterTwo home__clusterFive"
+        ;
     }
 
     .home__carrousel-picture div{
