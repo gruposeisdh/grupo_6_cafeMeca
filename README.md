@@ -17,4 +17,8 @@
 
 4. [CafeMandrake](https://cafemandrake.cl/producto/typica-originario-1893/  "CafeMandrake") : Se eligió por la información que entrega del producto
 
-5. [QueCafe](https://quecafe.info/ "QueCafe") : Se eligió debido a que tiene mucha información variada respecto al café, como producto consumible e indicadores financieros. 
+5. [QueCafe](https://quecafe.info/ "QueCafe") : Se eligió debido a que tiene mucha información variada respecto al café, como producto consumible e indicadores financieros.
+
+**Tablero de trabajo**
+
+[Tablero](https://github.com/gruposeisdh/grupo_6_cafeMeca/projects/ "tablero")
