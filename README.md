@@ -13,9 +13,9 @@
 
 2. [LaTiendaDelCafe](https://latiendadelcafe.co/collections/accesorios "LaTiendaDelCafe") : Se eligió para basarnos en accesorios que tienen y queremos ofrecer.
 
-3. [Racafe](https://racafe.com.co/es/ "Racafe") : Se eligió porque tiene la historia del café.
+3. [Racafe](https://racafe.com.co/es/ "Racafe") : Se eligió porque tiene la historia del café
 
-4. [CafeMandrake](https://cafemandrake.cl/producto/typica-originario-1893/  "CafeMandrake") : Se eligió por la información que entrega del producto.
+4. [CafeMandrake](https://cafemandrake.cl/producto/typica-originario-1893/  "CafeMandrake") : Se eligió por la información que entrega del producto
 
 5. [QueCafe](https://quecafe.info/ "QueCafe") : Se eligió debido a que tiene mucha información variada respecto al café, como producto consumible e indicadores financieros.
 
