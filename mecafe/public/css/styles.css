@@ -197,7 +197,121 @@ a:link, a:visited,  a:hover, a:active
 
 /*! ════════════════════ MAIN ════════════════════ !*/
 
-/** ════════════════════ PRODUCTS ════════════════════ **/
+/** ════════════════════ LIST PRODUCTS ════════════════════ **/
+
+.listProduct{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px 10%; /*! BORRAR ESTE MARGIN DE 20 PIXELES QUE SEPARA LA PANTALLA */
+    gap: 20px;
+}
+
+.listProduct__titleFilter{
+    background-color: #000000;
+    padding: 7px;
+    margin-bottom: .5em;
+}
+
+.listProduct__titleFilter p{
+    margin: auto;
+    color: #ffffff;
+}
+
+.listProduct__containerFilter ul{
+    width: 100%;
+    background-color: #EBEBEB;
+    padding: 5px;
+}
+
+
+.listProduct__containerFilter li {
+    list-style: none;
+    padding: .5em;
+}
+
+.listProduct__containerFilter div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listProduct__containerFilter i {
+    margin: 0 10px;
+    font-size: 1.3em;
+}
+
+.listProduct__containerProducts-titleProducts{
+    background-color: #000000;
+    padding: 7px;
+    margin-bottom: .5em;
+}
+
+.listProduct__containerProducts-titleProducts p{
+    text-align: center;
+    color: #ffffff;
+}
+
+.listProduct__titleProduct{
+    background-color: #ebebeb;
+    text-align: center;
+    padding: 5px;
+    font-weight: 700;
+}
+
+.listProduct__boxProducts{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.boxProducts-itemProduct{
+    border: solid 1px var(--gray-pastel);
+}
+
+.boxProducts-itemProduct img{
+    width: 100%;
+    padding: 10px;
+    object-fit: cover;
+}
+
+.listProduct__detailsProducts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listProduct__detailsProducts p{
+    font-size: .8em;
+}
+
+.listProduct__detailsProducts .listProduct__price{
+    color: #00A650;
+    font-weight: 700;
+}
+
+.listProduct__detailsProducts{
+    padding: 5px;
+}
+
+.listProduct__detailsProducts i{
+    font-size: 1em;
+    margin-right: 10px;
+    color: #00A650;
+    padding: 6px;
+    border: solid 1px #00A650;
+    border-radius: 50%;
+}
+
+.listProduct__masInfo{
+    font-size: .8em;
+    background-color: var(--lox);
+    text-align: center;
+    padding: 5px;
+    font-weight: 700;
+}
+
+
+/** ════════════════════ DETAILS PRODUCTS ════════════════════ **/
 
 /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
 
@@ -902,6 +1016,14 @@ footer {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ LIST PRODUCTS ════════════════════ **/
+
+    .listProduct__boxProducts{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
     /** ════════════════════ PRODUCT ════════════════════ **/
 
     .product-img {
@@ -1031,6 +1153,14 @@ footer {
     }
     
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ LIST PRODUCTS ════════════════════ **/
+
+        .listProduct__boxProducts{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
 
     /** ════════════════════ PRODUCT ════════════════════ **/
     
@@ -1442,6 +1572,14 @@ footer {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ LIST PRODUCTS ════════════════════ **/
+
+        .listProduct__boxProducts{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
     /** ════════════════════ PRODUCT ════════════════════ **/
 
     /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
@@ -1555,6 +1693,20 @@ footer {
 @media (min-width : 1200px) {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ LIST PRODUCTS ════════════════════ **/
+
+        .listProduct{
+            grid-template-columns: 1fr 4fr
+        }
+
+        .listProduct__boxProducts{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+
 
     /** ════════════════════ HOME ════════════════════ **/
 
