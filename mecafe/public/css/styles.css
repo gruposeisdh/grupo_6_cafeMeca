@@ -88,6 +88,7 @@ a:link, a:visited,  a:hover, a:active
     background: rgb(20, 20, 20);
     position: fixed;
     width: 100%;
+    z-index: 5
 }
   
 .flex-nav {
@@ -589,6 +590,12 @@ a:link, a:visited,  a:hover, a:active
 }
 
 /** --------------- CUERPO DEL HOME --------------- **/
+
+.generalHome{
+    position: absolute;
+    top: 66px;
+    z-index: -1;
+}
 
 .bodyHome{
     background-color: rgb(235, 235, 235);

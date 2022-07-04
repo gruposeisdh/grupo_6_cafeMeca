@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Encabezado de la pagina -->
+<%- include("./partials/head") %>
 
-    <!-- Hoja de Estilo -->
-    <link rel="stylesheet" href="/css/styles.css"/>
-
-    <!-- Script de FontAwesome -->
-    <script src="https://kit.fontawesome.com/58adbff36b.js" crossorigin="anonymous"></script>
-
-    <title>Home</title>
+<title>Home</title>
 </head>
+
 <body class="bodyHome">
+
+    <!-- Encabezado de la pagina -->
+    <%- include("./partials/header") %>
+
+    <section class="generalHome">
 
     <div class="home__containerBanner">
 
@@ -36,7 +32,6 @@
         <div class="opacity"></div>
 
     </div>
-
 
     <div class="home__body">
 
@@ -109,6 +104,17 @@
 
 
     </div>
+
+    <div>
+        <h3>Simples pruebas</h3>
+        <h3>para ver</h3>
+    </div>
+
+    <%- include("./partials/footer") %>
+
+    </section>
+
+    <script src="./js/appHeader.js"></script>
 
 </body>
 </html>
