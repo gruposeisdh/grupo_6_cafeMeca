@@ -909,8 +909,7 @@ a:link, a:visited,  a:hover, a:active
 
 footer {
     width: 100%;
-    height: 100%;
-    background-color: var(--marron-original-desgastado);
+    background-color: var(--black);
   }
   
   .footer-medium-box {
@@ -918,25 +917,24 @@ footer {
     flex-wrap: wrap;
     width: 100%;
     height: 100vh;
+    color:var(--blanco-original)
   }
   
   .footer-contact-us {
     width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    gap: 5px;
   }
   
   .footer-us {
     border-bottom: solid 1px var(--naranja-oscuro);
     text-align: center;
-    margin: 5px;
+    margin-top: 5px;
   }
   
   .footer-contact {
     border-bottom: solid 1px var(--naranja-oscuro);
-    margin: 0px 10px;
   }
   
   .fa-whatsapp {
@@ -983,11 +981,6 @@ footer {
     font-size: 14px;
     line-height: 22px;
     margin-left: 15px;
-  }
-  
-  .productFooter a {
-    text-decoration: none;
-    color: var(--negro-intenso);
   }
   
   .productFooter a:hover {
@@ -1050,7 +1043,6 @@ footer {
     font-size: 16px;
     color: var(--naranja-oscuro);
     text-align: center;
-    margin: 5px 0;
   }
   
   .productBody p {
