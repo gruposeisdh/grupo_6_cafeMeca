@@ -1218,7 +1218,7 @@ footer {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
-        transition: 0.7s;
+        transition: 1s;
         color: #000000;
         font-weight: 800;
     }
