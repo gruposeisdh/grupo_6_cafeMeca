@@ -648,22 +648,23 @@ a:link, a:visited,  a:hover, a:active
 /*? --------------  TOTAL CART ------------ ?*/
 
 .cart__continue-buy{
-    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 10px;
-    margin:10px;
-    position: absolute;
-    right: 0;
+    margin:10px;    
 }
 
 .cart__continue-buy div{
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    width: 35%;
+    justify-content: space-around;
 }
 
 .cart__continue-buy button{
     margin: 5px;
-    width: 100%;
+    width: 35%;
     padding: 8px;
     font-size: 13px;
     background-color: var(--naranja-oscuro);
