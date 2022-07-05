@@ -1,11 +1,11 @@
 const path = require('path');
 
 let indexController = {
-    home: (_req,res) => res.sendFile(path.resolve(__dirname,"../views/home.html")),
+    home: (_req,res) => res.render(path.resolve(__dirname,"../views/home.ejs")),
 
-    header: (_req,res) => res.sendFile(path.resolve(__dirname,"../views/partials/header.html")),
+    header: (_req,res) => res.render(path.resolve(__dirname,"../views/partials/header.ejs")),
 
-    footer: (_req,res) => res.sendFile(path.resolve(__dirname,"../views/partials/footer.html")),
+    footer: (_req,res) => res.render(path.resolve(__dirname,"../views/partials/footer.ejs")),
 }
 
 module.exports = indexController;
