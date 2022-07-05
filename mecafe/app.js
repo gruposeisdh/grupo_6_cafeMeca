@@ -3,6 +3,8 @@ const app = express();
 
 const path = require('path');
 
+app.set("view engine", "ejs")
+
 const indexRoutes = require('./src/routes/index');
 const cartRoutes = require('./src/routes/cart');
 const productRoutes = require('./src/routes/product');

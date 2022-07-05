@@ -88,6 +88,7 @@ a:link, a:visited,  a:hover, a:active
     background: rgb(20, 20, 20);
     position: fixed;
     width: 100%;
+    z-index: 5
 }
   
 .flex-nav {
@@ -647,22 +648,23 @@ a:link, a:visited,  a:hover, a:active
 /*? --------------  TOTAL CART ------------ ?*/
 
 .cart__continue-buy{
-    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     padding: 10px;
-    margin:10px;
-    position: absolute;
-    right: 0;
+    margin:10px;    
 }
 
 .cart__continue-buy div{
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    width: 35%;
+    justify-content: space-around;
 }
 
 .cart__continue-buy button{
     margin: 5px;
-    width: 100%;
+    width: 35%;
     padding: 8px;
     font-size: 13px;
     background-color: var(--naranja-oscuro);
@@ -703,6 +705,12 @@ a:link, a:visited,  a:hover, a:active
 }
 
 /** --------------- CUERPO DEL HOME --------------- **/
+
+.generalHome{
+    position: absolute;
+    top: 66px;
+    z-index: -1;
+}
 
 .bodyHome{
     background-color: rgb(235, 235, 235);
@@ -1203,7 +1211,7 @@ footer {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
-        transition: 0.7s;
+        transition: 1s;
         color: #000000;
         font-weight: 800;
     }
