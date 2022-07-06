@@ -914,6 +914,7 @@ a:active {
 
 footer {
   width: 100%;
+  height: 100%;
   background-color: var(--negro-pastel);
 }
 
@@ -922,54 +923,8 @@ footer {
   grid-template-columns: repeat(1);
   gap: 5px;
   width: 100%;
+  height: 100%;
   color: var(--blanco-original);
-}
-
-.footer-contact-us {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.footer-us {
-  border-bottom: dashed 1px var(--lime);
-  text-align: center;
-  margin-top: 5px;
-  padding-bottom: 5px;
-}
-
-.footer-text-us {
-  font-size: 14px;
-  line-height: 22px;
-}
-
-.footer-contact {
-  border-bottom: dashed 1px var(--lime);
-}
-
-.fa-whatsapp {
-  color: var(--whatsapp);
-  font-size: 16px;
-  margin: 0 5px;
-  text-align: center;
-}
-
-.footer-text-contact {
-  font-size: 14px;
-  text-align: center;
-}
-
-.fa-at {
-  color: var(--email);
-  font-size: 16px;
-  margin: 10px 5px;
-  text-align: center;
-}
-
-.footer-title-email {
-  font-size: 14px;
-  text-align: center;
 }
 
 .footer-information {
@@ -984,16 +939,12 @@ footer {
   line-height: 22px;
 }
 
-.footer-links {
-  width: 100%;
-  border-bottom: dashed 1px var(--lime);
-  padding-bottom: 5px;
+.footer-title-info{
+  font-size: 16px;
+  color: var(--lox);
   text-align: center;
-}
-
-.footer-links a {
-  font-size: 14px;
-  line-height: 22px;
+  margin-top: 8px;
+  margin-bottom: 5px;
 }
 
 .productFooter a:hover {
@@ -1002,49 +953,94 @@ footer {
   cursor: pointer;
 }
 
+.footer-links {
+  width: 100%;
+  border-bottom: dashed 1px var(--lime);
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.footer-title-links{
+  font-size: 16px;
+  color: var(--lox);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.footer-contact {
+  border-bottom: dashed 1px var(--lime);
+}
+
+.footer-title-contact{
+  font-size: 16px;
+  color: var(--lox);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.fa-whatsapp {
+  color: var(--whatsapp);
+  font-size: 14px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.footer-text-contact {
+  font-size: 14px;
+  text-align: center;
+}
+
+.fa-at {
+  color: var(--email);
+  font-size: 14px;
+  margin: 10px 5px;
+  text-align: center;
+}
+
+.footer-title-email {
+  font-size: 14px;
+  text-align: center;
+}
+
 .footer-last-footer {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 5px 0px;
   align-items: center;
 }
 
-.footer-Copyright {
-  width: 30%;
-  margin: 1%;
-}
-
-.footer-Copyright p {
+.footer-Copyright-text {
   text-align: center;
-  font-size: 12px;
-}
-
-.footer-networks {
-  width: 30%;
-  margin: 1%;
+  font-size: 10px;
+  color:var(--blanco-original);
+  padding: 5px;
 }
 
 .footer-link-net {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .footer-link-net i {
-  width: 33%;
   padding-left: 10px;
   color: var(--lox);
+  text-align: center;
 }
 
 .footer-link-text {
   font-size: 12px;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .footer-logo-box {
-  width: 30%;
+  width: 65%;
   margin: auto;
 }
 
@@ -1052,20 +1048,7 @@ footer {
   width: 100%;
 }
 
-.footer-title {
-  font-size: 16px;
-  margin: 5px 0;
-  color: var(--lox);
-  text-align: center;
-  padding: 4px 0;
-}
 
-.productBody p {
-  font-size: 10px;
-  line-height: 18px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-}
 
 /*! ════════════════════ MEDIAS QUERYS ════════════════════ !*/
 
@@ -1515,20 +1498,13 @@ footer {
 
   .footer-medium-box {
     width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .footer-text-us{
-    margin: 0 5px;
-  }
-
    .footer-information {
     border: none;
-  }
-
-  .footer-information p {
-    margin-top: 10px;
   }
 
   .footer-links {
@@ -1546,16 +1522,19 @@ footer {
     justify-content: space-between;
   }
 
-  .footer-networks{
-    width: 100%;
-    margin-bottom: 40px;
-  }
- 
   .footer-link-net {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-items: center;
+  }
+
+  .footer-link-text{
+    font-size: 14px;
+  }
+
+  .footer-Copyright-text{
+    font-size: 12px;
   }
 
   .fa-twitter{
@@ -1564,49 +1543,42 @@ footer {
 
    .footer-Copyright {
     width: 100%;
-    margin-bottom: 5px;
+    margin-top: 8px;
   }
 
-  .footer-Copyright p {
-    font-size: 18px;
-    text-align: center;
+  .footer-text-ws{
+    font-size: 16px;
   }
 
-  .footer-title {
-    font-size: 22px;
-    margin-bottom: 5px;
-  }
-
-  .productFooter p {
-    font-size: 18px;
-    line-height: 26px;
-    margin-bottom: 5px;
-  }
-
-  .footer-contact a {
-    font-size: 18px;
-  }
-
-  .footer-information a {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .footer-links a {
-    font-size: 18px;
-    line-height: 26px;
+  .footer-networks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer-link-net i {
-    font-size: 25px;
+    font-size: 18px;
+  }
+
+  .footer-text-contact{
+    margin-top: 8px;
   }
 
   .footer-logo-box {
-    width: 85%;
+    width: 65%;
+    margin-bottom: 15px;
   }
 
-  .footer-logo {
-    width: 100%;
+  .footer-title-info{
+    margin-top: 15px;
+  }
+     
+  .footer-title-links{
+    margin-top: 15px;
+  }
+    
+  .footer-title-contact{
+    margin-top: 15px;
   }
 }
 
@@ -1682,12 +1654,7 @@ footer {
   }
 
   /** ════════════════════════════  FOOTER  ════════════════════════════════ **/
-
  
-  .footer-logo-box {
-    width: 75%;
-  } 
-
   
   /** ════════════════════ HOME ════════════════════ **/
 
@@ -1790,28 +1757,6 @@ footer {
   }
 
   /** ════════════════════════════  FOOTER  ════════════════════════════════ **/
-   .productFooter p {
-    font-size: 26px;
-    line-height: 34px;
-  }
-
-  .footer-contact a {
-    font-size: 26px;
-  }
-
-  .footer-information a {
-    font-size: 26px;
-    line-height: 34px;
-  }
-
-  .footer-links a {
-    font-size: 26px;
-    line-height: 34px;
-  }
-
-  .footer-link-net i {
-    font-size: 35px;
-  }
 
   .fa-twitter{
     margin-right: 45px;
