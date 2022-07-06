@@ -21,7 +21,7 @@
 
 **Tablero de trabajo**
 
-En la pagina del tablero podran encontrarse cada Sprint por separado, donde en cada sprint se visualizan todas las tareas realizadas, tanto los puntos asignado en el sprint como modificaciones de estilos extra que se le agregan al proyecto.
+En la pagina del tablero podrá encontrarse cada Sprint por separado, donde en cada sprint se visualizan todas las tareas realizadas, tanto los puntos asignados en el sprint como modificaciones de estilos extra que se le agregan al proyecto.
 
 [Tablero](https://github.com/gruposeisdh/grupo_6_cafeMeca/projects/ "tablero")
 
@@ -29,16 +29,16 @@ En la pagina del tablero podran encontrarse cada Sprint por separado, donde en c
 
 1. [Home](http://localhost:3030/ "Home") : Home del proyecto.
 
-3. [Login](http://localhost:3030/ "Login") : El login esta incrustado dentro del header, se desplega de derecha a izquierza.
+3. [Login](http://localhost:3030/ "Login") : El login esta incrustado dentro del header, se desplega de derecha a izquierda.
 
-4. [Listado de productos](http://localhost:3030/product "Listado de productos") : Listado del producto donde se va poder realizar filtros para su busqueda.
+4. [Listado de productos](http://localhost:3030/product "Listado de productos") : Listado de productos donde se van realizar filtros de busqueda.
 
 5. [Detalle del producto](http://localhost:3030/product/detail "Detalle del producto") : Detalle al ingresar a un producto.
 
-6. [Carrito de productos](http://localhost:3030/cart "Carrito de productos") : Una vez realizada una compra se visualiza el carrito.
+6. [Carrito de productos](http://localhost:3030/cart "Carrito de productos") : Para realizar una compra se podrá visualizar el resumen del carrito.
 
 7. [Formulario de registro](http://localhost:3030/user/register "Formulario de registro") : Para el registro de los usuarios.
 
 8. [Formulario de carga de productos](http://localhost:3030/product/create "Formulario de carga de productos") : Carga de un nuevo producto.
 
-9. [Formulario de edicion de productos](http://localhost:3030/product/update "Formulario de edicion de productos") : Edicion de un producto existente.
+9. [Formulario de edicion de productos](http://localhost:3030/product/update "Formulario de edicion de productos") : Edición de un producto existente.
