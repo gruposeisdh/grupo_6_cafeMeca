@@ -311,6 +311,128 @@ a:link, a:visited,  a:hover, a:active
     font-weight: 700;
 }
 
+/** ════════════════════ PRODUCTS CREATE ════════════════════ **/
+
+.createProduct{
+    margin: 30px auto;
+    border: solid 1px var(--gray-pastel);
+    width: 90vw;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.createProduct__title{
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: .8em;
+    background-color: var(--black);
+    color: white;
+    border-radius: 2px;
+    margin: 5px 0;
+}
+
+.createProduct__containerForm{
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.createProduct__containerForm div{
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: 1fr 1.2fr
+}
+
+.createProduct__inputBox{
+    padding: 5px;
+    border-radius: 2px;
+    border: solid 1px gray
+}
+
+.createProduct__containerForm section{
+    padding: 5px;
+}
+
+.createProduct__containerForm .btn{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.createProduct__containerForm button{
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .5em;
+    background-color: #3483fa;
+    color: white;
+}
+
+/** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
+
+.updateProduct{
+    margin: 30px auto;
+    border: solid 1px var(--gray-pastel);
+    width: 90vw;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.updateProduct__title{
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: .8em;
+    background-color: var(--black);
+    color: white;
+    border-radius: 2px;
+    margin: 5px 0;
+}
+
+.updateProduct__containerForm{
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.updateProduct__containerForm div{
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: 1fr 1.2fr
+}
+
+.updateProduct__inputBox{
+    padding: 5px;
+    border-radius: 2px;
+    border: solid 1px gray
+}
+
+.updateProduct__containerForm section{
+    padding: 5px;
+}
+
+.updateProduct__containerForm .btn{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.updateProduct__containerForm button{
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .5em;
+    background-color: #3483fa;
+    color: white;
+}
+
 
 /** ════════════════════ DETAILS PRODUCTS ════════════════════ **/
 
@@ -831,6 +953,11 @@ a:link, a:visited,  a:hover, a:active
     width: 100%;
 }
 
+.home__containerColumns{
+    width: 85%;
+    margin: auto;
+}
+
 .home__containerColumns img{
     width: 100%;
     height: 100%;
@@ -842,6 +969,7 @@ a:link, a:visited,  a:hover, a:active
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    margin: 50px 0;
 
     grid-template-areas: 
     "home__clusterOne home__clusterTwo"
@@ -850,10 +978,6 @@ a:link, a:visited,  a:hover, a:active
     ;
 }
 
-.home__containerColumns{
-    width: 85%;
-    margin: auto;
-}
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -1092,6 +1216,30 @@ footer {
         gap: 10px;
     }
 
+    /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
+
+    .createProduct{
+        width: 80vw;
+    }
+
+    .createProduct__containerForm .btn{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 15px;
+    }
+
+    /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
+
+    .updateProduct{
+        width: 80vw;
+    }
+
+    .updateProduct__containerForm .btn{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 15px;
+    }
+
     /** ════════════════════ PRODUCT ════════════════════ **/
 
     .product-img {
@@ -1233,6 +1381,101 @@ footer {
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
+
+    /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
+
+    .createProduct-nameProduct{
+        grid-area: createProduct-nameProduct;
+    }
+    
+    .createProduct-weightProduct{
+        grid-area: createProduct-weightProduct;
+    }
+    
+    .createProduct-priceProduct{
+        grid-area: createProduct-priceProduct;
+    }
+    
+    .createProduct-categoryProduct{
+        grid-area: createProduct-categoryProduct;
+    }
+    
+    .createProduct-imageProduct{
+        grid-area: createProduct-imageProduct;
+    }
+
+    .createProduct-descriptionProduct{
+        grid-area: createProduct-descriptionProduct;
+    }
+
+    .createProduct-btn{
+        grid-area: createProduct-btn;
+    }
+
+        .createProduct{
+            width: 80vw;
+            max-width: 800px;
+        }
+
+        .createProduct__containerForm{
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 15px;
+            row-gap: 5px;
+
+            grid-template-areas:
+                "createProduct-nameProduct createProduct-weightProduct"
+                "createProduct-priceProduct createProduct-categoryProduct"
+                "createProduct-imageProduct createProduct-descriptionProduct"
+                ". createProduct-btn"
+        }
+
+    /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
+
+    .updateProduct-nameProduct{
+        grid-area: updateProduct-nameProduct;
+    }
+    
+    .updateProduct-weightProduct{
+        grid-area: updateProduct-weightProduct;
+    }
+    
+    .updateProduct-priceProduct{
+        grid-area: updateProduct-priceProduct;
+    }
+    
+    .updateProduct-categoryProduct{
+        grid-area: updateProduct-categoryProduct;
+    }
+    
+    .updateProduct-imageProduct{
+        grid-area: updateProduct-imageProduct;
+    }
+
+    .updateProduct-descriptionProduct{
+        grid-area: updateProduct-descriptionProduct;
+    }
+
+    .updateProduct-btn{
+        grid-area: updateProduct-btn;
+    }
+
+        .updateProduct{
+            width: 80vw;
+            max-width: 800px;
+        }
+
+        .updateProduct__containerForm{
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 15px;
+            row-gap: 5px;
+
+            grid-template-areas:
+                "updateProduct-nameProduct updateProduct-weightProduct"
+                "updateProduct-priceProduct updateProduct-categoryProduct"
+                "updateProduct-imageProduct updateProduct-descriptionProduct"
+                ". updateProduct-btn"
+        }
+
 
     /** ════════════════════ PRODUCT ════════════════════ **/
     
