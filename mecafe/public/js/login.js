@@ -2,13 +2,13 @@ function openModalLogin(){
     let modal = document.getElementById("modalLogin");
     modal.style.display = "initial" ; 
 
-    wdCloseSideChangeVisibility();
+    loginOpenCloseSideChangeVisibility();
 }
 
 function closeModalLogin(){
     let modal = document.getElementById("modalLogin");
     modal.style.display = "none" ;
-    wdCloseSideChangeVisibility();
+    loginOpenCloseSideChangeVisibility();
 }
 
 /** cerrar modal si se hace click fuera de ella */
@@ -19,12 +19,12 @@ window.addEventListener('click', function(e) {
     }
 })
 
-function wdCloseSideChangeVisibility(){
-    let wdCloseSide = document.getElementsByClassName("login-open-close-side")[0];
+function loginOpenCloseSideChangeVisibility(){
+    let loginOpenCloseSide = document.getElementsByClassName("login-open-close-side")[0];
     
-    if(getComputedStyle(wdCloseSide).visibility == "hidden"){
-        wdCloseSide.style.visibility = "visible";
+    if(getComputedStyle(loginOpenCloseSide).visibility == "hidden"){
+        loginOpenCloseSide.style.visibility = "visible";
     }else{
-        wdCloseSide.style.visibility = "hidden";
+        loginOpenCloseSide.style.visibility = "hidden";
     }
 }
