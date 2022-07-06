@@ -345,7 +345,6 @@ a:active {
 }
 
 
-=======
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 .createProduct{
@@ -820,7 +819,7 @@ a:active {
   width: 35%;
   justify-content: space-around;
 }
-=======
+
 .home__containerColumns{
     width: 85%;
     margin: auto;
@@ -858,7 +857,6 @@ a:active {
 .cart__continue-buy .cart__total {
   font-size: 20px;
 }
-=======
 
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -987,7 +985,7 @@ a:active {
   padding: 0;
   margin: 0;
 }
-=======
+
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
     .createProduct{
@@ -1177,7 +1175,7 @@ footer {
   margin-top: 8px;
   margin-bottom: 5px;
 }
-=======
+
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
     .createProduct-nameProduct{
