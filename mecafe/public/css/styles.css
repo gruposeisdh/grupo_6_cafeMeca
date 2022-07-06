@@ -208,6 +208,10 @@ a:link, a:visited,  a:hover, a:active
     margin-bottom: 30px;
 }
 
+.login__container a{
+    color: var(--cilantro-oscuro)
+}
+
 /*! ════════════════════ MAIN ════════════════════ !*/
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
