@@ -7,11 +7,37 @@
   <body class="productBody">
     <%- include("../partials/header") %>
     <section class="generalHome">
+      <div class="product-detail-general">
       <div class="product-detail">
         <p class="product-detail-detail">Detalle del Producto</p>
       </div>
       <div class="product-img">
         <img src="/img/product1.jpg" class="img-product" />
+
+        <div class="product-detail-specs">
+          <div class="product-detail-weight">
+            <i class="fas fa-balance-scale-left"></i>
+            <p class="product-detail-text-weight">500grms</p>
+          </div>
+
+          <div class="product-detail-texture">
+            <i class="fas fa-mug-hot"></i>
+            <p class="product-detail-text-textura">Molido</p>
+          </div>
+
+          <div class="product-detail-recommended">
+            <div class="product-detail-calification">
+              <p class="product-detail-text-calification">Calificacion</p>
+            </div>
+            <div class="poduct-detail-starts">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="product-complete">
         <div class="product-img2">
@@ -91,6 +117,13 @@
         </div>
       </div>
       <div class="product-product">
+        <div class="product-description2">
+          <h4>Descripción</h4>
+          <p>
+            El café torrefacto es una variedad de café que se obtiene tras
+            someter al grano a un proceso especial durante el tueste
+          </p>
+        </div>
         <div class="product-description-product">
           <div class="product-name-product">
             <p>Café torrefacto</p>
@@ -98,13 +131,6 @@
           <div class="product-characteristic">
             <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
           </div>
-        </div>
-        <div class="product-description2">
-          <h4>Descripción</h4>
-          <p>
-            El café torrefacto es una variedad de café que se obtiene tras
-            someter al grano a un proceso especial durante el tueste
-          </p>
         </div>
       </div>
       <div class="product-buttons-payment">
@@ -132,6 +158,7 @@
           </div>
         </div>
       </div>
+    </div>
      
       <%- include("../partials/footer") %>
     </section>
