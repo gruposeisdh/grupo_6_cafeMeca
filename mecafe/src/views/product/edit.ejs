@@ -59,11 +59,16 @@
 
                 <section class="btn updateProduct-btn">
                     <button type="submit" class="submit">Enviar</button>
-                    <button type="reset" class="reset">Restablecer</button>
+                    <button type="reset" class="reset">Restablecer</button>                  
                 </section>
 
 
 
+            </form>
+              <!-- Nico tu ve donde poner el eliminar porfi :c  -->
+                    
+              <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                <button type="submit" class="action-button delete">ELIMINAR</button>
             </form>
 
         </div>

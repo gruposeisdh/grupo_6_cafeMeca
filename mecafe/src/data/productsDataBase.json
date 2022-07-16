@@ -1,0 +1,4 @@
+[
+    { "id": 1, "name": "Café sdgas", "price": 500, "grams": 300, "category": "Molido Fino", "description": "bleble", "image": "", "rating": 3 }, 
+    { "id": 2, "name": "Café bleble", "price": 500, "grams": 400, "category": "Molido Fino", "description": "bleble", "image": "", "rating": 5 }, 
+    { "id": 3, "name": "Café blibli", "price": 200, "grams": 100, "category": "Molido Medio", "description": "blublu", "image": "", "rating": 4 }]
