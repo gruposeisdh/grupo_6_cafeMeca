@@ -10,6 +10,11 @@ let productController = {
         res.render(path.resolve(__dirname,"../views/product/list.ejs"), {allProducts : allProducts})
     },
 
+    adminProducts: (_req, res) => {
+        let allProducts = fileproducts.readJSON()
+        res.render((path.resolve(__dirname,"../views/product/adminProduct.ejs")), {allProducts : allProducts})
+    },
+
     // Crea un Producto - Muestra el FORMULARIO - LISTO
 
     create: (req,res) => {
@@ -48,14 +53,14 @@ let productController = {
         res.redirect('/product');
     },  
 
-    // Edita un Producto - Muestra el FORMULARIO - PENDIENTE
+    // Edita un Producto - Muestra el FORMULARIO - LISTO
 
     edit: (req,res) => {
         let id = req.params.id;
         res.render(path.resolve(__dirname,"../views/product/edit.ejs"), {product: fileproducts.getProductById(id)} )
     },
 
-    // Edita un Producto - Lo Edita literalmente - PENDIENTE
+    // Edita un Producto - Lo Edita literalmente - LISTO
 
     update: (req, res) => {
 
@@ -80,7 +85,7 @@ let productController = {
         }
 
         fileproducts.updateProduct(product)
-        res.redirect("/product");
+        res.redirect("/product/administracion");
     },    
 
     detail: (_req,res) => {
@@ -90,11 +95,13 @@ let productController = {
         res.render(path.resolve(__dirname,"../views/product/product.ejs"))
     },
 
+    // Elimina un Producto - LISTO
+
 	destroy: (req, res) => {
 		let id = req.params.id; 
         console.log(id, "Nicolas")
 		fileproducts.deleteProduct(id);
-		res.redirect('/product');
+		res.redirect("/product/administracion");
 	}
 }
 
