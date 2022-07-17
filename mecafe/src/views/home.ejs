@@ -6,108 +6,110 @@
 
 <body class="bodyHome">
 
-    <!-- Encabezado de la pagina -->
+    <!-- Cabecera -->
     <%- include("./partials/header") %>
 
+    <!-- Contenido -->
     <section class="generalHome">
 
-    <div class="home__containerBanner">
+        <div class="home__containerBanner">
 
-        <video src="/video/cafe1080.mp4" autoplay loop muted></video>
+            <video src="/video/cafe1080.mp4" autoplay loop muted></video>
 
-        <div class="videotwo-container">
-            <video class="videotwo" src="/video/granosCafe1080.mp4" autoplay loop muted></video>
-        </div>
+            <div class="videotwo-container">
+                <video class="videotwo" src="/video/granosCafe1080.mp4" autoplay loop muted></video>
+            </div>
 
-        <!--
-            /video/granosCafe.mp4
-            /video/cafe.mp4
-        -->
+            <!--
+                /video/granosCafe.mp4
+                /video/cafe.mp4
+            -->
 
-        <div class="home__logoAndTextBanner">
-            <h1>CAFE MECA</h1>
-            <h4>Despierta tu inspiracion</h4>
-        </div>
+            <div class="home__logoAndTextBanner">
+                <h1>CAFE MECA</h1>
+                <h4>Despierta tu inspiracion</h4>
+            </div>
 
-        <div class="opacity"></div>
-
-    </div>
-
-    <div class="home__body">
-
-        <!-- Div con los logos y frases -->
-
-        <div class="home__carrousel">
-
-            <ul class="home__carrousel-picture">
-
-                <li>
-                    <div>
-                        <i class="fa-solid fa-credit-card"></i>
-                        <h4>Tarjeta de Credito</h4>
-                        <p>Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.</p>
-                    </div>
-                </li>
-
-                <li>
-                    <div>
-                        <i class="fa-solid fa-truck-arrow-right"></i>
-                        <h4>Envios a todo el mundo</h4>
-                        <p>Solo por estar registrado tenés envíos gratis en miles de productos.</p>
-                    </div>
-                </li>
-
-                <li>
-                    <div>
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h4>La seguridad que buscas</h4>
-                        <p>¿No te gusta? ¡Devolvelo!, no hay nada que no puedas hacer, estás siempre protegido.</p>
-                    </div>
-                </li>
-
-                
-
-            </ul>
+            <div class="opacity"></div>
 
         </div>
 
-        <!-- Div Clusters -->
-        
-            <div class="home__containerColumns">
+        <div class="home__body">
 
-                <div class="home__containerColumns-container">
-                    <div class="home__clusterOne">
-                        <img src="/img/CafeCuadrada.jpg" alt="">
+            <!-- Div con los logos y frases -->
+
+            <div class="home__carrousel">
+
+                <ul class="home__carrousel-picture">
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-credit-card"></i>
+                            <h4>Tarjeta de Credito</h4>
+                            <p>Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-truck-arrow-right"></i>
+                            <h4>Envios a todo el mundo</h4>
+                            <p>Solo por estar registrado tenés envíos gratis en miles de productos.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h4>La seguridad que buscas</h4>
+                            <p>¿No te gusta? ¡Devolvelo!, no hay nada que no puedas hacer, estás siempre protegido.</p>
+                        </div>
+                    </li>
+
+                    
+
+                </ul>
+
+            </div>
+
+            <!-- Div Clusters -->
+            
+                <div class="home__containerColumns">
+
+                    <div class="home__containerColumns-container">
+                        <div class="home__clusterOne">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterTwo">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterThree">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterFor">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterFive">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+
                     </div>
 
-                    <div class="home__clusterTwo">
-                        <img src="/img/CafeCuadrada.jpg" alt="">
-                    </div>
 
-                    <div class="home__clusterThree">
-                        <img src="/img/CafeCuadrada.jpg" alt="">
-                    </div>
-
-                    <div class="home__clusterFor">
-                        <img src="/img/CafeCuadrada.jpg" alt="">
-                    </div>
-
-                    <div class="home__clusterFive">
-                        <img src="/img/CafeCuadrada.jpg" alt="">
-                    </div>
-
-
-                </div>
+            </div>
 
 
         </div>
-
-
-    </div>
-
-    <%- include("./partials/footer") %>
 
     </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("./partials/footerNico") %>
 
     <!-- * Scripts de la WEB -->
     <script src="../js/appHeader.js"></script>

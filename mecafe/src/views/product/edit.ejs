@@ -5,11 +5,12 @@
 <title>Creacion de un producto</title>
 </head>
 
-<body>
+<body class="bodyHome">
     
-    <!-- * Header -->
+    <!-- Cabecera -->
     <%- include ("../partials/header") %>
 
+    <!-- Contenido -->
     <section class="generalHome">
 
         <div class="updateProduct">
@@ -66,17 +67,16 @@
 
             </form>
               <!-- Nico tu ve donde poner el eliminar porfi :c  -->
-                    
               <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                 <button type="submit" class="action-button delete">ELIMINAR</button>
             </form>
 
         </div>
 
-    <!-- * Footer -->
-    <%- include ("../partials/footer") %>
-
     </section>
+
+    <!-- Pie de Pagina -->
+    <%- include ("../partials/footerNico") %>
 
     <!-- * Scripts de la WEB -->
     <script src="../js/appHeader.js"></script>

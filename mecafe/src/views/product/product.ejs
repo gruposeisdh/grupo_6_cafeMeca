@@ -4,35 +4,176 @@
 
   </head>
 
-  <body class="productBody">
+  <body class="productBody bodyHome">
+
+    <!-- Cabecera -->
     <%- include("../partials/header") %>
 
+    <!-- Contenido -->
     <section class="generalHome">
 
-      <div class="product-detail-general"> 
+      <div class="product-detail-general">
         <!-- <div class="product-detail">
-          <p class="product-detail-detail">Detalle del Producto</p> 
-       </div> -->
+        <p class="product-detail-detail">Detalle del Producto</p> 
+      </div> -->
 
-      <div class="product-img">
-        <img src="/img/productcoffee2.jpg" class="img-product" />
+        <div class="product-img">
+          <img src="/img/productcoffee2.jpg" class="img-product" />
 
-        <div class="product-detail-specs">
-          <div class="product-detail-weight">
-            <i class="fas fa-balance-scale-left"></i>
-            <p class="product-detail-text-weight">500grms</p>
-          </div>
-
-          <div class="product-detail-texture">
-            <i class="fas fa-mug-hot"></i>
-            <p class="product-detail-text-textura">Molido</p>
-          </div>
-
-          <div class="product-detail-recommended">
-            <div class="product-detail-calification">
-              <p class="product-detail-text-calification">Calificacion</p>
+          <div class="product-detail-specs">
+            <div class="product-detail-weight">
+              <i class="fas fa-balance-scale-left"></i>
+              <p class="product-detail-text-weight">500grms</p>
             </div>
-            <div class="poduct-detail-starts">
+
+            <div class="product-detail-texture">
+              <i class="fas fa-mug-hot"></i>
+              <p class="product-detail-text-textura">Molido</p>
+            </div>
+
+            <div class="product-detail-recommended">
+              <div class="product-detail-calification">
+                <p class="product-detail-text-calification">Calificacion</p>
+              </div>
+              <div class="poduct-detail-starts">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product-price-truck">
+
+          <div class="product-price-us">
+            <p>Precio US$ 10</p>
+          </div>
+
+          <div class="product-cant">
+            <i class="fas fa-minus-circle"></i>
+            <div class="product-cant-valor">
+              <p>6</p>
+            </div>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+
+          <div class="product-option-shipping">
+            <div class="product-truck">
+              <i class="fas fa-truck"></i>
+            </div>
+            <div class="product-shipping">
+              <a href="#">plazos de envío</a></p>
+            </div>
+          </div>
+
+          <!--Boton flotante de carrito compras -->
+          <div class="product-buttons">
+            <a href="#" class="product-btn-shopp">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="product-product">
+          <div class="product-description2">
+            <h4>Descripción</h4>
+            <p>
+              El café torrefacto es una variedad de café que se obtiene tras
+              someter al grano a un proceso especial durante el tueste
+            </p>
+          </div>
+
+          <div class="product-description-product">
+            <div class="product-name-product">
+              <p>Café torrefacto</p>
+            </div>
+
+            <div class="product-characteristic">
+              <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product-complete">
+
+          <div class="product-img2">
+            <img src="/img/productcoffee1.jpg" class="img-product2" />
+          </div>
+
+          <div class="product-description-complete">
+
+            <div class="product-name-product2">
+              <p>Café torrefacto</p>
+            </div>
+
+            <div class="product-price-truck2">
+
+              <div class="product-price-us2">
+                <p>Precio US$ 10</p>
+              </div>
+
+              <div class="product-cant2">
+                <i class="fas fa-minus-circle"></i>
+                <div class="product-cantv">
+                  <p class="product-cant-valor2">6</p>
+                </div>
+                <i class="fas fa-plus-circle"></i>
+              </div>
+
+              <div class="product-option-shipping2">
+                <div class="product-truck2">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="product-shipping2">
+                  <p><a href="#">plazos de envío</a></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="product-product2">
+              <div class="product-description-product2">
+                <!-- no tiene sentido -->
+                <div class="product-characteristic2">
+                  <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
+                </div>
+              </div>
+
+              <div class="product-description3">
+                <h4>Descripción</h4>
+                <p>
+                  El café torrefacto es una variedad de café que se obtiene tras
+                  someter al grano a un proceso especial durante el tueste
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product-detail-specs2">
+
+          <div class="product-detail-weight2">
+            <i class="fas fa-balance-scale-left"></i>
+            <p class="product-detail-text-weight2">500grms</p>
+          </div>
+
+          <div class="product-detail-texture2">
+            <i class="fas fa-mug-hot"></i>
+            <p class="product-detail-text-textura2">Molido</p>
+          </div>
+
+          <div class="product-detail-recommended2">
+            <div class="product-detail-calification2">
+              <p class="product-detail-text-calification2">Calificacion</p>
+            </div>
+
+            <div class="poduct-detail-starts2">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -41,180 +182,47 @@
             </div>
           </div>
         </div>
-      </div>
 
-      
-      <div class="product-price-truck">
 
-        <div class="product-price-us">
-          <p>Precio US$ 10</p>
-        </div>
-
-        <div class="product-cant">
-          <i class="fas fa-minus-circle"></i>
-          <div class="product-cant-valor">
-            <p>6</p>
-          </div>
-          <i class="fas fa-plus-circle"></i>
-        </div>
-
-        <div class="product-option-shipping">
-          <div class="product-truck">
-            <i class="fas fa-truck"></i>
-          </div>
-          <div class="product-shipping">
-            <a href="#">plazos de envío</a></p>
+        <div class="product-buttons-payment">
+          <div class="product-payment">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-paypal"></i>
+            <i class="fas fa-certificate"></i>
           </div>
         </div>
 
-        <!--Boton flotante de carrito compras -->
-        <div class="product-buttons">
-          <a href="#" class="product-btn-shopp">
-            <i class="fas fa-shopping-cart"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="product-product">
-        <div class="product-description2">
-          <h4>Descripción</h4>
-          <p>
-            El café torrefacto es una variedad de café que se obtiene tras
-            someter al grano a un proceso especial durante el tueste
-          </p>
-        </div>
-
-        <div class="product-description-product">
-          <div class="product-name-product">
-            <p>Café torrefacto</p>
+        <div class="product-featured-global">
+          <div class="product-title-global">
+            <h3 class="product-title">Destacados</h3>
           </div>
 
-          <div class="product-characteristic">
-            <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product-complete">
-
-        <div class="product-img2">
-          <img src="/img/productcoffee1.jpg" class="img-product2" />
-        </div>
-
-        <div class="product-description-complete">
-
-          <div class="product-name-product2">
-            <p>Café torrefacto</p>
-          </div>
-
-          <div class="product-price-truck2">
-             
-            <div class="product-price-us2">
-              <p>Precio US$ 10</p>
+          <div class="product-featured">
+            <div class="product-coffe">
+              <img src="/img/productcoffee5.jpg" class="product-product-img" />
             </div>
 
-            <div class="product-cant2">
-              <i class="fas fa-minus-circle"></i>
-              <div class="product-cantv">
-                <p class="product-cant-valor2">6</p>
-              </div>
-              <i class="fas fa-plus-circle"></i>
+            <div class="product-coffe">
+              <img src="/img/productcoffee4.jpg" class="product-product-img" />
             </div>
 
-            <div class="product-option-shipping2"> 
-              <div class="product-truck2">
-                <i class="fas fa-truck"></i>
-              </div>
-              <div class="product-shipping2">
-                <p><a href="#">plazos de envío</a></p>
-              </div>
-            </div>
-          </div>
-              
-          
-          <div class="product-product2">
-            <div class="product-description-product2"> <!-- no tiene sentido -->
-              <div class="product-characteristic2">
-                <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
-              </div>
-            </div>
-
-            <div class="product-description3"> 
-              <h4>Descripción</h4>
-              <p>
-                El café torrefacto es una variedad de café que se obtiene tras
-                someter al grano a un proceso especial durante el tueste
-              </p>
+            <div class="product-coffe">
+              <img src="/img/productcoffee3.jpg" class="product-product-img" />
             </div>
           </div>
         </div>
       </div>
-  
-      
-      <div class="product-detail-specs2">
 
-        <div class="product-detail-weight2">
-          <i class="fas fa-balance-scale-left"></i>
-         <p class="product-detail-text-weight2">500grms</p>
-        </div>
-
-        <div class="product-detail-texture2">
-          <i class="fas fa-mug-hot"></i>
-          <p class="product-detail-text-textura2">Molido</p>
-        </div>
-
-        <div class="product-detail-recommended2">
-          <div class="product-detail-calification2">
-            <p class="product-detail-text-calification2">Calificacion</p>
-          </div>
-
-          <div class="poduct-detail-starts2">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product-buttons-payment">
-        <div class="product-payment">
-          <i class="fab fa-cc-visa"></i>
-          <i class="fab fa-cc-mastercard"></i>
-          <i class="fab fa-cc-amex"></i>
-          <i class="fab fa-paypal"></i>
-          <i class="fas fa-certificate"></i>
-        </div>
-      </div>
-
-      <div class="product-featured-global"> 
-        <div class="product-title-global">
-          <h3 class="product-title">Destacados</h3>
-        </div>
-
-        <div class="product-featured">
-          <div class="product-coffe">
-            <img src="/img/productcoffee5.jpg" class="product-product-img" />
-          </div>
-
-          <div class="product-coffe">
-            <img src="/img/productcoffee4.jpg" class="product-product-img" />
-          </div>
-
-          <div class="product-coffe">
-            <img src="/img/productcoffee3.jpg" class="product-product-img" />
-          </div>
-        </div>        
-      </div>
-  </div>
-      <%- include("../partials/footer") %>
     </section>
 
-    <script src="../js/appHeader.js"></script>
-    
+    <!-- Pie de Pagina -->
+
+    <%- include("../partials/footerNico") %>
+
+    <script src="./js/appHeader.js"></script>
+
   </body>
 
-</html>
+  </html>
