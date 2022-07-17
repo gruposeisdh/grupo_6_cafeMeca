@@ -25,6 +25,7 @@ a:hover,
 a:active {
     color: #ffffff;
     text-decoration: none;
+    transition: none;
 }
 
 :root {
@@ -304,6 +305,10 @@ a:active {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
+}
+
+.listProduct__boxProducts a{
+    color: var(--black);
 }
 
 .boxProducts-itemProduct {
@@ -976,7 +981,7 @@ a:active {
 .generalHome {
     position: relative;
     top: 66px;
-    z-index: -1;
+    z-index: 1;
     margin-bottom: calc(90px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
 }
 
@@ -1081,9 +1086,6 @@ a:active {
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
-.createProduct {
-    width: 80vw;
-}
 
 .createProduct__containerForm .btn {
     display: grid;

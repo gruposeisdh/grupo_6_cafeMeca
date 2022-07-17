@@ -1,15 +1,88 @@
 const path = require('path');
-
 const fileproducts = require('../models/product');
 
 let productController = {
-    //Muestra todos los productos
-    index: (_req,res) => res.render(path.resolve(__dirname,"../views/product/list.ejs")),
-    create: (_req,res) => res.render(path.resolve(__dirname,"../views/product/create.ejs")),
+
+    // Muestra todos los productos - LISTO
+
+    index: (_req,res) => {
+        let allProducts = fileproducts.readJSON()
+        res.render(path.resolve(__dirname,"../views/product/list.ejs"), {allProducts : allProducts})
+    },
+
+    // Crea un Producto - Muestra el FORMULARIO - LISTO
+
+    create: (req,res) => {
+        res.render(path.resolve(__dirname,"../views/product/create.ejs"))
+    },
+
+    // Crea un Producto - Lo crea literalmente - LISTO
+
+    store: (req,res) => {
+
+        let products = fileproducts.readJSON();
+        let lastProduct = products[products.length - 1] /* Comentario Util: Se agarra el array, se accede y yendo para -1 obtenes el ultimo */
+        let newID = lastProduct.id + 1;
+
+        let nameProduct = req.body.nameProduct
+        let weightProduct = req.body.weightProduct
+        let priceProduct = req.body.priceProduct
+        let categoryProduct = req.body.categoryProduct
+        let imageProduct = req.body.imageProduct
+        let descriptionProduct = req.body.descriptionProduct
+
+        console.log(nameProduct)
+
+        let newProduct = {
+            id : newID,
+            name: nameProduct,
+            price: priceProduct,
+            grams: weightProduct,
+            category: categoryProduct,
+            description: descriptionProduct,
+            image: "",
+            rating: 4
+        }
+
+        fileproducts.saveProduct(newProduct)
+        res.redirect('/product');
+    },  
+
+    // Edita un Producto - Muestra el FORMULARIO - PENDIENTE
+
     edit: (req,res) => {
         let id = req.params.id;
-        res.render(path.resolve(__dirname,"../views/product/edit.ejs"),{product: fileproducts.getProductById(id)})
+        res.render(path.resolve(__dirname,"../views/product/edit.ejs"), {product: fileproducts.getProductById(id)} )
     },
+
+    // Edita un Producto - Lo Edita literalmente - PENDIENTE
+
+    update: (req, res) => {
+
+        let id = req.params.id
+
+        let nameProduct = req.body.nameProduct
+        let weightProduct = req.body.weightProduct
+        let priceProduct = req.body.priceProduct
+        let categoryProduct = req.body.categoryProduct
+        let imageProduct = req.body.imageProduct
+        let descriptionProduct = req.body.descriptionProduct
+
+        let product = {
+            id: id,
+            name: nameProduct,
+            price: priceProduct,
+            grams: weightProduct,
+            category: categoryProduct,
+            description: descriptionProduct,
+            image: "",
+            rating: 4
+        }
+
+        fileproducts.updateProduct(product)
+        res.redirect("/product");
+    },    
+
     detail: (_req,res) => {
 
         //enviar producto dependiendo del is que llegue de la ruta  -- usar -> fileproducts.getProductById(id);
@@ -17,20 +90,10 @@ let productController = {
         res.render(path.resolve(__dirname,"../views/product/product.ejs"))
     },
 
-    store: (_req,res) => {
-
-        res.redirect('/product');
-    },    
-
-    update: (_req,res) => {
-
-        //res.redirect('/product/detail/'+id);
-    },    
-
 	destroy: (req, res) => {
 		let id = req.params.id; 
+        console.log(id, "Nicolas")
 		fileproducts.deleteProduct(id);
-
 		res.redirect('/product');
 	}
 }

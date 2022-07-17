@@ -54,120 +54,35 @@
 
                 <div class="listProduct__boxProducts">
 
-                    <div class="boxProducts-itemProduct">
+                    <% allProducts.forEach (element => { %>
 
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
+                    <a href="/product/detail/<%= element.id %>">
 
-                        <div class="listProduct__titleProduct">
-                            <p>Cafe Molido - La Morenita</p>
-                        </div>
+                        <div class="boxProducts-itemProduct">
 
-                        <div class="listProduct__detailsProducts">
-                            <div>
-                                <p class="listProduct__price">Precio: 5 USD</p>
-                                <p>Envio gratis</p>
+                            <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
+
+                            <div class="listProduct__titleProduct">
+                                <p> <%= element.name %> </p>
                             </div>
 
-                            <i class="fa-solid fa-cart-flatbed"></i>
-                        </div>
+                            <div class="listProduct__detailsProducts">
+                                <div>
+                                    <p class="listProduct__price">Precio: <%= element.price %> USD</p>
+                                    <p>Envio gratis</p>
+                                </div>
 
-                        <div class="listProduct__masInfo">
-                            <p>Leer mas informacion >></p>
-                        </div>
-
-                    </div>
-
-                    <div class="boxProducts-itemProduct">
-
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
-
-                        <div class="listProduct__titleProduct">
-                            <p>Cafe Molido - La Morenita</p>
-                        </div>
-
-                        <div class="listProduct__detailsProducts">
-                            <div>
-                                <p class="listProduct__price">Precio: 5 USD</p>
-                                <p>Envio gratis</p>
+                                <i class="fa-solid fa-cart-flatbed"></i>
                             </div>
 
-                            <i class="fa-solid fa-cart-flatbed"></i>
-                        </div>
-
-                        <div class="listProduct__masInfo">
-                            <p>Leer mas informacion >></p>
-                        </div>
-
-                    </div>
-
-                    <div class="boxProducts-itemProduct">
-
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
-
-                        <div class="listProduct__titleProduct">
-                            <p>Cafe Molido - La Morenita</p>
-                        </div>
-
-                        <div class="listProduct__detailsProducts">
-                            <div>
-                                <p class="listProduct__price">Precio: 5 USD</p>
-                                <p>Envio gratis</p>
+                            <div class="listProduct__masInfo">
+                                <p>Leer mas informacion >></p>
                             </div>
 
-                            <i class="fa-solid fa-cart-flatbed"></i>
                         </div>
+                    </a>
 
-                        <div class="listProduct__masInfo">
-                            <p>Leer mas informacion >></p>
-                        </div>
-
-                    </div>
-
-                    <div class="boxProducts-itemProduct">
-
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
-
-                        <div class="listProduct__titleProduct">
-                            <p>Cafe Molido - La Morenita</p>
-                        </div>
-
-                        <div class="listProduct__detailsProducts">
-                            <div>
-                                <p class="listProduct__price">Precio: 5 USD</p>
-                                <p>Envio gratis</p>
-                            </div>
-
-                            <i class="fa-solid fa-cart-flatbed"></i>
-                        </div>
-
-                        <div class="listProduct__masInfo">
-                            <p>Leer mas informacion >></p>
-                        </div>
-
-                    </div>
-
-                    <div class="boxProducts-itemProduct">
-
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="">
-
-                        <div class="listProduct__titleProduct">
-                            <p>Cafe Molido - La Morenita</p>
-                        </div>
-
-                        <div class="listProduct__detailsProducts">
-                            <div>
-                                <p class="listProduct__price">Precio: 5 USD</p>
-                                <p>Envio gratis</p>
-                            </div>
-
-                            <i class="fa-solid fa-cart-flatbed"></i>
-                        </div>
-
-                        <div class="listProduct__masInfo">
-                            <p>Leer mas informacion >></p>
-                        </div>
-
-                    </div>
+                    <% }); %>
 
                 </div>
 

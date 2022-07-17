@@ -3,23 +3,28 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
 let fileProduct = {
+
     file: 'productsDataBase.json',
+
     readJSON: function(){        
         return JSON.parse(fs.readFileSync(productsFilePath,'utf8'));
     },
+
     writeJSON: function(products){
         let productsJson = JSON.stringify(products);
-        fs.writeFileSync(productsFilePath,productsJson)
+        fs.writeFileSync(productsFilePath, productsJson)
     },
+
     saveProduct: function(product){
         let products = this.readJSON();
-        let lastProduct = products[products.length - 1].id;
-        product.id = lastProduct.id+ 1;
+        /* let lastProduct = products[products.length - 1].id;
+        product.id = lastProduct.id + 1; */
         products.push(product);
         this.writeJSON(products);
 
         return product;
     },
+
     updateProduct: function(product){
         let products = this.readJSON();
         let newList = products.map(function(item){
@@ -33,6 +38,7 @@ let fileProduct = {
         })
         this.writeJSON(newList);
     },
+
     deleteProduct: function(id){
         let products = this.readJSON();
         products = products.filter(function(item){
@@ -40,16 +46,18 @@ let fileProduct = {
         });
         this.writeJSON(products);
     },
-    getProductById: function(id){ 
+
+    getProductById: function(id) { 
         let products = this.readJSON();
         let product = {};
-        products.forEach(function(item){
-            if(item.id == id){
-              product = item;
+        products.forEach(element => {
+            if(element.id == id){
+              product = element
             }
         })
         return product;        
     },
+
     filterProduct(atribute, value){
         let products = this.readJSON();
         return products.filter(function(item){
