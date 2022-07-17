@@ -127,6 +127,7 @@ a:active {
 }
 
 /*! ════════════════════ LOGIN ════════════════════ !*/
+
 .login-open-close-side {
     position: fixed;
     top: 0;
@@ -239,6 +240,123 @@ a:active {
 }
 
 /*! ════════════════════ MAIN ════════════════════ !*/
+
+/** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
+
+.AdminProducts__title{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    width: 90vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px auto 0;
+    padding: .6em;
+    border-radius: 3px;
+    color: var(--blanco-original);
+    background-color: var(--black);
+}
+
+.AdminProducts__create{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    align-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 90vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px auto 0;
+    padding: .8em;
+    border-radius: 3px;
+    color: black;
+    background-color: var(--green-pastel-btn);
+    border: solid 1px var(--gray-pastel)
+}
+.AdminProducts__create:hover {
+    box-shadow: 1px -1px 18px -3px rgba(0,0,0,0.5);
+    transition: all .5s;
+    border: solid 1px black
+}
+
+.AdminProducts__create button{
+    font-size: 1em;
+    padding: 6px;
+    border: solid 1px black;
+    border-radius: 3px;
+    width: 150px;
+}
+
+.AdminProducts__create p{
+    padding-left: 20px;
+}
+
+.AdminProducts__containerTable{
+    width: 90vw;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-transform: uppercase;
+}
+
+.AdminProducts__table{
+    width: 100%;
+}
+
+.AdminProducts__table thead{
+    background-color: #000000;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border: solid 1px var(--gray-pastel);
+    padding: 1em;
+}
+
+td {
+    font-size: .8em;
+    padding: .5em;
+    text-align: center;
+    border: solid 1px var(--gray-pastel)
+}
+
+tr:nth-child(even){
+    background-color: white;
+}
+
+tr:hover td{
+    background-color: #ffffdd
+}
+
+
+.AdminProducts__table button {
+    padding: 5px;
+    border: solid 1px gray;
+    border-radius: 3px;
+    margin: 3px 0;
+}
+
+.AdminProducts__btnModify {
+    background-color: var(--green-pastel-btn);
+    min-width: 85px;
+}
+
+.AdminProducts__btnDelete {
+    background-color: var(--lox);
+    min-width: 85px;
+}
+
+.AdminProducts__btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 

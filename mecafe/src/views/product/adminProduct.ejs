@@ -1,0 +1,82 @@
+<!-- * Encabezado de la pagina -->
+<%- include ("../partials/head") %>
+
+<title>Administracion de Productos</title>
+</head>
+
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include ("../partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+        
+        <div class="AdminProducts">
+
+            <div class="AdminProducts__title">
+                <p>Bienvenidos a la Administracion de Productos</p>
+            </div>
+
+            <div class="AdminProducts__create">
+                <p>crear un nuevo producto: </p>
+                <form action="/product/create" method="get"> 
+                    <button type="submit" class="AdminProducts__btnDelete">Crear producto</button>
+                </form>
+            </div>
+
+
+            <div class="AdminProducts__containerTable">
+
+                <table class="AdminProducts__table">
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <% allProducts.forEach (element => { %>
+
+                        <tr>
+                            <td><%= element.id %></td>
+                            <td><%= element.name %></td>
+                            <td>
+                                <div class="AdminProducts__btn">
+                                    <form action="/product/edit/<%= element.id %>" method="get"> 
+                                        <button type="submit" class="AdminProducts__btnModify">Modificar</button>
+                                    </form>
+
+                                    <form action="/product/delete/<%= element.id %>" method="post"> 
+                                        <button type="submit" class="AdminProducts__btnDelete">Eliminar</button>
+                                    </form>
+                                </div>
+
+                            </th>
+                        </tr>
+
+                    <% }); %>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <table>
+
+
+        </table>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include ("../partials/footerNico") %>
+
+    <!-- Scripts de la WEB -->
+    <script src="../js/appHeader.js"></script>
+
+</body>
+</html>
