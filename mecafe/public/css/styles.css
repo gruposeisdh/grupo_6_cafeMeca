@@ -364,7 +364,6 @@ tr:hover td{
     display: grid;
     grid-template-columns: 1fr;
     margin: 20px 10%;
-    /*! BORRAR ESTE MARGIN DE 20 PIXELES QUE SEPARA LA PANTALLA */
     gap: 20px;
 }
 
@@ -1041,13 +1040,6 @@ tr:hover td{
     border-radius: 10px;
 }
 
-.home__containerColumns-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin: 50px 0;
-}
-
 
 .cart__continue-buy button {
     margin: 5px;
@@ -1120,7 +1112,7 @@ tr:hover td{
 
 .home__containerBanner {
     width: 100%;
-    height: 450px;
+    height: 150px;
     display: flex;
     position: relative;
     text-align: center;
@@ -1162,7 +1154,7 @@ tr:hover td{
     width: 100%;
     color: #ffffff;
     z-index: 3;
-    font-size: 1.2em;
+    font-size: .7em;
 }
 
 .opacity {
@@ -1256,12 +1248,6 @@ tr:hover td{
     border-radius: 10px;
 }
 
-.home__containerColumns-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
 .home__containerColumns {
     width: 85%;
     margin: auto;
@@ -1278,7 +1264,7 @@ tr:hover td{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin: 50px 0;
+    margin: auto;
 
 
     grid-template-areas:
@@ -1651,7 +1637,11 @@ footer {
     }
 
     .home__containerBanner {
-        height: 420px;
+        height: 300px;
+    }
+
+    .home__logoAndTextBanner {
+        font-size: .9em;
     }
 }
 
@@ -1760,7 +1750,11 @@ footer {
     }
 
     .home__containerBanner {
-        height: 100vh;
+        height: 400px;
+    }
+
+    .home__logoAndTextBanner {
+        font-size: 1.3em;
     }
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
@@ -2224,10 +2218,6 @@ footer {
         padding: 10px;
     }
 
-    .home__containerBanner {
-        height: 100vh
-    }
-
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -2379,7 +2369,19 @@ footer {
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
+
+    .home__containerBanner {
+        height: 500px;
+    }
+
+    .home__logoAndTextBanner {
+        font-size: 1.5em;
+    }
+
 }
+
+
+/* TODO ════════════════════ TODO ESTO ESTA FUERA DE LA QUERY, QUERIA SABER PORQUE ESTA HECHO. ════════════════════ **/
 
 /** ════════════════════ PRODUCT ════════════════════ **/
 
@@ -2415,23 +2417,8 @@ footer {
     right: 20px;
 }
 
-/** ════════════════════════════  FOOTER  ════════════════════════════════ **/
+/*TODO ════════════════════ ACA TERMINA = TODO ESTO ESTA FUERA DE LA QUERY, QUERIA SABER PORQUE ESTA HECHO. ════════════════════ **/
 
-
-/** ════════════════════ HOME ════════════════════ **/
-
-.home__body {
-    max-width: 80vw;
-    margin: auto;
-}
-
-.home__containerBanner {
-    height: 500px;
-}
-
-.home__logoAndTextBanner {
-    font-size: 1.5em;
-}
 
 /* TODO ════════════════════ MEDIA QUERY 1200PX ════════════════════ TODO */
 
@@ -2487,10 +2474,6 @@ footer {
     .product-featured-global {
         margin: 10px 40px;
     }
-
-
-
-
 
     /** ════════════════════════════  FOOTER  ════════════════════════════════ **/
 
