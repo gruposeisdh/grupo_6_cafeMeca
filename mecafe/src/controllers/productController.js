@@ -1,4 +1,5 @@
 const path = require('path');
+const { file } = require('../models/product');
 const fileproducts = require('../models/product');
 
 let productController = {
@@ -33,10 +34,7 @@ let productController = {
         let weightProduct = req.body.weightProduct
         let priceProduct = req.body.priceProduct
         let categoryProduct = req.body.categoryProduct
-        let imageProduct = req.body.imageProduct
         let descriptionProduct = req.body.descriptionProduct
-
-        console.log(nameProduct)
 
         let newProduct = {
             id : newID,
@@ -45,7 +43,7 @@ let productController = {
             grams: weightProduct,
             category: categoryProduct,
             description: descriptionProduct,
-            image: "",
+            image: fileproducts.imageProductNew(req.file),
             rating: 4
         }
 
@@ -65,22 +63,20 @@ let productController = {
     update: (req, res) => {
 
         let id = req.params.id
-
         let nameProduct = req.body.nameProduct
         let weightProduct = req.body.weightProduct
         let priceProduct = req.body.priceProduct
         let categoryProduct = req.body.categoryProduct
-        let imageProduct = req.body.imageProduct
         let descriptionProduct = req.body.descriptionProduct
 
         let product = {
-            id: id,
+            id: parseInt(id),
             name: nameProduct,
             price: priceProduct,
             grams: weightProduct,
             category: categoryProduct,
             description: descriptionProduct,
-            image: "",
+            image: imageProductEdit,
             rating: 4
         }
 
