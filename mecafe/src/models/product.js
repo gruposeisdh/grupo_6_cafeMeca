@@ -63,6 +63,16 @@ let fileProduct = {
         return products.filter(function(item){
             return item[atribute] == value;
         });
+    },
+
+    imageProductNew (reqFile){
+        let imageProduct = ""
+        if (reqFile == undefined){
+            imageProduct = "cafe-molido-morenita.jpg"
+        } else {
+            imageProduct = reqFile.filename
+        }
+        return imageProduct
     }
 }
 
