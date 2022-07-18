@@ -68,6 +68,65 @@ a:active {
     color: red;
 }
 
+/*! ════════════════════ INVENTO DE NICOLAS ════════════════════ !*/
+
+.redesSocialesBanner {
+    /*border: solid 2px var(--lox);*/
+    background-color: var(--negro-pastel);
+    width: 85vw;
+    max-width: 1000px;
+    margin: 1.5em auto;
+    text-align: center;
+    display: grid;
+    column-gap: 0;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    border-radius: 3px;
+    color: white;
+    text-transform: uppercase;
+    padding: .5em .2em;
+}
+
+.redesSocialesBanner:hover {
+    transition: all .3s;
+    box-shadow: 1px 1px 5px 5px rgba(247,139,45,0.45);
+}
+
+.redesSocialesBanner__icon{
+    font-size: 1.7em;
+}
+
+.redesSocialesBanner__icons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 4px;
+    justify-content: center;
+}
+
+.redesSocialesBanner h5 {
+    padding: 5px;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+
+.fa-facebook-square:hover {
+    color: #1773EA
+}
+
+.fa-twitter-square:hover {
+    color: #1C9CEA
+}
+
+.fa-whatsapp-square:hover {
+    color: #00F562;
+}
+
+.fa-github-square:hover{
+    color: #9642A2
+}
+
+
 /*! ════════════════════ HEADER ════════════════════ !*/
 
 .nav-header h2 {
@@ -1096,7 +1155,7 @@ tr:hover td{
 }
 
 
-.bodyHome {
+body {
     position: absolute;
     width: 100vw;
     min-height: 100%;
@@ -1272,13 +1331,6 @@ tr:hover td{
         "home__clusterThree home__clusterFor"
         "home__clusterFive home__clusterFive";
 }
-
-
-.home__containerColumns {
-    width: 85%;
-    margin: auto;
-}
-
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -1643,6 +1695,24 @@ footer {
     .home__logoAndTextBanner {
         font-size: .9em;
     }
+    
+    .redesSocialesBanner {
+        column-gap: 0;
+        padding: .5em .2em;
+    }
+    
+    .redesSocialesBanner__icon{
+        font-size: 2.2em;
+    }
+    
+    .redesSocialesBanner__icons{
+        column-gap: 6px;
+    }
+
+    .redesSocialesBanner h5{
+        font-size: .9em;
+    }
+
 }
 
 /* TODO ════════════════════ MEDIA QUERY 768PX ════════════════════ TODO */
@@ -1757,6 +1827,10 @@ footer {
         font-size: 1.3em;
     }
 
+    .redesSocialesBanner h5{
+        font-size: 1em;
+    }
+    
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
     .register__formLabel {
@@ -2218,6 +2292,11 @@ footer {
         padding: 10px;
     }
 
+    .redesSocialesBanner {
+        width: 77vw;
+    }
+
+
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -2378,6 +2457,25 @@ footer {
         font-size: 1.5em;
     }
 
+    .redesSocialesBanner h5{
+        padding: 8px;
+        font-size: 1.3em;
+    }
+
+    .redesSocialesBanner {
+        width: 77vw;
+        padding: .5em .2em;
+    }
+    
+    .redesSocialesBanner__icon{
+        font-size: 3em;
+    }
+    
+    .redesSocialesBanner__icons{
+        column-gap: 9px;
+    }
+    
+
 }
 
 
@@ -2450,6 +2548,10 @@ footer {
 
     .home__carrousel-picture p {
         font-size: 14px;
+    }
+
+    .redesSocialesBanner h5 {
+        letter-spacing: 4px;
     }
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
