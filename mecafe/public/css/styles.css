@@ -53,7 +53,7 @@ a:active {
     --negro-intenso: #0a0a0a;
     --whatsapp: #29df20;
     --naranja: #f78b2d;
-    --tamanoFooter: 160px
+    --tamanoFooter: 160px;
 }
 
 .text-center {
@@ -603,6 +603,7 @@ tr:hover td{
 
 /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
 
+
 .product-detail-general {
     background-color: #EEF2ED;
 }
@@ -613,11 +614,6 @@ tr:hover td{
     text-decoration: underline;
 }
 
-.product-detail-detail {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
 
 .product-img {
     display: grid;
@@ -627,6 +623,7 @@ tr:hover td{
     margin: 10px;
     width: 95%;
 }
+
 
 .img-product {
     margin-top: 0;
@@ -643,10 +640,19 @@ tr:hover td{
     margin-right: 10px;
 }
 
+.product-name-product {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--negro-intenso);
+    margin: 30px 10px 5px;
+    
+}
+
 .product-detail-weight {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-right: 10px;
     background-color: var(--lox);
     border: solid 2px var(--lox);
@@ -666,7 +672,9 @@ tr:hover td{
 .product-detail-texture {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
     margin-right: 10px;
+    margin-bottom: 5px;
     background-color: var(--lox);
     border: solid 2px var(--lox);
     border-radius: 20px;
@@ -709,6 +717,11 @@ tr:hover td{
 
 }
 
+.product-price-us {
+    width: 33%;
+    margin: 10px;
+}
+
 .product-price-us p {
     font-size: 15px;
     font-weight: bold;
@@ -716,6 +729,7 @@ tr:hover td{
 }
 
 .product-cant {
+    width: 33%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -745,7 +759,8 @@ tr:hover td{
 .product-option-shipping {
     display: flex;
     justify-content: space-between;
-    margin: auto;
+    margin-left: 20px;
+    width: 33%;
     border: solid 1px var(--lox);
     background-color: var(--lox);
     border-radius: 10px;
@@ -770,8 +785,8 @@ tr:hover td{
 
 .product-product {
     width: 95%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    /* display: grid;
+    grid-template-columns: 2fr 1fr; */
     background-color: var(--blanco-original);
     border-radius: 5px;
     margin: auto;
@@ -790,13 +805,6 @@ tr:hover td{
     margin: 10px;
 }
 
-.product-name-product {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--negro-intenso);
-    margin: 10px;
-    border-bottom: solid 2px var(--lime);
-}
 
 .product-characteristic {
     font-size: 13px;
@@ -864,12 +872,22 @@ tr:hover td{
     width: 33%;
 }
 
+.product-coffe .product-product-img:hover{
+    cursor: pointer;
+    transition: box-shadow 0.1s;
+    box-shadow: 0px 1px 10px var(--negro-intenso);
+}
+
 .product-product-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     padding: 1px;
     border-radius: 10px;
+}
+
+.product-buttons{
+    width: 100%;
 }
 
 .product-btn-shopp {
@@ -1100,7 +1118,9 @@ tr:hover td{
     position: relative;
     top: 66px;
     z-index: 1;
-    margin-bottom: calc(90px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
+    margin-bottom: 4.5em;
+    /* margin-bottom: calc(90px + var(--tamanoFooter)); */
+    /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
 }
 
 
@@ -1357,15 +1377,22 @@ tr:hover td{
 /* Estos son los cambios necesarios para el buen funcionamiento del footer. */
 
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: var(--tamanoFooter); /* Es el calculo del Footer, deberia ser una variable. */
+    /* position: absolute;
+    bottom: 0; */
+    /* left: 0; */
+    /* height: var(--tamanoFooter);  */
+    /* Es el calculo del Footer, deberia ser una variable. */
     background-color: var(--negro-pastel);
+    
 }
 
 /* Cierro comentario de estos cambios de arriba. */
+
+.footer-general{
+    display: flex;
+    justify-content: space-between;
+}
 
 .footer-medium-box {
     display: grid;
@@ -1975,9 +2002,6 @@ footer {
         margin: 20px 120px;
     }
 
-    .product-detail-detail {
-        font-size: 22px;
-    }
 
     .product-complete {
         display: flex;
@@ -1988,8 +2012,9 @@ footer {
     }
 
     .product-img2 {
-        width: 100%;
-        margin: 10px;
+        width: 50%;
+        height: 50%;
+        margin: 10px 20px;
     }
 
     .img-product2 {
@@ -2003,6 +2028,7 @@ footer {
         display: flex;
         flex-direction: column;
         margin-top: 10px;
+        margin-right: 10px;        
     }
 
     .product-name-product2 p {
@@ -2277,6 +2303,7 @@ footer {
 
     /** ════════════════════════════  FOOTER  ════════════════════════════════ **/
 
+  
     .footer-medium-box {
         width: 100%;
         height: 100%;
@@ -2394,9 +2421,6 @@ footer {
     margin-right: 20px;
 }
 
-.product-description-product2 {
-    margin-bottom: 20px;
-}
 
 
 /** ════════════════════ CART ════════════════════ **/
@@ -2469,7 +2493,8 @@ footer {
 
 
     .product-img2 {
-        width: 60%;
+        width: 40%;
+        height: 40%;
     }
 
     .product-complete {

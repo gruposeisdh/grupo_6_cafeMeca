@@ -13,22 +13,22 @@
     <section class="generalHome">
 
       <div class="product-detail-general">
-        <!-- <div class="product-detail">
-        <p class="product-detail-detail">Detalle del Producto</p> 
-      </div> -->
-
+          
         <div class="product-img">
-          <img src="/img/productcoffee2.jpg" class="img-product" />
+          <img src="<%=productdetail.image%>" class="img-product" />
 
           <div class="product-detail-specs">
+            <div class="product-name-product">
+              <p><%=productdetail.name%></p>
+            </div>
             <div class="product-detail-weight">
               <i class="fas fa-balance-scale-left"></i>
-              <p class="product-detail-text-weight">500grms</p>
+              <p class="product-detail-text-weight"><%=productdetail.grams%>grams</p>
             </div>
 
             <div class="product-detail-texture">
               <i class="fas fa-mug-hot"></i>
-              <p class="product-detail-text-textura">Molido</p>
+              <p class="product-detail-text-textura"><%=productdetail.category%></p>
             </div>
 
             <div class="product-detail-recommended">
@@ -36,11 +36,37 @@
                 <p class="product-detail-text-calification">Calificacion</p>
               </div>
               <div class="poduct-detail-starts">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+                <%if (productdetail.rating==1){%>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <%}else if (productdetail.rating==2){%>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <%}else if (productdetail.rating==3){%>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <%}else if (productdetail.rating==4){%>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <%}else if (productdetail.rating==5){%>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <%}%>
               </div>
             </div>
           </div>
@@ -50,7 +76,7 @@
         <div class="product-price-truck">
 
           <div class="product-price-us">
-            <p>Precio US$ 10</p>
+            <p>Precio US$ <%=productdetail.price%></p>
           </div>
 
           <div class="product-cant">
@@ -82,19 +108,16 @@
           <div class="product-description2">
             <h4>Descripción</h4>
             <p>
-              El café torrefacto es una variedad de café que se obtiene tras
-              someter al grano a un proceso especial durante el tueste
+              <%=productdetail.description%>
             </p>
           </div>
 
           <div class="product-description-product">
-            <div class="product-name-product">
-              <p>Café torrefacto</p>
-            </div>
+            
 
-            <div class="product-characteristic">
+            <!-- <div class="product-characteristic">
               <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -102,19 +125,19 @@
         <div class="product-complete">
 
           <div class="product-img2">
-            <img src="/img/productcoffee1.jpg" class="img-product2" />
+            <img src="<%=productdetail.image%>" class="img-product2" />
           </div>
 
           <div class="product-description-complete">
 
             <div class="product-name-product2">
-              <p>Café torrefacto</p>
+              <p><%=productdetail.name%></p>
             </div>
 
             <div class="product-price-truck2">
 
               <div class="product-price-us2">
-                <p>Precio US$ 10</p>
+                <p>Precio US$ <%=productdetail.price%></p>
               </div>
 
               <div class="product-cant2">
@@ -137,21 +160,17 @@
 
 
             <div class="product-product2">
-              <div class="product-description-product2">
-                <!-- no tiene sentido -->
-                <div class="product-characteristic2">
+                <!-- <div class="product-characteristic2">
                   <p>Este café posee un gran aroma, sabor, cuerpo y acidez</p>
-                </div>
+                </div> -->
               </div>
 
               <div class="product-description3">
                 <h4>Descripción</h4>
                 <p>
-                  El café torrefacto es una variedad de café que se obtiene tras
-                  someter al grano a un proceso especial durante el tueste
+                  <%=productdetail.description%>
                 </p>
               </div>
-            </div>
           </div>
         </div>
 
@@ -160,12 +179,12 @@
 
           <div class="product-detail-weight2">
             <i class="fas fa-balance-scale-left"></i>
-            <p class="product-detail-text-weight2">500grms</p>
+            <p class="product-detail-text-weight2"><%=productdetail.grams%>grms</p>
           </div>
 
           <div class="product-detail-texture2">
             <i class="fas fa-mug-hot"></i>
-            <p class="product-detail-text-textura2">Molido</p>
+            <p class="product-detail-text-textura2"><%=productdetail.category%></p>
           </div>
 
           <div class="product-detail-recommended2">
@@ -174,11 +193,37 @@
             </div>
 
             <div class="poduct-detail-starts2">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
+              <%if (productdetail.rating==1){%>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <%}else if (productdetail.rating==2){%>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <%}else if (productdetail.rating==3){%>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <%}else if (productdetail.rating==4){%>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <%}else if (productdetail.rating==5){%>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <%}%>
             </div>
           </div>
         </div>
@@ -201,15 +246,15 @@
 
           <div class="product-featured">
             <div class="product-coffe">
-              <img src="/img/productcoffee5.jpg" class="product-product-img" />
+              <a href="/product/detail/5"><img src="/img/productcoffee5.jpg" class="product-product-img" /></a>
             </div>
 
             <div class="product-coffe">
-              <img src="/img/productcoffee4.jpg" class="product-product-img" />
+              <a href="/product/detail/4"><img src="/img/productcoffee4.jpg" class="product-product-img" /></a>
             </div>
 
             <div class="product-coffe">
-              <img src="/img/productcoffee3.jpg" class="product-product-img" />
+              <a href="/product/detail/3"><img src="/img/productcoffee3.jpg" class="product-product-img" /></a>
             </div>
           </div>
         </div>
@@ -219,7 +264,7 @@
 
     <!-- Pie de Pagina -->
 
-    <%- include("../partials/footerNico") %>
+    <%- include("../partials/footer") %>
 
     <script src="./js/appHeader.js"></script>
 

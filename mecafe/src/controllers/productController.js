@@ -89,10 +89,9 @@ let productController = {
     },    
 
     detail: (_req,res) => {
-
-        //enviar producto dependiendo del is que llegue de la ruta  -- usar -> fileproducts.getProductById(id);
-        
-        res.render(path.resolve(__dirname,"../views/product/product.ejs"))
+        let id= _req.params.id;
+        let detalleproductos=fileproducts.getProductById(id);       
+        res.render(path.resolve(__dirname,"../views/product/product.ejs"), {productdetail:detalleproductos})
     },
 
     // Elimina un Producto - LISTO
