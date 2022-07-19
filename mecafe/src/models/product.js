@@ -32,8 +32,8 @@ let fileProduct = {
             }else{
                 return item;
             }
-           
         })
+
         this.writeJSON(newList);
     },
 

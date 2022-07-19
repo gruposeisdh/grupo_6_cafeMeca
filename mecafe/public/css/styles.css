@@ -1158,7 +1158,6 @@ tr:hover td{
     margin-bottom: calc(90px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
 }
 
-
 body {
     position: absolute;
     width: 100vw;
@@ -2489,48 +2488,42 @@ footer {
     .redesSocialesBanner__icons{
         column-gap: 9px;
     }
+
+    /** ════════════════════ CART ════════════════════ **/
+
+    /*? -------------- BAR PROGRESS  ------------ ?*/
     
+    .cart__progress hr {
+        top: 26px;
+    }
+    
+    .cart__progress i {
+        position: relative;
+        font-size: 35px;
+    }
+    
+    .cart__progress i span {
+        right: 20px;
+    }
+
+    /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
+
+    /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
+
+    .product-product2 {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    .product-description-complete {
+        margin-top: 40px;
+    }
+    
+    .product-description-product2 {
+        margin-bottom: 20px;
+    }
 
 }
-
-
-/* TODO ════════════════════ TODO ESTO ESTA FUERA DE LA QUERY, QUERIA SABER PORQUE ESTA HECHO. ════════════════════ **/
-
-/** ════════════════════ PRODUCT ════════════════════ **/
-
-/*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
-
-.product-description-complete {
-    margin-top: 40px;
-}
-
-.product-product2 {
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
-.product-description-product2 {
-    margin-bottom: 20px;
-}
-
-
-/** ════════════════════ CART ════════════════════ **/
-
-/*? -------------- BAR PROGRESS  ------------ ?*/
-.cart__progress hr {
-    top: 26px;
-}
-
-.cart__progress i {
-    position: relative;
-    font-size: 35px;
-}
-
-.cart__progress i span {
-    right: 20px;
-}
-
-/*TODO ════════════════════ ACA TERMINA = TODO ESTO ESTA FUERA DE LA QUERY, QUERIA SABER PORQUE ESTA HECHO. ════════════════════ **/
 
 
 /* TODO ════════════════════ MEDIA QUERY 1200PX ════════════════════ TODO */
