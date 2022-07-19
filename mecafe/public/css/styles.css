@@ -320,36 +320,42 @@ a:active {
     background-color: var(--black);
 }
 
+.AdminProducts__containerNewProduct{
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto 0;
+}
+
 .AdminProducts__create{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
     align-content: center;
     align-items: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
     text-align: center;
-    margin: 20px auto 0;
+    margin: auto left;
     padding: .8em;
     border-radius: 3px;
     color: black;
-    background-color: var(--green-pastel-btn);
     border: solid 1px var(--gray-pastel)
 }
+
 .AdminProducts__create:hover {
     box-shadow: 1px -1px 18px -3px rgba(0,0,0,0.5);
     transition: all .5s;
-    border: solid 1px black
+    border: solid 1px gray;
 }
 
 .AdminProducts__create button{
     font-size: 1em;
     padding: 6px;
-    border: solid 1px black;
+    border: solid 1px gray;
     border-radius: 3px;
-    width: 150px;
+    width: 100%;
 }
 
 .AdminProducts__create p{
@@ -415,6 +421,12 @@ tr:hover td{
 
 .AdminProducts__btnDelete {
     background-color: var(--lox);
+    min-width: 85px;
+}
+
+.AdminProducts__btnNewProduct{
+    background-color: #0f82fc;
+    color: white;
     min-width: 85px;
 }
 
@@ -1572,10 +1584,7 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
-    /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
-    .AdminProducts__table .item-display-none{
-        display: revert;
-    }
+
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
@@ -1584,6 +1593,10 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+
+    /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
+
+
 
     /** ════════════════════ PRODUCT ════════════════════ **/
 
@@ -1731,6 +1744,7 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 768PX ════════════════════ TODO */
 
 @media (min-width: 768px) {
+
     /*! ════════════════════ HEADER ════════════════════ !*/
 
     .nav-toggle {
@@ -1771,6 +1785,16 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
+
+    .AdminProducts__table .item-display-none{
+        display: revert;
+    }
+
+    .AdminProducts__create{
+        width: 50%;
+    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 

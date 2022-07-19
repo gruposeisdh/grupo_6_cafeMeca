@@ -18,13 +18,14 @@
                 <p>Bienvenidos a la Administracion de Productos</p>
             </div>
 
-            <div class="AdminProducts__create">
-                <p>crear un nuevo producto: </p>
-                <form action="/product/create" method="get"> 
-                    <button type="submit" class="AdminProducts__btnDelete">Crear producto</button>
-                </form>
+            <div class="AdminProducts__containerNewProduct">
+                <div class="AdminProducts__create">
+                    <p>Nuevo producto: </p>
+                    <form action="/product/create" method="get"> 
+                        <button type="submit" class="AdminProducts__btnNewProduct">Crear producto</button>
+                    </form>
+                </div>
             </div>
-
 
             <div class="AdminProducts__containerTable">
 
@@ -34,7 +35,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Categoría</th>  
+                            <th class="item-display-none">Categoría</th>  
                             <th class="item-display-none">Gramos</th>                         
                             <th>Acciones</th>
                         </tr>
@@ -45,7 +46,7 @@
                         <tr>
                             <td><%= element.id %></td>
                             <td><%= element.name %></td>
-                            <td><%= element.category %></td>
+                            <td class="item-display-none"><%= element.category %></td>
                             <td class="item-display-none"><%= element.grams %></td>
                             <td>
                                 <div class="AdminProducts__btn">
