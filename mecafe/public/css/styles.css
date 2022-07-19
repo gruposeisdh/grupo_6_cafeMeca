@@ -363,6 +363,10 @@ a:active {
     width: 100%;
 }
 
+.AdminProducts__table .item-display-none{
+    display: none;
+}
+
 .AdminProducts__table thead{
     background-color: #000000;
     color: white;
@@ -1563,6 +1567,10 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+    /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
+    .AdminProducts__table .item-display-none{
+        display: revert;
+    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 

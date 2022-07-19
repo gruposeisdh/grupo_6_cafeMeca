@@ -17,8 +17,6 @@ let fileProduct = {
 
     saveProduct: function(product){
         let products = this.readJSON();
-        /* let lastProduct = products[products.length - 1].id;
-        product.id = lastProduct.id + 1; */
         products.push(product);
         this.writeJSON(products);
 
@@ -26,10 +24,10 @@ let fileProduct = {
     },
 
     updateProduct: function(product){
-        let products = this.readJSON();
+        let products = this.readJSON();        
         let newList = products.map(function(item){
             if(item.id == product.id){ 
-                product.image = item.image;               
+                product.image = product.image == undefined ? item.image : product.image;               
                 return item = product;
             }else{
                 return item;
@@ -68,11 +66,17 @@ let fileProduct = {
     imageProductNew (reqFile){
         let imageProduct = ""
         if (reqFile == undefined){
-            imageProduct = "cafe-molido-morenita.jpg"
+            imageProduct = "default-product-image.png";
         } else {
-            imageProduct = reqFile.filename
+            imageProduct = reqFile.filename;
         }
-        return imageProduct
+        return imageProduct;
+    },
+
+    generateId(){
+        let products = this.readJSON();
+        let lastProduct = products[products.length - 1] /* Comentario Util: Se agarra el array, se accede y yendo para -1 obtenes el ultimo */
+        return lastProduct.id + 1;
     }
 }
 
