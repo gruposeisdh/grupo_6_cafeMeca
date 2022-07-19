@@ -111,19 +111,23 @@ a:active {
 }
 
 .fa-facebook-square:hover {
-    color: #1773EA
+    color: #1773EA;
+    transition: all .7s;
 }
 
 .fa-twitter-square:hover {
-    color: #1C9CEA
+    color: #1C9CEA;
+    transition: all .7s;
 }
 
 .fa-whatsapp-square:hover {
     color: #00F562;
+    transition: all .7s;
 }
 
 .fa-github-square:hover{
-    color: #9642A2
+    color: #9642A2;
+    transition: all .7s;
 }
 
 
@@ -497,9 +501,11 @@ tr:hover td{
 
 .boxProducts-itemProduct img {
     width: 100%;
+    height: 260px;
     padding: 10px;
     object-fit: cover;
 }
+
 
 .listProduct__detailsProducts {
     display: flex;
@@ -2591,5 +2597,6 @@ footer {
     .fa-twitter {
         margin-right: 45px;
     }
+
 
 }
