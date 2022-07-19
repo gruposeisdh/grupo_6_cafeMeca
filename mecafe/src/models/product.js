@@ -66,7 +66,7 @@ let fileProduct = {
     imageProductNew (reqFile){
         let imageProduct = ""
         if (reqFile == undefined){
-            imageProduct = "default-product-image";
+            imageProduct = "default-product-image.png";
         } else {
             imageProduct = reqFile.filename;
         }
