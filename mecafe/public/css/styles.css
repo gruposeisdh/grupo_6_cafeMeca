@@ -682,7 +682,7 @@ tr:hover td{
     grid-template-columns: 2fr 1fr;
     background-color: var(--blanco-original);
     border-radius: 5px;
-    margin: 10px;
+    margin-left: 10px;
     width: 95%;
 }
 
@@ -690,8 +690,16 @@ tr:hover td{
     margin-top: 0;
     padding: 1em;
     width: 100%;
+    height: 90%;
     border: solid 1px var(--blanco-original);
     border-radius: 25px;
+}
+
+.product-name-product {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--negro-intenso);
+    margin: 30px 10px 5px;
 }
 
 .product-detail-specs {
@@ -704,7 +712,7 @@ tr:hover td{
 .product-detail-weight {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-right: 10px;
     background-color: var(--lox);
     border: solid 2px var(--lox);
@@ -846,14 +854,6 @@ tr:hover td{
     font-size: 13px;
     line-height: 21px;
     margin: 10px;
-}
-
-.product-name-product {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--negro-intenso);
-    margin: 10px;
-    border-bottom: solid 2px var(--lime);
 }
 
 .product-characteristic {
@@ -2040,7 +2040,8 @@ footer {
     }
 
     .product-detail-general {
-        margin: 20px 120px;
+        width: 80%;
+        margin-left: 10%;
     }
 
     .product-detail-detail {
@@ -2056,13 +2057,13 @@ footer {
     }
 
     .product-img2 {
-        width: 100%;
-        margin: 10px;
+        width: 50%;
+        height: 50%;
     }
 
     .img-product2 {
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
         border-radius: 5px;
         object-fit: cover;
     }
@@ -2240,6 +2241,12 @@ footer {
 
     .product-featured {
         padding: 30px;
+    }
+
+    .product-coffe .product-product-img:hover{
+        cursor: pointer;
+        transition: box-shadow 0.1s;
+        box-shadow: 0px 1px 10px var(--negro-intenso);
     }
 
 
@@ -2558,7 +2565,8 @@ footer {
 
 
     .product-img2 {
-        width: 60%;
+        width: 40%;
+        height: 40%;        
     }
 
     .product-complete {
