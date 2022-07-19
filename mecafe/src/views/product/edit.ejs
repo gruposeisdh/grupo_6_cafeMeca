@@ -19,7 +19,7 @@
                 <h3>Modificacion de un Producto</h3>
             </div>
 
-            <form class="updateProduct__containerForm" action="/product/edit/<%= product.id%>" method="post">
+            <form class="updateProduct__containerForm"  enctype="multipart/form-data" action="/product/edit/<%= product.id%>" method="post">
 
                 <div class="updateProduct-nameProduct">
                     <label for="nameProduct">Nombre del Producto:</label>

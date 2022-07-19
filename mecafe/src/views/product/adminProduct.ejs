@@ -33,7 +33,9 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
+                            <th>Nombre</th>
+                            <th>Categoria</th>  
+                            <th class="item-display-none">Gramos</th>                         
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -43,6 +45,8 @@
                         <tr>
                             <td><%= element.id %></td>
                             <td><%= element.name %></td>
+                            <td><%= element.category %></td>
+                            <td class="item-display-none"><%= element.grams %></td>
                             <td>
                                 <div class="AdminProducts__btn">
                                     <form action="/product/edit/<%= element.id %>" method="get"> 

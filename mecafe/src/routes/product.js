@@ -28,7 +28,7 @@ router.get('/',productController.index);
 router.get('/create',productController.create);
 router.post('/', uploadProducts.single("imageProduct") ,productController.store);
 router.get('/edit/:id',productController.edit);
-router.post('/edit/:id', productController.update);
+router.post('/edit/:id', uploadProducts.single("imageProduct"), productController.update);
 router.get('/detail/:id',productController.detail);
 router.post('/delete/:id', productController.destroy);
 router.get('/administracion',productController.adminProducts);
