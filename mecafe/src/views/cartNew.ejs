@@ -1,0 +1,73 @@
+<!-- Encabezado de la pagina -->
+<%- include("./partials/head") %>
+    <title>Document</title>
+</head>
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include("./partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+        <div>  
+            <div class="cart__progress">
+                <hr> 
+                <i class="fas fa-circle progress__active"><span class="position-relative">1</span><span class="progress__description">Carro</span></i>
+                <i class="fas fa-circle"><span class="position-relative">2</span><span class="progress__description">Envío</span></i>
+                <i class="fas fa-circle"><span class="position-relative">3</span><span class="progress__description">Pago</span></i>
+            </div>
+        </div>
+        <main id="cart-products">
+            <div class="cart__products">
+                <article>
+                    <div>
+                        <img src="/img/product.jpeg" alt="">
+                        <div class="text-center">                     
+                            <p class="cart__product_name">Nombre Producto</p>
+                            <p  class="cart__product_format"><b>Formato</b> 500grs</p>
+                            <p class="cart__product_price"><b>$35.000</b></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cart__more-less">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>3</span>
+                            <i class="fas fa-minus-circle"></i>
+                        </div>
+                        <p class="cart__product_total">$70.000</p>
+                    </div>
+                </article>  
+                <article>
+                    <div>
+                        <img src="/img/product.jpeg" alt="">
+                        <div class="text-center">                     
+                            <p class="cart__product_name">Nombre Producto</p>
+                            <p  class="cart__product_format"><b>Formato</b> 500grs</p>
+                            <p class="cart__product_price"><b>$35.000</b></p>
+                        </div>
+                        <div class="cart__more-less">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>3</span>
+                            <i class="fas fa-minus-circle"></i>
+                        </div>
+                        <p class="cart__product_total">$70.000</p>
+                    </div>
+                </article>  
+            </div>
+            <div class="text-center cart__continue-buy">
+                <div>
+                    <p>Total</p>
+                    <p class="cart__total">$175.000</p>
+                </div>              
+                <button>Continuar Compra</button>
+            </div>    
+        </main>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("./partials/footerNico") %>
+
+
+</body>
+</html>

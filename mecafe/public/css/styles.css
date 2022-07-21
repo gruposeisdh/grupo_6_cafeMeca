@@ -1037,17 +1037,23 @@ tr:hover td{
 .cart__products article {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid gray;
-    padding: 10px;
-    margin: 15px;
+    border-top: 1px solid gray;
     width: 70%;
     flex-direction: column;
     align-items: center;
-    box-shadow: 7px 7px 5px 0px grey;
+}
+
+.cart__products article div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .cart__products article img {
-    width: 50%;
+    padding-top:  20px;
+    padding-bottom: 20px;
+    width: 25%;
+    object-fit: cover;
 }
 
 .cart__products article p {
