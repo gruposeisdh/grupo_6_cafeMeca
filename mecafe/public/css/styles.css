@@ -990,7 +990,7 @@ tr:hover td{
 /** ════════════════════ CART ════════════════════ **/
 
 #cart-products {
-    max-width: 700px;
+    max-width: 900px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -1574,10 +1574,6 @@ footer {
         font-size: 14px;
     }
 
-    #table__cart thead th:nth-child(1) {
-        width: 23%;
-    }
-
     #table__cart tfoot td {
         font-size: 20px;
     }
@@ -1809,10 +1805,6 @@ footer {
 
     #table__cart th, #table__cart td {
        font-size: 15px;
-    }
-
-    #table__cart thead th:nth-child(1) {
-        width: 25%;
     }
 
     /** ════════════════════ HOME ════════════════════ **/
