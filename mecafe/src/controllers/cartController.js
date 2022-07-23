@@ -1,8 +1,7 @@
 const path = require('path');
 
 let cartController = {
-    index: (_req,res) => res.render(path.resolve(__dirname,"../views/cart.ejs")),
-    indexN: (_req,res) => res.render(path.resolve(__dirname,"../views/cartNew.ejs"))
+    index: (_req,res) => res.render(path.resolve(__dirname,"../views/cart.ejs"))
 }
 
 module.exports = cartController;

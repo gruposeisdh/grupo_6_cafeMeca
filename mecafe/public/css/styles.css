@@ -977,7 +977,10 @@ tr:hover td{
 #cart-products {
     max-width: 700px;
     position: relative;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x:auto;
+    font-size:14px;
 }
 
 /*? -------------- BAR PROGRESS  ------------ ?*/
@@ -1028,77 +1031,52 @@ tr:hover td{
 }
 
 /*? -------------- PRODUCTS LIST --------- ?*/
-.cart__products {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#table__cart {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
 }
 
-.cart__products article {
-    display: flex;
-    flex-wrap: wrap;
-    border-top: 1px solid gray;
-    width: 70%;
-    flex-direction: column;
-    align-items: center;
+#table__cart tbody  tr:hover  td {
+    background-color: transparent;
 }
 
-.cart__products article div{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.img__table_cart{
+    width: 100%;
 }
 
-.cart__products article img {
-    padding-top:  20px;
-    padding-bottom: 20px;
-    width: 25%;
-    object-fit: cover;
+#table__cart th, #table__cart td {
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid var(--lox);
 }
 
-.cart__products article p {
-    margin: 5px;
+#table__cart tr:nth-child(even){ 
+    background-color: transparent;
 }
 
-.cart__products article .cart__product_name {
-    font-size: 14px;
+#table__cart thead th:nth-child(1) {
+    width: 20%;
 }
 
-.cart__products article .cart__product_format {
-    font-size: 12px;
+#table__cart tfoot td{
+    font-size: 15px;
 }
 
-.cart__products article .cart__product_price {
-    font-size: 11px;
-}
-
-.cart__products article .cart__more-less {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.cart__products article .cart__more-less {
+.cart__more-less {
     position: relative;
-    color: var(--naranja-oscuro);
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
 }
 
-.cart__products article .cart__product_total {
-    font-size: 13px;
+.cart__more-less i{
+    color: var(--lox);
 }
 
-.cart__products article span {
-    position: absolute;
-    font-size: 12px;
-    color: black !important;
-    align-items: center;
-    top: 3px;
+.cart__more-less span{
+    color: var(--black);
 }
-
-
-/*? --------------  TOTAL CART ------------ ?*/
 
 .cart__continue-buy {
     display: flex;
@@ -1108,12 +1086,17 @@ tr:hover td{
     margin: 10px;
 }
 
-.cart__continue-buy div {
-    display: flex;
-    align-items: center;
-    width: 35%;
-    justify-content: space-around;
+.cart__continue-buy button {    
+    padding: 8px;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    border-radius: 11px;
+    box-shadow: 0px 0px 6px var(--black);
+    border-style: hidden;
 }
+
+/** ════════════════════ HOME ════════════════════ **/
 
 .home__containerColumns {
     width: 85%;
@@ -1126,29 +1109,6 @@ tr:hover td{
     object-fit: cover;
     border-radius: 10px;
 }
-
-
-.cart__continue-buy button {
-    margin: 5px;
-    width: 35%;
-    padding: 8px;
-    font-size: 13px;
-    background-color: var(--naranja-oscuro);
-    color: white;
-    font-weight: bold;
-    margin-bottom: 30px;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--cilantro-saturado);
-    border-style: hidden;
-}
-
-
-.cart__continue-buy .cart__total {
-    font-size: 20px;
-}
-
-
-/** ════════════════════ HOME ════════════════════ **/
 
 /*? --------------- AREAS DE GRID --------------- ?*/
 
@@ -1591,7 +1551,21 @@ footer {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ CART ════════════════════ **/
 
+    /*? --------------  TOTAL CART ------------ ?*/
+
+    #table__cart th, #table__cart td {
+        font-size: 14px;
+    }
+
+    #table__cart thead th:nth-child(1) {
+        width: 23%;
+    }
+
+    #table__cart tfoot td {
+        font-size: 20px;
+    }
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
@@ -1818,12 +1792,12 @@ footer {
 
     /*? --------------  TOTAL CART ------------ ?*/
 
-    .cart__continue-buy .cart__total {
-        font-size: 20px;
+    #table__cart th, #table__cart td {
+       font-size: 15px;
     }
 
-    .cart__continue-buy button {
-        font-size: 18px;
+    #table__cart thead th:nth-child(1) {
+        width: 25%;
     }
 
     /** ════════════════════ HOME ════════════════════ **/
