@@ -15,3 +15,11 @@
 
 **Puntos a mejorar:**
 - Mayor conocimiento en git y ejs.
+
+**Restropectiva Sprint 4**
+
+**Puntos positivos:**
+- Buena comunicación y trabajo en equipo.
+
+**Puntos a mejorar:**
+- No se encontraron puntos a mejorar.
