@@ -18,41 +18,60 @@
             </div>
         </div>
         <main id="cart-products">
-            <div class="cart__products">
-                <article>
-                    <img src="/img/product.jpeg" alt="">
-                    <div class="text-center">                     
-                        <p class="cart__product_name">Nombre Producto</p>
-                        <p  class="cart__product_format"><b>Formato</b> 500grs</p>
-                        <p class="cart__product_price"><b>$35.000</b></p>
-                    </div>
-                    <div class="cart__more-less">
-                        <i class="fas fa-plus-circle"></i>
-                        <span>3</span>
-                        <i class="fas fa-minus-circle"></i>
-                    </div>
-                    <p class="cart__product_total">$70.000</p>
-                </article>   
-                <article>
-                    <img src="/img/product.jpeg" alt="">
-                    <div class="text-center">                     
-                        <p class="cart__product_name">Nombre Producto</p>
-                        <p  class="cart__product_format"><b>Formato</b> 500grs</p>
-                        <p class="cart__product_price"><b>$35.000</b></p>
-                    </div>
-                    <div class="cart__more-less">
-                        <i class="fas fa-plus-circle"></i>
-                        <span>3</span>
-                        <i class="fas fa-minus-circle"></i>
-                    </div>
-                    <p class="cart__product_total">$70.000</p>
-                </article>  
-            </div>
-            <div class="text-center cart__continue-buy">
-                <div>
-                    <p>Total</p>
-                    <p class="cart__total">$175.000</p>
-                </div>              
+            <table id="table__cart">          
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>                   
+                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
+                        <td>Nombre Producto</td>
+                        <td>500grs</td>
+                        <td>$35.000</td>
+                        <td>
+                            <div class="cart__more-less">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>2</span>
+                                <i class="fas fa-minus-circle"></i>
+                            </div>
+                        </td>
+                        <td>$70.000</td>
+                        <td><i class="red fas fa-times"></td>
+                    </tr>
+                    <tr>                   
+                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
+                        <td>Nombre Producto</td>
+                        <td>500grs</td>
+                        <td>$35.000</td>
+                        <td>
+                            <div class="cart__more-less">
+                                <i class="fas fa-minus-circle"></i>
+                                <span>2</span>
+                                <i class="fas fa-plus-circle"></i>                                
+                            </div>
+                        </td>
+                        <td>$70.000</td>
+                        <td><i class="red fas fa-times"></td>
+                    </tr>                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <th scope="row" colspan="2">Total</th>
+                        <td colspan="2">$140.000</td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="cart__continue-buy">                      
                 <button>Continuar Compra</button>
             </div>    
         </main>
