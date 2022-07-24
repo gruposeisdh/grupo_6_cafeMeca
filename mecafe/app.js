@@ -1,46 +1,26 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
+const morgan = require('morgan'); /* Insalacion de Morgan */
 
-const publicPath = path.resolve(__dirname, './public');
-app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname, './public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method')); 
+app.use(morgan('tiny')); /* Lo unico que se necesita para monitorear con Morgan */
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
+
+const indexRoutes = require('./src/routes/index');
+const cartRoutes = require('./src/routes/cart');
+const productRoutes = require('./src/routes/product');
+const userRoutes = require('./src/routes/user');
+
+app.use('/',indexRoutes);
+app.use('/cart',cartRoutes);
+app.use('/product',productRoutes);
+app.use('/user',userRoutes);
+
 app.listen(3030,() => console.log("Servidor escuchando en puerto 3030"));
-
-
-app.get('/', (req,res) => { 
-let html= path.resolve(__dirname,"./views/home.html")
-res.sendFile (html);
-})
-
-app.get('/header', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/header.html")
-    res.sendFile (html);
-})
-
-app.get('/footer', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/footer.html")
-    res.sendFile (html);
-})
-
-app.get('/login', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/login.html")
-    res.sendFile (html);
-})
-
-app.get('/cart', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/cart.html")
-    res.sendFile (html);
-})
-
-app.get('/register', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/register.html")
-    res.sendFile (html);
-})
-
-app.get('/product', (req,res) => { 
-    let html= path.resolve(__dirname,"./views/product.html")
-    res.sendFile (html);
-})
-
-
-

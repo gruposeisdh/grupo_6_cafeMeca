@@ -1,0 +1,29 @@
+<div class="login__container" id="modalLogin">
+    <div class="login__header">
+        <h2>Ingresar</h2>
+        <a onclick="closeModalLogin()"><i class="fas fa-times"></i></a>
+    </div>
+    <form action="">
+        <div class="form-group">
+            <label for="mail">Correo electrónico<span>*</span></label><br>
+            <input type="mail" name="mail" placeholder="example@mail.com">
+        </div>
+        <div class="form-group errorCampoDiv">
+            <label for="password">Contraseña<span>*</span></label><br>
+            <input type="password" name="password" placeholder="*******">    
+            <p class="login__formError">Usuario o contraseña inválido, inténtalo nuevamente.</p>  
+        </div>
+            
+        <div class="text-center">
+            <input type="checkbox" name="remember">
+            <label for="">Recordarme</label>
+            <a class="red decoration-none" href="http://">¿Olvidaste tu contraseña?</a>
+        </div>           
+        <input type="button" value="Ingresar">
+        <p class="text-center">¿No estás registrado? <a class="red decoration-none" href="/user/register">Crear Cuenta</a></p> 
+        <div class="login_logo">
+            <img src="/img/logoMecafe2.png" class="logo" />
+        </div>
+    </form>
+</div>
+<div class="login-open-close-side"></div>

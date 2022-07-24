@@ -1,0 +1,86 @@
+<!-- Encabezado de la pagina -->
+<%- include("./partials/head") %>
+    <title>Document</title>
+</head>
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include("./partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+        <div>  
+            <div class="cart__progress">
+                <hr> 
+                <i class="fas fa-circle progress__active"><span class="position-relative">1</span><span class="progress__description">Carro</span></i>
+                <i class="fas fa-circle"><span class="position-relative">2</span><span class="progress__description">Envío</span></i>
+                <i class="fas fa-circle"><span class="position-relative">3</span><span class="progress__description">Pago</span></i>
+            </div>
+        </div>
+        <main id="cart-products">
+            <table id="table__cart">          
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>                   
+                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
+                        <td>Nombre Producto</td>
+                        <td>500grs</td>
+                        <td>$35.000</td>
+                        <td>
+                            <div class="cart__more-less">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>2</span>
+                                <i class="fas fa-minus-circle"></i>
+                            </div>
+                        </td>
+                        <td>$70.000</td>
+                        <td><i class="red fas fa-times"></td>
+                    </tr>
+                    <tr>                   
+                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
+                        <td>Nombre Producto</td>
+                        <td>500grs</td>
+                        <td>$35.000</td>
+                        <td>
+                            <div class="cart__more-less">
+                                <i class="fas fa-minus-circle"></i>
+                                <span>2</span>
+                                <i class="fas fa-plus-circle"></i>                                
+                            </div>
+                        </td>
+                        <td>$70.000</td>
+                        <td><i class="red fas fa-times"></td>
+                    </tr>                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <th scope="row" colspan="2">Total</th>
+                        <td colspan="2">$140.000</td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="cart__continue-buy">                      
+                <button>Continuar Compra</button>
+            </div>    
+        </main>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("./partials/footerNico") %>
+
+
+</body>
+</html>

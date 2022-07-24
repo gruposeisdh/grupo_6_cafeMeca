@@ -1,0 +1,79 @@
+
+<!-- * Encabezado de la pagina -->
+<%- include ("../partials/head") %>
+
+<title>Creacion de un producto</title>
+</head>
+
+<body class="bodyHome">
+    
+    <!-- Cabecera -->
+    <%- include ("../partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+
+        <div class="createProduct">
+
+            <div class="createProduct__title">
+                <h3>Creacion de un Producto</h3>
+            </div>
+
+            <form class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
+
+                <div class="createProduct-nameProduct">
+                    <label for="nameProduct">Nombre del Producto:</label>
+                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct">
+                </div>
+
+                <div class="createProduct-weightProduct">
+                    <label for="weightProduct">Peso del producto (Gramos):</label>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct" id="weightProduct">
+                </div>
+
+                <div class="createProduct-priceProduct">
+                    <label for="priceProduct">Precio (USD):</label>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct" id="priceProduct">
+                </div>
+
+                <div class="createProduct-categoryProduct">
+                    <label for="categoryProduct">Categoria:</label>
+                    <select class="createProduct__inputBox" name="categoryProduct" id="categoryProduct"> 
+
+                        <option>En grano</option>
+                        <option>Molido Fino</option>
+                        <option>Molido Medio</option>
+                        <option>Molido Grueso</option>
+
+                    </select> 
+                </div>
+
+                <div class="createProduct-imageProduct">
+                    <label for="imageProduct">Imagen (JPG, PNG):</label>
+                    <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
+                </div>
+
+                <div class="createProduct-descriptionProduct">
+                    <label for="descriptionProduct">Descripcion del producto:</label>
+                    <textarea class="createProduct__inputBox" name="descriptionProduct" id="descriptionProduct"></textarea>
+                </div>
+
+                <section class="btn createProduct-btn">
+                    <button type="submit" class="submit">Enviar</button>
+                    <button type="reset" class="reset">Restablecer</button>
+                </section>
+
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("../partials/footerNico") %>
+
+
+</body>
+</html>

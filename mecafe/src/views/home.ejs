@@ -1,0 +1,124 @@
+<!-- Encabezado de la pagina -->
+
+<%- include("./partials/head") %>
+
+<title>Home</title>
+</head>
+
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include("./partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+
+        <div class="home__containerBanner">
+
+            <video src="/video/cafe1080.mp4" autoplay loop muted></video>
+
+            <div class="videotwo-container">
+                <video class="videotwo" src="/video/granosCafe1080.mp4" autoplay loop muted></video>
+            </div>
+
+            <div class="home__logoAndTextBanner">
+                <h1>CAFE MECA</h1>
+                <h4>Despierta tu inspiracion</h4>
+            </div>
+
+            <div class="opacity"></div>
+
+        </div>
+
+        <div class="home__body">
+
+            <!-- Div con los logos y frases -->
+
+            <div class="redesSocialesBanner" >
+
+                <h5>Unete a nuestras redes sociales: </h5>
+                
+                <div class="redesSocialesBanner__icons">
+                    <i class="redesSocialesBanner__icon fa-brands fa-facebook-square"></i>
+                    <i class="redesSocialesBanner__icon fa-brands fa-twitter-square"></i>
+                    <i class="redesSocialesBanner__icon fa-brands fa-whatsapp-square"></i>
+                    <a href="https://github.com/gruposeisdh/grupo_6_cafeMeca/tree/dev" target="_blank"><i class="redesSocialesBanner__icon fa-brands fa-github-square"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Div Clusters -->
+            
+                <div class="home__containerColumns">
+
+                    <div class="home__containerColumns-container">
+                        <div class="home__clusterOne">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterTwo">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterThree">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterFor">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+                        <div class="home__clusterFive">
+                            <img src="/img/CafeCuadrada.jpg" alt="">
+                        </div>
+
+
+                    </div>
+
+
+            </div>
+
+            <div class="home__carrousel">
+
+                <ul class="home__carrousel-picture">
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-credit-card"></i>
+                            <h4>Tarjeta de Credito</h4>
+                            <p>Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-truck-arrow-right"></i>
+                            <h4>Envios a todo el mundo</h4>
+                            <p>Solo por estar registrado tenés envíos gratis en miles de productos.</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h4>La seguridad que buscas</h4>
+                            <p>¿No te gusta? ¡Devolvelo!, no hay nada que no puedas hacer, estás siempre protegido.</p>
+                        </div>
+                    </li>
+
+                    
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("./partials/footerNico") %>
+
+</body>
+</html>
