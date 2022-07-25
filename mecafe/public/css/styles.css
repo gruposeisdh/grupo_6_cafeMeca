@@ -407,8 +407,8 @@ th {
 }
 
 td {
-    font-size: .8em;
-    padding: .5em;
+    font-size: .7em;
+    padding: .2em;
     text-align: center;
     border: solid 1px var(--gray-pastel)
 }
@@ -422,23 +422,6 @@ tr:hover td{
 }
 
 
-.AdminProducts__table button {
-    padding: 5px;
-    border: solid 1px gray;
-    border-radius: 3px;
-    margin: 3px 0;
-}
-
-.AdminProducts__btnModify {
-    background-color: var(--green-pastel-btn);
-    min-width: 85px;
-}
-
-.AdminProducts__btnDelete {
-    background-color: var(--lox);
-    min-width: 85px;
-}
-
 .AdminProducts__btnNewProduct{
     background-color: #0f82fc;
     color: white;
@@ -449,8 +432,31 @@ tr:hover td{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
 }
+
+.AdminProducts__btn{
+    border: none;
+    background-color: transparent;
+}
+
+.AdminProducts__btn i {
+    font-size: 1.15em;
+    padding: 4px;
+}
+
+.AdminProducts__btnModify:hover {
+    transition:  .5s;
+    background-color: #00F562;
+    border-radius: 3px;
+}
+
+.AdminProducts__btnDelete:hover {
+    transition:  .5s;
+    background-color: red;
+    border-radius: 3px;
+}
+
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
