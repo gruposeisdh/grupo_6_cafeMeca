@@ -1159,7 +1159,7 @@ tr:hover td{
 
 body {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     min-height: 100%;
     background-color: #EEF2ED;
 }
