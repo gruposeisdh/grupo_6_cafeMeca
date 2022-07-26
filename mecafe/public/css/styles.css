@@ -645,12 +645,7 @@ tr:hover td{
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 .createProduct {
-    margin: 30px auto;
-    border: solid 1px var(--gray-pastel);
-    width: 90vw;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 3em;
 }
 
 .createProduct__title {
@@ -664,32 +659,41 @@ tr:hover td{
 }
 
 .createProduct__containerForm {
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.createProduct__containerForm label {
+    position: absolute;
+    display: block;
+    transform: translateY(-40px);
+    transition: transform .5s;
+    color: gray;
+    font-size: 14px;
 }
 
 .createProduct__containerForm div {
     font-size: .8em;
     align-items: center;
     padding: 5px;
-    display: grid;
-    grid-template-rows: 1fr 1.2fr
 }
 
 .createProduct__inputBox {
-    padding: 5px;
-    border-radius: 2px;
-    border: solid 1px gray
+    padding: 8px 0;
+    margin: .8em 0;
+    border: none;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 .createProduct__containerForm section {
     padding: 5px;
-}
-
-.createProduct__containerForm .btn {
-    display: grid;
-    grid-template-columns: 1fr;
 }
 
 .createProduct__containerForm button {
@@ -698,9 +702,24 @@ tr:hover td{
     margin: 3px 0;
     font-size: .8em;
     text-transform: uppercase;
-    padding: .5em;
+    padding: .8em;
     background-color: #3483fa;
     color: white;
+}
+
+.createProduct__inputBox:focus {
+    outline: none;
+}
+
+.createProduct__inputBox:focus + .createProduct__labelBox,
+.createProduct__inputBox:not(:placeholder-shown) + .createProduct__labelBox{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.createProduct__textArea{
+    height: 30px;
 }
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
@@ -1730,15 +1749,7 @@ footer {
 
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
-    .createProduct {
-        width: 80vw;
-    }
 
-    .createProduct__containerForm .btn {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-    }
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -2067,50 +2078,6 @@ footer {
 
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
-    .createProduct-nameProduct {
-        grid-area: createProduct-nameProduct;
-    }
-
-    .createProduct-weightProduct {
-        grid-area: createProduct-weightProduct;
-    }
-
-    .createProduct-priceProduct {
-        grid-area: createProduct-priceProduct;
-    }
-
-    .createProduct-categoryProduct {
-        grid-area: createProduct-categoryProduct;
-    }
-
-    .createProduct-imageProduct {
-        grid-area: createProduct-imageProduct;
-    }
-
-    .createProduct-descriptionProduct {
-        grid-area: createProduct-descriptionProduct;
-    }
-
-    .createProduct-btn {
-        grid-area: createProduct-btn;
-    }
-
-    .createProduct {
-        width: 80vw;
-        max-width: 800px;
-    }
-
-    .createProduct__containerForm {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-        row-gap: 5px;
-
-        grid-template-areas:
-            "createProduct-nameProduct createProduct-weightProduct"
-            "createProduct-priceProduct createProduct-categoryProduct"
-            "createProduct-imageProduct createProduct-descriptionProduct"
-            ". createProduct-btn"
-    }
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
