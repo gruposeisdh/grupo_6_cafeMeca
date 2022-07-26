@@ -15,34 +15,39 @@
 
             <form action="" class="registerForm__form">
 
-                <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Nombre:</label>
-                    <input type="text" required>
+                <div class="registerForm__titleForm">
+                    <h2>¿Todavia no tenes una cuenta?</h2>
+                    <h3>Registrate Ahora 😀</h3>
                 </div>
 
                 <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Apellido:</label>
-                    <input type="text" required>
+                    <input type="text" class="registerForm__formInput" id="name" required placeholder=" ">
+                    <label for="name" class="registerForm__formLabel">Ingresa tu Nombre:</label>
                 </div>
 
                 <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Correo Electronico:</label>
-                    <input type="email" required>
+                    <input type="text" class="registerForm__formInput" id="lastName" required placeholder=" ">
+                    <label for="lastName" class="registerForm__formLabel">Ingresa tu Apellido:</label>
+                </div>
+
+                <div class="registerForm__container-label">
+                    <input type="email" class="registerForm__formInput" id="email" required placeholder=" ">
+                    <label for="email" class="registerForm__formLabel">Ingresa tu Correo Electronico</label>
+                </div>
+
+                <div class="registerForm__container-label">
+                    <input type="password" class="registerForm__formInput" id="password" required placeholder=" ">
+                    <label for="password" class="registerForm__formLabel">Ingresa tu Contraseña</label>
                 </div>
 
                 <div class="registerForm__container-label errorCampoDiv">
-                    <label class="register__formLabel" for="">Ingresa tu Contraseña:</label>
-                    <input class="register__formInput" type="password" required>
+                    <input type="password" class="registerForm__formInput" id="confirmPassword" required placeholder=" ">
+                    <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
                     <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p>
                 </div>
 
-                <div class="registerForm__container-label">
-                    <label for="">Confirma la contraseña ingresada:</label>
-                    <input type="password" required>
-                </div>
-
                 <div class="registerForm__Btns">
-                        <button type="submit" class="registerForm__btn btnSend">Registrarme</button>
+                        <button type="submit" class="registerForm__btn btnSendRegister">Registrarme</button>
                 </div>
 
             </form>
