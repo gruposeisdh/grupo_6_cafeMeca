@@ -15,47 +15,50 @@
 
         <div class="createProduct">
 
-            <div class="createProduct__title">
-                <h3>Creacion de un Producto</h3>
-            </div>
-
             <form class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
 
-                <div class="createProduct-nameProduct">
-                    <label for="nameProduct">Nombre del Producto:</label>
-                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct">
+                <div class="registerForm__titleForm">
+                    <h2>¿Necesitas crear un producto?</h2>
+                    <h3>Adelante! 😀</h3>
                 </div>
 
-                <div class="createProduct-weightProduct">
-                    <label for="weightProduct">Peso del producto (Gramos):</label>
-                    <input class="createProduct__inputBox" type="text" name="weightProduct" id="weightProduct">
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" required placeholder=" ">
+                    <label for="nameProduct" class="createProduct__labelBox">Nombre del Producto:</label>
                 </div>
 
-                <div class="createProduct-priceProduct">
-                    <label for="priceProduct">Precio (USD):</label>
-                    <input class="createProduct__inputBox" type="text" name="priceProduct" id="priceProduct">
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct" id="weightProduct" required placeholder=" ">
+                    <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos):</label>
                 </div>
 
-                <div class="createProduct-categoryProduct">
-                    <label for="categoryProduct">Categoria:</label>
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct" id="priceProduct" required placeholder=" ">
+                    <label for="priceProduct" class="createProduct__labelBox">Precio (USD):</label>
+                </div>
+
+
+                <div>
+                    <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"></textarea>
+                    <label for="descriptionProduct" class="createProduct__labelBox">Descripcion del producto:</label>
+                </div>
+
+
+                <div>
                     <select class="createProduct__inputBox" name="categoryProduct" id="categoryProduct"> 
-
                         <option>En grano</option>
                         <option>Molido Fino</option>
                         <option>Molido Medio</option>
                         <option>Molido Grueso</option>
-
                     </select> 
+
+                    <label for="categoryProduct" class="createProduct__labelBox">Categoria:</label>
                 </div>
 
-                <div class="createProduct-imageProduct">
-                    <label for="imageProduct">Imagen (JPG, PNG):</label>
+
+                <div>
                     <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
-                </div>
-
-                <div class="createProduct-descriptionProduct">
-                    <label for="descriptionProduct">Descripcion del producto:</label>
-                    <textarea class="createProduct__inputBox" name="descriptionProduct" id="descriptionProduct"></textarea>
+                    <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
                 </div>
 
                 <section class="btn createProduct-btn">
