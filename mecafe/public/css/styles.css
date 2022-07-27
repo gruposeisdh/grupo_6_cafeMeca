@@ -713,13 +713,13 @@ tr:hover td{
 
 .createProduct__inputBox:focus + .createProduct__labelBox,
 .createProduct__inputBox:not(:placeholder-shown) + .createProduct__labelBox{
-    transform: translateY(-55px) scale(.75);
+    transform: translateY(-55px) scale(.8);
     transform-origin: left top;
     color: #3866f2;
 }
 
 .createProduct__textArea{
-    height: 30px;
+    height: 33px;
 }
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
