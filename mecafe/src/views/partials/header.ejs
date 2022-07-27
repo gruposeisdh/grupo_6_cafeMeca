@@ -16,11 +16,14 @@
                 <li class="nav-link"><a href="#">Quienes Somos</a></li>
                 <li class="nav-link"><a href="#">Contacto</a></li>
                 <li class="nav-link"><a href="/product/administracion">Admin</a></li>
-                <li class="nav-link"><a href="#" id="btnOpenModalLogin" onclick="openModalLogin()">Inicio Sesion</a></li>
+                <li class="nav-link"><a href="#" id="btnOpenModalLogin" onclick="openModal('modalLogin')">Inicio Sesion</a></li>
+                <li class="nav-link"><a href="#" id="btnOpenModalPassword" onclick="openModal('modalPassword')">Cambiar contraseña</a></li>
             </ul>
         </nav>
     </div>
 </div>
+<div class="open-close-side"></div>
 
 <%- include("./login") %>
+<%- include("./changePassword") %>
 
