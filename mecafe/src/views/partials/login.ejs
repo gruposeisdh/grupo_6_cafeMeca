@@ -1,7 +1,7 @@
-<div class="login__container" id="modalLogin">
-    <div class="login__header">
+<div class="login__container modal__container" id="modalLogin">
+    <div class="modal__header">
         <h2>Ingresar</h2>
-        <a onclick="closeModalLogin()"><i class="fas fa-times"></i></a>
+        <a onclick="closeModal('modalLogin')"><i class="fas fa-times"></i></a>
     </div>
     <form action="">
         <div class="form-group">
@@ -11,7 +11,7 @@
         <div class="form-group errorCampoDiv">
             <label for="password">Contraseña<span>*</span></label><br>
             <input type="password" name="password" placeholder="*******">    
-            <p class="login__formError">Usuario o contraseña inválido, inténtalo nuevamente.</p>  
+            <p class="modal__formError">Usuario o contraseña inválido, inténtalo nuevamente.</p>  
         </div>
             
         <div class="text-center">
@@ -26,4 +26,3 @@
         </div>
     </form>
 </div>
-<div class="login-open-close-side"></div>

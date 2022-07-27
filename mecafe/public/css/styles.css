@@ -253,9 +253,8 @@ a:active {
     height: 100%;
 }
 
-/*! ════════════════════ LOGIN ════════════════════ !*/
-
-.login-open-close-side {
+/** ═══════ GENERAL MODALS ═════════════ */
+.open-close-side {
     position: fixed;
     top: 0;
     left: 0;
@@ -267,7 +266,7 @@ a:active {
     background-color: rgba(0, 0, 0, .7);
 }
 
-.login__header {
+.modal__header {
     display: flex;
     justify-content: space-between;
     margin: 10px;
@@ -275,6 +274,73 @@ a:active {
     border-bottom: 1px solid var(--lox);
 }
 
+.modal__container form {
+    margin-top: 15px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.modal__container form label {
+    margin-bottom: 5px;
+}
+
+.modal__container form .form-group {
+    padding: 10px;
+}
+
+.modal__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.modal__container form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 17px;
+    background-color: #ffffff;
+    border-style: hidden;
+    border-radius: 11px;
+    box-shadow: 0px 0px 6px var(--black);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal__container form input[type="button"] {
+    margin-top: 10px;
+    align-self: center;
+    width: 30%;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.modal__container a {
+    color: var(--lox);
+    font-weight: bold;
+}
+/*! ════════════ MODAL CHANGE PASSWORD ═══════════════════ !*/
+
+.changePassword__container {
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 10px;
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    width: 90%;
+    display: none;
+    margin: auto;
+    top: 22%;
+    left: 5%;
+}
+
+/*! ════════════════════ MODAL LOGIN ════════════════════ !*/
 
 .login__container {
     border: 1px solid black;
@@ -287,7 +353,6 @@ a:active {
     top: 0;
     width: 100%;
     min-width: 150px;
-    /** color: var(--black); */
     display: none;
 }
 
@@ -308,63 +373,12 @@ a:active {
 
 }
 
-.login__container form {
-    margin-top: 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.login__container form label {
-    margin-bottom: 5px;
-}
-
-.login__container form .form-group {
-    padding: 10px;
-}
-
-.login__formError {
-    margin-top: 0.7em;
-    color: red;
-    font-size: 0.8em;
-    text-align: center;
-    font-weight: 700;
-}
-
-.login__container form input {
-    width: 100%;
-    padding: 8px;
-    font-size: 17px;
-    background-color: #ffffff;
-    border-style: hidden;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .login__container form input[type="checkbox"] {
     width: auto;
 }
 
 .login__container form div a {
     margin-left: 20px;
-}
-
-.login__container form input[type="button"] {
-    margin-top: 10px;
-    align-self: center;
-    width: 30%;
-    background-color: var(--black);
-    color: white;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.login__container a {
-    color: var(--lox);
-    font-weight: bold;
 }
 
 .login_logo{
@@ -1706,7 +1720,14 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 480PX ════════════════════ TODO */
 
 @media (min-width: 480px) {
-    /*! ════════════════════ LOGIN ════════════════════ !*/
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 70%;
+        left: 15%;
+    }
+
+    /*! ════════════════════ MODAL LOGIN ════════════════════ !*/
 
     .login__container {
         width: 450px;
@@ -1930,6 +1951,13 @@ footer {
         transition: 0.5s;
         color: #000000;
         font-weight: 800;
+    }
+
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 40%;
+        left: 30%;
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
@@ -2534,6 +2562,12 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 992PX ════════════════════ TODO */
 
 @media (min-width: 992px) {
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 30%;
+        left: 35%;
+    }
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
