@@ -1,5 +1,6 @@
 
 let authMiddlewares = {
+    
     //no puedes ingresar a vistar en que necesitas no estar logeado - register
     guestMiddleware: function (req, res, next) {
         if(req.session.user){
@@ -10,7 +11,7 @@ let authMiddlewares = {
 
     //proteger rutas en las que necesitas estar logeado
     authMiddleware: function(req, res, next){
-        if(req.session.user){
+        if(!req.session.user){            
             //res.render('archivo.ejs',{'alert':true});
             return res.send("necesitas estar logeado");
         }
