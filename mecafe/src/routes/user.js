@@ -9,7 +9,7 @@ const validateLogin = [
     check('password').notEmpty().withMessage('Debes completar el Password')
 ];
 
-router.get('/register',authMiddlewares.guestMiddleware,userController.register);
+router.get('/register',authMiddlewares.adminMiddleware,userController.register);
 router.post('/login',validateLogin,userController.login);
 router.post('/logout',userController.logout);
 
