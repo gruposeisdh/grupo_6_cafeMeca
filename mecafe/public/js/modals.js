@@ -45,7 +45,19 @@ function validateOpenLoginErrors(){
     }
 }
 
+//obtiene ruta de pagina actual
+function getRoute(){
+    return window.location.pathname;
+}
+
+//inserta en iput oculto de login (para que redireccione correctamente)
+function insertRouteInputLogin(){
+    let url = getRoute();
+    document.getElementById("inputRouteLogin").value = url;
+}
+
 //ejecutar estas funciones al cargar pagina
 window.onload = function() {
     validateOpenLoginErrors();
+    insertRouteInputLogin();
 };

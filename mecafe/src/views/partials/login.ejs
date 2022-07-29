@@ -4,7 +4,7 @@
         <a onclick="closeModal('modalLogin')"><i class="fas fa-times"></i></a>
     </div>
     <form action="/user/login" method="post">
-        <input type="hidden" name="route" value="/product" />    
+        <input type="hidden" name="route" id="inputRouteLogin" />    
         <div class="form-group">
             <label for="email">Correo electrónico<span>*</span></label><br>
             <input type="email" name="email" placeholder="example@email.com">
