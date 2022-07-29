@@ -395,6 +395,16 @@ a:active {
     margin-top: 35px;
 }
 
+.login__container form input[type="submit"] {
+    margin-top: 10px;
+    align-self: center;
+    width: 30%;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 /*! ════════════════════ MAIN ════════════════════ !*/
 
 /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/

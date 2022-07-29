@@ -1,5 +1,4 @@
 const path = require('path');
-const { file } = require('../models/product');
 const fileproducts = require('../models/product');
 
 let productController = {

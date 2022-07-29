@@ -4,7 +4,7 @@
         "firstName": "John",
         "lastName": "Smith",
         "email": "smith@example.com",
-        "password": "password",
+        "password": "$2a$10$ikvz6F38R60TVRaAhDR8reK/vZYZib5rJTKtmcztWXEh2oblzolDe",
         "role": "administrator",
         "image": ""
     },
