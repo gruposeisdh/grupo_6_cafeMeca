@@ -14,10 +14,16 @@
                 <li class="nav-link"><a href="/">Inicio</a></li>
                 <li class="nav-link"><a href="/product">Productos</a></li>
                 <li class="nav-link"><a href="#">Quienes Somos</a></li>
-                <li class="nav-link"><a href="#">Contacto</a></li>
-                <li class="nav-link"><a href="/product/administracion">Admin</a></li>
-                <li class="nav-link"><a href="#" id="btnOpenModalLogin" onclick="openModal('modalLogin')">Inicio Sesion</a></li>
-                <li class="nav-link"><a href="#" id="btnOpenModalPassword" onclick="openModal('modalPassword')">Cambiar contraseña</a></li>
+                <li class="nav-link"><a href="#">Contacto</a></li>                
+                <% if(locals.user && locals.user.role == "admin") { %> <li class="nav-link"><a href="/product/administracion">Admin</a></li> <% } %>
+                <% if(!locals.user) { %> <li class="nav-link"><a href="#" id="btnOpenModalLogin" onclick="openModal('modalLogin')">Inicio Sesion</a></li> <% } %>
+                <% if(locals.user) { %> 
+                    <li class="nav-link"><a href="#" id="btnOpenModalPassword" onclick="openModal('modalPassword')">Cambiar contraseña</a></li> 
+                    <li class="nav-link"><form action="/user/logout" method="post"><a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a></form></li> 
+                <% } %>
+                
+                
+                
             </ul>
         </nav>
     </div>

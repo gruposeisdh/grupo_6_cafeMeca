@@ -28,8 +28,9 @@ let userController = {
         return res.redirect(route);
     },
 
-    logout:(_req,res) => {
+    logout:(req,res) => {
         req.session.destroy();
+        res.locals = undefined;
         return res.redirect('/');
     }
 

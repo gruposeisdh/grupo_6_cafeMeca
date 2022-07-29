@@ -30,8 +30,10 @@ let authMiddlewares = {
     userLogged :function(req, res, next){
         res.locals.isLogged = false;
         if(req.session.user){
-            res.locals.isLogged = true;
-            res.locals.name = req.session.user.name;
+            res.locals.user = {
+                'name': req.session.user.name,
+                'role': req.session.user.name,
+            };
         }
 
         //errores de login - por el momento las validaciones de login se enviaran por locals :(
