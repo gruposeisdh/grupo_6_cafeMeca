@@ -34,9 +34,10 @@ let authMiddlewares = {
             res.locals.name = req.session.user.name;
         }
 
-        //errores de login - por el momento las validaciones de modal se enviaran por locals :(
+        //errores de login - por el momento las validaciones de login se enviaran por locals :(
         if(req.session.errorsLogin){
             res.locals.errorsLogin = req.session.errorsLogin;
+            req.session.errorsLogin = undefined;
         }
         next();
     }

@@ -1,4 +1,4 @@
-<div class="login__container modal__container" id="modalLogin">
+<div class="login__container modal__container" id="modalLogin" <%= locals.errorsLogin ? 'active' : ''%> >
     <div class="modal__header">
         <h2>Ingresar</h2>
         <a onclick="closeModal('modalLogin')"><i class="fas fa-times"></i></a>
@@ -6,10 +6,10 @@
     <form action="/user/login" method="post">
         <input type="hidden" name="route" value="/product" />    
         <div class="form-group">
-            <label for="mail">Correo electrónico<span>*</span></label><br>
-            <input type="mail" name="mail" placeholder="example@mail.com">
-            <% if(locals.errorsLogin && locals.errorsLogin.mail){ %>
-                <p class="modal__formError"><%= locals.errorsLogin.mail.msg %></p>  
+            <label for="email">Correo electrónico<span>*</span></label><br>
+            <input type="email" name="email" placeholder="example@email.com">
+            <% if(locals.errorsLogin && locals.errorsLogin.email){ %>
+                <p class="modal__formError"><%= locals.errorsLogin.email.msg %></p>  
             <% } %>
         </div>
         <div class="form-group errorCampoDiv">
