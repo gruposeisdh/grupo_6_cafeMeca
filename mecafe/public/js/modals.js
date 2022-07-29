@@ -38,8 +38,7 @@ function openCloseSideChangeVisibility(){
 //valida si se debe abrir login al haber errores de validacion
 function validateOpenLoginErrors(){
     let login = document.getElementById('modalLogin');
-
-    console.log(login.getAttribute('active'));
+    
     if(login.getAttribute('active') != null){
         openModal('modalLogin');
     }
