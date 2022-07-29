@@ -1,7 +1,7 @@
 
 let authMiddlewares = {
     
-    //no puedes ingresar a vistar en que necesitas no estar logeado - register
+    //no puedes ingresar a vistas en que necesitas no estar logeado - register
     guestMiddleware: function (req, res, next) {
         if(req.session.user){
             return res.redirect('/');
@@ -20,7 +20,7 @@ let authMiddlewares = {
 
     //proteger rutas que en las que debes ser admin
     adminMiddleware: function(req, res, next){
-        if(req.session.user && req.session.user.role == 'admin'){
+        if(req.session.user && req.session.user.role != 'admin'){
             return res.redirect('/');
         }
         next();
@@ -32,14 +32,14 @@ let authMiddlewares = {
         if(req.session.user){
             res.locals.user = {
                 'name': req.session.user.name,
-                'role': req.session.user.name,
+                'role': req.session.user.role,
             };
         }
 
         //errores de login - por el momento las validaciones de login se enviaran por locals :(
         if(req.session.errorsLogin){
-            res.locals.errorsLogin = req.session.errorsLogin;
-            req.session.errorsLogin = undefined;
+           res.locals.errorsLogin = req.session.errorsLogin;
+           req.session.errorsLogin = undefined;
         }
         next();
     }
