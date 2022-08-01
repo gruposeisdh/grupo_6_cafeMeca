@@ -7,24 +7,30 @@ const fileUserProfile = require('../models/user');
 let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
-    //Formulario de registro
+    //crea un usuario
+    create: (_req,res) => {
+        res.render(path.resolve(__dirname,"../views/user/register.ejs"))
+    },
+
+    //crea usuario con el formulario de registro
     store: (req,res) => {
-        let nameUser = req.body.nameUser
+        let name = req.body.name
         let lastName = req.body.lastName
-        let emailUser = req.body.emailUser
-        let passwordUser = req.body.passwordUser
+        let email = req.body.email
+        let password = req.body.password
 
         let newUserProfile = {
             id : fileUserProfile.generateIdUser(),
-            firstName: nameUser,
+            firstName: name,
             lastName: lastName,
-            email: emailUser,
-            password: passwordUser,
-            image: fileUserProfile.imageProductNewUser(req.file),
+            email: email,
+            password: password,
+            role:"admin",
+            imageProfile: fileUserProfile.imageProductNewUser(req.file),
         }
 
-        fileUserProfile.saveUser(newUserProfile)
-        res.redirect('/register');
+        fileUserProfile.saveNewUser(newUserProfile)
+        res.redirect('/user/register');
     },  
 
        

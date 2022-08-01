@@ -1,20 +1,17 @@
-[
-    {
-        "id":1,
-        "firstName": "John",
-        "lastName": "Smith",
-        "email": "smith@example.com",
-        "password": "$2a$10$ikvz6F38R60TVRaAhDR8reK/vZYZib5rJTKtmcztWXEh2oblzolDe",
-        "role": "admin",
-        "image": ""
-    },
-    {
-        "id":2,
-        "firstName": "pepe",
-        "lastName": "snow",
-        "email": "snow@example.com",
-        "password": "password",
-        "role": "user",
-        "image": ""
-    }
-]
+[{"id":1,"firstName":"John","lastName":"Smith","email":"smith@example.com","password":"$2a$10$ikvz6F38R60TVRaAhDR8reK/vZYZib5rJTKtmcztWXEh2oblzolDe","role":"admin","image":""},{"id":2,"firstName":"pepe","lastName":"perez","email":"perez@example.com","password":"tgfg","role":"admin","image":""},
+
+{"id":3,
+"firstName":"usuario1",
+"lastName":"apellido1",
+"email":"usuario1@prueba.com",
+"password":"12345678",
+"role":"admin",
+"imageProfile":"userImage - 1659366645263.jpg"},
+
+{"id":4,
+"firstName":"usuario2",
+"lastName":"apellido2",
+"email":"usuario2@prueba.com",
+"password":"456789",
+"role":"admin",
+"imageProfile":"userImage - 1659366772841.jpg"}]
