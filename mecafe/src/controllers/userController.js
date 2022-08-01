@@ -2,9 +2,32 @@ const path = require('path');
 const fileUser = require('../models/user');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const fileUserProfile = require('../models/user');
 
 let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
+
+    //Formulario de registro
+    store: (req,res) => {
+        let nameUser = req.body.nameUser
+        let lastName = req.body.lastName
+        let emailUser = req.body.emailUser
+        let passwordUser = req.body.passwordUser
+
+        let newUserProfile = {
+            id : fileUserProfile.generateIdUser(),
+            firstName: nameUser,
+            lastName: lastName,
+            email: emailUser,
+            password: passwordUser,
+            image: fileUserProfile.imageProductNewUser(req.file),
+        }
+
+        fileUserProfile.saveUser(newUserProfile)
+        res.redirect('/register');
+    },  
+
+       
     login:(req,res) => {
         const errors = validationResult(req);
         let pass =  req.body.password;

@@ -13,7 +13,7 @@
         
         <div class="registerForm__container-form">
 
-            <form action="" class="registerForm__form">
+            <form action="/register" class="registerForm__form" method="POST" enctype="multipart/form-data">
 
                 <div class="registerForm__titleForm">
                     <h2>¿Todavia no tenes una cuenta?</h2>
@@ -44,6 +44,11 @@
                     <input type="password" class="registerForm__formInput" id="confirmPassword" required placeholder=" ">
                     <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
                     <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p>
+                </div>
+
+                <div>
+                    <input type="file" class="registerForm__formInput"  name="imageProfile" id="imageProfile" accept=".JPG,.PNG">
+                    <label for="imageProfile" class="registerForm__formLabel">Avatar (JPG, PNG):</label>
                 </div>
 
                 <div class="registerForm__Btns">

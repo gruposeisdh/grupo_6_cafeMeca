@@ -55,7 +55,31 @@ let fileUser = {
         return users.filter(function(item){
             return item[atribute] == value;
         });
-    }
+    },
+
+    generateIdUser(){
+        let users = this.readJSON();
+        let lastUser = users[users.length - 1] 
+        return lastUser.id + 1;
+    },
+
+    imageProductNewUser (reqFile){
+        let imageUser = ""
+        if (reqFile == undefined){
+            imageUser = "default-product-image.png";
+        } else {
+            imageUser = reqFile.filename;
+        }
+        return imageUser;
+    },
+
+    saveNewUser: function(user){
+        let users = this.readJSON();
+        users.push(user);
+        this.writeJSON(users);
+    
+        return user;
+        },
 }
 
 module.exports = fileUser;
