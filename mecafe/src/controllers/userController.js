@@ -12,27 +12,37 @@ let userController = {
         res.render(path.resolve(__dirname,"../views/user/register.ejs"))
     },
 
-    //crea usuario con el formulario de registro
-    store: (req,res) => {
+      //crea usuario con el formulario de registro 
+   store: (req,res) => {
+        let errors = validationResult(req); 
+        
+        if (!errors.isEmpty()){
+            return res.render(path.resolve(__dirname,"../views/user/register.ejs"),{
+                errorMessage: errors.mapped(),
+                oldData: req.body
+            }) 
+
+        }else {
         let name = req.body.name
         let lastName = req.body.lastName
         let email = req.body.email
         let password = req.body.password
-
-        let newUserProfile = {
-            id : fileUserProfile.generateIdUser(),
-            firstName: name,
-            lastName: lastName,
-            email: email,
-            password: password,
-            role:"admin",
-            imageProfile: fileUserProfile.imageProductNewUser(req.file),
-        }
-
-        fileUserProfile.saveNewUser(newUserProfile)
-        res.redirect('/user/register');
-    },  
-
+     
+            let newUserProfile = {
+                id : fileUserProfile.generateIdUser(),
+                firstName: name,
+                lastName: lastName,
+                email: email,
+                password: password,
+                role:"cliente",
+                imageProfile: fileUserProfile.imageProductNewUser(req.file),
+            }
+    
+            fileUserProfile.saveNewUser(newUserProfile)
+            return res.redirect('/user/register');
+         }             
+    }, 
+    
        
     login:(req,res) => {
         const errors = validationResult(req);
