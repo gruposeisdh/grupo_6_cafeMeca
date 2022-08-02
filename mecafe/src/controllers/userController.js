@@ -40,7 +40,7 @@ let userController = {
     
             fileUserProfile.saveNewUser(newUserProfile)
             return res.redirect('/user/register');
-         }             
+         } 
     }, 
     
        
