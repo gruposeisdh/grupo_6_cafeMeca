@@ -12,7 +12,6 @@
     <section class="generalHome">
         
         <div class="registerForm__container-form">
-
             <form action="/user/register" class="registerForm__form" method="POST" enctype="multipart/form-data">
 
                 <div class="registerForm__titleForm">
@@ -21,33 +20,62 @@
                 </div>
 
                 <div>
-                    <input type="text" class="registerForm__formInput" name="name" id="name" required placeholder=" ">
+                    <input type="text" name="name" class="registerForm__formInput"
+                    value="<%= locals.oldData ? oldData.name : null %>" id="name" placeholder=" ">
                     <label for="name" class="registerForm__formLabel">Ingresa tu Nombre:</label>
+
+                    <% if(locals.errorMessage && errorMessage.name){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.name.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
                 <div>
-                    <input type="text" class="registerForm__formInput" name="lastName" id="lastName" required placeholder=" ">
+                    <input type="text" name="lastName" class="registerForm__formInput" 
+                    value="<%= locals.oldData ? oldData.lastName : null %>" id="lastName" placeholder=" ">
                     <label for="lastName" class="registerForm__formLabel">Ingresa tu Apellido:</label>
+                    <% if(locals.errorMessage && errorMessage.lastName){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.lastName.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
                 <div>
-                    <input type="email" class="registerForm__formInput" name="email" id="email" required placeholder=" ">
+                    <input type="text" name="email" class="registerForm__formInput"
+                    value="<%= locals.oldData ? oldData.email : null %>" id="email"  placeholder=" ">
                     <label for="email" class="registerForm__formLabel">Ingresa tu Correo Electronico</label>
+                    <% if(locals.errorMessage && errorMessage.email){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.email.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
                 <div>
-                    <input type="password" class="registerForm__formInput" name="password" id="password" required placeholder=" ">
+                    <input type="password" name="password" class="registerForm__formInput" id="password" placeholder=" ">
                     <label for="password" class="registerForm__formLabel">Ingresa tu Contraseña</label>
+                    <% if(locals.errorMessage && errorMessage.password){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.password.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
                 <div class="errorCampoDiv">
-                    <input type="password" class="registerForm__formInput" name="confirmPassword" id="confirmPassword" required placeholder=" ">
+                    <input type="password" name="confirmPassword" + id="confirmPassword" placeholder=" ">
                     <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
-                    <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p>
+                    <% if(locals.errorMessage && errorMessage.confirmPassword){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.confirmPassword.msg %> 
+                        </p>
+                    <% } %> 
+                   <!-- <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p> -->
                 </div>
 
                 <div>
-                    <input type="file" class="registerForm__formInput"  name="imageProfile" id="imageProfile" accept=".JPG,.PNG">
+                    <input type="file" name="imageProfile" class="registerForm__formInput"  id="imageProfile" accept=".JPG,.PNG">
                     <label for="imageProfile" class="registerForm__formLabel">Avatar (JPG, PNG):</label>
                 </div>
 
