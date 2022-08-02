@@ -20,7 +20,12 @@ const validateCreateUser = [
     check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
     check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com'),
     check('password').notEmpty().withMessage('Debes ingresar una contraseña').isLength({min:8}).withMessage('La contraseña debe tener mínimo 8 caracteres'),
-    check('confirmPassword').notEmpty().withMessage('Debes confirmar la contraseña')
+    check('confirmPassword').notEmpty().withMessage('Debes confirmar la contraseña').bail().custom((value, { req }) => {
+        if (value !== req.body.password) {
+          throw new Error('Las contraseñas escritas no coinciden, inténtalo de nuevo');
+        }
+          return true;
+        })
 ];
 
 

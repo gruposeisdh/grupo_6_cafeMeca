@@ -26,7 +26,7 @@ let userController = {
         let name = req.body.name
         let lastName = req.body.lastName
         let email = req.body.email
-        let password = req.body.password
+        let password = bcrypt.hashSync(req.body.password, 10)
      
             let newUserProfile = {
                 id : fileUserProfile.generateIdUser(),
@@ -40,7 +40,7 @@ let userController = {
     
             fileUserProfile.saveNewUser(newUserProfile)
             return res.redirect('/user/register');
-         }             
+         } 
     }, 
     
        
