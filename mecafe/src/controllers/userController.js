@@ -63,8 +63,18 @@ let userController = {
             return res.redirect(route);
         }
 
+         //Validación de Cookies
+         console.log(req.body.remember);
+         if (req.body.remember != undefined){
+            res.cookie('remember', 
+            user.email, {maxAge: 60000})
+            
+        }
+
         req.session.errorsLogin = {'errorPass': 'La combinación usuario / contraseña no es válida'};
         return res.redirect(route);
+
+       
     },
 
     logout:(req,res) => {

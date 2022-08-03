@@ -1,1 +1,16 @@
-[{"id":1,"firstName":"Jhon","lastName":"Smith","email":"jhon@admin.com","password":"$2a$10$zg8e4VZXWGBTgevviaMh6OOUPmmw0jplecV6sunmbALvDkp4pBPxS","role":"admin","imageProfile":"userImage - 1659409452208.png"},{"id":2,"firstName":"ana","lastName":"gonzalez","email":"ana@pruebas.com","password":"$2a$10$XL5i03hhk2uy.uk3n/kaSewF1dDXtJRpZz1XxlLPTSj/KWsgD44hm","role":"cliente","imageProfile":"userImage - 1659409276523.jpg"},{"id":3,"firstName":"Roberto","lastName":"Bolaños","email":"Roberto@pruebas.com","password":"$2a$10$K1n8UmxIekQMNepemdp1wOr.ekyQ4aq1VPNn.ChCgGr4sm1hfL6py","role":"cliente","imageProfile":"userImage - 1659409635411.jpg"}]
+[{"id":1,"firstName":"Jhon","lastName":"Smith",
+"email":"jhon@admin.com",
+"password":"$2a$10$qbQMydS8XTWPU4DF7lcCj.4NA.YHeFJ.iOXDjju/o0qcIpK.HgZNu",
+"role":"admin","imageProfile":"userImage - 1659483266368.png"},
+
+{"id":2,"firstName":"ana","lastName":"gonzalez",
+"email":"ana@pruebas.com",
+"password":"$2a$10$hM0Uf3cgQEDlciplqNRtpON1BuOczziC.8m.KpfE.Znl3eeO53NBC",
+"role":"cliente",
+"imageProfile":"userImage - 1659483176860.jpg"},
+
+{"id":3,"firstName":"Roberto",
+"lastName":"Bolaños","email":"Roberto@pruebas.com",
+"password":"$2a$10$qGU2pqrIgjbxKxtkx.jrnuu9FsYC3mdEohK.q.A2reRS4B5HIxpEW",
+"role":"cliente","imageProfile":"userImage - 1659483202933.jpg"}
+]
