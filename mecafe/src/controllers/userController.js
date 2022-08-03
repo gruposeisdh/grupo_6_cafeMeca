@@ -39,7 +39,7 @@ let userController = {
             }
     
             fileUserProfile.saveNewUser(newUserProfile)
-            return res.redirect('/user/register');
+            return res.redirect('/');
          } 
     }, 
     
@@ -69,7 +69,7 @@ let userController = {
 
     logout:(req,res) => {
         req.session.destroy();
-        res.locals = undefined;
+        //res.locals = undefined;
         return res.redirect('/');
     }
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const productController = require('../controllers/productController.js')
+const authMiddlewares = require('../middlewares/authMiddlewares');
 const multer = require ("multer")
 const path = require ("path")
 
@@ -25,13 +26,47 @@ const uploadProducts = multer( { storage : storage } )
 /* Fin de la creacion de Multer */
 
 router.get('/',productController.index);
-router.get('/create',productController.create);
-router.post('/', uploadProducts.single("imageProduct") ,productController.store);
+
+router.get(
+    '/create',
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
+    productController.create
+);
+
+router.post(
+    '/', 
+    authMiddlewares.authMiddlewarePost,
+    authMiddlewares.adminMiddleware,
+    uploadProducts.single("imageProduct"),
+    productController.store
+);
+
 router.get('/edit/:id',productController.edit);
-router.post('/edit/:id', uploadProducts.single("imageProduct"), productController.update);
+
+router.post(
+    '/edit/:id',
+    authMiddlewares.authMiddlewarePost,
+    authMiddlewares.adminMiddleware,
+    uploadProducts.single("imageProduct"), 
+    productController.update
+);
+
 router.get('/detail/:id',productController.detail);
-router.post('/delete/:id', productController.destroy);
-router.get('/administracion',productController.adminProducts);
+
+router.post(
+    '/delete/:id',
+    authMiddlewares.authMiddlewarePost,
+    authMiddlewares.adminMiddleware,
+    productController.destroy
+);
+
+router.get(
+    '/administracion',
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
+    productController.adminProducts
+);
 
 
 module.exports = router;

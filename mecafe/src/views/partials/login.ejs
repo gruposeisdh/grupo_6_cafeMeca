@@ -1,4 +1,4 @@
-<div class="login__container modal__container" id="modalLogin" <%= locals.errorsLogin ? 'active' : ''%> >
+<div class="login__container modal__container" id="modalLogin" <%= locals.errorsLogin || locals.openLogin ? 'active' : ''%> >
     <div class="modal__header">
         <h2>Ingresar</h2>
         <a onclick="closeModal('modalLogin')"><i class="fas fa-times"></i></a>

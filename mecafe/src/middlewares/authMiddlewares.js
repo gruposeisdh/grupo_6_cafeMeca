@@ -1,7 +1,8 @@
+const path = require('path');
 
 let authMiddlewares = {
     
-    //no puedes ingresar a vistas en que necesitas no estar logeado - register
+    //proteger rutas en las que no se debe estar logeado
     guestMiddleware: function (req, res, next) {
         if(req.session.user){
             return res.redirect('/');
@@ -9,11 +10,20 @@ let authMiddlewares = {
         next();
     }, 
 
-    //proteger rutas en las que necesitas estar logeado
+    //proteger rutas en las que necesitas estar logeado GET
     authMiddleware: function(req, res, next){
-        if(!req.session.user){            
-            //res.render('archivo.ejs',{'alert':true});
-            return res.send("necesitas estar logeado");
+        if(!req.session.user){
+            res.locals.openLogin = true;
+            return res.render(path.resolve(__dirname,"../views/notAuth.ejs"));
+        }
+
+        next();
+    },
+
+    //proteger rutas en las que necesitas estar logeado POST
+    authMiddlewarePost: function(req, res, next){
+        if(!req.session.user){
+            return res.redirect('/');
         }
         next();
     },
@@ -36,11 +46,17 @@ let authMiddlewares = {
             };
         }
 
-        //errores de login - por el momento las validaciones de login se enviaran por locals :(
+        next();
+    },
+
+    errorsLogin:function(req, res, next){
         if(req.session.errorsLogin){
-           res.locals.errorsLogin = req.session.errorsLogin;
-           req.session.errorsLogin = undefined;
+            res.locals.errorsLogin = req.session.errorsLogin;
+            req.session.errorsLogin = undefined;
+            res.locals.openLogin = true;
         }
+
+        res.locals.openLogin = false;
         next();
     }
 
