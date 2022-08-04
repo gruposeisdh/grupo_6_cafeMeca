@@ -19,7 +19,8 @@ app.use(cookieParser());
  * middleware que inserta en local user (para obtener obtener esos valores en cualquier vista)
  * También se utiliza para pasar valores de errores a login (mas adelante mover a otro middleware)
 */
-app.use(authMiddlewares.userLogged); 
+app.use(authMiddlewares.userLogged);
+app.use(authMiddlewares.errorsLogin);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
