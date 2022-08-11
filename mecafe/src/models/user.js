@@ -7,10 +7,12 @@ let fileUser = {
     readJSON: function(){        
         return JSON.parse(fs.readFileSync(usersFilePath,'utf8'));
     },
+
     writeJSON: function(users){
         let usersJson = JSON.stringify(users);
         fs.writeFileSync(usersFilePath,usersJson)
     },
+
     saveUser: function(user){
         let users = this.readJSON();
         let lastUser = users.pop();
@@ -20,6 +22,7 @@ let fileUser = {
 
         return user;
     },
+    
     updateUser: function(user){
         let users = this.readJSON();
         let newList = users.map(function(item){
@@ -55,7 +58,31 @@ let fileUser = {
         return users.filter(function(item){
             return item[atribute] == value;
         });
-    }
+    },
+
+    generateIdUser(){
+        let users = this.readJSON();
+        let lastUser = users[users.length - 1] 
+        return lastUser.id + 1;
+    },
+
+    imageProductNewUser (reqFile){
+        let imageProfile = ""
+        if (reqFile == undefined){
+            imageProfile = "default-product-image.png";
+        } else {
+            imageProfile = reqFile.filename;
+        }
+        return imageProfile;
+    },
+
+    saveNewUser: function(user){
+        let users = this.readJSON();
+        users.push(user);
+        this.writeJSON(users);
+    
+        return user;
+        },
 }
 
 module.exports = fileUser;

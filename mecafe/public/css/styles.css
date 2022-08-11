@@ -68,7 +68,7 @@ a:active {
     color: red;
 }
 
-/*! ════════════════════ INVENTO DE NICOLAS ════════════════════ !*/
+/*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
     /*border: solid 2px var(--lox);*/
@@ -130,6 +130,70 @@ a:active {
     transition: all .7s;
 }
 
+/*! ════════════════════ INVENTO DE NICOLAS, FOOTER ════════════════════ !*/
+
+.newFooter__container{
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    width: 90%;
+    margin: auto;
+    align-items: stretch;
+    max-height: var(--tamanoFooter);
+    overflow: hidden;
+    padding: 30px 0 0;
+    max-width: 1000px;
+}
+
+.newFooter__desktop{
+    display: none;
+}
+
+.newFooter__box{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    column-gap: 15px;
+    justify-items: center
+}
+
+.newFooter__container h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.newFooter__container p {
+    font-size: 10px;
+    padding: 7px 0;
+    color: var(--gray-pastel)
+}
+
+.newFooter__itemsBox{
+    padding-left: 7px;
+    border-left: solid 1px var(--lox)
+}
+
+.newFooter__itemsBox .fa-square-whatsapp {
+    color: var(--whatsapp);
+}
+
+.newFooter__itemsBox .fa-address-card {
+    color: #0f82fc
+}
+
+.newFooter__itemsBox .fa-twitter-square {
+    color: #1C9CEA;
+}
+
+.newFooter__itemsBox .fa-square-instagram {
+    color: #DE4568;
+}
+
+.newFooter__itemsBox .fa-square-github {
+    color: #9642A2;
+}
+
 
 /*! ════════════════════ HEADER ════════════════════ !*/
 
@@ -189,9 +253,8 @@ a:active {
     height: 100%;
 }
 
-/*! ════════════════════ LOGIN ════════════════════ !*/
-
-.login-open-close-side {
+/** ═══════ GENERAL MODALS ═════════════ */
+.open-close-side {
     position: fixed;
     top: 0;
     left: 0;
@@ -203,7 +266,7 @@ a:active {
     background-color: rgba(0, 0, 0, .7);
 }
 
-.login__header {
+.modal__header {
     display: flex;
     justify-content: space-between;
     margin: 10px;
@@ -211,6 +274,73 @@ a:active {
     border-bottom: 1px solid var(--lox);
 }
 
+.modal__container form {
+    margin-top: 15px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.modal__container form label {
+    margin-bottom: 5px;
+}
+
+.modal__container form .form-group {
+    padding: 10px;
+}
+
+.modal__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.modal__container form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 17px;
+    background-color: #ffffff;
+    border-style: hidden;
+    border-radius: 11px;
+    box-shadow: 0px 0px 6px var(--black);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal__container form input[type="button"] {
+    margin-top: 10px;
+    align-self: center;
+    width: 30%;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.modal__container a {
+    color: var(--lox);
+    font-weight: bold;
+}
+/*! ════════════ MODAL CHANGE PASSWORD ═══════════════════ !*/
+
+.changePassword__container {
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 10px;
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    width: 90%;
+    display: none;
+    margin: auto;
+    top: 22%;
+    left: 5%;
+}
+
+/*! ════════════════════ MODAL LOGIN ════════════════════ !*/
 
 .login__container {
     border: 1px solid black;
@@ -223,7 +353,6 @@ a:active {
     top: 0;
     width: 100%;
     min-width: 150px;
-    /** color: var(--black); */
     display: none;
 }
 
@@ -244,63 +373,12 @@ a:active {
 
 }
 
-.login__container form {
-    margin-top: 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.login__container form label {
-    margin-bottom: 5px;
-}
-
-.login__container form .form-group {
-    padding: 10px;
-}
-
-.login__formError {
-    margin-top: 0.7em;
-    color: red;
-    font-size: 0.8em;
-    text-align: center;
-    font-weight: 700;
-}
-
-.login__container form input {
-    width: 100%;
-    padding: 8px;
-    font-size: 17px;
-    background-color: #ffffff;
-    border-style: hidden;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .login__container form input[type="checkbox"] {
     width: auto;
 }
 
 .login__container form div a {
     margin-left: 20px;
-}
-
-.login__container form input[type="button"] {
-    margin-top: 10px;
-    align-self: center;
-    width: 30%;
-    background-color: var(--black);
-    color: white;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.login__container a {
-    color: var(--lox);
-    font-weight: bold;
 }
 
 .login_logo{
@@ -317,12 +395,22 @@ a:active {
     margin-top: 35px;
 }
 
+.login__container form input[type="submit"] {
+    margin-top: 10px;
+    align-self: center;
+    width: 30%;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 /*! ════════════════════ MAIN ════════════════════ !*/
 
 /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 .AdminProducts__title{
-    text-transform: uppercase;
+    text-transform: full-width;
     letter-spacing: 1px;
     line-height: 1.5em;
     width: 90vw;
@@ -352,11 +440,11 @@ a:active {
     width: 100%;
     max-width: 1200px;
     text-align: center;
-    margin: auto left;
     padding: .8em;
     border-radius: 3px;
     color: black;
-    border: solid 1px var(--gray-pastel)
+    border: solid 1px var(--gray-pastel);
+    background-color: white;
 }
 
 .AdminProducts__create:hover {
@@ -399,6 +487,7 @@ a:active {
 
 table {
     border-collapse: collapse;
+    background-color: white;
 }
 
 th {
@@ -407,37 +496,20 @@ th {
 }
 
 td {
-    font-size: .8em;
-    padding: .5em;
+    font-size: .7em;
+    padding: .2em;
     text-align: center;
     border: solid 1px var(--gray-pastel)
 }
 
 tr:nth-child(even){
-    background-color: white;
+    background-color: #F0F8FF;
 }
 
 tr:hover td{
     background-color: #ffffdd
 }
 
-
-.AdminProducts__table button {
-    padding: 5px;
-    border: solid 1px gray;
-    border-radius: 3px;
-    margin: 3px 0;
-}
-
-.AdminProducts__btnModify {
-    background-color: var(--green-pastel-btn);
-    min-width: 85px;
-}
-
-.AdminProducts__btnDelete {
-    background-color: var(--lox);
-    min-width: 85px;
-}
 
 .AdminProducts__btnNewProduct{
     background-color: #0f82fc;
@@ -449,8 +521,31 @@ tr:hover td{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
 }
+
+.AdminProducts__btn{
+    border: none;
+    background-color: transparent;
+}
+
+.AdminProducts__btn i {
+    font-size: 1.15em;
+    padding: 4px;
+}
+
+.AdminProducts__btnModify:hover {
+    transition:  .5s;
+    background-color: #00F562;
+    border-radius: 3px;
+}
+
+.AdminProducts__btnDelete:hover {
+    transition:  .5s;
+    background-color: red;
+    border-radius: 3px;
+}
+
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
@@ -574,12 +669,7 @@ tr:hover td{
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 .createProduct {
-    margin: 30px auto;
-    border: solid 1px var(--gray-pastel);
-    width: 90vw;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 3em;
 }
 
 .createProduct__title {
@@ -593,32 +683,41 @@ tr:hover td{
 }
 
 .createProduct__containerForm {
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.createProduct__containerForm label {
+    position: absolute;
+    display: block;
+    transform: translateY(-40px);
+    transition: transform .5s;
+    color: gray;
+    font-size: 14px;
 }
 
 .createProduct__containerForm div {
     font-size: .8em;
     align-items: center;
     padding: 5px;
-    display: grid;
-    grid-template-rows: 1fr 1.2fr
 }
 
 .createProduct__inputBox {
-    padding: 5px;
-    border-radius: 2px;
-    border: solid 1px gray
+    padding: 8px 0;
+    margin: .8em 0;
+    border: none;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 .createProduct__containerForm section {
     padding: 5px;
-}
-
-.createProduct__containerForm .btn {
-    display: grid;
-    grid-template-columns: 1fr;
 }
 
 .createProduct__containerForm button {
@@ -627,9 +726,24 @@ tr:hover td{
     margin: 3px 0;
     font-size: .8em;
     text-transform: uppercase;
-    padding: .5em;
+    padding: .8em;
     background-color: #3483fa;
     color: white;
+}
+
+.createProduct__inputBox:focus {
+    outline: none;
+}
+
+.createProduct__inputBox:focus + .createProduct__labelBox,
+.createProduct__inputBox:not(:placeholder-shown) + .createProduct__labelBox{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.createProduct__textArea{
+    height: 30px;
 }
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
@@ -1159,7 +1273,7 @@ tr:hover td{
 
 body {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     min-height: 100%;
     background-color: #EEF2ED;
 }
@@ -1336,39 +1450,59 @@ body {
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
+.registerForm__container-form{
+    margin-top: 3em;
+}
+
 .registerForm__form {
     width: 85%;
-    max-width: 1200px;
+    max-width: 500px;
     border: solid 1px var(--gray-pastel);
     border-radius: 5px;
     padding: 1em;
     margin: auto;
+    background-color: white;
+    position: relative;
 }
 
 .registerForm__form div {
     padding: 5px;
-    margin: 1em 0;
+    margin: 1.3em 0;
 }
 
 .registerForm__form label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
     display: block;
-    margin-bottom: 0.5em;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
 }
 
 .registerForm__form input {
-    padding: 0.7em;
-    border: solid 1px var(--gray-pastel);
-    border-radius: 5px;
+    font-family: proximanova;
+    padding: .5em 0;
+    border: none;
     width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.registerForm__form input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
 }
 
 .registerForm__btn {
-    font-size: 18px;
+    text-transform: uppercase;
+    font-size: 15px;
     padding: 0.8em;
     width: 100%;
     border: none;
-    border-radius: 5px;
-    color: #000000;
+    border-radius: 2px;
+    color: black;
     font-weight: 600;
 }
 
@@ -1376,12 +1510,14 @@ body {
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
 
-.errorCampoDiv input {
+/*.errorCampoDiv input {
     box-shadow: 0px 0px 6px red;
-}
+}*/
 
-.btnSend {
-    background: var(--green-pastel-btn);
+.btnSendRegister {
+    background: #0f82fc;
+    color: white;
+    letter-spacing: 1px;
 }
 
 .register__formError {
@@ -1391,6 +1527,44 @@ body {
     text-align: center;
     font-weight: 700;
 }
+
+.errorCampoDiv input{
+    border-bottom: solid 2px red;
+}
+
+.registerForm__titleForm{
+    text-align: center;
+    border-radius: 1px;
+}
+
+.registerForm__titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.registerForm__titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
+
+.errorCampoDiv input::placeholder{
+    color: red ;
+    font-weight: 700;
+}
+
+.registerForm__formInput:focus + .registerForm__formLabel,
+.registerForm__formInput:not(:placeholder-shown) + .registerForm__formLabel{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+
 
 /*! ════════════════════ FOOTER ════════════════════ !*/
 
@@ -1556,7 +1730,14 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 480PX ════════════════════ TODO */
 
 @media (min-width: 480px) {
-    /*! ════════════════════ LOGIN ════════════════════ !*/
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 70%;
+        left: 15%;
+    }
+
+    /*! ════════════════════ MODAL LOGIN ════════════════════ !*/
 
     .login__container {
         width: 450px;
@@ -1599,15 +1780,7 @@ footer {
 
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
-    .createProduct {
-        width: 80vw;
-    }
 
-    .createProduct__containerForm .btn {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-    }
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -1730,6 +1903,21 @@ footer {
         font-size: .9em;
     }
 
+    /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
+
+    .newFooter__itemsBox{
+        border-left: solid 1px var(--lox);
+    }
+
+
+    .newFooter__container h4 {
+        font-size: 16px;
+    }
+
+    .newFooter__container p {
+        font-size: 12px;
+    }
+
 }
 
 /* TODO ════════════════════ MEDIA QUERY 768PX ════════════════════ TODO */
@@ -1773,6 +1961,13 @@ footer {
         transition: 0.5s;
         color: #000000;
         font-weight: 800;
+    }
+
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 40%;
+        left: 30%;
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
@@ -1857,47 +2052,22 @@ footer {
     
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
-    .register__formLabel {
-        grid-area: register__formLabel;
-    }
-
-    .register__formInput {
-        grid-area: register__formInput;
-    }
 
     .register__formError {
-        grid-area: register__formError;
-    }
-
-    .registerForm__form .registerForm__container-label {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 1em;
-        align-items: center;
-
-        grid-template-areas:
-            "register__formLabel register__formInput"
-            ". register__formError";
-    }
-
-    .register__formError {
-        margin-top: 0;
+        margin-top: 10px;
     }
 
     .registerForm__form label {
         margin-bottom: 0;
+
     }
 
     .registerForm__Btns {
         text-align: right;
     }
 
-    .registerForm__btn {
-        width: 30%;
-    }
-
     .registerForm__form input {
-        padding: 1em;
+        padding: .5em 0;
     }
 
     .nav-header {
@@ -1946,50 +2116,6 @@ footer {
 
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
-    .createProduct-nameProduct {
-        grid-area: createProduct-nameProduct;
-    }
-
-    .createProduct-weightProduct {
-        grid-area: createProduct-weightProduct;
-    }
-
-    .createProduct-priceProduct {
-        grid-area: createProduct-priceProduct;
-    }
-
-    .createProduct-categoryProduct {
-        grid-area: createProduct-categoryProduct;
-    }
-
-    .createProduct-imageProduct {
-        grid-area: createProduct-imageProduct;
-    }
-
-    .createProduct-descriptionProduct {
-        grid-area: createProduct-descriptionProduct;
-    }
-
-    .createProduct-btn {
-        grid-area: createProduct-btn;
-    }
-
-    .createProduct {
-        width: 80vw;
-        max-width: 800px;
-    }
-
-    .createProduct__containerForm {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-        row-gap: 5px;
-
-        grid-template-areas:
-            "createProduct-nameProduct createProduct-weightProduct"
-            "createProduct-priceProduct createProduct-categoryProduct"
-            "createProduct-imageProduct createProduct-descriptionProduct"
-            ". createProduct-btn"
-    }
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -2327,37 +2453,7 @@ footer {
         width: 77vw;
     }
 
-
-
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
-
-    .register__formLabel {
-        grid-area: register__formLabel
-    }
-
-    .register__formInput {
-        grid-area: register__formInput
-    }
-
-    .register__formError {
-        grid-area: register__formError
-    }
-
-    .registerForm__form .registerForm__container-label {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 1em;
-        align-items: center;
-
-        grid-template-areas:
-            "register__formLabel register__formInput"
-            ". register__formError"
-
-    }
-
-    .register__formError {
-        margin-top: 0;
-    }
 
     .registerForm__form label {
         margin-bottom: 0;
@@ -2367,12 +2463,18 @@ footer {
         text-align: right;
     }
 
-    .registerForm__btn {
-        width: 30%;
+    .registerForm__form input {
+        padding: .5em 0;
     }
 
-    .registerForm__form input {
-        padding: 1em;
+    /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
+
+    .newFooter__desktop{
+        display: block;
+    }
+
+    .newFooter__container{
+        grid-template-columns: 1fr 1fr;
     }
 
     /** ════════════════════════════  FOOTER  ════════════════════════════════ **/
@@ -2470,6 +2572,12 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 992PX ════════════════════ TODO */
 
 @media (min-width: 992px) {
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+
+    .changePassword__container {       
+        width: 30%;
+        left: 35%;
+    }
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
