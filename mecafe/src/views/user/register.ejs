@@ -12,37 +12,74 @@
     <section class="generalHome">
         
         <div class="registerForm__container-form">
+            <form action="/user/register" class="registerForm__form" method="POST" enctype="multipart/form-data">
 
-            <form action="" class="registerForm__form">
-
-                <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Nombre:</label>
-                    <input type="text" required>
+                <div class="registerForm__titleForm">
+                    <h2>¿Todavia no tenes una cuenta?</h2>
+                    <h3>Registrate Ahora 😀</h3>
                 </div>
 
-                <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Apellido:</label>
-                    <input type="text" required>
+                <div>
+                    <input type="text" name="name" class="registerForm__formInput"
+                    value="<%= locals.oldData ? oldData.name : null %>" id="name" placeholder=" ">
+                    <label for="name" class="registerForm__formLabel">Ingresa tu Nombre:</label>
+
+                    <% if(locals.errorMessage && errorMessage.name){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.name.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
-                <div class="registerForm__container-label">
-                    <label for="">Ingresa tu Correo Electronico:</label>
-                    <input type="email" required>
+                <div>
+                    <input type="text" name="lastName" class="registerForm__formInput" 
+                    value="<%= locals.oldData ? oldData.lastName : null %>" id="lastName" placeholder=" ">
+                    <label for="lastName" class="registerForm__formLabel">Ingresa tu Apellido:</label>
+                    <% if(locals.errorMessage && errorMessage.lastName){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.lastName.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
-                <div class="registerForm__container-label errorCampoDiv">
-                    <label class="register__formLabel" for="">Ingresa tu Contraseña:</label>
-                    <input class="register__formInput" type="password" required>
-                    <p class="register__formError">La contraseña no cumple los requisitos minimos, intentalo nuevamente</p>
+                <div>
+                    <input type="text" name="email" class="registerForm__formInput"
+                    value="<%= locals.oldData ? oldData.email : null %>" id="email"  placeholder=" ">
+                    <label for="email" class="registerForm__formLabel">Ingresa tu Correo Electronico</label>
+                    <% if(locals.errorMessage && errorMessage.email){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.email.msg %> 
+                        </p>
+                    <% } %> 
                 </div>
 
-                <div class="registerForm__container-label">
-                    <label for="">Confirma la contraseña ingresada:</label>
-                    <input type="password" required>
+                <div>
+                    <input type="password" name="password" class="registerForm__formInput" id="password" placeholder=" ">
+                    <label for="password" class="registerForm__formLabel">Ingresa tu Contraseña</label>
+                    <% if(locals.errorMessage && errorMessage.password){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.password.msg %> 
+                        </p>
+                    <% } %> 
+                </div>
+
+                <div class="errorCampoDiv">
+                    <input type="password" name="confirmPassword" + id="confirmPassword" placeholder=" ">
+                    <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
+                    <% if(locals.errorMessage && errorMessage.confirmPassword){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.confirmPassword.msg %> 
+                        </p>
+                    <% } %>
+                </div>
+
+                <div>
+                    <input type="file" name="imageProfile" class="registerForm__formInput"  id="imageProfile" accept=".JPG,.PNG">
+                    <label for="imageProfile" class="registerForm__formLabel">Avatar (JPG, PNG):</label>
                 </div>
 
                 <div class="registerForm__Btns">
-                        <button type="submit" class="registerForm__btn btnSend">Registrarme</button>
+                        <button type="submit" class="registerForm__btn btnSendRegister">Registrarme</button>
                 </div>
 
             </form>
