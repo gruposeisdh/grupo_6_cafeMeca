@@ -79,7 +79,6 @@ let userController = {
 
     logout:(req,res) => {
         req.session.destroy();
-        res.locals = undefined;
         return res.redirect('/');
     }
 

@@ -45,11 +45,25 @@ const storage = multer.diskStorage({
 
 const uploadProfile = multer({storage : storage});
 
+router.get('/register',authMiddlewares.guestMiddleware,userController.register); 
 
-router.get('/register',userController.register); 
-router.post('/register',uploadProfile.single("imageProfile"), validateCreateUser, userController.store);//procesa el registro de usuario 
-router.post('/login',validateLogin,userController.login);
-router.post('/logout',userController.logout);
+//procesa el registro de usuario
+router.post(
+    '/register',
+    authMiddlewares.guestMiddleware,
+    uploadProfile.single("imageProfile"), 
+    validateCreateUser, 
+    userController.store
+); 
+
+router.post(
+    '/login',
+    authMiddlewares.guestMiddleware,
+    validateLogin,
+    userController.login
+);
+
+router.post('/logout',authMiddlewares.authMiddlewarePost,userController.logout);
 
 
 module.exports = router;
