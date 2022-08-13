@@ -29,7 +29,14 @@ module.exports = (sequelize,dataTypes) => {
       timestamps: false
   };
 
-  const user = sequelize.define(name, cols, config)
+  const user = sequelize.define(name, cols, config);
+  
+  user.associate = function(models){
+    user.hasMany(models.roles,{
+      as: "roles",
+      foreignKey: "roles_id"
+    })
+  }
 
   return user;
 }
