@@ -69,7 +69,7 @@ let fileUser = {
     imageProductNewUser (reqFile){
         let imageProfile = ""
         if (reqFile == undefined){
-            imageProfile = "default-product-image.png";
+            imageProfile = "default-user-image.png";
         } else {
             imageProfile = reqFile.filename;
         }

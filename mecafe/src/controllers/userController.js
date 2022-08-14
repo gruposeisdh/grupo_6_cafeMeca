@@ -3,7 +3,7 @@ const fileUser = require('../models/user');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const fileUserProfile = require('../models/user');
-const db = require("C:\\Users\\johan\\OneDrive\\Escritorio\\full stack\\digital house\\Cafe_Meca\\Proyecto_main\\grupo_6_cafeMeca\\mecafe\\database\\models\\user.js");
+const db = require("../../database/models");
 
 let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),

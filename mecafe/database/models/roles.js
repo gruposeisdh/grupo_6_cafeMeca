@@ -4,6 +4,7 @@ module.exports = (sequelize,dataTypes) => {
     id:{
       type: dataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,      
   },
   name:{
     type: dataTypes.STRING(45),
@@ -24,5 +25,5 @@ module.exports = (sequelize,dataTypes) => {
     })
   }
 
-  return user;
+  return roles;
 }
