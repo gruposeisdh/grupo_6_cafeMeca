@@ -4,6 +4,7 @@ module.exports = (sequelize,dataTypes) => {
     id:{
         type: dataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
     },
     firstName:{
       type: dataTypes.STRING(45),
@@ -32,7 +33,7 @@ module.exports = (sequelize,dataTypes) => {
   const user = sequelize.define(name, cols, config);
   
   user.associate = function(models){
-    user.hasMany(models.roles,{
+    user.belongsTo(models.roles,{
       as: "roles",
       foreignKey: "roles_id"
     })
