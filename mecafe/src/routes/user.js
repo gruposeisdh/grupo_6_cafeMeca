@@ -48,13 +48,23 @@ const uploadProfile = multer({storage : storage});
 router.get('/register',authMiddlewares.guestMiddleware,userController.register); 
 
 //procesa el registro de usuario
-router.post(
+/*router.post(
     '/register',
     authMiddlewares.guestMiddleware,
     uploadProfile.single("imageProfile"), 
     validateCreateUser, 
     userController.store
+); */
+
+//crea el usuario desde el formulario a la base de datos
+router.post(
+    '/register',
+    authMiddlewares.guestMiddleware,
+    uploadProfile.single("image"), 
+    validateCreateUser, 
+    userController.create
 ); 
+
 
 router.post(
     '/login',

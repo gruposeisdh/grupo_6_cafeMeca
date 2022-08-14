@@ -32,7 +32,7 @@ module.exports = (sequelize,dataTypes) => {
   const user = sequelize.define(name, cols, config);
   
   user.associate = function(models){
-    user.hasMany(models.roles,{
+    user.belongsTo(models.roles,{
       as: "roles",
       foreignKey: "roles_id"
     })

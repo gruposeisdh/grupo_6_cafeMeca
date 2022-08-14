@@ -3,17 +3,18 @@ const fileUser = require('../models/user');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const fileUserProfile = require('../models/user');
+const db = require("C:\\Users\\johan\\OneDrive\\Escritorio\\full stack\\digital house\\Cafe_Meca\\Proyecto_main\\grupo_6_cafeMeca\\mecafe\\database\\models\\user.js");
 
 let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
     //crea un usuario
-    create: (_req,res) => {
+   /* create: (_req,res) => {
         res.render(path.resolve(__dirname,"../views/user/register.ejs"))
-    },
+    },*/
 
       //crea usuario con el formulario de registro 
-   store: (req,res) => {
+  /* store: (req,res) => {
         let errors = validationResult(req); 
         
         if (!errors.isEmpty()){
@@ -41,7 +42,30 @@ let userController = {
             fileUserProfile.saveNewUser(newUserProfile)
             return res.redirect('/user/register');
          } 
-    }, 
+    }, */
+
+    //crea usuario en DB con el formulario de registro 
+    create: (req,res) => {
+        let errors = validationResult(req); 
+        
+        if (!errors.isEmpty()){
+            return res.render(path.resolve(__dirname,"../views/user/register.ejs"),{
+                errorMessage: errors.mapped(),
+                oldData: req.body
+            }) 
+
+        }else {
+            db.user.create({
+            firstName:req.body.name,
+            lastName:req.body.lastName,
+            email: req.body.email,
+            password:bcrypt.hashSync(req.body.password, 10),
+            image: fileUserProfile.imageProductNewUser(req.file)
+        });
+        return res.redirect('/user/register');
+    }
+    },
+        
     
        
     login:(req,res) => {
@@ -65,6 +89,8 @@ let userController = {
 
         req.session.errorsLogin = {'errorPass': 'La combinación usuario / contraseña no es válida'};
         return res.redirect(route);
+
+       
     },
 
     logout:(req,res) => {
