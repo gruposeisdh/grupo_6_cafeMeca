@@ -18,7 +18,7 @@ module.exports = (sequelize,dataTypes) => {
     password:{
       type: dataTypes.STRING(250),
     },
-    roles_id:{
+    role_id:{
       type: dataTypes.INTEGER,
     },
     image:{
@@ -39,6 +39,14 @@ module.exports = (sequelize,dataTypes) => {
     }),
     user.hasMany(models.Sale,{
       as: "sales",
+      foreignKey: "user_id"
+    }),
+    user.hasOne(models.Cart,{
+      as: "carts",
+      foreignKey: "user_id"
+    }),
+    user.hasOne(models.Direction,{
+      as: "directions",
       foreignKey: "user_id"
     })
   }

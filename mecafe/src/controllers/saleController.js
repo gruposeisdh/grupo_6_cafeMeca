@@ -3,12 +3,13 @@ const path = require('path');
 
 let saleController = {
     index: function(req,res){
-        db.Sale.findAll().then(function(sales){
-            res.render("pepe");
+        db.Sale.findAll({
+            include: [{association: "users", association: "products"}]
+            
+        }).then(function(sales){           
+            res.send(sales);
         })
-
     }
-
 }
 
 module.exports = saleController;

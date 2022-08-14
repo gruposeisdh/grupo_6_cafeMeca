@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Sale extends Model {
+  class Cart extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,27 +15,26 @@ module.exports = (sequelize, DataTypes) => {
       }),
       this.belongsToMany(models.Product,{
         as: "products",
-        through: models.DetailSale,
-        foreignKey: "sale_id",
+        through: models.DetailCart,
+        foreignKey: "cart_id",
         timestamps: false
       })
     }
   }
  
-  Sale.init({
+  Cart.init({
      id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    user_id: DataTypes.INTEGER,
-    date: DataTypes.DATE
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Sale',
-    tableName: 'sales',
+    modelName: 'Cart',
+    tableName: 'carts',
     timestamps: false
   });
 
-  return Sale;
+  return Cart;
 };
