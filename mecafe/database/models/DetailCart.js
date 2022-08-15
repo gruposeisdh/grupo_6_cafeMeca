@@ -9,14 +9,18 @@ module.exports = (sequelize, DataTypes) => {
      */
   
     static associate(models) {
-        this.belongsTo(models.Product,{
-            as: "products",
-            foreignKey: "product_id"
-        }),
-        this.belongsTo(models.Cart,{
-            as: "carts",
-            foreignKey: "cart_id"
-        })
+      this.belongsTo(models.ProductGrame,{
+          as: "products_grames",
+          foreignKey: "product_grame_id"
+      }),
+      this.belongsTo(models.Cart,{
+          as: "carts",
+          foreignKey: "cart_id"
+      }),
+      this.belongsTo(models.ProductTypeGrinding,{
+        as: "products_type_grindings",
+        foreignKey: "product_type_grinding"
+      })
     }
   }
  
@@ -27,7 +31,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     cart_id: DataTypes.INTEGER,
-    product_id: DataTypes.INTEGER,
+    product_type_grinding: DataTypes.INTEGER,
+    product_grame_id: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER
   }, {
     sequelize,

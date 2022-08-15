@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         as: "users",
         foreignKey: "user_id"
       }),
-      this.belongsToMany(models.Product,{
-        as: "products",
+      this.belongsToMany(models.ProductGrame,{
+        as: "products_grames",
         through: models.DetailSale,
         foreignKey: "sale_id",
         timestamps: false
