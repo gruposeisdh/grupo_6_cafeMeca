@@ -30,7 +30,7 @@ module.exports = (sequelize,dataTypes) => {
       timestamps: false
   };
 
-  const user = sequelize.define(name, cols, config);
+  const users = sequelize.define(name, cols, config);
   
   users.associate = function(models){
     users.belongsTo(models.roles,{
