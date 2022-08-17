@@ -32,12 +32,12 @@ module.exports = (sequelize,dataTypes) => {
 
   const user = sequelize.define(name, cols, config);
   
-  user.associate = function(models){
-    user.belongsTo(models.roles,{
+  users.associate = function(models){
+    users.belongsTo(models.roles,{
       as: "roles",
       foreignKey: "roles_id"
     })
   }
 
-  return user;
+  return users;
 }

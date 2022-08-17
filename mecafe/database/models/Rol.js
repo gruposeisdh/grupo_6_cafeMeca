@@ -25,5 +25,5 @@ module.exports = (sequelize,dataTypes) => {
     })
   }
 
-  return user;
+  return roles;
 }
