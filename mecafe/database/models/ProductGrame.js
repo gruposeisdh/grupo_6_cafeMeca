@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
  
-  Product.init({
+  ProductGrame.init({
     id:{
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     product_id: DataTypes.INTEGER,
     grames: DataTypes.INTEGER,
-    price: DataTypes.Decimal,
+    price: DataTypes.DECIMAL,
   }, {
     sequelize,
     modelName: 'ProductGrame',

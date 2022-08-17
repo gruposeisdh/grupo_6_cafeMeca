@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
  
-  Product.init({
+  ProductTypeGrinding.init({
     id:{
       type: DataTypes.INTEGER,
       primaryKey: true,
