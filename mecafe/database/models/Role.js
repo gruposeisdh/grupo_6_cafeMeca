@@ -5,6 +5,8 @@ module.exports = (sequelize,dataTypes) => {
       type: dataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,      
+      autoIncrement: true,
+
   },
   name:{
     type: dataTypes.STRING(45),
@@ -18,6 +20,7 @@ module.exports = (sequelize,dataTypes) => {
 
   const roles = sequelize.define(name, cols, config);
 
+  //asociasiones 
   roles.associate = function(models){
     roles.hasMany(models.users,{
       as: "users",

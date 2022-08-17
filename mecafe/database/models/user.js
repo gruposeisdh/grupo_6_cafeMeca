@@ -30,14 +30,16 @@ module.exports = (sequelize,dataTypes) => {
       timestamps: false
   };
 
-  const user = sequelize.define(name, cols, config);
+  const users = sequelize.define(name, cols, config);
   
-  user.associate = function(models){
-    user.belongsTo(models.roles,{
+
+  //asociasiones 
+  users.associate = function(models){
+    users.belongsTo(models.roles,{
       as: "roles",
       foreignKey: "roles_id"
     })
   }
 
-  return user;
+  return users;
 }
