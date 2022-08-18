@@ -35,11 +35,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false
     },
-    product_id: DataTypes.INTEGER,
-    grames: DataTypes.INTEGER,
-    price: DataTypes.DECIMAL,
-  }, {
+    product_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    grames:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.DECIMAL(10,2),
+      allowNull: false
+    },
+  }, 
+  {
     sequelize,
     modelName: 'ProductGrame',
     tableName: 'products_grames',

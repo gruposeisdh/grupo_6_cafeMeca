@@ -33,10 +33,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false
     },
-    product_id: DataTypes.INTEGER,
-    type_grinding_id: DataTypes.INTEGER,
-  }, {
+    product_id: { 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    type_grinding_id: { 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+  }, 
+  {
     sequelize,
     modelName: 'ProductTypeGrinding',
     tableName: 'products_type_grindings',

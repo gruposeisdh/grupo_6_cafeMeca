@@ -7,35 +7,47 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-  
+
     static associate(models) {
-       this.belongsTo(models.User,{
+      this.belongsTo(models.User, {
         as: "users",
         foreignKey: "user_id"
       })
     }
   }
- 
+
   Direction.init({
-    id:{
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false
     },
-    street:{
-        allowNull: false,
-        type: DataTypes.STRING(250)
+    street: {
+      type: DataTypes.STRING(250),
+      allowNull: false,
     },
-    city: DataTypes.STRING(250),
-    region: DataTypes.STRING(250),
-    address_code: DataTypes.STRING(250),
-    user_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Direction',
-    tableName: 'directions',
-    timestamps: false
-  });
+    city: {
+      type: DataTypes.STRING(250)
+    },
+    region: {
+      type: DataTypes.STRING(250)
+    },
+    address_code: {
+      type: DataTypes.STRING(250),
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+  },
+    {
+      sequelize,
+      modelName: 'Direction',
+      tableName: 'directions',
+      timestamps: false
+    });
 
   return Direction;
 };

@@ -29,10 +29,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false
     },
-    cart_id: DataTypes.INTEGER,
-    product_type_grinding: DataTypes.INTEGER,
-    product_grame_id: DataTypes.INTEGER,
+    cart_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    product_type_grinding: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    product_grame_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     quantity: DataTypes.INTEGER
   }, {
     sequelize,

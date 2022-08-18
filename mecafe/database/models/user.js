@@ -14,18 +14,23 @@ module.exports = (sequelize,dataTypes) => {
     },
     email:{
       type: dataTypes.STRING(45),
+      allowNull: false,
+      unique: true
     },
     password:{
       type: dataTypes.STRING(250),
+      allowNull: false
     },
     role_id:{
       type: dataTypes.INTEGER,
+      allowNull: false
     },
     image:{
       type: dataTypes.STRING(250),
     },
     phone:{
       type: dataTypes.STRING(45),
+      unique: true
     },
   };
   let config={

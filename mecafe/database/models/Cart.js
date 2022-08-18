@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
   
     static associate(models) {
-      this.belongsTo(models.users,{
+      this.belongsTo(models.User,{
         as: "users",
         foreignKey: "user_id"
       }),
@@ -25,13 +25,18 @@ module.exports = (sequelize, DataTypes) => {
   }
  
   Cart.init({
-     id:{
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+    id:{
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
     },
-    user_id: DataTypes.INTEGER
-  }, {
+    user_id:{ 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
+  }, 
+  {
     sequelize,
     modelName: 'Cart',
     tableName: 'carts',

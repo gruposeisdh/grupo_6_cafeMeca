@@ -23,14 +23,21 @@ module.exports = (sequelize, DataTypes) => {
   }
  
   Sale.init({
-     id:{
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+    id:{
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
     },
-    user_id: DataTypes.INTEGER,
-    date: DataTypes.DATE
-  }, {
+    user_id: { 
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    date: { 
+      type: DataTypes.DATE
+    },
+  }, 
+  {
     sequelize,
     modelName: 'Sale',
     tableName: 'sales',

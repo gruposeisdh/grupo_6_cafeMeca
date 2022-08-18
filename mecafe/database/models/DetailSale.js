@@ -29,12 +29,25 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false
     },
-    sale_id: DataTypes.INTEGER,
-    product_type_grinding: DataTypes.INTEGER,
-    product_grame_id: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
-  }, {
+    sale_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    product_type_grinding: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    product_grame_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER
+    }, 
+  },
+  {
     sequelize,
     modelName: 'DetailSale',
     tableName: 'detail_sales',

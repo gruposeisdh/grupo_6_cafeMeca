@@ -1,4 +1,4 @@
-Module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
 
     let alias = "Brand"
 
@@ -10,7 +10,7 @@ Module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(45),
             allowNull: false
         }
     }
@@ -31,7 +31,7 @@ Module.exports = (sequelize, dataTypes) => {
         Brand.hasMany(models.Product, { // Espero este bien la relacion, la habia hecho al reves y la corregi.
             as: "products",
             foreignKey: "brand_id"
-        })    // 
+        })
 
     }
 
