@@ -11,14 +11,14 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
         rating: {
             type: dataTypes.INTEGER
         },
         description: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(250)
         },
         brand_id: {
             type: dataTypes.INTEGER,
@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes) => {
 
     // Declaracion de Product con sus definiciones
 
-    const Product = sequilize.define(alias, cols, config)
+    const Product = sequelize.define(alias, cols, config)
 
     // Asociaciones
 
@@ -57,6 +57,11 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.hasMany (models.ImageProduct, {
             as: "images_products",
+            foreignKey: "product_id"
+        })
+
+        Product.hasMany(models.ProductGrame,{
+            as: "products_grames",
             foreignKey: "product_id"
         })
 

@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes) => {
-  let name= 'users';
+  let name= 'User';
   let cols= {
     id:{
         type: dataTypes.INTEGER,
@@ -14,15 +14,23 @@ module.exports = (sequelize,dataTypes) => {
     },
     email:{
       type: dataTypes.STRING(45),
+      allowNull: false,
+      unique: true
     },
     password:{
       type: dataTypes.STRING(250),
+      allowNull: false
     },
-    roles_id:{
+    role_id:{
       type: dataTypes.INTEGER,
+      allowNull: false
     },
     image:{
       type: dataTypes.STRING(250),
+    },
+    phone:{
+      type: dataTypes.STRING(45),
+      unique: true
     },
   };
   let config={
@@ -30,14 +38,26 @@ module.exports = (sequelize,dataTypes) => {
       timestamps: false
   };
 
-  const users = sequelize.define(name, cols, config);
+  const User = sequelize.define(name, cols, config);
   
-  users.associate = function(models){
-    users.belongsTo(models.roles,{
+  User.associate = function(models){
+    User.belongsTo(models.Role,{
       as: "roles",
-      foreignKey: "roles_id"
+      foreignKey: "role_id"
+    }),
+    User.hasMany(models.Sale,{
+      as: "sales",
+      foreignKey: "user_id"
+    }),
+    User.hasOne(models.Cart,{
+      as: "carts",
+      foreignKey: "user_id"
+    }),
+    User.hasMany(models.Direction,{
+      as: "directions",
+      foreignKey: "user_id"
     })
   }
 
-  return users;
+  return User;
 }

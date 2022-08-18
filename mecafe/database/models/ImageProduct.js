@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
 
     // Asociaciones
 
-    ImageProduct.associate = () => {
+    ImageProduct.associate = (models) => {
 
         ImageProduct.belongsTo (models.Product, {
             as: "products",

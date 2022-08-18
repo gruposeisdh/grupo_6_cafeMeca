@@ -1,4 +1,4 @@
-Module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
 
     let alias = "Brand"
 
@@ -10,7 +10,7 @@ Module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING(45),
             allowNull: false
         }
     }
