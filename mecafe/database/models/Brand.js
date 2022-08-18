@@ -31,7 +31,7 @@ Module.exports = (sequelize, dataTypes) => {
         Brand.hasMany(models.Product, { // Espero este bien la relacion, la habia hecho al reves y la corregi.
             as: "products",
             foreignKey: "brand_id"
-        })
+        })    // 
 
     }
 
