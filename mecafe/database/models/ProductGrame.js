@@ -17,12 +17,14 @@ module.exports = (sequelize, DataTypes) => {
             as: "carts",
             through: models.DetailCart,
             foreignKey: "product_grame_id",
+            otherKey: "cart_id",
             timestamps: false
         }),
         this.belongsToMany(models.Sale,{
             as: "sales",
             through: models.DetailSale,
             foreignKey: "product_grame_id",
+            otherKey: "sale_id",
             timestamps: false
         })
     }

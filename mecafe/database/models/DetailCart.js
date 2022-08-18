@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       }),
       this.belongsTo(models.ProductTypeGrinding,{
         as: "products_type_grindings",
-        foreignKey: "product_type_grinding"
+        foreignKey: "product_type_grinding_id"
       })
     }
   }

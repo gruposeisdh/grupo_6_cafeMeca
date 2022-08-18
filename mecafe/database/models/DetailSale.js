@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Sale,{
         as: "sales",
         foreignKey: "sale_id"
+      }),
+      this.belongsTo(models.ProductTypeGrinding,{
+        as: "products_type_grindings",
+        foreignKey: "product_type_grinding_id"
       })   
     }
   }

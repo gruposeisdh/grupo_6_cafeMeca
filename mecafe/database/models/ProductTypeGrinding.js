@@ -9,9 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
   
     static associate(models) {
-        //falta relacion type_grinding
+        this.belongsTo(models.Product,{
+          as: 'products',
+          foreignKey: 'product_id'
+        }),
+        this.belongsTo(models.TypeGrinding,{
+          as: 'type_grindings',
+          foreignKey: 'type_grinding_id'
+        }),
         this.hasMany(models.DetailCart,{
-            as: "detail_cart",
+            as: "detail_carts",
             foreignKey: "product_type_grinding_id"
         }),
         this.hasMany(models.DetailSale,{
