@@ -53,7 +53,8 @@ a:active {
     --negro-intenso: #0a0a0a;
     --whatsapp: #29df20;
     --naranja: #f78b2d;
-    --tamanoFooter: 160px
+    --tamanoFooter: 160px;
+    --paddingArribaFooter: 90px
 }
 
 .text-center {
@@ -194,6 +195,45 @@ a:active {
     color: #9642A2;
 }
 
+/*! ════════════════════ NotAuth ════════════════════ !*/
+
+.notAuth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: calc(100vh - var(--tamanoFooter) - var(--paddingArribaFooter));
+}
+
+.notAuth__container{
+    width: 80%;
+    text-align: center;
+}
+
+.notAuth__container h1{
+    padding: 10px 0;
+    font-size: 28px;
+}
+
+.notAuth__container p{
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.notAuth__container button{
+    font-size: 20px;
+    border: solid 1px var(--gray-pastel);
+    padding: 15px;
+    border-radius: 3px;
+    color: white;
+    background-color: var(--negro-pastel);
+}
+
+.notAuth__container img{
+    width: 300px;
+}
+
 
 /*! ════════════════════ HEADER ════════════════════ !*/
 
@@ -254,6 +294,7 @@ a:active {
 }
 
 /** ═══════ GENERAL MODALS ═════════════ */
+
 .open-close-side {
     position: fixed;
     top: 0;
