@@ -41,7 +41,7 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = (models) => {
 
         Product.belongsToMany( models.TypeGrinding, { // Tabla con la que se va a RELACIONAR
-            as: "typegrindings",
+            as: "type_grindings",
             through: "products_type_grindings", // Tabla INTERMEDIA
             foreignKey: "product_id",
             otherKey: "type_grinding_id",
@@ -56,7 +56,7 @@ module.exports = (sequelize, dataTypes) => {
         })
 
         Product.hasMany (models.ImageProduct, {
-            as: "imagesproducts",
+            as: "images_products",
             foreignKey: "product_id"
         })
 

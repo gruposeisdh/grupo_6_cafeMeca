@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "TypeGrinding"
+    let alias = "Type_Grinding"
 
     let cols = {
 
