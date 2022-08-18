@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    return ImageProduct
+    return ImageProduct;
 
 }
 

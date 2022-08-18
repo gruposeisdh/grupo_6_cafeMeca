@@ -35,6 +35,6 @@ Module.exports = (sequelize, dataTypes) => {
 
     }
 
-    return Brand
+    return Brand;
 
 }

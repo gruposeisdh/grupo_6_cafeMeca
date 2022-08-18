@@ -38,6 +38,6 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    return TypeGrinding
+    return TypeGrinding;
     
 }
