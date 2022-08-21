@@ -49,8 +49,6 @@ let checkModalToClose = () => {
     });    
 }
 
-
-
 //ejecutar estas funciones al cargar pagina
 window.onload = function() {
     validateOpenLoginErrors();
