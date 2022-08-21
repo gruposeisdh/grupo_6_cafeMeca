@@ -1,7 +1,4 @@
-const idModals = [
-    {'idModal':'modalLogin', 'idButton':'btnOpenModalLogin'},
-    {'idModal':'modalPassword', 'idButton':'btnOpenModalPassword'}
-];
+const idModals = ['modalLogin','modalPassword'];
 
 function openModal(id){
     let modal = document.getElementById(id);
@@ -17,10 +14,12 @@ function closeModal(id){
 
 /** cerrar modal si se hace click fuera de ella */
 window.addEventListener('click', function(e) {
-    idModals.forEach(function(item){
-        let modal = document.getElementById(item.idModal);
-        if (!modal.contains(e.target) && !document.getElementById(item.idButton).contains(e.target) && modal.style.display == "initial") {
-            closeModal(item.idModal);
+    idModals.forEach(function(idModal){
+        let modal = document.getElementById(idModal);
+        let openCloseSide = document.getElementsByClassName("open-close-side")[0];
+
+        if (modal.style.display == "initial"  && openCloseSide.contains(e.target)) {
+            closeModal(idModal);  
         }
     });    
 })
