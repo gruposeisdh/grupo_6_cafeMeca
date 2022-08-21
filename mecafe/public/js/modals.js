@@ -12,26 +12,11 @@ function closeModal(id){
     openCloseSideChangeVisibility();
 }
 
-/** cerrar modal si se hace click fuera de ella */
-window.addEventListener('click', function(e) {
-    idModals.forEach(function(idModal){
-        let modal = document.getElementById(idModal);
-        let openCloseSide = document.getElementsByClassName("open-close-side")[0];
-
-        if (modal.style.display == "initial"  && openCloseSide.contains(e.target)) {
-            closeModal(idModal);  
-        }
-    });    
-})
-
 function openCloseSideChangeVisibility(){
-    let openCloseSide = document.getElementsByClassName("open-close-side")[0];
+    let openCloseSide = document.getElementById("openCloseSide");    
+    let visibility = getComputedStyle(openCloseSide).visibility;
     
-    if(getComputedStyle(openCloseSide).visibility == "hidden"){
-        openCloseSide.style.visibility = "visible";
-    }else{
-        openCloseSide.style.visibility = "hidden";
-    }
+    openCloseSide.style.visibility = visibility == "hidden" ? "visible" : "hidden";
 }
 
 //valida si se debe abrir login al haber errores de validacion
@@ -54,8 +39,24 @@ function insertRouteInputLogin(){
     document.getElementById("inputRouteLogin").value = url;
 }
 
+let checkModalToClose = () => {
+    idModals.forEach(function(idModal){
+        let modal = document.getElementById(idModal);
+
+        if (modal.style.display == "initial") {
+            closeModal(idModal);  
+        }
+    });    
+}
+
+
+
 //ejecutar estas funciones al cargar pagina
 window.onload = function() {
     validateOpenLoginErrors();
     insertRouteInputLogin();
+
+    /** cerrar modal si se hace click fuera de ella */
+    let openCloseSide = document.getElementById("openCloseSide");    
+    openCloseSide.addEventListener('click', checkModalToClose);   
 };
