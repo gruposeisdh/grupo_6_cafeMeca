@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`products` (
   `description` VARCHAR(250) NULL,
   `brand_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_products_brand1_idx` (`brand_id` ASC) VISIBLE,
+  INDEX `fk_products_brand1_idx` (`brand_id` ASC) ,
   CONSTRAINT `fk_products_brand1`
     FOREIGN KEY (`brand_id`)
     REFERENCES `me_cafe`.`brands` (`id`)
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`type_grindings` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
 ENGINE = InnoDB;
 
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`products_grames` (
   `product_id` INT NOT NULL,
   `grames` INT NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
-  INDEX `fk_products_grames_products1_idx` (`product_id` ASC) VISIBLE,
+  INDEX `fk_products_grames_products1_idx` (`product_id` ASC) ,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_products_grames_products1`
     FOREIGN KEY (`product_id`)
@@ -98,9 +98,9 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`users` (
   `image` VARCHAR(250) NULL,
   `phone` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  INDEX `fk_users_roles1_idx` (`role_id` ASC) VISIBLE,
-  UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
+  INDEX `fk_users_roles1_idx` (`role_id` ASC) ,
+  UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) ,
   CONSTRAINT `fk_users_roles1`
     FOREIGN KEY (`role_id`)
     REFERENCES `me_cafe`.`roles` (`id`)
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`sales` (
   `user_id` INT NOT NULL,
   `date` DATETIME NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_sales_users1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_sales_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_sales_users1`
     FOREIGN KEY (`user_id`)
     REFERENCES `me_cafe`.`users` (`id`)
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`images_products` (
   `path` VARCHAR(250) NULL,
   `product_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_images_products_products1_idx` (`product_id` ASC) VISIBLE,
+  INDEX `fk_images_products_products1_idx` (`product_id` ASC) ,
   CONSTRAINT `fk_images_products_products1`
     FOREIGN KEY (`product_id`)
     REFERENCES `me_cafe`.`products` (`id`)
@@ -150,8 +150,8 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`products_type_grindings` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `type_grinding_id` INT NOT NULL,
-  INDEX `fk_products_has_type_grindings_type_grindings1_idx` (`type_grinding_id` ASC) VISIBLE,
-  INDEX `fk_products_has_type_grindings_products1_idx` (`product_id` ASC) VISIBLE,
+  INDEX `fk_products_has_type_grindings_type_grindings1_idx` (`type_grinding_id` ASC) ,
+  INDEX `fk_products_has_type_grindings_products1_idx` (`product_id` ASC) ,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_products_has_type_grindings_products1`
     FOREIGN KEY (`product_id`)
@@ -176,9 +176,9 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`detail_sales` (
   `product_grame_id` INT NOT NULL,
   `product_type_grinding_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_sales_has_products_sales1_idx` (`sale_id` ASC) VISIBLE,
-  INDEX `fk_detail_sales_products_grames1_idx` (`product_grame_id` ASC) VISIBLE,
-  INDEX `fk_detail_sales_products_type_grindings1_idx` (`product_type_grinding_id` ASC) VISIBLE,
+  INDEX `fk_sales_has_products_sales1_idx` (`sale_id` ASC) ,
+  INDEX `fk_detail_sales_products_grames1_idx` (`product_grame_id` ASC) ,
+  INDEX `fk_detail_sales_products_type_grindings1_idx` (`product_type_grinding_id` ASC) ,
   CONSTRAINT `fk_sales_has_products_sales1`
     FOREIGN KEY (`sale_id`)
     REFERENCES `me_cafe`.`sales` (`id`)
@@ -203,7 +203,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `me_cafe`.`carts` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  INDEX `fk_cart_users1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_cart_users1_idx` (`user_id` ASC) ,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_cart_users1`
     FOREIGN KEY (`user_id`)
@@ -222,10 +222,10 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`detail_cart` (
   `quantity` INT NULL,
   `product_grame_id` INT NOT NULL,
   `product_type_grinding_id` INT NOT NULL,
-  INDEX `fk_cart_has_products_cart1_idx` (`cart_id` ASC) VISIBLE,
+  INDEX `fk_cart_has_products_cart1_idx` (`cart_id` ASC) ,
   PRIMARY KEY (`id`),
-  INDEX `fk_detail_cart_products_grames1_idx` (`product_grame_id` ASC) VISIBLE,
-  INDEX `fk_detail_cart_products_type_grindings1_idx` (`product_type_grinding_id` ASC) VISIBLE,
+  INDEX `fk_detail_cart_products_grames1_idx` (`product_grame_id` ASC) ,
+  INDEX `fk_detail_cart_products_type_grindings1_idx` (`product_type_grinding_id` ASC) ,
   CONSTRAINT `fk_cart_has_products_cart1`
     FOREIGN KEY (`cart_id`)
     REFERENCES `me_cafe`.`carts` (`id`)
@@ -258,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `me_cafe`.`directions` (
   `user_id` INT NOT NULL,
   `default` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  INDEX `fk_directions_users1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_directions_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_directions_users1`
     FOREIGN KEY (`user_id`)
     REFERENCES `me_cafe`.`users` (`id`)
