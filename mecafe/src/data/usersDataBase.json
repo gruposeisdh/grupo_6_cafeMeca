@@ -43,5 +43,14 @@
         "password": "$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda",
         "role": "admin",
         "imageProfile": "default-product-image.png"
+    },
+    {
+        "id": 6,
+        "firstName": "Nicolas",
+        "lastName": "Pirello",
+        "email": "nicoalepirello@gmail.com",
+        "password": "$2a$10$L4MIbmslrYU46MAhi.mXG.46JGxmaWtgF8jqIy5pfk8qKXtTSpg3O",
+        "role": "admin",
+        "imageProfile": "userImage - 1660708352061.png"
     }
 ]
