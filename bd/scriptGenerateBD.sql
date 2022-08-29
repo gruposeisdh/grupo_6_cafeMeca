@@ -147,7 +147,7 @@ ENGINE = InnoDB;
 -- Table `me_cafe`.`products_type_grindings`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `me_cafe`.`products_type_grindings` (
-  `id` INT NOT NULL AUTO_INCREMENT;
+  `id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `type_grinding_id` INT NOT NULL,
   INDEX `fk_products_has_type_grindings_type_grindings1_idx` (`type_grinding_id` ASC) ,
