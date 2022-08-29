@@ -16,7 +16,7 @@ let indexController = {
 
     error: (req, res) => {
 
-        res.render(path.resolve(__dirname, "../views/partials/404.ejs"))
+        res.render(path.resolve(__dirname, "../views/partials/error404.ejs"))
 
     }
     
