@@ -54,7 +54,8 @@ a:active {
     --whatsapp: #29df20;
     --naranja: #f78b2d;
     --tamanoFooter: 160px;
-    --paddingArribaFooter: 90px
+    --paddingArribaFooter: 90px;
+    --tamanoImageError404: 300px 
 }
 
 .text-center {
@@ -129,6 +130,87 @@ a:active {
 .fa-github-square:hover{
     color: #9642A2;
     transition: all .7s;
+}
+
+/*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
+
+.error404{
+    background-image: url("../img/404Error/fondo.jpg"); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  
+    background-size: cover;
+    min-height: calc(100vh - var(--tamanoFooter) - 66px);
+    /*overflow: auto;*/
+}
+
+.error404__container{
+    width: 100%;
+}
+
+.error404__boxAnimationContainer{
+    width: var(--tamanoImageError404);
+    margin: auto;
+    position: relative;
+}
+
+.error404__animationImage img{
+    width: 100%;
+}
+
+
+.error404__links{
+    padding: 20px 0;
+}
+
+.error404__links ul{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 30px;
+}
+
+.error404 li{
+    padding: 5px 5px;
+    list-style-type: none;
+    font-weight: 700;
+}
+
+.error404 a{
+    color: black;
+}
+
+.error404__title{
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 10px;
+}
+
+.error404__title h3{
+    font-size: 28px;
+    margin-top: 10px;
+    color: var(--lox); 
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+.error404__onefrase{
+    padding: 0 30px;
+}
+
+.error404__onefrase p{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 35px;
+}
+
+.error404__twofrase{
+    line-height: 23px;
+    text-align: center;
+    padding: 0 30px;
+    font-weight: 400;
+    padding-top: 20px;
 }
 
 /*! ════════════════════ INVENTO DE NICOLAS, FOOTER ════════════════════ !*/
@@ -1309,7 +1391,7 @@ tr:hover td{
     position: relative;
     top: 66px;
     z-index: 1;
-    margin-bottom: calc(90px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
+    margin-bottom: calc(66px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
 }
 
 body {
@@ -2613,6 +2695,7 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 992PX ════════════════════ TODO */
 
 @media (min-width: 992px) {
+
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
     .changePassword__container {       
@@ -2687,6 +2770,55 @@ footer {
     
     .product-description-product2 {
         margin-bottom: 20px;
+    }
+
+    /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
+
+    .error404__container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 70px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        min-height: calc((100vh - var(--tamanoFooter) - 66px));
+        align-items: center;
+    }
+
+    .error404__title{
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .error404__title h3{
+        font-size: 37px;
+        line-height: 45px;
+    }
+
+    .error404__onefrase{
+        padding: 0;
+    }
+
+    .error404__onefrase p{
+        text-align: left;
+    }
+
+    .error404__twofrase{
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .error404__links{
+        padding: 0;
+    }
+
+    .error404__links ul{
+        padding: 0;
+        display: block;
+    }
+
+    .error404__animationImage img{
+        width: 140%;
     }
 
 }

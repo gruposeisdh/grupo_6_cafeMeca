@@ -12,6 +12,12 @@ let indexController = {
 
         res.render(path.resolve(__dirname, "../views/notAuth.ejs"))
 
+    },
+
+    error: (req, res) => {
+
+        res.render(path.resolve(__dirname, "../views/partials/404.ejs"))
+
     }
     
 }
