@@ -106,9 +106,8 @@ let productController = {
             })
             db.ImageProduct.create({
                 path: fileproducts.imageProductNew(req.file),
-                product_id: ultimoId
-            })
-           
+                product_id: product.id,
+            })           
         })
 
         res.redirect('/product');
