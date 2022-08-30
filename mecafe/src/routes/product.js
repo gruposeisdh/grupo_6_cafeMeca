@@ -36,8 +36,8 @@ router.get(
 
 router.post(
     '/', 
-    authMiddlewares.authMiddlewarePost,
-    authMiddlewares.adminMiddleware,
+    //authMiddlewares.authMiddlewarePost,
+    //authMiddlewares.adminMiddleware,
     uploadProducts.single("imageProduct"),
     productController.store
 );
@@ -46,8 +46,8 @@ router.get('/edit/:id',productController.edit);
 
 router.post(
     '/edit/:id',
-    authMiddlewares.authMiddlewarePost,
-    authMiddlewares.adminMiddleware,
+    //authMiddlewares.authMiddlewarePost,
+    //authMiddlewares.adminMiddleware,
     uploadProducts.single("imageProduct"), 
     productController.update
 );

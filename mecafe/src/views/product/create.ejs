@@ -28,13 +28,33 @@
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="weightProduct" id="weightProduct" required placeholder=" ">
-                    <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos):</label>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" required placeholder=" ">
+                    <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 1:</label>
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="priceProduct" id="priceProduct" required placeholder=" ">
-                    <label for="priceProduct" class="createProduct__labelBox">Precio (USD):</label>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" required placeholder=" ">
+                    <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 1: </label>
+                </div>
+
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" required placeholder=" ">
+                    <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 2:</label>
+                </div>
+
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" required placeholder=" ">
+                    <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 2: </label>
+                </div>
+
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" required placeholder=" ">
+                    <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 3:</label>
+                </div>
+
+                <div>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" required placeholder=" ">
+                    <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 3: </label>
                 </div>
 
                 <div>
@@ -44,10 +64,10 @@
 
 
                 <div>
-                    <select class="createProduct__inputBox" name="brandProduct" id="brandProduct"> 
+                    <select class="createProduct__inputBox" name="idBrand" id="idBrand"> 
     
                         <% brands.forEach( element => { %>
-                            <option>  <%= element.name %> </option>
+                            <option value="<%= element.id %>">  <%= element.name %> </option>
                         <% }); %>
 
                     </select> 
@@ -55,16 +75,14 @@
                     <label for="brandProduct" class="createProduct__labelBox">Marca del Producto:</label>
                 </div>
 
-                <div>
-                    <select class="createProduct__inputBox" name="categoryProduct" id="categoryProduct"> 
+                <div>                  
+                    <h3>Categorias</h3>
 
-                        <% typeGrindings.forEach( element => { %>
-                            <option> <%= element.name %> </option>
-                        <% }); %>
-
-                    </select> 
-
-                    <label for="categoryProduct" class="createProduct__labelBox">Categoria:</label>
+                    <% typeGrindings.forEach( element => { %>
+                        <label>
+                            <input type="checkbox" class="radio" value="<%= element.id%>" name="idCategories" /><%= element.name %></label>
+                        <label>                            
+                    <% }); %>                     
                 </div>
 
                 <div>

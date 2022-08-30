@@ -17,10 +17,16 @@ let productController = {
     index: (req, res) => {
 
         db.Product.findAll(
-            {include: [{association : "images_products"}, {association : "brands"}]}
+            {include: [
+                {model: db.TypeGrinding, as: "type_grindings",  through: { attributes: [],}},
+                {model: db.ProductGrame, as: "products_grames" },
+                {model: db.ImageProduct, as: "images_products" }, 
+                {association : "brands"}
+            ]}
         )
 
             .then((allProducts) => {
+               
                 console.log(allProducts)
                 res.render(path.resolve(__dirname, "../views/product/list.ejs"), { allProducts:allProducts })
             })
@@ -55,92 +61,57 @@ let productController = {
     store: (req, res) => {
 
         let nameProduct = req.body.nameProduct
-        let weightProduct = req.body.weightProduct
-        let priceProduct = req.body.priceProduct
-        let categoryProduct = req.body.categoryProduct
-        let ratingProduct = req.body.ratingProduct
-        let brandProduct = req.body.brandProduct
+        let weightProduct1 = req.body.weightProduct1
+        let priceProduct1 = req.body.priceProduct1
 
+        let weightProduct2 = req.body.weightProduct2
+        let priceProduct2 = req.body.priceProduct2
+
+        let weightProduct3 = req.body.weightProduct3
+        let priceProduct3 = req.body.priceProduct3
+
+        let idCategories = req.body.idCategories
+        let ratingProduct = req.body.ratingProduct
+        let idBrand = req.body.idBrand
+        
         let descriptionProduct = req.body.descriptionProduct
 
-        db.Product.findAll({
-            where: {
-                name: nameProduct
-            }
+        db.Product.create({
+            name: nameProduct,
+            rating: ratingProduct,
+            description: descriptionProduct,
+            brand_id: idBrand
+
+        }) .then(product => {
+            db.ProductGrame.create({
+                product_id: product.id,
+                grames: weightProduct1,
+                price: priceProduct1,
+            })
+            db.ProductGrame.create({
+                product_id: product.id,
+                grames: weightProduct2,
+                price: priceProduct2,
+            })
+            db.ProductGrame.create({
+                product_id: product.id,
+                grames: weightProduct3,
+                price: priceProduct3,
+            })
+            idCategories.forEach(idCategory =>{
+                db.ProductTypeGrinding.create({
+                    product_id: product.id,
+                    type_grinding_id: idCategory
+                })
+            })
+            db.ImageProduct.create({
+                path: fileproducts.imageProductNew(req.file),
+                product_id: ultimoId
+            })
+           
         })
 
-            // Traemos el array con los datos, puede estar vacio .
-            .then(elementoConseguido => {
-
-                // Hacemos una comparacion con ese array, si esta vacio no se va a cumplir.
-                if (elementoConseguido.length > 0) {
-
-                    // Si el array esta vacio lo que hace es solo crear el registro en la BD de ProductGrame con el id del producto ya existente.
-                    db.ProductGrame.create({
-                        product_id: elementoConseguido[0].dataValues.id,
-                        grames: weightProduct,
-                        price: priceProduct,
-                    })
-
-                    db.ImageProduct.create({
-                        path: fileproducts.imageProductNew(req.file),
-                        product_id: elementoConseguido[0].dataValues.id
-                    })
-
-                    // Siempre debemos redirigir, en caso de que la condicion sea falsa o verdadera.
-                    res.redirect('/product');
-
-                } else { // En caso de que el producto no exista procede a crear todos los registros que deba.
-
-                    db.Brand.findAll({
-                        where: {
-                            name: { [db.Sequelize.Op.eq]: brandProduct }
-                        }
-                    })
-
-                        .then(element => {
-                            return element[0].dataValues.id
-                        })
-
-                        .then(idBrand => {
-
-                            // Creamos el Registro en la tabla Products.
-                            db.Product.create({
-                                name: nameProduct,
-                                rating: ratingProduct,
-                                description: descriptionProduct,
-                                brand_id: idBrand
-                            })
-
-                                // Uso otro .then para poder traerme el objeto creado.
-                                .then(element => {
-
-                                    // Obtenemos el ultimo ID del registro creado.
-                                    let ultimoId = element.dataValues.id
-
-                                    // Creamos el registro en la tabla de ProductGrame
-                                    db.ProductGrame.create({
-                                        product_id: ultimoId,
-                                        grames: weightProduct,
-                                        price: priceProduct,
-                                    })
-
-                                    // Creamos el registro en la tabla de ImageProduct
-                                    db.ImageProduct.create({
-                                        path: fileproducts.imageProductNew(req.file),
-                                        product_id: ultimoId
-                                    })
-
-                                })
-
-                        })
-                        .then(element => {
-                            res.redirect('/product');
-                        })
-
-                }
-
-            })
+        res.redirect('/product');
 
     },
 

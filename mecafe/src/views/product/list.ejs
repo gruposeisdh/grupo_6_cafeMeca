@@ -59,8 +59,9 @@
                     <a href="/product/detail/<%= element.id %>">
 
                         <div class="boxProducts-itemProduct">
-
-                                <img src="/img/productos/<%= %>" alt="">
+                                <% if(element.images_products.length > 0) { %>
+                                    <img src="/img/productos/<%= element.images_products[0].path %>" alt="">
+                                <% } %>
 
                             <div class="listProduct__titleProduct">
                                 <p> <%= element.name %> </p>
