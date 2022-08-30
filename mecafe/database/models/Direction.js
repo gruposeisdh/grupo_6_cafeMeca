@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
+    name: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
     street: {
       type: DataTypes.STRING(250),
       allowNull: false,
@@ -40,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    default: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0
     },
   },
     {
