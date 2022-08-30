@@ -792,7 +792,7 @@ tr:hover td{
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 .createProduct {
-    margin-top: 3em;
+    padding: 3em 0;
 }
 
 .createProduct__title {
