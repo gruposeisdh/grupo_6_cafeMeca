@@ -19,6 +19,7 @@ const validateCreateUser = [
     check('name').notEmpty().withMessage('Debes ingresar un nombre'),
     check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
     check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com'),
+    check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
     check('password').notEmpty().withMessage('Debes ingresar una contraseña').isLength({min:8}).withMessage('La contraseña debe tener mínimo 8 caracteres'),
     check('confirmPassword').notEmpty().withMessage('Debes confirmar la contraseña').bail().custom((value, { req }) => {
         if (value !== req.body.password) {
@@ -53,8 +54,16 @@ router.post(
     authMiddlewares.guestMiddleware,
     uploadProfile.single("imageProfile"), 
     validateCreateUser, 
-    userController.store
+    userController.create
 ); 
+
+/*router.post(
+    '/register',
+    authMiddlewares.guestMiddleware,
+    uploadProfile.single("imageProfile"), 
+    validateCreateUser, 
+    userController.store
+); */
 
 router.post(
     '/login',

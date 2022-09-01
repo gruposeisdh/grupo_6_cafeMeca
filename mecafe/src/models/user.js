@@ -66,7 +66,7 @@ let fileUser = {
         return lastUser.id + 1;
     },
 
-    imageProductNewUser (reqFile){
+    imageNewUser (reqFile){
         let imageProfile = ""
         if (reqFile == undefined){
             imageProfile = "default-product-image.png";
