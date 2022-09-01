@@ -62,7 +62,7 @@ router.post(
     authMiddlewares.guestMiddleware,
     uploadProfile.single("imageProfile"), 
     validateCreateUser, 
-    userController.store
+    userController.create
 ); */
 
 router.post(

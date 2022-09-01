@@ -12,7 +12,7 @@ let userController = {
 
 
     //crea usuario con el formulario de registro 
-  /* store: (req,res) => {
+  /* create: (req,res) => {
         let errors = validationResult(req); 
         
         if (!errors.isEmpty()){
