@@ -34,7 +34,7 @@ let userController = {
                 email: email,
                 password: password,
                 role:"cliente",
-                imageProfile: fileUserProfile.imageProductNewUser(req.file),
+                imageProfile: fileUserProfile.imageNewUser(req.file),
             }
     
             fileUserProfile.saveNewUser(newUserProfile)
@@ -62,7 +62,7 @@ let userController = {
             phone: req.body.phone
         });
 
-            fileUserProfile.saveNewUser(newUserProfile);
+           // fileUserProfile.saveNewUser(newUserProfile);
             res.redirect('/user/register');
     }
     },
