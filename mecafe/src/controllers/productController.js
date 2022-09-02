@@ -61,6 +61,7 @@ let productController = {
     store: (req, res) => {
 
         let nameProduct = req.body.nameProduct
+
         let weightProduct1 = req.body.weightProduct1
         let priceProduct1 = req.body.priceProduct1
 
@@ -70,11 +71,14 @@ let productController = {
         let weightProduct3 = req.body.weightProduct3
         let priceProduct3 = req.body.priceProduct3
 
-        let idCategories = req.body.idCategories
+        let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+
         let ratingProduct = req.body.ratingProduct
+
         let idBrand = req.body.idBrand
         
         let descriptionProduct = req.body.descriptionProduct
+
 
         db.Product.create({
             name: nameProduct,
@@ -84,7 +88,7 @@ let productController = {
 
         }) .then(product => {
             db.ProductGrame.create({
-                product_id: product.id,
+                product_id: product.id, // Este id viene del objeto de arriba recien creado.
                 grames: weightProduct1,
                 price: priceProduct1,
             })
@@ -98,12 +102,25 @@ let productController = {
                 grames: weightProduct3,
                 price: priceProduct3,
             })
-            idCategories.forEach(idCategory =>{
-                db.ProductTypeGrinding.create({
-                    product_id: product.id,
-                    type_grinding_id: idCategory
+            
+           if (idCategories.length == 1) {
+
+               db.ProductTypeGrinding.create({
+                   product_id: product.id,
+                   type_grinding_id: idCategories
+               })
+                
+            } else {
+                
+                idCategories.forEach(idCategory =>{
+                    db.ProductTypeGrinding.create({
+                        product_id: product.id,
+                        type_grinding_id: idCategory
+                    })
                 })
-            })
+                
+            }
+
             db.ImageProduct.create({
                 path: fileproducts.imageProductNew(req.file),
                 product_id: product.id,
@@ -117,11 +134,26 @@ let productController = {
     // Edita un Producto - Muestra el FORMULARIO - LISTO
 
     edit: (req, res) => {
+
         let id = req.params.id;
 
-        db.Product.findByPk(id)
-            .then(producto => {
-                res.render(path.resolve(__dirname, "../views/product/edit.ejs"), { product: producto })
+        let pedidoProducto = db.Product.findByPk(id, {
+            include: [
+                {association: "type_grindings"},
+                {association: "brands"},
+                {association: "images_products"},
+                {association: "products_grames"}
+            ]
+        })
+
+        let allTypeGrindings = db.TypeGrinding.findAll()
+
+        let allBrands = db.Brand.findAll()
+
+        Promise.all([pedidoProducto, allBrands, allTypeGrindings])
+            .then(([pedidoProducto, allBrands, allTypeGrindings]) => {
+                console.log(allBrands)
+                res.render(path.resolve(__dirname, "../views/product/edit.ejs"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings })
             })
 
     },
@@ -134,22 +166,16 @@ let productController = {
 
         let id = req.params.id
         let nameProduct = req.body.nameProduct
-        let weightProduct = req.body.weightProduct
-        let priceProduct = req.body.priceProduct
-        let categoryProduct = req.body.categoryProduct
+        let weightProduct1 = req.body.weightProduct1
+        let priceProduct1 = req.body.priceProduct1
+        let weightProduct2 = req.body.weightProduct2
+        let priceProduct2 = req.body.priceProduct2
+        let weightProduct3 = req.body.weightProduct3
+        let priceProduct3 = req.body.priceProduct3
+        let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+        let ratingProduct = req.body.ratingProduct
+        let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
-
-        db.Product.update({
-            name: nameProduct,
-            rating: 0,
-            description: descriptionProduct,
-            brand_id: 5
-        },
-            {
-                where: {
-                    id: id
-                }
-            })
 
         res.redirect("/product/administracion");
     },
@@ -163,6 +189,7 @@ let productController = {
     // Elimina un Producto - LISTO
 
     destroy: (req, res) => {
+
         let id = req.params.id;
 
         // Al tener una asociacion primero debemos eliminar todos los productos de la tabla que tiene asociado su FK, luego podemos eliminar el registro central
@@ -174,6 +201,12 @@ let productController = {
         })
 
         db.ImageProduct.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        db.ProductTypeGrinding.destroy({
             where: {
                 product_id: id
             }

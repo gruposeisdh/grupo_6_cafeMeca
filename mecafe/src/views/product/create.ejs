@@ -23,69 +23,71 @@
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" required placeholder=" ">
                     <label for="nameProduct" class="createProduct__labelBox">Nombre del Producto:</label>
+                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" required placeholder=" ">
                     <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 1:</label>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" required placeholder=" ">
                     <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 1: </label>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" required placeholder=" ">
                     <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 2:</label>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" required placeholder=" ">
                     <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 2: </label>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" required placeholder=" ">
                     <label for="weightProduct" class="createProduct__labelBox">Peso del producto (Gramos) 3:</label>
+                    <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" required placeholder=" ">
                 </div>
 
                 <div>
-                    <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" required placeholder=" ">
                     <label for="priceProduct" class="createProduct__labelBox">Precio (USD) 3: </label>
+                    <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" required placeholder=" ">
                 </div>
 
                 <div>
-                    <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"></textarea>
                     <label for="descriptionProduct" class="createProduct__labelBox">Descripcion del producto:</label>
+                    <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"></textarea>
                 </div>
 
 
                 <div>
+                    
+                    <label for="brandProduct" class="createProduct__labelBox">Marca del Producto:</label>
                     <select class="createProduct__inputBox" name="idBrand" id="idBrand"> 
-    
+
                         <% brands.forEach( element => { %>
-                            <option value="<%= element.id %>">  <%= element.name %> </option>
+                            <option value="<%= element.id %>"><%= element.name %></option>
                         <% }); %>
 
                     </select> 
 
-                    <label for="brandProduct" class="createProduct__labelBox">Marca del Producto:</label>
                 </div>
 
                 <div>                  
-                    <h3>Categorias</h3>
 
-                    <% typeGrindings.forEach( element => { %>
-                        <label>
-                            <input type="checkbox" class="radio" value="<%= element.id%>" name="idCategories" /><%= element.name %></label>
-                        <label>                            
-                    <% }); %>                     
+                    <p>Categorias:</p><br>
+
+                        <% typeGrindings.forEach( element => { %>
+                            <label class="createProduct__labelCategory"><input type="checkbox" id="<%= element.id%>" name="idCategories" value="<%= element.id %>"><%= element.name %></label>
+                        <% }); %>   
+                                  
                 </div>
 
                 <div>
+                    <label for="ratingProduct" class="createProduct__labelBox">Rating:</label>
                     <select class="createProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
                             <option label=⭐>1</option>
                             <option label=⭐⭐>2</option>
@@ -94,13 +96,12 @@
                             <option label=⭐⭐⭐⭐⭐>5</option>
                     </select> 
 
-                    <label for="ratingProduct" class="createProduct__labelBox">Rating:</label>
                 </div>
 
 
                 <div>
-                    <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
                     <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
+                    <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
                 </div>
 
                 <section class="btn createProduct-btn">

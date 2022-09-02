@@ -1,8 +1,7 @@
-
 <!-- * Encabezado de la pagina -->
 <%- include ("../partials/head") %>
 
-<title>Creacion de un producto</title>
+<title>Edicion de un producto</title>
 </head>
 
 <body class="bodyHome">
@@ -11,56 +10,120 @@
     <%- include ("../partials/header") %>
 
     <!-- Contenido -->
+
     <section class="generalHome">
 
         <div class="updateProduct">
 
-            <div class="updateProduct__title">
-                <h3>Modificacion de un Producto</h3>
-            </div>
+            <form class="updateProduct__containerForm" enctype="multipart/form-data" action="/product/edit/<%= product.id %>" method="POST">
 
-            <form class="updateProduct__containerForm"  enctype="multipart/form-data" action="/product/edit/<%= product.id%>" method="post">
-
-                <div class="updateProduct-nameProduct">
-                    <label for="nameProduct">Nombre del Producto:</label>
-                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value= "<%= product.name %>" >
+                <div class="registerForm__titleForm">
+                    <h2>¿Necesitas editar un producto?</h2>
+                    <h3>Adelante! 😀</h3>
                 </div>
 
-                <div class="updateProduct-weightProduct">
-                    <label for="weightProduct">Peso del producto (Gramos):</label>
-                    <input class="updateProduct__inputBox" type="text" name="weightProduct" id="weightProduct" value= "<%= product.grams %>">
+                <div>
+                    <label for="nameProduct" class="updateProduct__labelBox">Nombre del Producto:</label>
+                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value=" <%= product.name %>" required>
                 </div>
 
-                <div class="updateProduct-priceProduct">
-                    <label for="priceProduct">Precio (USD):</label>
-                    <input class="updateProduct__inputBox" type="text" name="priceProduct" id="priceProduct" value= "<%= product.price %>">
+                <div>
+                    <label for="weightProduct1" class="updateProduct__labelBox">Peso del producto (Gramos) 1:</label>
+                    <input class="updateProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" required>
                 </div>
 
-                <div class="updateProduct-categoryProduct">
-                    <label for="categoryProduct">Categoria:</label>
-                    <select class="updateProduct__inputBox" name="categoryProduct" id="categoryProduct" value= "<%= product.category %>"> 
+                <div>
+                    <label for="priceProduct1" class="updateProduct__labelBox">Precio (USD) 1: </label>
+                    <input class="updateProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" required>
+                </div>
 
-                        <option>En grano</option>
-                        <option>Molido Fino</option>
-                        <option>Molido Medio</option>
-                        <option>Molido Grueso</option>
+                <div>
+                    <label for="weightProduct2" class="updateProduct__labelBox">Peso del producto (Gramos) 2:</label>
+                    <input class="updateProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" required>
+                </div>
+
+                <div>
+                    <label for="priceProduct2" class="updateProduct__labelBox">Precio (USD) 2: </label>
+                    <input class="updateProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" required>
+                </div>
+
+                <div>
+                    <label for="weightProduct3" class="updateProduct__labelBox">Peso del producto (Gramos) 3:</label>
+                    <input class="updateProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" required>
+                </div>
+
+                <div>
+                    <label for="priceProduct3" class="updateProduct__labelBox">Precio (USD) 3: </label>
+                    <input class="updateProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" required>
+                </div>
+
+                <div>
+                    <label for="descriptionProduct" class="updateProduct__labelBox">Descripcion del producto:</label>
+                    <textarea class="updateProduct__inputBox updateProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%= product.description %></textarea>
+                </div>
+
+
+                <div>
+                    
+                    <label for="idBrand" class="updateProduct__labelBox">Marca del Producto:</label>
+                    <select class="updateProduct__inputBox" name="idBrand" id="idBrand">
+                            
+                        <option value="<%= product.brands.id%>" selected disabled><%= product.brands.name %></option>
+
+                        <% allBrands.forEach( element => { %>
+                            <option value="<%= element.id %>"><%= element.name %></option>
+                        <% }); %>
 
                     </select> 
+
                 </div>
 
-                <div class="updateProduct-imageProduct">
-                    <label for="imageProduct">Imagen (JPG, PNG):</label>
+                <div>                  
+
+                    <p> Categorias: <%= product.type_grindings[0].id %> </p><br>
+
+                            
+                        <% allTypeGrindings.forEach(element => { %>
+
+                            <label class="createProduct__labelCategory"><input type="checkbox" id="<%= element.id%>" name="idCategories" value="<%= element.id %>" 
+
+                                <% if( element.id == product.type_grindings[0].id ) { %> 
+
+                                    checked 
+
+                                <% } %>
+                                
+                                ><%= element.name %></label>
+
+                        <% }); %> 
+
+                </div>
+
+                <div>
+
+                    <label for="ratingProduct" class="updateProduct__labelBox">Rating:</label>
+                    <select class="updateProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
+                            <option label=⭐>1</option>
+                            <option label=⭐⭐>2</option>
+                            <option label=⭐⭐⭐>3</option>
+                            <option label=⭐⭐⭐⭐>4</option>
+                            <option label=⭐⭐⭐⭐⭐>5</option>
+                    </select> 
+
+                </div>
+
+
+                <div>
+                    <label for="imageProduct" class="updateProduct__labelBox">Imagen (JPG, PNG):</label>
                     <input class="updateProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
                 </div>
 
-                <div class="updateProduct-descriptionProduct">
-                    <label for="descriptionProduct">Descripcion del producto:</label>
-                    <textarea class="updateProduct__inputBox" name="descriptionProduct" id="descriptionProduct"><%= product.description %></textarea>
-                </div>
-
                 <section class="btn updateProduct-btn">
-                    <button type="submit" class="submit">Modificar</button>
+                    <button type="submit" class="submit">Enviar</button>
+                    <button type="reset" class="reset">Restablecer</button>
                 </section>
+
+
 
             </form>
 
@@ -69,7 +132,7 @@
     </section>
 
     <!-- Pie de Pagina -->
-    <%- include ("../partials/footerNico") %>
+    <%- include("../partials/footerNico") %>
 
 
 </body>
