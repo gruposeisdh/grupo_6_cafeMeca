@@ -10,38 +10,15 @@ const { Op } = require("sequelize");
 let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
+    profile: (req,res) => {
+        let id= req.params.id;
+        db.User.findByPk(id).then(userEncontrado => {
+            res.render(path.resolve(__dirname,"../views/user/profile.ejs"),{userProfile:userEncontrado});
+        });
+    },
+
 
     //crea usuario con el formulario de registro 
-  /* create: (req,res) => {
-        let errors = validationResult(req); 
-        
-        if (!errors.isEmpty()){
-            return res.render(path.resolve(__dirname,"../views/user/register.ejs"),{
-                errorMessage: errors.mapped(),
-                oldData: req.body
-            }) 
-
-        }else {
-        let name = req.body.name
-        let lastName = req.body.lastName
-        let email = req.body.email
-        let password = bcrypt.hashSync(req.body.password, 10)
-     
-            let newUserProfile = {
-                id : fileUserProfile.generateIdUser(),
-                firstName: name,
-                lastName: lastName,
-                email: email,
-                password: password,
-                role:"cliente",
-                imageProfile: fileUserProfile.imageNewUser(req.file),
-            }
-    
-            fileUserProfile.saveNewUser(newUserProfile)
-            return res.redirect('/user/register');
-         } 
-    }, */
-
     create: (req,res) => {
         let errors = validationResult(req); 
         
@@ -60,10 +37,14 @@ let userController = {
             role_id: 2,
             image: fileUserProfile.imageNewUser(req.file),
             phone: req.body.phone
+        }).then(userCreado => {
+            //Aqui debe hacerse login
+            req.session.user = userCreado;
+            req.session.errorsLogin = undefined;
+            res.redirect('/user/profile/' + userCreado.id);
         });
 
-           // fileUserProfile.saveNewUser(newUserProfile);
-            res.redirect('/user/register');
+            
     }
     },
     

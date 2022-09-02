@@ -57,13 +57,8 @@ router.post(
     userController.create
 ); 
 
-/*router.post(
-    '/register',
-    authMiddlewares.guestMiddleware,
-    uploadProfile.single("imageProfile"), 
-    validateCreateUser, 
-    userController.create
-); */
+router.get(
+    '/profile/:id',authMiddlewares.authMiddleware,userController.profile); 
 
 router.post(
     '/login',
