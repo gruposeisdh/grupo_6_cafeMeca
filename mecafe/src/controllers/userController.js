@@ -7,9 +7,26 @@ const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
+
 let userController = {
+    index: (_req,res) => {
+        db.User.findAll(
+            {include: [
+                {association : "roles"}
+            ]}
+        )
+
+            .then((allUsers) => {
+               
+                //res.send(allUsers);
+                res.render(path.resolve(__dirname, "../views/user/list.ejs"), { allUsers:allUsers })
+            })
+
+    },
+
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
+    //Ver perfil usuario
     profile: (req,res) => {
         let id= req.params.id;
         db.User.findByPk(id).then(userEncontrado => {

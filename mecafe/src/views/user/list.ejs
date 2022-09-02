@@ -1,0 +1,67 @@
+<!-- * Encabezado de la pagina -->
+<%- include ("../partials/head") %>
+
+<title>Administracion de Productos</title>
+</head>
+
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include ("../partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">
+        
+        <div class="AdminUsers">
+
+            <div class="AdminUsers__title">
+                <p>Bienvenidos a la Administracion de Usuarios</p>
+            </div>
+
+            
+            <div class="AdminUsers__containerTable">
+
+                <table class="AdminUsers__table">
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th class="item-display-none">email</th>
+                            <th class="item-display-none">Rol</th>
+                            <th class="item-display-none">Teléfono</th>                              
+                        </tr>
+                    </thead>
+
+                    <% allUsers.forEach (element => { %>
+
+                        <tr>
+                            <td><%= element.id %></td>
+                            <td><%= element.firstName %></td>
+                            <td><%= element.lastName %></td>
+                            <td class="item-display-none"><%= element.email %></td>
+                            <td class="item-display-none"><%= element.roles.name %></td>
+                            <td class="item-display-none"><%= element.phone %></td>
+                        </tr>
+
+                    <% }); %>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    <!--  
+        <table>
+        </table> 
+    -->
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include ("../partials/footerNico") %>
+
+</body>
+</html>

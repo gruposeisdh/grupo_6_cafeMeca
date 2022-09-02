@@ -60,6 +60,13 @@ router.post(
 router.get(
     '/profile/:id',authMiddlewares.authMiddleware,userController.profile); 
 
+router.get(
+    '/list',
+    //authMiddlewares.authMiddleware, 
+    //authMiddlewares.adminMiddleware,
+    userController.index
+); 
+
 router.post(
     '/login',
     authMiddlewares.guestMiddleware,
