@@ -19,7 +19,7 @@ let userController = {
 
 
     //crea usuario con el formulario de registro 
-    create: (req,res) => {
+    store: (req,res) => {
         let errors = validationResult(req); 
         
         if (!errors.isEmpty()){
