@@ -48,7 +48,7 @@ router.post(
     '/edit/:id',
     authMiddlewares.authMiddlewarePost,
     authMiddlewares.adminMiddleware,
-    uploadProducts.single("imageProduct"), 
+    uploadProducts.single("imageProduct"),
     productController.update
 );
 
