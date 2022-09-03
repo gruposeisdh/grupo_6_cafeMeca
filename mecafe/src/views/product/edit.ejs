@@ -15,7 +15,7 @@
 
         <div class="updateProduct">
 
-            <form class="updateProduct__containerForm" enctype="multipart/form-data" action="/product/edit/<%= product.id %>" method="POST">
+            <form class="updateProduct__containerForm" enctype="multipart/form-data" action="/product/edit/<%=product.id%>" method="POST">
 
                 <div class="registerForm__titleForm">
                     <h2>¿Necesitas editar un producto?</h2>
@@ -24,54 +24,52 @@
 
                 <div>
                     <label for="nameProduct" class="updateProduct__labelBox">Nombre del Producto:</label>
-                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value=" <%= product.name %>" required>
+                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value=" <%=product.name%>" required>
                 </div>
 
                 <div>
-                    <label for="weightProduct1" class="updateProduct__labelBox">Peso del producto (Gramos) 1:</label>
-                    <input class="updateProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" required>
+                    
+                    <% let numero = 0 %>
+
+                    <% allProductGrame.forEach ( element => { %>
+
+                        <% if (product.id == element.product_id) { %>
+                            
+                            <% numero = numero + 1  %>
+
+                            <div>
+                                <label 
+                                for="weightProduct<%=numero%>" class="updateProduct__labelBox">Peso (Gramos) <%=numero%> :</label>
+                                <input class="updateProduct__inputBox" type="text" name="weightProduct<%=numero%>" id="weightProduct<%=numero%>" value=" <%=element.grames%> " >
+                            </div>
+
+                            <div>
+                                <label for="priceProduct<%=numero%>" class="updateProduct__labelBox">Precio (USD) <%=numero%> : </label>
+                                <input class="updateProduct__inputBox" type="text" name="priceProduct<%=numero%>" id="priceProduct<%=numero%>" value="<%=element.price%>">
+                            </div>
+
+                            
+                            <% } %>
+                            
+                    <% }) %>
+
                 </div>
 
-                <div>
-                    <label for="priceProduct1" class="updateProduct__labelBox">Precio (USD) 1: </label>
-                    <input class="updateProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" required>
-                </div>
-
-                <div>
-                    <label for="weightProduct2" class="updateProduct__labelBox">Peso del producto (Gramos) 2:</label>
-                    <input class="updateProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" required>
-                </div>
-
-                <div>
-                    <label for="priceProduct2" class="updateProduct__labelBox">Precio (USD) 2: </label>
-                    <input class="updateProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" required>
-                </div>
-
-                <div>
-                    <label for="weightProduct3" class="updateProduct__labelBox">Peso del producto (Gramos) 3:</label>
-                    <input class="updateProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" required>
-                </div>
-
-                <div>
-                    <label for="priceProduct3" class="updateProduct__labelBox">Precio (USD) 3: </label>
-                    <input class="updateProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" required>
-                </div>
-
+                
                 <div>
                     <label for="descriptionProduct" class="updateProduct__labelBox">Descripcion del producto:</label>
-                    <textarea class="updateProduct__inputBox updateProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%= product.description %></textarea>
+                    <textarea class="updateProduct__inputBox updateProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%=product.description%></textarea>
                 </div>
-
 
                 <div>
                     
                     <label for="idBrand" class="updateProduct__labelBox">Marca del Producto:</label>
                     <select class="updateProduct__inputBox" name="idBrand" id="idBrand">
                             
-                        <option value="<%= product.brands.id%>" selected disabled><%= product.brands.name %></option>
+                        <option value="<%= product.brands.id%>" selected hidden><%=product.brands.name%></option>
 
                         <% allBrands.forEach( element => { %>
-                            <option value="<%= element.id %>"><%= element.name %></option>
+                            <option value="<%= element.id %>"><%=element.name%></option>
                         <% }); %>
 
                     </select> 
@@ -80,22 +78,27 @@
 
                 <div>                  
 
-                    <p> Categorias: <%= product.type_grindings[0].id %> </p><br>
+                    <p> Categorias: </p><br>
 
+                        <!-- Recorremos type_grindings porque este contiene un array -->
                             
                         <% allTypeGrindings.forEach(element => { %>
 
-                            <label class="createProduct__labelCategory"><input type="checkbox" id="<%= element.id%>" name="idCategories" value="<%= element.id %>" 
+                            <label class="createProduct__labelCategory"><input type="checkbox" id="<%=element.id%>" name="idCategories" value="<%=element.id%>" 
 
-                                <% if( element.id == product.type_grindings[0].id ) { %> 
+                                <% product.type_grindings.forEach(type_grindings => { %> 
 
-                                    checked 
+                                    <% if( element.id == type_grindings.id ) { %> 
 
-                                <% } %>
+                                        checked 
+
+                                    <% } %>
+
+                                <% }) %>
                                 
                                 ><%= element.name %></label>
 
-                        <% }); %> 
+                        <% }); %>
 
                 </div>
 
@@ -103,11 +106,16 @@
 
                     <label for="ratingProduct" class="updateProduct__labelBox">Rating:</label>
                     <select class="updateProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
-                            <option label=⭐>1</option>
-                            <option label=⭐⭐>2</option>
-                            <option label=⭐⭐⭐>3</option>
-                            <option label=⭐⭐⭐⭐>4</option>
-                            <option label=⭐⭐⭐⭐⭐>5</option>
+
+            
+                        <option label= "<%=product.rating%>" selected="selected" hidden> <%=product.rating%> </option>
+
+                        <% for (let i = 1 ; i <= 5; i++) { %>
+
+                            <option label= " <%= i  %> ⭐" ><%= i %></option>
+
+                        <% }; %>
+
                     </select> 
 
                 </div>

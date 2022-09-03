@@ -72,11 +72,8 @@ let productController = {
         let priceProduct3 = req.body.priceProduct3
 
         let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
-
         let ratingProduct = req.body.ratingProduct
-
         let idBrand = req.body.idBrand
-        
         let descriptionProduct = req.body.descriptionProduct
 
 
@@ -146,14 +143,17 @@ let productController = {
             ]
         })
 
+        let allTProductGrame = db.ProductGrame.findAll()
+
         let allTypeGrindings = db.TypeGrinding.findAll()
 
         let allBrands = db.Brand.findAll()
 
-        Promise.all([pedidoProducto, allBrands, allTypeGrindings])
-            .then(([pedidoProducto, allBrands, allTypeGrindings]) => {
+        Promise.all([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame])
+            .then(([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame]) => {
+                // res.send(allTProductGrame)
                 console.log(allBrands)
-                res.render(path.resolve(__dirname, "../views/product/edit.ejs"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings })
+                res.render(path.resolve(__dirname, "../views/product/edit.ejs"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings, allProductGrame: allTProductGrame })
             })
 
     },
@@ -177,7 +177,78 @@ let productController = {
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
 
-        res.redirect("/product/administracion");
+        db.ProductGrame.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        db.ImageProduct.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        db.ProductTypeGrinding.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        db.Product.destroy({
+            where: {
+                id: id
+            }
+        })
+
+        db.Product.create({
+            name: nameProduct,
+            rating: ratingProduct,
+            description: descriptionProduct,
+            brand_id: idBrand
+
+        }) .then(product => {
+            db.ProductGrame.create({
+                product_id: product.id, // Este id viene del objeto de arriba recien creado.
+                grames: weightProduct1,
+                price: priceProduct1,
+            })
+            db.ProductGrame.create({
+                product_id: product.id,
+                grames: weightProduct2,
+                price: priceProduct2,
+            })
+            db.ProductGrame.create({
+                product_id: product.id,
+                grames: weightProduct3,
+                price: priceProduct3,
+            })
+            
+           if (idCategories.length == 1) {
+
+               db.ProductTypeGrinding.create({
+                   product_id: product.id,
+                   type_grinding_id: idCategories
+               })
+                
+            } else {
+                
+                idCategories.forEach(idCategory =>{
+                    db.ProductTypeGrinding.create({
+                        product_id: product.id,
+                        type_grinding_id: idCategory
+                    })
+                })
+                
+            }
+
+            db.ImageProduct.create({
+                path: fileproducts.imageProductNew(req.file),
+                product_id: product.id,
+            })           
+        })
+
+        res.redirect("/product");
     },
 
     detail: (_req, res) => {
