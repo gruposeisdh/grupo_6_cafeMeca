@@ -2,6 +2,7 @@ const path = require('path');
 const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const fileproducts = require('../models/product');
 
 //Aqui tienen una forma de llamar a cada uno de los modelos
 // const {Movies,Genres,Actor} = require('../database/models');
@@ -59,16 +60,12 @@ let productController = {
     store: (req, res) => {
 
         let nameProduct = req.body.nameProduct
-
         let weightProduct1 = req.body.weightProduct1
         let priceProduct1 = req.body.priceProduct1
-
         let weightProduct2 = req.body.weightProduct2
         let priceProduct2 = req.body.priceProduct2
-
         let weightProduct3 = req.body.weightProduct3
         let priceProduct3 = req.body.priceProduct3
-
         let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
@@ -157,7 +154,6 @@ let productController = {
     },
 
 
-
     // Edita un Producto - Lo Edita literalmente - LISTO
 
     update: (req, res) => {
@@ -181,11 +177,11 @@ let productController = {
             }
         })
 
-        db.ImageProduct.destroy({
+        /* db.ImageProduct.destroy({
             where: {
                 product_id: id
             }
-        })
+        }) */ 
 
         db.ProductTypeGrinding.destroy({
             where: {
@@ -193,60 +189,87 @@ let productController = {
             }
         })
 
-        db.Product.destroy({
+        /* db.Product.destroy({
             where: {
                 id: id
             }
-        })
+        }) */
 
-        db.Product.create({
+        /* db.Product.create({
             name: nameProduct,
             rating: ratingProduct,
             description: descriptionProduct,
-            brand_id: idBrand
-
-        }) .then(product => {
-            db.ProductGrame.create({
-                product_id: product.id, // Este id viene del objeto de arriba recien creado.
-                grames: weightProduct1,
-                price: priceProduct1,
-            })
-            db.ProductGrame.create({
-                product_id: product.id,
-                grames: weightProduct2,
-                price: priceProduct2,
-            })
-            db.ProductGrame.create({
-                product_id: product.id,
-                grames: weightProduct3,
-                price: priceProduct3,
-            })
+            brand_id: idBrand }) */
             
-           if (idCategories.length == 1) {
+            
+            db.Product.findByPk(id)
 
-               db.ProductTypeGrinding.create({
-                   product_id: product.id,
-                   type_grinding_id: idCategories
-               })
-                
-            } else {
-                
-                idCategories.forEach(idCategory =>{
-                    db.ProductTypeGrinding.create({
-                        product_id: product.id,
-                        type_grinding_id: idCategory
-                    })
+                .then(product => {
+
+                    db.Product.update({
+                        name: nameProduct,
+                        rating: ratingProduct,
+                        description: descriptionProduct,
+                    },{
+                        where: {
+                            id: product.id
+                        }
+
+                })
+
+                db.ProductGrame.create({
+                    product_id: product.id, // Este id viene del objeto de arriba recien creado.
+                    grames: weightProduct1,
+                    price: priceProduct1,
+                })
+                db.ProductGrame.create({
+                    product_id: product.id,
+                    grames: weightProduct2,
+                    price: priceProduct2,
+                })
+                db.ProductGrame.create({
+                    product_id: product.id,
+                    grames: weightProduct3,
+                    price: priceProduct3,
                 })
                 
-            }
+                if (idCategories.length == 1) {
 
-            db.ImageProduct.create({
-                path: fileproducts.imageProductNew(req.file),
-                product_id: product.id,
-            })           
-        })
+                    db.ProductTypeGrinding.create({
+                        product_id: product.id,
+                        type_grinding_id: idCategories
+                    })
+                    
+                } else {
+                    
+                    idCategories.forEach(idCategory =>{
+                        db.ProductTypeGrinding.create({
+                            product_id: product.id,
+                            type_grinding_id: idCategory
+                        })
+                    })
+                    
+                }
+
+                if (req.file) {
+
+                    db.ImageProduct.destroy({
+                        where: {
+                            product_id: id
+                        }
+                    })
+
+                    db.ImageProduct.create({
+                        path: fileproducts.imageProductNew(req.file),
+                        product_id: product.id,
+                    })           
+
+                }
+
+            })
 
         res.redirect("/product");
+
     },
 
     detail: (_req, res) => {

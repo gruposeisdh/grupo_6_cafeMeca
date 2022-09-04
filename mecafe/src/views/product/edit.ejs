@@ -24,23 +24,23 @@
 
                 <div>
                     <label for="nameProduct" class="updateProduct__labelBox">Nombre del Producto:</label>
-                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value=" <%=product.name%>" required>
+                    <input class="updateProduct__inputBox" type="text" name="nameProduct" id="nameProduct" value="<%=product.name%>" required>
                 </div>
 
                 <div>
                     
-                    <% let numero = 0 %>
+                    <%let numero = 0%>
 
-                    <% allProductGrame.forEach ( element => { %>
+                    <%allProductGrame.forEach ( element => {%>
 
                         <% if (product.id == element.product_id) { %>
                             
-                            <% numero = numero + 1  %>
+                            <%numero = numero + 1%>
 
                             <div>
                                 <label 
                                 for="weightProduct<%=numero%>" class="updateProduct__labelBox">Peso (Gramos) <%=numero%> :</label>
-                                <input class="updateProduct__inputBox" type="text" name="weightProduct<%=numero%>" id="weightProduct<%=numero%>" value=" <%=element.grames%> " >
+                                <input class="updateProduct__inputBox" type="text" name="weightProduct<%=numero%>" id="weightProduct<%=numero%>" value="<%=element.grames%>" >
                             </div>
 
                             <div>
@@ -69,7 +69,7 @@
                         <option value="<%= product.brands.id%>" selected hidden><%=product.brands.name%></option>
 
                         <% allBrands.forEach( element => { %>
-                            <option value="<%= element.id %>"><%=element.name%></option>
+                            <option value="<%=element.id%>"><%=element.name%></option>
                         <% }); %>
 
                     </select> 
@@ -96,7 +96,7 @@
 
                                 <% }) %>
                                 
-                                ><%= element.name %></label>
+                                ><%=element.name%></label>
 
                         <% }); %>
 
@@ -108,11 +108,11 @@
                     <select class="updateProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
 
             
-                        <option label= "<%=product.rating%>" selected="selected" hidden> <%=product.rating%> </option>
+                        <option label= "<%=product.rating%>" selected="selected" hidden><%=product.rating%></option>
 
                         <% for (let i = 1 ; i <= 5; i++) { %>
 
-                            <option label= " <%= i  %> ⭐" ><%= i %></option>
+                            <option label= "<%=i%> ⭐" ><%=i%></option>
 
                         <% }; %>
 
