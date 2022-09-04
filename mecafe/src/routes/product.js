@@ -63,8 +63,8 @@ router.post(
 
 router.get(
     '/administracion',
-    authMiddlewares.authMiddleware,
-    authMiddlewares.adminMiddleware,
+    //authMiddlewares.authMiddleware,
+    //authMiddlewares.adminMiddleware,
     productController.adminProducts
 );
 

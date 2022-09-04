@@ -54,6 +54,17 @@
                 </div>
 
                 <div>
+                    <input type="text" name="phone" class="registerForm__formInput"
+                    value="<%= locals.oldData ? oldData.phone : null %>" id="phone"  placeholder=" ">
+                    <label for="phone" class="registerForm__formLabel">Ingresa tu número de teléfono</label>
+                    <% if(locals.errorMessage && errorMessage.phone){ %>
+                        <p class="register__formError">
+                            <%= errorMessage.phone.msg %>
+                        </p>
+                    <% } %> 
+                </div>
+
+                <div>
                     <input type="password" name="password" class="registerForm__formInput" id="password" placeholder=" ">
                     <label for="password" class="registerForm__formLabel">Ingresa tu Contraseña</label>
                     <% if(locals.errorMessage && errorMessage.password){ %>

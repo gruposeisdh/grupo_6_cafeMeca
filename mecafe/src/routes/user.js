@@ -19,6 +19,7 @@ const validateCreateUser = [
     check('name').notEmpty().withMessage('Debes ingresar un nombre'),
     check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
     check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com'),
+    check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
     check('password').notEmpty().withMessage('Debes ingresar una contraseña').isLength({min:8}).withMessage('La contraseña debe tener mínimo 8 caracteres'),
     check('confirmPassword').notEmpty().withMessage('Debes confirmar la contraseña').bail().custom((value, { req }) => {
         if (value !== req.body.password) {
@@ -54,6 +55,16 @@ router.post(
     uploadProfile.single("imageProfile"), 
     validateCreateUser, 
     userController.store
+); 
+
+router.get(
+    '/profile/:id',authMiddlewares.authMiddleware,userController.profile); 
+
+router.get(
+    '/list',
+    //authMiddlewares.authMiddleware, 
+    //authMiddlewares.adminMiddleware,
+    userController.index
 ); 
 
 router.post(

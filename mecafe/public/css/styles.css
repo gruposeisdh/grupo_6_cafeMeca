@@ -669,6 +669,65 @@ tr:hover td{
     border-radius: 3px;
 }
 
+/** ════════════════════ ADMIN USERS  ════════════════════ **/
+
+.AdminUsers__title{
+    text-transform: full-width;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    width: 90vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px auto 0;
+    padding: .6em;
+    border-radius: 3px;
+    color: var(--blanco-original);
+    background-color: var(--black);
+}
+
+.AdminUsers__create{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    align-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: .8em;
+    border-radius: 3px;
+    color: black;
+    border: solid 1px var(--gray-pastel);
+    background-color: white;
+}
+
+.AdminUsers__create:hover {
+    box-shadow: 1px -1px 18px -3px rgba(0,0,0,0.5);
+    transition: all .5s;
+    border: solid 1px gray;
+}
+
+
+.AdminUsers__containerTable{
+    width: 90vw;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-transform: uppercase;
+}
+
+.AdminUsers__table{
+    width: 100%;
+}
+
+
+.AdminUsers__table thead{
+    background-color: #000000;
+    color: white;
+}
+
+
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
