@@ -51,13 +51,13 @@
     },
     {
         "id": 6,
-        "name": "Café 6",
-        "price": 600,
-        "grams": 100,
-        "category": "Molido Medio",
+        "name": "Café 7",
+        "price": "600",
+        "grams": "100",
+        "category": "En grano",
         "description": "Descripcion del cafe 6",
         "image": "cafe-molido-la-morenita.png",
-        "rating": 3
+        "rating": 4
     },
     {
         "id": 7,
