@@ -17,8 +17,8 @@ let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
     //Ver perfil usuario
-    profile: (req,res) => {
-        let id= req.params.id;
+    profile: (req,res) => {       
+        let id=  req.session.user.id;
         db.User.findByPk(id).then(userEncontrado => {
             res.render(path.resolve(__dirname,"../views/user/profile.ejs"),{userProfile:userEncontrado});
         });
@@ -43,8 +43,7 @@ let userController = {
             return res.render(path.resolve(__dirname,"../views/user/register.ejs"),{
                 errorMessage: errors.mapped(),
                 oldData: req.body
-            }) 
-
+            })
         }else {
             db.User.create({
                 firstName:req.body.name,
@@ -58,7 +57,7 @@ let userController = {
                 //Aqui debe hacerse login
                 req.session.user = userCreado;
                 req.session.errorsLogin = undefined;
-                res.redirect('/user/profile/' + userCreado.id);
+                res.redirect('/user/profile');
             });
         }
     },    
@@ -78,6 +77,9 @@ let userController = {
             if(userEncontrado && bcrypt.compareSync(pass, userEncontrado.password)){
                 req.session.user = userEncontrado;
                 req.session.errorsLogin = undefined;
+                if(route == '/'){
+                    return res.redirect('/user/profile');
+                }
                 return res.redirect(route);
             }
 
