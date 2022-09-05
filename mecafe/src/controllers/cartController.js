@@ -17,9 +17,10 @@ let cartController = {
                     attributes: ['grames','price'], 
                     include: [{
                         model: db.Product, as: "products", attributes:['name'] , 
-                        include: [{
-                            model: db.Brand, as: "brands"
-                        }]
+                        include: [
+                            {model: db.Brand, as: "brands"},
+                            {model: db.ImageProduct, as: "images_products", attributes: ['path']}
+                        ]
                     }]
                 },
                 {
@@ -32,9 +33,9 @@ let cartController = {
             ]}        
         )
         .then((detailsCart) => { 
-            res.send(detailsCart);
-        })
-        //res.render(path.resolve(__dirname,"../views/cart.ejs"))
+            //res.send(detailsCart);
+            res.render(path.resolve(__dirname,"../views/cart.ejs"),{detailsCart:detailsCart})
+        });
     }
 }
 

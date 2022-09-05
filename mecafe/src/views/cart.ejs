@@ -9,6 +9,7 @@
 
     <!-- Contenido -->
     <section class="generalHome">
+        <!--
         <div>  
             <div class="cart__progress">
                 <hr> 
@@ -17,63 +18,49 @@
                 <i class="fas fa-circle"><span class="position-relative">3</span><span class="progress__description">Pago</span></i>
             </div>
         </div>
+        -->
         <main id="cart-products">
             <table id="table__cart">          
                 <thead>
                   <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th class="product-thumbnail">&nbsp;</th>
+                    <th class="product-name">Producto</th>
+                    <th class="product-price">Precio</th>
+                    <th class="product-quantity">Cantidad</th>
+                    <th class="product-subtotal">Subtotal</th>
+                    <th class="product-remove">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>                   
-                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
-                        <td>Nombre Producto</td>
-                        <td>500grs</td>
-                        <td>$35.000</td>
-                        <td>
-                            <div class="cart__more-less">
-                                <i class="fas fa-plus-circle"></i>
-                                <span>2</span>
-                                <i class="fas fa-minus-circle"></i>
-                            </div>
-                        </td>
-                        <td>$70.000</td>
-                        <td><i class="red fas fa-times"></td>
-                    </tr>
-                    <tr>                   
-                        <td><img class="img__table_cart" src="/img/product.jpeg" alt=""></td>
-                        <td>Nombre Producto</td>
-                        <td>500grs</td>
-                        <td>$35.000</td>
-                        <td>
-                            <div class="cart__more-less">
-                                <i class="fas fa-minus-circle"></i>
-                                <span>2</span>
-                                <i class="fas fa-plus-circle"></i>                                
-                            </div>
-                        </td>
-                        <td>$70.000</td>
-                        <td><i class="red fas fa-times"></td>
-                    </tr>                   
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3"></td>
-                        <th scope="row" colspan="2">Total</th>
-                        <td colspan="2">$140.000</td>
-                    </tr>
-                </tfoot>
+                    <% 
+                        let total = 0;
+                        detailsCart.forEach(item => { 
+                            let product = item.products_grames.products;
+                            total += item.quantity * item.products_grames.price;
+                                                
+                    %>
+                        <tr>
+                            <td><img class="img__table_cart" src="/img/productos/<%= product.images_products[0].path %>"  alt=""></td>
+                            <td class="product-name"><%= product.name %> - <%= item.products_grames.grames + " grs" %> </td>                     
+                            <td>$<%= item.products_grames.price %></td>
+                            <td class="product-quantity" data-title="Cantidad">
+                                <div class="quantity">
+                                    <input type="button" value="-" class="minus">                                   
+                                    <input type="number" class="input-text qty text" step="1" min="0" name="" value="<%= item.quantity %>" title="Cantidad" placeholder="" inputmode="numeric">
+                                    <input type="button" value="+" class="plus">
+                                </div>
+                            </td>
+                            <td class="product-subtotal">$<%= item.quantity * item.products_grames.price %></td>
+                            <td><i class="fas fa-times"></td>
+                        </tr>
+                    <% }) %>
+                </tbody>             
             </table>
-            
-            <div class="cart__continue-buy">                      
-                <button>Continuar Compra</button>
-            </div>    
+            <div class="total-cart">
+                <p class="title">Total del Carrito</p>
+                <p class="price">$ <%= total %></p>
+                <button class="button"> Finalizar Compra</button>                
+            </div>
         </main>
 
     </section>
