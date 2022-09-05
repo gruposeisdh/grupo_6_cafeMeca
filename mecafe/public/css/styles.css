@@ -1386,9 +1386,6 @@ tr:hover td{
 #table__cart tbody  tr:hover  td {
     background-color: transparent;
 }
-.product-name{
-    text-align: left;
-}
 
 .img__table_cart{
     min-width: 80px;
@@ -1401,7 +1398,11 @@ tr:hover td{
     border-bottom: 2px solid #f1e4e1;
 }
 
-div.quantity input[type=button] {
+.product_name_table_cart{
+    text-align: left;
+}
+
+div.quantity__table_cart input[type=button] {
     padding: 0 5px;
     min-width: 25px;
     height: 42px;
@@ -1409,51 +1410,37 @@ div.quantity input[type=button] {
     background: 0 0;
     box-shadow: none;
 }
-div.quantity input[type=button], div.quantity input[type=number] {
+div.quantity__table_cart input[type=button], div.quantity__table_cart input[type=number] {
     display: inline-block;
     color: #777;
 }
 
-div.quantity .plus {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-div.quantity .plus {
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-}
-button, html input[type=button], input[type=reset], input[type=submit] {
-    cursor: pointer;
-    -webkit-appearance: button;
-}
-
-div.quantity .minus {
+div.quantity__table_cart .minus {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     font-size: 20px;
 }
 
-div.quantity .plus {
+div.quantity__table_cart .plus {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     font-size: 15px;
 }
 
-div.quantity {
+div.quantity__table_cart {
     display: inline-flex;
     vertical-align: top;
     white-space: nowrap;
     font-size: 0;
 }
 
-
-div.quantity input[type=button]{
+div.quantity__table_cart input[type=button]{
     border: 2px solid #ddd1d0;
     font-weight: bold;
     color: black;
 }
 
-div.quantity input[type=number] {
+div.quantity__table_cart input[type=number] {
     color: black;
     width: 30px;
     height: 42px;
@@ -1476,7 +1463,7 @@ div.quantity input[type=number] {
     background-color:white;
 }
 
-tbody tr .product-subtotal , .total-cart .price{
+tbody tr .product_subtotal__table_cart , .total-cart .price{
     color:  rgb(255,51,36);
     font-weight: bold;
 }
@@ -1495,10 +1482,6 @@ tbody tr .product-subtotal , .total-cart .price{
 
 #table__cart tr:nth-child(even){ 
     background-color: transparent;
-}
-
-#table__cart thead th:nth-child(1) {
-    width: 20%;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -2811,6 +2794,11 @@ footer {
         left: 35%;
     }
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ CART ════════════════════ **/
+    #cart-products {
+        padding: 30px;
+    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
