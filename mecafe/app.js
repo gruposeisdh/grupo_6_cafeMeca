@@ -29,10 +29,15 @@ const indexRoutes = require('./src/routes/index');
 const cartRoutes = require('./src/routes/cart');
 const productRoutes = require('./src/routes/product');
 const userRoutes = require('./src/routes/user');
+const saleRoutes = require('./src/routes/sale');
+const globalMiddleware = require('./src/middlewares/globalMiddlewares');
 
 app.use('/',indexRoutes);
 app.use('/cart',cartRoutes);
 app.use('/product',productRoutes);
 app.use('/user',userRoutes);
+app.use('/sale',saleRoutes);
+app.use(globalMiddleware.error404)
+
 
 app.listen(3030,() => console.log("Servidor escuchando en puerto 3030"));

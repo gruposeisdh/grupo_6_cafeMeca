@@ -1,7 +1,4 @@
-const idModals = [
-    {'idModal':'modalLogin', 'idButton':'btnOpenModalLogin'},
-    {'idModal':'modalPassword', 'idButton':'btnOpenModalPassword'}
-];
+const idModals = ['modalLogin','modalPassword'];
 
 function openModal(id){
     let modal = document.getElementById(id);
@@ -15,24 +12,11 @@ function closeModal(id){
     openCloseSideChangeVisibility();
 }
 
-/** cerrar modal si se hace click fuera de ella */
-window.addEventListener('click', function(e) {
-    idModals.forEach(function(item){
-        let modal = document.getElementById(item.idModal);
-        if (!modal.contains(e.target) && !document.getElementById(item.idButton).contains(e.target) && modal.style.display == "initial") {
-            closeModal(item.idModal);
-        }
-    });    
-})
-
 function openCloseSideChangeVisibility(){
-    let openCloseSide = document.getElementsByClassName("open-close-side")[0];
+    let openCloseSide = document.getElementById("openCloseSide");    
+    let visibility = getComputedStyle(openCloseSide).visibility;
     
-    if(getComputedStyle(openCloseSide).visibility == "hidden"){
-        openCloseSide.style.visibility = "visible";
-    }else{
-        openCloseSide.style.visibility = "hidden";
-    }
+    openCloseSide.style.visibility = visibility == "hidden" ? "visible" : "hidden";
 }
 
 //valida si se debe abrir login al haber errores de validacion
@@ -55,8 +39,22 @@ function insertRouteInputLogin(){
     document.getElementById("inputRouteLogin").value = url;
 }
 
+let checkModalToClose = () => {
+    idModals.forEach(function(idModal){
+        let modal = document.getElementById(idModal);
+
+        if (modal.style.display == "initial") {
+            closeModal(idModal);  
+        }
+    });    
+}
+
 //ejecutar estas funciones al cargar pagina
 window.onload = function() {
     validateOpenLoginErrors();
     insertRouteInputLogin();
+
+    /** cerrar modal si se hace click fuera de ella */
+    let openCloseSide = document.getElementById("openCloseSide");    
+    openCloseSide.addEventListener('click', checkModalToClose);   
 };

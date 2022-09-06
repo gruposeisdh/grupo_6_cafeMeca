@@ -53,7 +53,9 @@ a:active {
     --negro-intenso: #0a0a0a;
     --whatsapp: #29df20;
     --naranja: #f78b2d;
-    --tamanoFooter: 160px
+    --tamanoFooter: 160px;
+    --paddingArribaFooter: 90px;
+    --tamanoImageError404: 300px 
 }
 
 .text-center {
@@ -130,6 +132,87 @@ a:active {
     transition: all .7s;
 }
 
+/*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
+
+.error404{
+    background-image: url("../img/404Error/fondo.jpg"); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  
+    background-size: cover;
+    min-height: calc(100vh - var(--tamanoFooter) - 66px);
+    /*overflow: auto;*/
+}
+
+.error404__container{
+    width: 100%;
+}
+
+.error404__boxAnimationContainer{
+    width: var(--tamanoImageError404);
+    margin: auto;
+    position: relative;
+}
+
+.error404__animationImage img{
+    width: 100%;
+}
+
+
+.error404__links{
+    padding: 20px 0;
+}
+
+.error404__links ul{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 30px;
+}
+
+.error404 li{
+    padding: 5px 5px;
+    list-style-type: none;
+    font-weight: 700;
+}
+
+.error404 a{
+    color: black;
+}
+
+.error404__title{
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 10px;
+}
+
+.error404__title h3{
+    font-size: 28px;
+    margin-top: 10px;
+    color: var(--lox); 
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+.error404__onefrase{
+    padding: 0 30px;
+}
+
+.error404__onefrase p{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 35px;
+}
+
+.error404__twofrase{
+    line-height: 23px;
+    text-align: center;
+    padding: 0 30px;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, FOOTER ════════════════════ !*/
 
 .newFooter__container{
@@ -194,6 +277,45 @@ a:active {
     color: #9642A2;
 }
 
+/*! ════════════════════ NotAuth ════════════════════ !*/
+
+.notAuth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: calc(100vh - var(--tamanoFooter) - var(--paddingArribaFooter));
+}
+
+.notAuth__container{
+    width: 80%;
+    text-align: center;
+}
+
+.notAuth__container h1{
+    padding: 10px 0;
+    font-size: 28px;
+}
+
+.notAuth__container p{
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.notAuth__container button{
+    font-size: 20px;
+    border: solid 1px var(--gray-pastel);
+    padding: 15px;
+    border-radius: 3px;
+    color: white;
+    background-color: var(--negro-pastel);
+}
+
+.notAuth__container img{
+    width: 300px;
+}
+
 
 /*! ════════════════════ HEADER ════════════════════ !*/
 
@@ -254,6 +376,7 @@ a:active {
 }
 
 /** ═══════ GENERAL MODALS ═════════════ */
+
 .open-close-side {
     position: fixed;
     top: 0;
@@ -546,6 +669,65 @@ tr:hover td{
     border-radius: 3px;
 }
 
+/** ════════════════════ ADMIN USERS  ════════════════════ **/
+
+.AdminUsers__title{
+    text-transform: full-width;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    width: 90vw;
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px auto 0;
+    padding: .6em;
+    border-radius: 3px;
+    color: var(--blanco-original);
+    background-color: var(--black);
+}
+
+.AdminUsers__create{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    align-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: .8em;
+    border-radius: 3px;
+    color: black;
+    border: solid 1px var(--gray-pastel);
+    background-color: white;
+}
+
+.AdminUsers__create:hover {
+    box-shadow: 1px -1px 18px -3px rgba(0,0,0,0.5);
+    transition: all .5s;
+    border: solid 1px gray;
+}
+
+
+.AdminUsers__containerTable{
+    width: 90vw;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-transform: uppercase;
+}
+
+.AdminUsers__table{
+    width: 100%;
+}
+
+
+.AdminUsers__table thead{
+    background-color: #000000;
+    color: white;
+}
+
+
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
@@ -669,7 +851,7 @@ tr:hover td{
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 .createProduct {
-    margin-top: 3em;
+    padding: 3em 0;
 }
 
 .createProduct__title {
@@ -693,13 +875,10 @@ tr:hover td{
     position: relative;
 }
 
-.createProduct__containerForm label {
-    position: absolute;
+.createProduct__labelBox {
     display: block;
-    transform: translateY(-40px);
-    transition: transform .5s;
     color: gray;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .createProduct__containerForm div {
@@ -708,10 +887,15 @@ tr:hover td{
     padding: 5px;
 }
 
+.createProduct__containerForm div p{
+    color: gray;
+    font-size: 12px;
+}
+
 .createProduct__inputBox {
-    padding: 8px 0;
-    margin: .8em 0;
     border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
     border-bottom: solid 1px var(--gray-pastel);
     width: 100%;
 }
@@ -733,28 +917,32 @@ tr:hover td{
 
 .createProduct__inputBox:focus {
     outline: none;
-}
-
-.createProduct__inputBox:focus + .createProduct__labelBox,
-.createProduct__inputBox:not(:placeholder-shown) + .createProduct__labelBox{
-    transform: translateY(-55px) scale(.75);
-    transform-origin: left top;
-    color: #3866f2;
-}
+} 
 
 .createProduct__textArea{
     height: 30px;
 }
 
+.createProduct__optionCategory{
+    padding: 15px;
+}
+
+
+.createProduct__labelCategory {
+    display: block;
+    padding: 5px;
+    margin: auto;
+}
+
+.createProduct__labelCategory input{
+    margin-right: 8px;
+}
+
+
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
 .updateProduct {
-    margin: 30px auto;
-    border: solid 1px var(--gray-pastel);
-    width: 90vw;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    padding: 3em 0;
 }
 
 .updateProduct__title {
@@ -768,32 +956,43 @@ tr:hover td{
 }
 
 .updateProduct__containerForm {
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.updateProduct__labelBox {
+    display: block;
+    color: gray;
+    font-size: 12px;
 }
 
 .updateProduct__containerForm div {
     font-size: .8em;
     align-items: center;
     padding: 5px;
-    display: grid;
-    grid-template-rows: 1fr 1.2fr
+}
+
+.updateProduct__containerForm div p{
+    color: gray;
+    font-size: 12px;
 }
 
 .updateProduct__inputBox {
-    padding: 5px;
-    border-radius: 2px;
-    border: solid 1px gray
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 .updateProduct__containerForm section {
     padding: 5px;
-}
-
-.updateProduct__containerForm .btn {
-    display: grid;
-    grid-template-columns: 1fr;
 }
 
 .updateProduct__containerForm button {
@@ -802,9 +1001,32 @@ tr:hover td{
     margin: 3px 0;
     font-size: .8em;
     text-transform: uppercase;
-    padding: .5em;
+    padding: .8em;
     background-color: #3483fa;
     color: white;
+}
+
+.updateProduct__inputBox:focus {
+    outline: none;
+} 
+
+.updateProduct__textArea{
+    height: 30px;
+}
+
+.updateProduct__optionCategory{
+    padding: 15px;
+}
+
+
+.updateProduct__labelCategory {
+    display: block;
+    padding: 5px;
+    margin: auto;
+}
+
+.updateProduct__labelCategory input{
+    margin-right: 8px;
 }
 
 
@@ -1268,7 +1490,7 @@ tr:hover td{
     position: relative;
     top: 66px;
     z-index: 1;
-    margin-bottom: calc(90px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
+    margin-bottom: calc(66px + var(--tamanoFooter)); /* Este calculo es para acomodar el footer. 160px es el alto del Footer, se deberia crear una variable. */
 }
 
 body {
@@ -1379,10 +1601,6 @@ body {
 }
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
-
-.updateProduct {
-    width: 80vw;
-}
 
 .updateProduct__containerForm .btn {
     display: grid;
@@ -1532,6 +1750,8 @@ body {
     border-bottom: solid 2px red;
 }
 
+/* Esto se esta usando para el Register, para crear productos y para editar productos */
+
 .registerForm__titleForm{
     text-align: center;
     border-radius: 1px;
@@ -1551,6 +1771,8 @@ body {
     letter-spacing: 1px;
     padding-bottom: 1em;
 }
+
+/* Aca termina su uso en esas 3 paginas */
 
 .errorCampoDiv input::placeholder{
     color: red ;
@@ -1784,15 +2006,6 @@ footer {
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
-    .updateProduct {
-        width: 80vw;
-    }
-
-    .updateProduct__containerForm .btn {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-    }
 
     /** ════════════════════ DETAIL PRODUCTS  ════════════════════ **/
 
@@ -2118,51 +2331,6 @@ footer {
 
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
-
-    .updateProduct-nameProduct {
-        grid-area: updateProduct-nameProduct;
-    }
-
-    .updateProduct-weightProduct {
-        grid-area: updateProduct-weightProduct;
-    }
-
-    .updateProduct-priceProduct {
-        grid-area: updateProduct-priceProduct;
-    }
-
-    .updateProduct-categoryProduct {
-        grid-area: updateProduct-categoryProduct;
-    }
-
-    .updateProduct-imageProduct {
-        grid-area: updateProduct-imageProduct;
-    }
-
-    .updateProduct-descriptionProduct {
-        grid-area: updateProduct-descriptionProduct;
-    }
-
-    .updateProduct-btn {
-        grid-area: updateProduct-btn;
-    }
-
-    .updateProduct {
-        width: 80vw;
-        max-width: 800px;
-    }
-
-    .updateProduct__containerForm {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 15px;
-        row-gap: 5px;
-
-        grid-template-areas:
-            "updateProduct-nameProduct updateProduct-weightProduct"
-            "updateProduct-priceProduct updateProduct-categoryProduct"
-            "updateProduct-imageProduct updateProduct-descriptionProduct"
-            ". updateProduct-btn"
-    }
 
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
@@ -2572,6 +2740,7 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 992PX ════════════════════ TODO */
 
 @media (min-width: 992px) {
+
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
     .changePassword__container {       
@@ -2646,6 +2815,55 @@ footer {
     
     .product-description-product2 {
         margin-bottom: 20px;
+    }
+
+    /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
+
+    .error404__container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 70px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        min-height: calc((100vh - var(--tamanoFooter) - 66px));
+        align-items: center;
+    }
+
+    .error404__title{
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .error404__title h3{
+        font-size: 37px;
+        line-height: 45px;
+    }
+
+    .error404__onefrase{
+        padding: 0;
+    }
+
+    .error404__onefrase p{
+        text-align: left;
+    }
+
+    .error404__twofrase{
+        text-align: left;
+        padding: 20px 0;
+    }
+
+    .error404__links{
+        padding: 0;
+    }
+
+    .error404__links ul{
+        padding: 0;
+        display: block;
+    }
+
+    .error404__animationImage img{
+        width: 140%;
     }
 
 }

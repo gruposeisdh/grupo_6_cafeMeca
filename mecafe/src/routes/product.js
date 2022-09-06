@@ -48,7 +48,7 @@ router.post(
     '/edit/:id',
     authMiddlewares.authMiddlewarePost,
     authMiddlewares.adminMiddleware,
-    uploadProducts.single("imageProduct"), 
+    uploadProducts.single("imageProduct"),
     productController.update
 );
 
@@ -63,8 +63,8 @@ router.post(
 
 router.get(
     '/administracion',
-    authMiddlewares.authMiddleware,
-    authMiddlewares.adminMiddleware,
+    //authMiddlewares.authMiddleware,
+    //authMiddlewares.adminMiddleware,
     productController.adminProducts
 );
 
