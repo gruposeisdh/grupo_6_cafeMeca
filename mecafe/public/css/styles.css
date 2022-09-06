@@ -1326,125 +1326,155 @@ tr:hover td{
 /** ════════════════════ CART ════════════════════ **/
 
 #cart-products {
-    max-width: 900px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     overflow-x:auto;
     font-size:14px;
+    padding: 10px;    
+    margin-top:15px;
 }
 
 /*? -------------- BAR PROGRESS  ------------ ?*/
 
 .cart__progress {
     position: relative;
-    color: var(--naranja-ligero);
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     padding: 10px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 25px;
+    width: 60%;
+    align-items: center;
+    color: black !important;
 }
 
 .cart__progress hr {
-    position: absolute;
-    width: 50%;
-    height: 0;
+    width: 15%;
     border: medium none;
-    border-top: 5px solid var(--naranja-oscuro);
-    top: 20px;
+    border-top: 5px dotted black;
+}
+
+.cart__progress div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cart__progress i {
     display: flex;
     position: relative;
     align-items: center;
-    font-size: 25px;
+    font-size: 50px;
+    flex-direction: column-reverse;
+    margin-bottom: 15px;    
 }
 
-.cart__progress i span {
-    /**position: relative;*/
-    color: black;
-    font-weight: bold;
-    vertical-align: middle;
-    font-size: 14px;
-    right: 16px;
-    bottom: 1px;
-}
-
-.progress__active {
-    color: var(--naranja-oscuro) !important;
-}
-
-.progress__description {
-    position: absolute;
-    top: 40px;
-    left: 0px;
+.progress__not_active {
+    opacity: 0.4;
 }
 
 /*? -------------- PRODUCTS LIST --------- ?*/
-#table__cart {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 50px;
-}
 
 #table__cart tbody  tr:hover  td {
     background-color: transparent;
 }
 
 .img__table_cart{
-    width: 100%;
+    min-width: 80px;
+    max-width: 80px;
 }
 
 #table__cart th, #table__cart td {
-    padding: 5px;
+    padding: 15px 12px;
     border: none;
-    border-bottom: 2px solid var(--lox);
+    border-bottom: 2px solid #f1e4e1;
+}
+
+.product_name_table_cart{
+    text-align: left;
+}
+
+div.quantity__table_cart input[type=button] {
+    padding: 0 5px;
+    min-width: 25px;
+    height: 42px;
+    border: 2px solid #ddd1d0;
+    background: 0 0;
+    box-shadow: none;
+}
+div.quantity__table_cart input[type=button], div.quantity__table_cart input[type=number] {
+    display: inline-block;
+    color: #777;
+}
+
+div.quantity__table_cart .minus {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 20px;
+}
+
+div.quantity__table_cart .plus {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 15px;
+}
+
+div.quantity__table_cart {
+    display: inline-flex;
+    vertical-align: top;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+div.quantity__table_cart input[type=button]{
+    border: 2px solid #ddd1d0;
+    font-weight: bold;
+    color: black;
+}
+
+div.quantity__table_cart input[type=number] {
+    color: black;
+    width: 30px;
+    height: 42px;
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    border-top: 2px solid #ddd1d0;
+    border-bottom: 2px solid #ddd1d0;
+    padding: 0;
+    text-align: center;
+}
+
+.total-cart{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: auto;
+    background-color:white;
+}
+
+tbody tr .product_subtotal__table_cart , .total-cart .price{
+    color:  rgb(255,51,36);
+    font-weight: bold;
+}
+
+.total-cart .title {
+    font-size: 15px;   
+}
+
+.total-cart .button{
+    width: 30%;
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
 }
 
 #table__cart tr:nth-child(even){ 
     background-color: transparent;
-}
-
-#table__cart thead th:nth-child(1) {
-    width: 20%;
-}
-
-#table__cart tfoot td{
-    font-size: 15px;
-}
-
-.cart__more-less {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.cart__more-less i{
-    color: var(--lox);
-}
-
-.cart__more-less span{
-    color: var(--black);
-}
-
-.cart__continue-buy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-    margin: 10px;
-}
-
-.cart__continue-buy button {    
-    padding: 8px;
-    background-color: var(--black);
-    color: white;
-    font-weight: bold;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    border-style: hidden;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -2020,6 +2050,9 @@ footer {
 
     /*? -------------- BAR PROGRESS  ------------ ?*/
 
+    .wd-checkout-steps{
+        display: flex;
+    }
     .cart__progress hr {
         top: 23px;
     }
@@ -2209,6 +2242,9 @@ footer {
 
     /** ════════════════════ CART ════════════════════ **/
 
+    .cart__progress{
+        display: flex;
+    }
     /*? --------------  TOTAL CART ------------ ?*/
 
     #table__cart th, #table__cart td {
@@ -2571,13 +2607,22 @@ footer {
     /** ════════════════════ CART ════════════════════ **/
 
     /*? --------------  TOTAL CART ------------ ?*/
-
-    .cart__continue-buy .cart__total {
-        font-size: 20px;
+    
+    #cart-products {
+        display: flex;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .total-cart{
+        flex-wrap: wrap;
+        margin: initial;
+        margin-left: 20px;
+        max-width: 350px;       
     }
 
-    .cart__continue-buy button {
-        font-size: 18px;
+    .total-cart .button{
+        margin-top: 10px;
+        width: 100%;
     }
 
     /** ════════════════════ HOME ════════════════════ **/
@@ -2749,6 +2794,11 @@ footer {
     }
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ CART ════════════════════ **/
+    #cart-products {
+        padding: 30px;
+    }
+
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
@@ -2781,23 +2831,6 @@ footer {
     
     .redesSocialesBanner__icons{
         column-gap: 9px;
-    }
-
-    /** ════════════════════ CART ════════════════════ **/
-
-    /*? -------------- BAR PROGRESS  ------------ ?*/
-    
-    .cart__progress hr {
-        top: 26px;
-    }
-    
-    .cart__progress i {
-        position: relative;
-        font-size: 35px;
-    }
-    
-    .cart__progress i span {
-        right: 20px;
     }
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
@@ -2873,6 +2906,11 @@ footer {
 
 @media (min-width: 1200px) {
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ CART ════════════════════ **/
+    #table__cart {
+        width: 80%;
+    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 

@@ -58,7 +58,7 @@ router.post(
 ); 
 
 router.get(
-    '/profile/:id',authMiddlewares.authMiddleware,userController.profile); 
+    '/profile',authMiddlewares.authMiddleware,userController.profile); 
 
 router.get(
     '/list',
