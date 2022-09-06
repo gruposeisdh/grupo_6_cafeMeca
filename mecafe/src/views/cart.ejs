@@ -8,17 +8,23 @@
     <%- include("./partials/header") %>
 
     <!-- Contenido -->
-    <section class="generalHome">
-        <!--
-        <div>  
-            <div class="cart__progress">
-                <hr> 
-                <i class="fas fa-circle progress__active"><span class="position-relative">1</span><span class="progress__description">Carro</span></i>
-                <i class="fas fa-circle"><span class="position-relative">2</span><span class="progress__description">Envío</span></i>
-                <i class="fas fa-circle"><span class="position-relative">3</span><span class="progress__description">Pago</span></i>
+    <section class="generalHome">   
+        <div class="cart__progress">    
+            <div class="">
+                <i class="fas fa-shopping-basket"></i>
+                <span class="progress__description">Carrito</span>
             </div>
+            <hr class="">
+            <div class="progress__not_active">
+                <i class="fas fa-credit-card"></i>
+                <span class="progress__description">Checkout</span>
+            </div>
+            <hr class="progress__not_active">
+            <div class="progress__not_active">
+                <i class="fas fa-gifts"></i>
+                <span class="progress__description">Pedido Completado</span>
+            </div>               
         </div>
-        -->
         <main id="cart-products">
             <table id="table__cart">          
                 <thead>

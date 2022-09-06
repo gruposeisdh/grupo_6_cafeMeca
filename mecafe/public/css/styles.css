@@ -1331,54 +1331,47 @@ tr:hover td{
     margin-right: auto;
     overflow-x:auto;
     font-size:14px;
-    padding: 10px;
+    padding: 10px;    
+    margin-top:15px;
 }
 
 /*? -------------- BAR PROGRESS  ------------ ?*/
 
 .cart__progress {
     position: relative;
-    color: var(--naranja-ligero);
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     padding: 10px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 25px;
+    width: 60%;
+    align-items: center;
+    color: black !important;
 }
 
 .cart__progress hr {
-    position: absolute;
-    width: 50%;
-    height: 0;
+    width: 15%;
     border: medium none;
-    border-top: 5px solid var(--naranja-oscuro);
-    top: 20px;
+    border-top: 5px dotted black;
+}
+
+.cart__progress div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cart__progress i {
     display: flex;
     position: relative;
     align-items: center;
-    font-size: 25px;
+    font-size: 50px;
+    flex-direction: column-reverse;
+    margin-bottom: 15px;    
 }
 
-.cart__progress i span {
-    /**position: relative;*/
-    color: black;
-    font-weight: bold;
-    vertical-align: middle;
-    font-size: 14px;
-    right: 16px;
-    bottom: 1px;
-}
-
-.progress__active {
-    color: var(--naranja-oscuro) !important;
-}
-
-.progress__description {
-    position: absolute;
-    top: 40px;
-    left: 0px;
+.progress__not_active {
+    opacity: 0.4;
 }
 
 /*? -------------- PRODUCTS LIST --------- ?*/
@@ -2057,6 +2050,9 @@ footer {
 
     /*? -------------- BAR PROGRESS  ------------ ?*/
 
+    .wd-checkout-steps{
+        display: flex;
+    }
     .cart__progress hr {
         top: 23px;
     }
@@ -2246,6 +2242,9 @@ footer {
 
     /** ════════════════════ CART ════════════════════ **/
 
+    .cart__progress{
+        display: flex;
+    }
     /*? --------------  TOTAL CART ------------ ?*/
 
     #table__cart th, #table__cart td {
@@ -2832,23 +2831,6 @@ footer {
     
     .redesSocialesBanner__icons{
         column-gap: 9px;
-    }
-
-    /** ════════════════════ CART ════════════════════ **/
-
-    /*? -------------- BAR PROGRESS  ------------ ?*/
-    
-    .cart__progress hr {
-        top: 26px;
-    }
-    
-    .cart__progress i {
-        position: relative;
-        font-size: 35px;
-    }
-    
-    .cart__progress i span {
-        right: 20px;
     }
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
