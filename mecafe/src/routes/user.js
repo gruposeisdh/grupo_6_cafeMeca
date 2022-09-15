@@ -61,6 +61,9 @@ router.get(
     '/profile',authMiddlewares.authMiddleware,userController.profile); 
 
 router.get(
+    '/sales',/** authMiddlewares.authMiddleware, */userController.sales); 
+
+router.get(
     '/list',
     //authMiddlewares.authMiddleware, 
     //authMiddlewares.adminMiddleware,
