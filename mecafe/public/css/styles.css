@@ -1376,7 +1376,7 @@ tr:hover td{
 
 /*? -------------- PRODUCTS LIST --------- ?*/
 
-#table__cart tbody  tr:hover  td {
+#table__cart tbody  tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
 }
 
@@ -1385,7 +1385,7 @@ tr:hover td{
     max-width: 80px;
 }
 
-#table__cart th, #table__cart td {
+#table__cart th, #table__cart td, #table__sales_user th, #table__sales_user td {
     padding: 15px 12px;
     border: none;
     border-bottom: 2px solid #f1e4e1;
@@ -1473,8 +1473,67 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     padding: 5px;
 }
 
-#table__cart tr:nth-child(even){ 
+#table__cart tr:nth-child(even), #table__sales_user tr:nth-child(even){ 
     background-color: transparent;
+}
+
+/** ════════════════════ MENU USER ════════════════════ **/
+#menu_user{
+    background-color:white;
+    display: none;
+}
+
+#menu_user ul{
+    padding: 10px;
+    list-style: none;
+}
+
+#menu_user a{
+    color:black;
+}
+
+#menu_user li{
+    padding: 10px;
+    decoration: none;
+}
+
+/** ════════════════════ CONTAINER USER SALES ════════════════════ **/
+
+.container_users{
+    padding: 20px;
+    /* margin:10px; */
+    display:flex;
+}
+
+/** ════════════════════ USER SALES ════════════════════ **/
+.container__table_sales_user{
+    max-width: 700px;
+    /** width:70%;*/
+    /** margin-left:10px; */
+    background: white;
+}
+
+#table__sales_user{
+    width: 100%;
+}
+
+#table__sales_user a{
+    color: black;
+}
+
+#table__sales_user .total_sale{
+    color: rgb(255,51,36);
+    font-weight: bold;
+}
+
+#table__sales_user .description_total_sale{
+    display: none;
+}
+ 
+.container__table_sales_user .title{
+    margin: 20px;
+    font-weight: bold;
+    font-size:25px;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -2217,6 +2276,18 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ MENU USER ════════════════════ **/
+    #menu_user{
+        display: revert;
+    }
+
+    /** ════════════════════ USER SALES ════════════════════ **/
+      
+    #table__sales_user .description_total_sale{
+        display: revert;
+    }
+    
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 

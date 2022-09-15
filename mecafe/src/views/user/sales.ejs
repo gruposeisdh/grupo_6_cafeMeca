@@ -1,0 +1,44 @@
+<!-- Encabezado de la pagina -->
+<%- include("../partials/head") %>
+    <title>Document</title>
+</head>
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include("../partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">  
+        <div class="container_users">
+            <%- include("../partials/menuUser") %>
+            <div class="container__table_sales_user">
+                <p class="title">Mis Pedidos</p>
+                <table id="table__sales_user">          
+                    <thead>
+                      <tr>
+                        <th>PEDIDO</th>
+                        <th>FECHA</th>
+                        <th>TOTAL</th>
+                        <th>ACCIONES</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% sales.forEach(item => { %>
+                            <tr>                                
+                                <td class="id_sale"><a href="/sales/<%= item.id %>">#<%= item.id %></a></td>                     
+                                <td><%= item.date %></td>
+                                <td><span class="total_sale">$<%= item.total %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
+                                <td><a href="/sales/<%= item.id %>">Ver</a></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>             
+                </table>
+            </div>
+        </div> 
+       
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("../partials/footerNico") %>
+</body>
+</html>

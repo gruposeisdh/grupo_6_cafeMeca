@@ -30,7 +30,7 @@ let authMiddlewares = {
 
     //proteger rutas que en las que debes ser admin
     adminMiddleware: function(req, res, next){
-        if(req.session.user && req.session.user.role != 'admin'){
+        if(req.session.user && req.session.user.role_id != 1){
             return res.redirect('/');
         }
         next();
@@ -42,7 +42,7 @@ let authMiddlewares = {
         if(req.session.user){
             res.locals.user = {
                 'name': req.session.user.name,
-                'role': req.session.user.role,
+                'role': req.session.user.role_id,
             };
         }
 
