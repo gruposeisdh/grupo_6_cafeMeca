@@ -158,6 +158,8 @@ let productController = {
 
     update: (req, res) => {
 
+        
+
         let id = req.params.id
         let nameProduct = req.body.nameProduct
         let weightProduct1 = req.body.weightProduct1
@@ -166,16 +168,23 @@ let productController = {
         let priceProduct2 = req.body.priceProduct2
         let weightProduct3 = req.body.weightProduct3
         let priceProduct3 = req.body.priceProduct3
-        let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+
+        // Es el req.body.idCategories que utilizo en idCategories para no ser tan repetitivo
+        // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+        // If ternario donde si trae un solo dato lo convierte en array y sino lo trae como array.
+        // If ternario: Condicion ? Si se cumple : Sino esto
+        let categories = req.body.idCategories
+        let idCategories = categories.length == 1 ? [categories] : categories 
+        
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
 
-        db.ProductGrame.destroy({
+        /* db.ProductGrame.destroy({
             where: {
                 product_id: id
             }
-        })
+        }) */
 
         /* db.ImageProduct.destroy({
             where: {
@@ -183,18 +192,13 @@ let productController = {
             }
         }) */ 
 
-        db.ProductTypeGrinding.destroy({
-            where: {
-                product_id: id
-            }
-        })
-
+        
         /* db.Product.destroy({
             where: {
                 id: id
             }
         }) */
-
+        
         /* db.Product.create({
             name: nameProduct,
             rating: ratingProduct,
@@ -203,72 +207,87 @@ let productController = {
             
             
             db.Product.findByPk(id)
+            
+            .then(product => {
+                
+                db.Product.update({
+                    name: nameProduct,
+                    rating: ratingProduct,
+                    description: descriptionProduct,
+                },{
+                    where: {
+                        id: product.id
+                    }
+                    
+                })
+                
+                db.ProductGrame.update({
+                    product_id: product.id, // Este id viene del objeto de arriba recien creado.
+                    grames: weightProduct1,
+                    price: priceProduct1,
+                }, {
+                    where: {
+                        grames: weightProduct1,
+                        product_id: product.id
+                    }
+                })
+                db.ProductGrame.update({
+                    product_id: product.id,
+                    grames: weightProduct2,
+                    price: priceProduct2,
+                }, {
+                    where: {
+                        grames: weightProduct2,
+                        product_id: product.id
+                    }
+                })
+                db.ProductGrame.update({
+                    product_id: product.id,
+                    grames: weightProduct3,
+                    price: priceProduct3,
+                }, {
+                    where: {
+                        grames: weightProduct3,
+                        product_id: product.id
+                    }
+                })
+                
+                db.ProductTypeGrinding.destroy({
+                    where: {
+                        product_id: id
+                    }
+                })
 
-                .then(product => {
+                idCategories.forEach(idCategory => {
+                    db.ProductTypeGrinding.create({
+                        product_id: product.id,
+                        type_grinding_id: idCategory
+                    })
+                })
+                
+                
+                if (req.file) {
 
-                    db.Product.update({
-                        name: nameProduct,
-                        rating: ratingProduct,
-                        description: descriptionProduct,
+                    /*db.ImageProduct.destroy({
+                        where: {
+                            product_id: id
+                        }
+                    })*/
+
+                    db.ImageProduct.update({
+                        path: fileproducts.imageProductNew(req.file),
+                        product_id: product.id,
                     },{
                         where: {
                             id: product.id
                         }
-
-                })
-
-                db.ProductGrame.create({
-                    product_id: product.id, // Este id viene del objeto de arriba recien creado.
-                    grames: weightProduct1,
-                    price: priceProduct1,
-                })
-                db.ProductGrame.create({
-                    product_id: product.id,
-                    grames: weightProduct2,
-                    price: priceProduct2,
-                })
-                db.ProductGrame.create({
-                    product_id: product.id,
-                    grames: weightProduct3,
-                    price: priceProduct3,
-                })
-                
-                if (idCategories.length == 1) {
-
-                    db.ProductTypeGrinding.create({
-                        product_id: product.id,
-                        type_grinding_id: idCategories
                     })
-                    
-                } else {
-                    
-                    idCategories.forEach(idCategory =>{
-                        db.ProductTypeGrinding.create({
-                            product_id: product.id,
-                            type_grinding_id: idCategory
-                        })
-                    })
-                    
-                }
-
-                if (req.file) {
-
-                    db.ImageProduct.destroy({
-                        where: {
-                            product_id: id
-                        }
-                    })
-
-                    db.ImageProduct.create({
-                        path: fileproducts.imageProductNew(req.file),
-                        product_id: product.id,
-                    })           
 
                 }
 
             })
 
-        res.redirect("/product");
+        res.redirect("/product/administracion");
 
     },
 
