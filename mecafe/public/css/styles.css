@@ -1480,7 +1480,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ MENU USER ════════════════════ **/
 #menu_user{
     background-color:white;
-    display: none;
     width: 100%;
     border-bottom: 1px solid var(--lox);
     font-weight: bold;
