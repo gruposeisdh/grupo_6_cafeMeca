@@ -17,8 +17,9 @@ let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
     //Ver perfil usuario
-    profile: (req,res) => {       
-        let id=  req.session.user.id;
+    profile: (req,res) => {   
+        let id= 1;    
+        //let id=  req.session.user.id;
         db.User.findByPk(id).then(userEncontrado => {
             res.render(path.resolve(__dirname,"../views/user/profile.ejs"),{userProfile:userEncontrado});
         });

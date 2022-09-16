@@ -1481,11 +1481,20 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 #menu_user{
     background-color:white;
     display: none;
+    width: 100%;
+    border-bottom: 1px solid var(--lox);
+    font-weight: bold;
+}
+
+.selected_menu_user_item{
+    background-color: var(--lox)
 }
 
 #menu_user ul{
-    padding: 10px;
+    padding: 0;
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 #menu_user a{
@@ -1493,21 +1502,22 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 #menu_user li{
-    padding: 10px;
-    decoration: none;
+    padding: 15px;
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
 
 .container_users{
     padding: 20px;
-    /* margin:10px; */
-    display:flex;
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
 }
 
 /** ════════════════════ USER SALES ════════════════════ **/
-.container__table_sales_user{
-    max-width: 700px;
+.container_detail_view_user, container__table_sales_user{
+    width: 100%;
     /** width:70%;*/
     /** margin-left:10px; */
     background: white;
