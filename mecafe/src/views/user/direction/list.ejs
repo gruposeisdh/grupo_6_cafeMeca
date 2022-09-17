@@ -11,8 +11,30 @@
     <section class="generalHome">  
         <div class="container_users">
             <%- include("../../partials/menuUser") %>
-            <div class="container_detail_view_user">
-                //aqui contenido Direcciones
+            <div class="container_detail_view_user container_user_directions">
+                <div class="header_direction_detail">
+                    <p class="title">Mis Direcciones</p>
+                    <button>Añadir Dirección</button>
+                </div>
+                <div class="list_directions">
+                    <% directions.forEach((direction) => { %>
+                        <article class="direction_detail">
+                            <div class="header_list_direction_detail">
+                                <p class="direction_default <%= direction.default ? '' : 'hidden'  %>">Dirección predeterminada</p>
+                                <p><%= direction.name %></p>
+                            </div>
+                            <div class="body_list_direction_detail">
+                                <p><%= direction.street %></p>
+                                <p><%= direction.city %>, <%= direction.region %>, <%= direction.country %></p>
+                                <p><%= direction.address_code %></p>
+                            </div>
+                            <div class="footer_list_direction_detail">
+                                <button class="button_edit_direction">Editar</button>
+                                <button  class="button_delete_direction">Eliminar</button>
+                            </div>
+                        </article>                
+                    <% }) %>
+                </div>
             </div>
         </div> 
        

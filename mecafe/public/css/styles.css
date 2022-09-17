@@ -70,6 +70,10 @@ a:active {
     color: red;
 }
 
+.hidden{
+    visibility:hidden;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
@@ -1545,6 +1549,68 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size:25px;
 }
 
+/** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+.container_user_directions .title{
+    margin: 20px;
+    font-weight: bold;
+    font-size:25px;
+}
+
+.header_direction_detail{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+.list_directions{
+    margin: 20px;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list_directions article{
+    width: 100%;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 0px 1px 15px 15px;
+}
+
+article .header_list_direction_detail .direction_default{
+    margin: 2px 5px 2px 0;
+    font-size: 11px;    
+    text-align: end;
+}
+
+article .header_list_direction_detail{
+    font-weight: bold;
+    border-bottom: 1px solid var(--lox);
+    margin-bottom: 10px;
+}
+
+.body_list_direction_detail p{
+    margin-bottom: 5px;
+}
+
+.footer_list_direction_detail .button_delete_direction {
+    background-color: var(--lox);
+    color: black;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
 /** ════════════════════ HOME ════════════════════ **/
 
 .home__containerColumns {
@@ -2067,6 +2133,12 @@ footer {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions article{
+        width: 250px;
+    }
+
     /** ════════════════════ CART ════════════════════ **/
 
     /*? --------------  TOTAL CART ------------ ?*/
@@ -2297,6 +2369,16 @@ footer {
         display: revert;
     }
     
+     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions{
+        margin: 20px;
+        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
