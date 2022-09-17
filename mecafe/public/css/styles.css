@@ -1549,6 +1549,14 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size:25px;
 }
 
+#table__sales_user .button_go_to_sale {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
 /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
 .container_user_directions .title{
