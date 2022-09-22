@@ -14,7 +14,7 @@
             <div class="container_detail_view_user container_user_directions">
                 <div class="header_direction_detail">
                     <p class="title">Mis Direcciones</p>
-                    <button>Añadir Dirección</button>
+                    <button class="btnAddDirection" onclick="addDirection()">Añadir Dirección</button>
                 </div>
                 <div class="list_directions">
                     <% directions.forEach((direction) => { %>
@@ -35,6 +35,90 @@
                         </article>                
                     <% }) %>
                 </div>
+                <div class="form-direction display-none">
+                    <form action="/user/direction" class="registerForm__form" method="POST">  
+                        <input type="hidden" name="id" class="registerForm__formInput"
+                            value="" id="id" placeholder=" ">                    
+                        <div>
+                            <input type="text" name="name" class="registerForm__formInput"
+                            value="<%= locals.oldData ? oldData.name : null %>" id="name" placeholder=" ">
+                            <label for="name" class="registerForm__formLabel">Nombre Direccion:</label>
+        
+                            <% if(locals.errorMessage && errorMessage.name){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.name.msg %> 
+                                </p>
+                            <% } %> 
+                        </div>
+        
+                        <div>
+                            <input type="text" name="street" class="registerForm__formInput" 
+                            value="<%= locals.oldData ? oldData.street : null %>" id="street" placeholder=" ">
+                            <label for="street" class="registerForm__formLabel">Calle:</label>
+                            <% if(locals.errorMessage && errorMessage.street){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.street.msg %> 
+                                </p>
+                            <% } %> 
+                        </div>
+        
+                        <div>
+                            <input type="text" name="city" class="registerForm__formInput"
+                            value="<%= locals.oldData ? oldData.city : null %>" id="city"  placeholder=" ">
+                            <label for="city" class="registerForm__formLabel">Ciudad:</label>
+                            <% if(locals.errorMessage && errorMessage.city){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.city.msg %> 
+                                </p>
+                            <% } %> 
+                        </div>
+        
+                        <div>
+                            <input type="text" name="region" class="registerForm__formInput"
+                            value="<%= locals.oldData ? oldData.region : null %>" id="region"  placeholder=" ">
+                            <label for="region" class="registerForm__formLabel">Region:</label>
+                            <% if(locals.errorMessage && errorMessage.region){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.region.msg %>
+                                </p>
+                            <% } %> 
+                        </div>
+
+                        <div>
+                            <input type="text" name="country" class="registerForm__formInput"
+                            value="<%= locals.oldData ? oldData.country : null %>" id="country"  placeholder=" ">
+                            <label for="country" class="registerForm__formLabel">Pais</label>
+                            <% if(locals.errorMessage && errorMessage.country){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.country.msg %>
+                                </p>
+                            <% } %> 
+                        </div>
+
+                        <div>
+                            <input type="text" name="address_code" class="registerForm__formInput"
+                            value="<%= locals.oldData ? oldData.address_code : null %>" id="address_code"  placeholder=" ">
+                            <label for="address_code" class="registerForm__formLabel">Codigo Postal</label>
+                            <% if(locals.errorMessage && errorMessage.address_code){ %>
+                                <p class="register__formError">
+                                    <%= errorMessage.address_code.msg %>
+                                </p>
+                            <% } %> 
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="default_value" name="default_value">
+                            <label for="default_value" class="registerForm__formLabel">Direccion Predeterminada</label>
+                        </div>
+                        
+                       
+                        <div class="registerForm__Btns">
+                            <button type="submit" class="registerForm__btn btnSendRegister">Guardar</button>  
+                            <a onclick="cancelDirection()" class="registerForm__btn btnSendRegister">Cancelar </a>                             
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div> 
        
@@ -43,4 +127,6 @@
     <%- include("../../partials/footerNico") %>
 </body>
 </html>
+
+<script src="../../../../../../../../js/direction.js"></script>
 <script src="../../../../../../../../js/menuUser.js"></script>

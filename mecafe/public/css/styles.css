@@ -74,6 +74,10 @@ a:active {
     visibility:hidden;
 }
 
+.display-none{
+    display: none !important;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
