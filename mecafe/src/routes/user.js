@@ -23,7 +23,7 @@ const validateCreateUser = [
         return db.User.findOne({ where: {email: value} })
            .then((user) => {
                 if(!user){return "error"}
-                    return Promise.reject('Email ya existe en base de datos')              
+                    return Promise.reject('Este email ya está siendo utilizado')              
            })
      }),
     check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
