@@ -74,8 +74,8 @@
                     <% } %> 
                 </div>
 
-                <div class="errorCampoDiv">
-                    <input type="password" name="confirmPassword" + id="confirmPassword" placeholder=" ">
+                <div>
+                    <input type="password" name="confirmPassword" class="registerForm__formInput" id="confirmPassword" placeholder=" ">
                     <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
                     <% if(locals.errorMessage && errorMessage.confirmPassword){ %>
                         <p class="register__formError">
