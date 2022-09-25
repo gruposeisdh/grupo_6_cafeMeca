@@ -22,14 +22,15 @@ let directionController = {
     store: (req,res) => {        
         //let userId=  req.session.user.id;
         let userId = 1;
-        let name = req.body.name;   
+        let name = req.body.name;
         let street = req.body.street;
         let city = req.body.city;
         let region = req.body.region;
         let country = req.body.country;
         let address_code = req.body.address_code;
-        let default_value = req.body.default_value == "on" ? true : false;
+        let default_value = req.body.defaultValue == "on" ? true : false;
 
+        console.log(default_value);
         //let id=  req.session.user.id;
         db.Direction.findAll({where: {user_id: userId}}).then(directions => {
             let total = directions.length;
@@ -61,20 +62,20 @@ let directionController = {
         //TODO validar que edito direccion perteneciente al user (no puedo editar una direccion que no es mia)
         //let userId=  req.session.user.id;
         let userId = 1;
-        let id= req.params.id;
+        let id= req.body.id;
         let name = req.body.name;   
         let street = req.body.street;
         let city = req.body.city;
         let region = req.body.region;
         let country = req.body.country;
         let address_code = req.body.address_code;
-        let default_value = req.body.default_value == "on" ? true : false;
+        let default_value = req.body.defaultValue == "on" ? true : false;
 
         db.Direction.findAll({where: {user_id: userId},attribute: {[Op.not]: id}}).then(directions => {
             let total = directions.length;
             //si la direccion será predeterminada y hay mas direcciones - verificar si hay otra direccion default y modificarla
-            if (total.length > 0 && default_value == 1) {            
-                db.Direction.update({default: 0},{where: {user_id: id, default: 1}})
+            if (total > 0 && default_value) {            
+                db.Direction.update({default: false},{where: {user_id: userId, default: true }})
             }
 
             db.Direction.update({

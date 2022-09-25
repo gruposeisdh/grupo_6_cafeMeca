@@ -8,7 +8,7 @@ const authMiddlewares = require('../middlewares/authMiddlewares');
 
 router.get('/direction',/** authMiddlewares.authMiddleware, */directionController.index);
 router.post('/direction',/** authMiddlewares.authMiddlewarePost, */directionController.store);
-router.post('/direction/:id',/** authMiddlewares.authMiddlewarePost, */directionController.update);
+router.post('/direction/update',/** authMiddlewares.authMiddlewarePost, */directionController.update);
 
 
 module.exports = router;

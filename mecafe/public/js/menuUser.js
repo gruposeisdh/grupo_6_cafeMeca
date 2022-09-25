@@ -23,5 +23,5 @@ function selectMenuUser(){
 
 //ejecutar estas funciones al cargar pagina
 window.onload = function() {
-    selectMenuUser();
+    selectMenuUser();   
 };
