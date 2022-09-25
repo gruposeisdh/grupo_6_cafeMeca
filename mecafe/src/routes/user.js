@@ -22,8 +22,10 @@ const validateCreateUser = [
     check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com').bail().custom(value => {
         return db.User.findOne({ where: {email: value} })
            .then((user) => {
-                if(!user){return "error"}
-                    return Promise.reject('Este email ya está siendo utilizado')              
+                if(!user){
+                    return true;
+                }
+                   return Promise.reject('Este email ya está siendo utilizado')
            })
      }),
     check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
