@@ -3,10 +3,54 @@ const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const fileproducts = require('../models/product');
+const { validationResult } = require('express-validator');
 
 //Aqui tienen una forma de llamar a cada uno de los modelos
 // const {Movies,Genres,Actor} = require('../database/models');
 //Aquí tienen otra forma de llamar a los modelos creados
+
+/* Pasos:
+
+Todo esto se empieza en la hoja de rutas.
+
+1: Importamos const {check} = require('express-validator');
+2: Creamos una constante con el nombre que querramos que debera ser un array.
+3: Creamos las validaciones que necesitemos, podemos crear tambien validaciones CUSTOM.
+4: Esto lo hacemos llamando a check("") donde dentro de las comillas ponemos el name del formulario.
+5: Si haces mas de una validacion, a todas las anteriores a la ultima ponerle .bail() para cortar la ejecucion de la que le sigue
+6: En la ruta despues de las imagenes de multer ponemos la variable de las validaciones.
+
+Sigo en la hoja de controllers
+
+7: Nos vamos a controladores y pedimos "const { validationResult } = require('express-validator');"
+8: Creamos la variable errors que contiene "let errors = validationResult(req)"
+
+    errors: [
+        {
+        value: '',
+        msg: 'Escribe un nombre de producto.',
+        param: 'nameProduct',
+        location: 'body'
+        }
+    ]
+    }
+
+9: Hacemos un if () para que si hay errores frene la ejecucion y sino siga pa adelante.
+10: En el else del if cuando renderizamos de nuevo la vista mandamos los errores y los datos antiguos para persistirlos. {errors: errors.mapped(), old: req.body}
+
+11: errors.mapped() Va a enviar algo como esto. Donde estan los campos con errores.
+
+    {
+    "nameProduct": {
+        "value": "",
+        "msg": "Escribe un nombre de producto.",
+        "param": "nameProduct",
+        "location": "body"
+    }}
+
+12:
+
+*/
 
 
 let productController = {
@@ -52,7 +96,6 @@ let productController = {
                 res.render(path.resolve(__dirname, "../views/product/create.ejs"), { brands: allBrands, typeGrindings: typeGrindings })
             })
 
-
     },
 
     // Crea un Producto - Lo crea literalmente - LISTO
@@ -71,55 +114,76 @@ let productController = {
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
 
+        let errors = validationResult(req)
 
-        db.Product.create({
-            name: nameProduct,
-            rating: ratingProduct,
-            description: descriptionProduct,
-            brand_id: idBrand
+        if (errors.isEmpty()) {
 
-        }) .then(product => {
-            db.ProductGrame.create({
-                product_id: product.id, // Este id viene del objeto de arriba recien creado.
-                grames: weightProduct1,
-                price: priceProduct1,
-            })
-            db.ProductGrame.create({
-                product_id: product.id,
-                grames: weightProduct2,
-                price: priceProduct2,
-            })
-            db.ProductGrame.create({
-                product_id: product.id,
-                grames: weightProduct3,
-                price: priceProduct3,
-            })
-            
-           if (idCategories.length == 1) {
+            // Seguimos para adelante
 
-               db.ProductTypeGrinding.create({
-                   product_id: product.id,
-                   type_grinding_id: idCategories
-               })
-                
-            } else {
-                
-                idCategories.forEach(idCategory =>{
-                    db.ProductTypeGrinding.create({
-                        product_id: product.id,
-                        type_grinding_id: idCategory
-                    })
+            db.Product.create({
+                name: nameProduct,
+                rating: ratingProduct,
+                description: descriptionProduct,
+                brand_id: idBrand
+    
+            }) .then(product => {
+                db.ProductGrame.create({
+                    product_id: product.id, // Este id viene del objeto de arriba recien creado.
+                    grames: weightProduct1,
+                    price: priceProduct1,
+                })
+                db.ProductGrame.create({
+                    product_id: product.id,
+                    grames: weightProduct2,
+                    price: priceProduct2,
+                })
+                db.ProductGrame.create({
+                    product_id: product.id,
+                    grames: weightProduct3,
+                    price: priceProduct3,
                 })
                 
-            }
+               if (idCategories.length == 1) {
+    
+                   db.ProductTypeGrinding.create({
+                       product_id: product.id,
+                       type_grinding_id: idCategories
+                   })
+                    
+                } else {
+                    
+                    idCategories.forEach(idCategory => {
+                        db.ProductTypeGrinding.create({
+                            product_id: product.id,
+                            type_grinding_id: idCategory
+                        })
+                    })
+                    
+                }
+    
+                db.ImageProduct.create({
+                    path: fileproducts.imageProductNew(req.file),
+                    product_id: product.id,
+                })           
+            })
 
-            db.ImageProduct.create({
-                path: fileproducts.imageProductNew(req.file),
-                product_id: product.id,
-            })           
-        })
+            res.redirect('/product');
 
-        res.redirect('/product');
+        } else {
+
+            // Volvemos a la vista con los errores
+            
+            let allBrands = db.Brand.findAll()
+            let typeGrindings = db.TypeGrinding.findAll()
+    
+            Promise.all([allBrands, typeGrindings])
+                .then(([allBrands, typeGrindings]) => {
+                    res.render(path.resolve(__dirname, "../views/product/create.ejs"), { brands: allBrands, typeGrindings: typeGrindings, errors: errors.mapped(), oldData: req.body })
+                })
+
+                console.log(req.body.idCategories)
+
+        }
 
     },
 

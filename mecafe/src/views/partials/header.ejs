@@ -9,21 +9,22 @@
             </button>
         </div>
 
+
         <nav class="nav-links" id="nav-links">
             <ul>
-                <li class="nav-link"><a href="/">Inicio</a></li>
-                <li class="nav-link"><a href="/product">Productos</a></li>
-                <li class="nav-link"><a href="#">Quienes Somos</a></li>
-                <li class="nav-link"><a href="#">Contacto</a></li>          
-                <% if(locals.user && locals.user.role == 1) { %> <li class="nav-link"><a href="/product/administracion">Admin</a></li> <% } %>
+                <li class="nav-link link-hover"><a href="/">Inicio</a></li>
+                <li class="nav-link link-hover"><a href="/product">Productos</a></li>
+                <li class="nav-link link-hover"><a href="#">Quienes Somos</a></li>
+                <li class="nav-link link-hover"><a href="#">Contacto</a></li>          
+                <% if(locals.user && locals.user.role == 1) { %> <li class="nav-link link-hover"><a href="/product/administracion">Admin</a></li> <% } %>
                 <% if(!locals.user) { %> 
-                    <li class="nav-link"><a href="#" onclick="openModal('modalLogin')">Inicio Sesion</a></li>
-                    <li class="nav-link"><a href="/user/register" >Registrarme</a></li>
+                    <li class="nav-link link-hover"><a href="#" onclick="openModal('modalLogin')">Inicio Sesion</a></li>
+                    <li class="nav-link link-hover"><a href="/user/register" >Registrarme</a></li>
                 <% } %>
                 <% if(locals.user) { %> 
-                    <li class="nav-link"><a href="#" onclick="openModal('modalPassword')">Cambiar contraseña</a></li> 
-                    <li class="nav-link"><form action="/user/logout" method="post"><a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a></form></li> 
-                <% } %>
+                    <li class="nav-link link-hover"><a href="#" onclick="openModal('modalPassword')">Cambiar contraseña</a></li>
+                    <li class="nav-link"><form class="link-hover" action="/user/logout" method="post"><a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a></form></li> 
+                    <% } %> 
             </ul>
         </nav>
     </div>

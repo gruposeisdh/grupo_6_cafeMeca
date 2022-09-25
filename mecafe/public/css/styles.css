@@ -787,6 +787,12 @@ tr:hover td{
     text-align: center;
     padding: 5px;
     font-weight: 700;
+    height: 50px;
+    display: flex;
+}
+
+.listProduct__titleProduct p{
+    margin: auto;
 }
 
 .listProduct__boxProducts {
@@ -840,12 +846,19 @@ tr:hover td{
 }
 
 .listProduct__masInfo {
-    font-size: 0.8em;
+    font-size: 0.9em;
     background-color: var(--lox);
     text-align: center;
     padding: 5px;
     font-weight: 700;
+    height: 30px;
+    display: flex;
 }
+
+.listProduct__masInfo p {
+    margin: auto;
+}
+
 
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
@@ -938,6 +951,31 @@ tr:hover td{
     margin-right: 8px;
 }
 
+.createProduct__errorsContainer{
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border: solid 1px var(--lox);
+}
+
+
+.createProduct__errorsContainer ul{
+    padding: 5px 10px;
+    font-size:  16px;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 5px;
+    
+}
+
+.createProduct__errorsContainer li{
+    padding: 4px 10px;
+    font-size:  14px;
+}
+
+.createProduct__containerForm-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -1494,7 +1532,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 #menu_user li{
     padding: 10px;
-    decoration: none;
+   /* decoration: none*/
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
@@ -2259,7 +2297,7 @@ footer {
         border-bottom: none;
     }
 
-    .nav-link :hover {
+    .link-hover :hover {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
@@ -2413,8 +2451,8 @@ footer {
         display: inline-block;
         border-bottom: none;
     }
-
-    .nav-link :hover {
+    
+    .link-hover :hover {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
