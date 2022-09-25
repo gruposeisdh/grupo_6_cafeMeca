@@ -74,6 +74,10 @@ a:active {
     visibility:hidden;
 }
 
+.display-none{
+    display: none !important;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
@@ -1617,6 +1621,154 @@ article .header_list_direction_detail{
     font-weight: bold;
     padding: 8px;
     border: 0;
+}
+
+/** ════════════ FORM DIRECTION ══════════ **/
+
+.formDirection__container-form{
+    margin-top: 3em;
+}
+
+.formDirection__form {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.formDirection__form div {
+    padding: 5px;
+    margin: 1.3em 0;
+}
+
+.formDirection__form label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
+    display: block;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+}
+
+.formDirection__form input {
+    font-family: proximanova;
+    padding: .5em 0;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.formDirection__form input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+.formDirection__btn {
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 0.8em;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    color: black;
+    font-weight: 600;
+}
+
+.formDirection__btn:hover {
+    box-shadow: 2px 5px 16px 0px #cdcdcd;
+}
+
+/*.errorCampoDiv input {
+    box-shadow: 0px 0px 6px red;
+}*/
+
+.btnSendRegister {
+    background: #0f82fc;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.register__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.errorCampoDiv input{
+    border-bottom: solid 2px red;
+}
+
+/* Esto se esta usando para el Register, para crear productos y para editar productos */
+
+.formDirection__titleForm{
+    text-align: center;
+    border-radius: 1px;
+}
+
+.formDirection__titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.formDirection__titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
+
+/* Aca termina su uso en esas 3 paginas */
+
+.errorCampoDiv input::placeholder{
+    color: red ;
+    font-weight: 700;
+}
+
+.formDirection__formInput:focus + .formDirection__formLabel,
+.formDirection__formInput:not(:placeholder-shown) + .formDirection__formLabel{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.formDirection__form label {
+    margin-bottom: 0;
+}
+
+.formDirection__form input {
+    padding: .5em 0;
+}
+
+.formDirection__Btns {
+    text-align: right;
+    display: flex;
+}
+
+.formDirection__Btns .btnsDirection {    
+    color: white;
+    letter-spacing: 1px;
+    margin: 10px;
+    text-align: center;
+}
+
+.formDirection__Btns .btnSend {    
+    background: #0f82fc;
+}
+
+.formDirection__Btns .btnCancel {    
+    background: grey;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
