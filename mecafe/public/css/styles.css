@@ -2023,6 +2023,26 @@ body {
     transition: transform .5s;
 }
 
+/* iconos de validacion cada campo front-Yohanna */
+.registerForm_errorItem_name{
+    opacity: 0;
+}
+.registerForm_errorItem_lastName{
+    opacity: 0;
+}
+.registerForm_errorItem_email{
+    opacity: 0;
+}
+.registerForm_errorItem_phone{
+    opacity: 0;
+}
+.registerForm_errorItem_password{
+    opacity: 0;
+}
+.registerForm_errorItem_confirmPassword{
+    opacity: 0;
+}
+
 .registerForm__form input {
     font-family: proximanova;
     padding: .5em 0;
@@ -2060,6 +2080,20 @@ body {
     background: #0f82fc;
     color: white;
     letter-spacing: 1px;
+}
+
+/* mensaje de validacion front-Yohanna */
+.register_formErrorFrontGeneral {
+   display: none;
+}
+
+/* mensaje error general de validacion front-Yohanna */
+.registerForm__menssageError {
+    height: 40px;
+    color: red;
+    padding: 0 15px;
+    text-align: center;
+    display: none;
 }
 
 .register__formError {
@@ -2106,6 +2140,43 @@ body {
     color: #3866f2;
 }
 
+
+/* estilos para validacion front-Yohanna */
+
+/* validaciones de iconos cuando es correcto */
+.registerForm_errorItem-correcto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color:#00a650;
+    opacity: 1;
+}
+
+/* validaciones de iconos cuando es incorrecto */
+.registerForm_errorItem-incorrecto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color: red;
+    opacity: 1;
+}
+
+/* mensaje error general activo de validacion front-Yohanna */
+.registerForm__menssageError-active {
+    display: block;
+}
+
+/* mensaje de validacion activo front-Yohanna */
+.register_formErrorFrontGeneral-active {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+    display: block;   
+}
 
 
 /*! ════════════════════ FOOTER ════════════════════ !*/
