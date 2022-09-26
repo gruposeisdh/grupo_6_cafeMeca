@@ -103,19 +103,8 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 // condicional que valida si todos los campos estàn diligenciados correctamente
   if(fields.name && fields.lastName && fields.email && fields.phone && fields.password){
-    console.log('nadaaaa')
     console.log(document.getElementById('registerForm__form'))
       document.getElementById('registerForm__form').submit();
-      console.log('logrado')
-
-      // form.reset();
-      // document.querySelectorAll('.registerForm_errorItem-correcto').forEach((icon) => {
-      //   icon.classList.remove('registerForm_errorItem-correcto');
-      //   document.getElementById('menssageError').classList.remove('registerForm__menssageError-active');
-      //   console.log('nadaaaa')
-      //   return true,
-      //   console.log('logrado')
-      // })
   }else {
     document.getElementById('menssageError').classList.add('registerForm__menssageError-active');
   }
