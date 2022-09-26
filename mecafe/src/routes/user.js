@@ -25,7 +25,7 @@ const validateCreateUser = [
                 if(!user){
                     return true;
                 }
-                   return Promise.reject('Este email ya está siendo utilizado')
+                    return Promise.reject('Este email ya está siendo utilizado')
            })
      }),
     check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
