@@ -109,7 +109,11 @@ let productController = {
         let priceProduct2 = req.body.priceProduct2
         let weightProduct3 = req.body.weightProduct3
         let priceProduct3 = req.body.priceProduct3
-        let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+
+        // let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
+        let categories = req.body.idCategories
+        let idCategories = categories == 1 ? [categories] : categories 
+
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
@@ -175,13 +179,13 @@ let productController = {
             
             let allBrands = db.Brand.findAll()
             let typeGrindings = db.TypeGrinding.findAll()
-    
+
             Promise.all([allBrands, typeGrindings])
                 .then(([allBrands, typeGrindings]) => {
-                    res.render(path.resolve(__dirname, "../views/product/create.ejs"), { brands: allBrands, typeGrindings: typeGrindings, errors: errors.mapped(), oldData: req.body })
+                    res.render(path.resolve(__dirname, "../views/product/create.ejs"), { brands: allBrands, typeGrindings: typeGrindings, errors: errors.mapped(), oldData: req.body, idCategoriesArray: idCategories })
                 })
 
-                console.log(req.body.idCategories)
+            
 
         }
 
@@ -237,7 +241,7 @@ let productController = {
         // If ternario: Condicion ? Si se cumple : Sino esto
         let categories = req.body.idCategories
         let idCategories = categories.length == 1 ? [categories] : categories 
-        
+    
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct

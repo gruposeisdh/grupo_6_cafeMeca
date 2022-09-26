@@ -894,23 +894,16 @@ tr:hover td{
     font-size: 12px;
 }
 
-.createProduct__containerForm div {
+.createProduct__styleDivs {
     font-size: .8em;
     align-items: center;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 .createProduct__containerForm div p{
     color: gray;
     font-size: 12px;
-}
-
-.createProduct__inputBox {
-    border: none;
-    margin: 10px 0;
-    padding-bottom: 6px;
-    border-bottom: solid 1px var(--gray-pastel);
-    width: 100%;
 }
 
 .createProduct__containerForm section {
@@ -975,6 +968,34 @@ tr:hover td{
 .createProduct__containerForm-grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+}
+
+.createProduct__errorValidation{
+    display: none;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+}
+
+.createProduct__errorValidationActive{
+    display: block;
+}
+
+.createProduct__inputBox {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.createProduct__inputBox-isInvalid{
+    border-bottom: solid 2px red;
+}
+
+.createProduct__inputBox-isValid{
+    border-bottom: solid 2px green;
 }
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/

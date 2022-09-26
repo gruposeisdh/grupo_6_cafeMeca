@@ -15,7 +15,7 @@
 
         <div class="createProduct">
 
-            <form class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
+            <form id="formProductCreate" class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
 
                 <div class="registerForm__titleForm">
                     <h2>¿Necesitas crear un producto?</h2>
@@ -40,61 +40,67 @@
 
                
 
-                <div>
+                <div id="createProduct__nameProduct" class="createProduct__styleDivs">
                     <label for="nameProduct" class="createProduct__labelBox">Nombre del Producto:</label>
-                    <input 
-                        class="createProduct__inputBox" 
-                        type="text" 
-                        name="nameProduct" 
-                        id="nameProduct" 
-                        placeholder=" " 
-                        value="<%= locals.oldData ? oldData.nameProduct : null %>">
+                    <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" placeholder=" " value="<%= locals.oldData ? oldData.nameProduct : null %>" >
+                    <span class="createProduct__errorValidation">El nombre del producto debe contener mas de 3 caracteres y no puede contener numeros.</span>
                 </div>
 
                 <div class="createProduct__containerForm-grid">
-                    <div>
+                    <div id="createProduct__weightProduct1" class="createProduct__styleDivs">
                         <label for="weightProduct1" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" placeholder=" " value="250" readonly>
+                        <span class="createProduct__errorValidation">Mensaje</span>
                     </div>
 
-                    <div>
+                    <div id="createProduct__priceProduct1" class="createProduct__styleDivs">
                         <label for="priceProduct1" class="createProduct__labelBox">Precio (USD): </label>
                         <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct1 : 0 %>">
+                        <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                     </div>
                 </div>
 
                 <div class="createProduct__containerForm-grid">
-                    <div>
+
+                    <div id="createProduct__weightProduct2" class="createProduct__styleDivs">
                         <label for="weightProduct2" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" placeholder=" " value="500" readonly>
+                        <span class="createProduct__errorValidation">Mensaje</span>
                     </div>
 
-                    <div>
+                    <div id="createProduct__priceProduct2" class="createProduct__styleDivs">
                         <label for="priceProduct2" class="createProduct__labelBox">Precio (USD): </label>
                         <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct2 : 0 %>">
+                        <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                     </div>
+
                 </div>
 
                 <div class="createProduct__containerForm-grid">
-                    <div>
+
+                    <div id="createProduct__weightProduct3" class="createProduct__styleDivs">
                         <label for="weightProduct3" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" placeholder=" " value="1000" readonly>
+                        <span class="createProduct__errorValidation">Mensaje</span>
                     </div>
 
-                    <div>
+                    <div id="createProduct__priceProduct3" class="createProduct__styleDivs">
                         <label for="priceProduct3" class="createProduct__labelBox">Precio (USD): </label>
                         <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct3 : 0 %>">
+                        <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                     </div>
+
                 </div>
                 
 
-                <div>
+                <div id="createProduct__descriptionProduct" class="createProduct__styleDivs"> 
                     <label for="descriptionProduct" class="createProduct__labelBox">Descripcion del producto:</label>
                     <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%= locals.oldData ? oldData.descriptionProduct : null %></textarea>
+                    <span class="createProduct__errorValidation">Debera contar con al menos 15 caracteres. No puede quedar en blanco. Max 100 caracteres</span>
                 </div>
 
 
-                <div>
+                <div class="createProduct__styleDivs">
                     
                     <label for="idBrand" class="createProduct__labelBox">Marca del Producto:</label>
                     <select class="createProduct__inputBox" name="idBrand" id="idBrand"> 
@@ -103,45 +109,20 @@
 
                         <% brands.forEach( element => { %>
 
-                            <option 
-                            value="<%= element.id %>" 
+                            <option value="<%= element.id %>" 
                             <%=locals.oldData && (element.id == oldData.idBrand) ? "selected" : null %> >
                             <%= element.name %></option>
                         <% }); %>
 
                     </select> 
 
+                    
+
                 </div>
 
-                <div>                  
+                
 
-                    <p>Categorias:</p><br>
-
-                        <% typeGrindings.forEach( element => { %>
-
-                            <label for="idCategories" class="createProduct__labelCategory">
-
-                                <input 
-                                type="checkbox" 
-                                id="<%= element.id%>" 
-                                name="idCategories" 
-                                value="<%= element.id %>"
-                            
-                                <% if (locals.oldData && oldData.idCategories == 1) { %>
-
-                                    <%= locals.oldData && (element.id == oldData.idCategories) ? "checked" : null %>
-
-                                <% } %>
-
-                                >
-
-                            <%= element.name %></label>
-
-                        <% }); %>   
-                                  
-                </div>
-
-                <div>
+                <div class="createProduct__styleDivs">
                     <label for="ratingProduct" class="createProduct__labelBox">Rating:</label>
                     <select class="createProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
                             <option selected disabled>Selecciona un Rating</option>
@@ -152,12 +133,16 @@
                             <option <%=locals.oldData && (5 == oldData.ratingProduct) ? "selected" : null %> label=⭐⭐⭐⭐⭐>5</option>
                     </select> 
 
+                    
+
                 </div>
 
 
-                <div>
+                <div class="createProduct__styleDivs">
                     <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
                     <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
+
+        
                 </div>
 
                 <section class="btn createProduct-btn">
@@ -165,13 +150,16 @@
                     <button type="reset" class="reset">Restablecer</button>
                 </section>
 
-
-
             </form>
 
         </div>
 
+        
     </section>
+    
+    <!-- Validaciones del FrontEnd -->
+    
+    <script src="../../../../../../../../js/validationsProduct.js"></script>
 
     <!-- Pie de Pagina -->
     <%- include("../partials/footerNico") %>
