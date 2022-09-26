@@ -3,24 +3,18 @@
         <h2>Ingresar</h2>
         <a onclick="closeModal('modalLogin')"><i class="fas fa-times"></i></a>
     </div>
-    <form action="/user/login" method="post">
+    <form action="/user/login" method="post" id="formLogin">
         <input type="hidden" name="route" id="inputRouteLogin" />    
-        <div class="form-group">
+        <div class="form-group form-group-email">
             <label for="email">Correo electrónico<span>*</span></label><br>
-            <input type="email" name="email" placeholder="example@email.com">
-            <% if(locals.errorsLogin && locals.errorsLogin.email){ %>
-                <p class="modal__formError"><%= locals.errorsLogin.email.msg %></p>  
-            <% } %>
+            <input type="email" name="email" placeholder="example@email.com" id="emailLogin">
+            <p class="modal__formError <%= locals.errorsLogin && locals.errorsLogin.email ? '' : 'display-none' %> "><%= locals.errorsLogin && locals.errorsLogin.email ? locals.errorsLogin.email.msg : ''%></p>
         </div>
-        <div class="form-group errorCampoDiv">
+        <div class="form-group form-group-pass">
             <label for="password">Contraseña<span>*</span></label><br>
-            <input type="password" name="password" placeholder="*******">  
-            <% if(locals.errorsLogin && locals.errorsLogin.password){ %>
-                <p class="modal__formError"><%= locals.errorsLogin.password.msg %></p>  
-            <% } %>  
-            <% if(locals.errorsLogin && locals.errorsLogin.errorPass){ %>
-                <p class="modal__formError"><%= locals.errorsLogin.errorPass %></p>  
-            <% } %>
+            <input type="password" name="password" placeholder="*******" id="passLogin">  
+            <p class="modal__formError <%= locals.errorsLogin && locals.errorsLogin.password ? '' : 'display-none' %> "><%= locals.errorsLogin && locals.errorsLogin.password ? locals.errorsLogin.password.msg : ''%></p>
+            <p class="modal__formError <%= locals.errorsLogin && locals.errorsLogin.errorPass ? '' : 'display-none' %> "><%= locals.errorsLogin && locals.errorsLogin.errorPass ? locals.errorsLogin.errorPass : ''%></p>           
         </div>
             
         <div class="text-center">

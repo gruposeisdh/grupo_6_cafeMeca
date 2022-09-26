@@ -2070,10 +2070,6 @@ body {
     font-weight: 700;
 }
 
-.errorCampoDiv input{
-    border-bottom: solid 2px red;
-}
-
 /* Esto se esta usando para el Register, para crear productos y para editar productos */
 
 .registerForm__titleForm{
