@@ -46,7 +46,6 @@ let userController = {
                 oldData: req.body
             })
         }else {
-            console.log("aquiiii")
             db.User.create({
                 firstName:req.body.name,
                 lastName:req.body.lastName,
@@ -56,12 +55,10 @@ let userController = {
                 image:imageNewUser(req.file),
                 phone: req.body.phone
             }).then(userCreado => {
-                console.log("llegueeeeeee")
                 //Aqui debe hacerse login
                 req.session.user = userCreado;
                 req.session.errorsLogin = undefined;
                 res.redirect('/user/profile');
-                console.log("termineeee")
             });
         }
     },    
