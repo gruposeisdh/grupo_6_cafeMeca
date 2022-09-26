@@ -7,11 +7,20 @@ const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     nameProduct: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
-    descriptionProduct: /^[a-zA-Z0-9\_\-]{16,100}$/, // Letras y espacios, pueden llevar acentos.
+    descripcionProducto: /^[a-zA-ZÀ-ÿ\s]{16,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
-    price: /^\d{1,5}$/, // 4 a 12 digitos.
+    price: /^\d{0,5}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+}
+
+let campos = {
+    nameProduct: false,
+    priceProduct1: false,
+    priceProduct2: false,
+    priceProduct3: false,
+    descriptionProduct: false,
+    idCategoriesDiv: false
 }
 
 // Tomamos el Formulario completo para poder manipularlo.
@@ -35,6 +44,31 @@ let enabledIdCategories = []
 
 // Crearemos un array con esos inputs
 const inputsArray = [nameProduct, weightProduct1, priceProduct1, weightProduct2, priceProduct2, weightProduct3, priceProduct3, imageProduct, descriptionProduct]
+
+// Fin de las Pruebas
+
+idCategoriesNew.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        enabledIdCategories = 
+        Array.from(idCategoriesNew) // Convertir los checkbox en un array con map.
+        .filter(i => i.checked) // Filtrar los que no estan siendo usados.
+        .map(i => i.value) //  map para extraer solo los valores de casilla verificados.
+    })
+});
+
+idCategoriesDiv.addEventListener("change", () => {
+    
+    if (enabledIdCategories.length > 0) {
+        document.getElementById(`createProduct__lineError`).classList.remove("createProduct__inputBox-isInvalid")
+        document.querySelector(`#idCategoriesDiv .createProduct__errorValidation`).classList.remove("createProduct__errorValidationActive")
+        campos.idCategoriesDiv = true;
+    } else {
+        document.getElementById(`createProduct__lineError`).classList.add("createProduct__inputBox-isInvalid")
+        document.querySelector(`#idCategoriesDiv .createProduct__errorValidation`).classList.add("createProduct__errorValidationActive")
+        campos.idCategoriesDiv = false;
+    }
+
+})
 
 // Fin de las Pruebas
 
@@ -66,7 +100,7 @@ const validarFormulario = (e) => {
         break;
 
         case "descriptionProduct" :
-            validarCampo(expresiones.descriptionProduct, e.target, "descriptionProduct");
+            validarCampo(expresiones.descripcionProducto, e.target, "descriptionProduct");
         break;
         
     }
@@ -84,14 +118,30 @@ const validarCampo = (expresion, input, campo) => {
         document.getElementById(`${campo}`).classList.remove("createProduct__inputBox-isInvalid")
         document.getElementById(`${campo}`).classList.add("createProduct__inputBox-isValid")
         document.querySelector(`#createProduct__${campo} .createProduct__errorValidation`).classList.remove("createProduct__errorValidationActive")
+        campos[campo] = true
     } else {
         document.getElementById(`${campo}`).classList.add("createProduct__inputBox-isInvalid")
         document.getElementById(`${campo}`).classList.remove("createProduct__inputBox-isValid")
         document.querySelector(`#createProduct__${campo} .createProduct__errorValidation`).classList.add("createProduct__errorValidationActive")
+        campos[campo] = false
     }
 
 }
 
+
+// Vamos a quitar primeramente el envio.
+formulario.addEventListener("submit", (e) => {
+    
+    e.preventDefault()
+    
+    if (campos.nameProduct && campos.priceProduct1 && campos.priceProduct2 && campos.priceProduct3 && campos.descriptionProduct && campos.idCategoriesDiv) {
+        document.getElementById('formProductCreate').submit();
+    } else {
+        document.getElementById("createProduct__errorFormularioCreateProduct").classList.add("createProduct__errorFormularioActive")
+        console.log("Sos un Pelotudo")
+    }
+    
+})
 
 
 // Ejecutamos un evento por cada input recorrido
@@ -100,15 +150,5 @@ inputsArray.forEach( input => {
     // Esto lo que hace es ejecutar una funcion en varios eventos, los monitorea.
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
-
-})
-
-
-
-// Vamos a quitar primeramente el envio.
-formulario.addEventListener("submit", (e) => {
-
-    console.log("Hola")
-    e.preventDefault();
 
 })

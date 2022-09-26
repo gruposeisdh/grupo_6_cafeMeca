@@ -28,12 +28,6 @@
                         
                     <ul>Errores a corregir en el Formulario</ul>
 
-                    <% for (let oneError in errors ) { %>
-
-                        <li><%= errors[oneError].msg %></li>
-
-                    <% } %>
-
                     </div>
 
                 <% } %> 
@@ -44,6 +38,9 @@
                     <label for="nameProduct" class="createProduct__labelBox">Nombre del Producto:</label>
                     <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" placeholder=" " value="<%= locals.oldData ? oldData.nameProduct : null %>" >
                     <span class="createProduct__errorValidation">El nombre del producto debe contener mas de 3 caracteres y no puede contener numeros.</span>
+                    <% if (locals.errors && errors.nameProduct) { %>
+                        <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.nameProduct.msg%></span>
+                    <% } %>
                 </div>
 
                 <div class="createProduct__containerForm-grid">
@@ -51,12 +48,18 @@
                         <label for="weightProduct1" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" placeholder=" " value="250" readonly>
                         <span class="createProduct__errorValidation">Mensaje</span>
+                        <% if (locals.errors && errors.weightProduct1) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.weightProduct1.msg%></span>
+                        <% } %>
                     </div>
 
                     <div id="createProduct__priceProduct1" class="createProduct__styleDivs">
-                        <label for="priceProduct1" class="createProduct__labelBox">Precio (USD): </label>
-                        <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct1 : 0 %>">
+                        <label for="priceProduct1" class="createProduct__labelBox">* Precio (USD): </label>
+                        <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct1 : null %>">
                         <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
+                        <% if (locals.errors && errors.priceProduct1) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.priceProduct1.msg%></span>
+                        <% } %>
                     </div>
                 </div>
 
@@ -66,12 +69,18 @@
                         <label for="weightProduct2" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" placeholder=" " value="500" readonly>
                         <span class="createProduct__errorValidation">Mensaje</span>
+                        <% if (locals.errors && errors.weightProduct2) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.weightProduct2.msg%></span>
+                        <% } %>
                     </div>
 
                     <div id="createProduct__priceProduct2" class="createProduct__styleDivs">
-                        <label for="priceProduct2" class="createProduct__labelBox">Precio (USD): </label>
-                        <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct2 : 0 %>">
+                        <label for="priceProduct2" class="createProduct__labelBox">* Precio (USD): </label>
+                        <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct2 : null %>">
                         <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
+                        <% if (locals.errors && errors.priceProduct2) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.priceProduct2.msg%></span>
+                        <% } %>
                     </div>
 
                 </div>
@@ -82,23 +91,64 @@
                         <label for="weightProduct3" class="createProduct__labelBox">Peso (Gramos):</label>
                         <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" placeholder=" " value="1000" readonly>
                         <span class="createProduct__errorValidation">Mensaje</span>
+                        <% if (locals.errors && errors.weightProduct3) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.weightProduct3.msg%></span>
+                        <% } %>
                     </div>
 
                     <div id="createProduct__priceProduct3" class="createProduct__styleDivs">
-                        <label for="priceProduct3" class="createProduct__labelBox">Precio (USD): </label>
-                        <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct3 : 0 %>">
+                        <label for="priceProduct3" class="createProduct__labelBox">* Precio (USD): </label>
+                        <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct3 : null %>">
                         <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
+                        <% if (locals.errors && errors.priceProduct3) { %>
+                            <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.priceProduct3.msg%></span>
+                        <% } %>
                     </div>
 
                 </div>
                 
+            
 
                 <div id="createProduct__descriptionProduct" class="createProduct__styleDivs"> 
                     <label for="descriptionProduct" class="createProduct__labelBox">Descripcion del producto:</label>
                     <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%= locals.oldData ? oldData.descriptionProduct : null %></textarea>
                     <span class="createProduct__errorValidation">Debera contar con al menos 15 caracteres. No puede quedar en blanco. Max 100 caracteres</span>
+                    <% if (locals.errors && errors.descriptionProduct) { %>
+                        <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.descriptionProduct.msg%></span>
+                    <% } %>
                 </div>
 
+                <div id="idCategoriesDiv" class="createProduct__styleDivs createProduct__idCategoriesDiv">                  
+
+                    <p>Categorias:</p><br>
+                
+                        <% typeGrindings.forEach( element => { %>
+                
+                            <label for="idCategories" class="createProduct__labelCategory">
+                
+                                <input type="checkbox" id="<%= element.id %>" name="idCategories" value="<%= element.id %>"
+                            
+                                <% if (locals.oldData) { %>
+                                    <% for (let id in idCategoriesArray ) { %>
+                                        <%= locals.oldData && (idCategoriesArray[id] == element.id) ? "checked" : null %>
+                                    <% } %>
+                                <% } %>
+                
+                                >
+                
+                            <%= element.name %></label>
+                
+                        <% }); %>  
+                        
+                    <br>
+                    <div id="createProduct__lineError"></div>
+                    <br>
+                    <span class="createProduct__errorValidation">Deberas selecciona una o mas categorias.</span>
+                    <% if (locals.errors && errors.idCategories) { %>
+                        <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.idCategories.msg%></span>
+                    <% } %>
+                                                  
+                </div>
 
                 <div class="createProduct__styleDivs">
                     
@@ -116,7 +166,10 @@
 
                     </select> 
 
-                    
+                    <% if (locals.errors && errors.idBrand) { %>
+                        <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.idBrand.msg%></span>
+                    <% } %>
+
 
                 </div>
 
@@ -133,7 +186,9 @@
                             <option <%=locals.oldData && (5 == oldData.ratingProduct) ? "selected" : null %> label=⭐⭐⭐⭐⭐>5</option>
                     </select> 
 
-                    
+                    <% if (locals.errors && errors.ratingProduct) { %>
+                        <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.ratingProduct.msg%></span>
+                    <% } %>
 
                 </div>
 
@@ -141,16 +196,17 @@
                 <div class="createProduct__styleDivs">
                     <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
                     <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
-
-        
                 </div>
 
                 <section class="btn createProduct-btn">
                     <button type="submit" class="submit">Enviar</button>
                     <button type="reset" class="reset">Restablecer</button>
                 </section>
+                
+                <p id="createProduct__errorFormularioCreateProduct" class="createProduct__errorFormularioInactive">Completa todos los campos requeridos.</p>
 
             </form>
+
 
         </div>
 
