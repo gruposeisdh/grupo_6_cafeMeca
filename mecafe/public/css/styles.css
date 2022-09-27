@@ -70,6 +70,14 @@ a:active {
     color: red;
 }
 
+.hidden{
+    visibility:hidden;
+}
+
+.display-none{
+    display: none !important;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
@@ -1560,12 +1568,20 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ MENU USER ════════════════════ **/
 #menu_user{
     background-color:white;
-    display: none;
+    width: 100%;
+    border-bottom: 1px solid var(--lox);
+    font-weight: bold;
+}
+
+.selected_menu_user_item{
+    background-color: var(--lox)
 }
 
 #menu_user ul{
-    padding: 10px;
+    padding: 0;
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 #menu_user a{
@@ -1573,21 +1589,22 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 #menu_user li{
-    padding: 10px;
-   /* decoration: none*/
+    padding: 15px;
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
 
 .container_users{
     padding: 20px;
-    /* margin:10px; */
-    display:flex;
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
 }
 
 /** ════════════════════ USER SALES ════════════════════ **/
-.container__table_sales_user{
-    max-width: 700px;
+.container_detail_view_user, container__table_sales_user{
+    width: 100%;
     /** width:70%;*/
     /** margin-left:10px; */
     background: white;
@@ -1614,6 +1631,224 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     margin: 20px;
     font-weight: bold;
     font-size:25px;
+}
+
+#table__sales_user .button_go_to_sale {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+/** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+.container_user_directions .title{
+    margin: 20px;
+    font-weight: bold;
+    font-size:25px;
+}
+
+.header_direction_detail{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+.list_directions{
+    margin: 20px;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list_directions article{
+    width: 100%;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 0px 1px 15px 15px;
+}
+
+article .header_list_direction_detail .direction_default{
+    margin: 2px 5px 2px 0;
+    font-size: 11px;    
+    text-align: end;
+}
+
+article .header_list_direction_detail{
+    font-weight: bold;
+    border-bottom: 1px solid var(--lox);
+    margin-bottom: 10px;
+}
+
+.body_list_direction_detail p{
+    margin-bottom: 5px;
+}
+
+.footer_list_direction_detail .button_delete_direction {
+    background-color: var(--lox);
+    color: black;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+/** ════════════ FORM DIRECTION ══════════ **/
+
+.formDirection__container-form{
+    margin-top: 3em;
+}
+
+.formDirection__form {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.formDirection__form div {
+    padding: 5px;
+    margin: 1.3em 0;
+}
+
+.formDirection__form label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
+    display: block;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+}
+
+.formDirection__form input {
+    font-family: proximanova;
+    padding: .5em 0;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.formDirection__form input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+.formDirection__btn {
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 0.8em;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    color: black;
+    font-weight: 600;
+}
+
+.formDirection__btn:hover {
+    box-shadow: 2px 5px 16px 0px #cdcdcd;
+}
+
+/*.errorCampoDiv input {
+    box-shadow: 0px 0px 6px red;
+}*/
+
+.btnSendRegister {
+    background: #0f82fc;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.register__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.errorCampoDiv input{
+    border-bottom: solid 2px red;
+}
+
+/* Esto se esta usando para el Register, para crear productos y para editar productos */
+
+.formDirection__titleForm{
+    text-align: center;
+    border-radius: 1px;
+}
+
+.formDirection__titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.formDirection__titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
+
+/* Aca termina su uso en esas 3 paginas */
+
+.errorCampoDiv input::placeholder{
+    color: red ;
+    font-weight: 700;
+}
+
+.formDirection__formInput:focus + .formDirection__formLabel,
+.formDirection__formInput:not(:placeholder-shown) + .formDirection__formLabel{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.formDirection__form label {
+    margin-bottom: 0;
+}
+
+.formDirection__form input {
+    padding: .5em 0;
+}
+
+.formDirection__Btns {
+    text-align: right;
+    display: flex;
+}
+
+.formDirection__Btns .btnsDirection {    
+    color: white;
+    letter-spacing: 1px;
+    margin: 10px;
+    text-align: center;
+}
+
+.formDirection__Btns .btnSend {    
+    background: #0f82fc;
+}
+
+.formDirection__Btns .btnCancel {    
+    background: grey;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -1868,6 +2103,26 @@ body {
     transition: transform .5s;
 }
 
+/* iconos de validacion cada campo front-Yohanna */
+.registerForm_errorItem_name{
+    opacity: 0;
+}
+.registerForm_errorItem_lastName{
+    opacity: 0;
+}
+.registerForm_errorItem_email{
+    opacity: 0;
+}
+.registerForm_errorItem_phone{
+    opacity: 0;
+}
+.registerForm_errorItem_password{
+    opacity: 0;
+}
+.registerForm_errorItem_confirmPassword{
+    opacity: 0;
+}
+
 .registerForm__form input {
     font-family: proximanova;
     padding: .5em 0;
@@ -1907,16 +2162,26 @@ body {
     letter-spacing: 1px;
 }
 
+/* mensaje de validacion front-Yohanna */
+.register_formErrorFrontGeneral {
+   display: none;
+}
+
+/* mensaje error general de validacion front-Yohanna */
+.registerForm__menssageError {
+    height: 40px;
+    color: red;
+    padding: 0 15px;
+    text-align: center;
+    display: none;
+}
+
 .register__formError {
     margin-top: 0.7em;
     color: red;
     font-size: 0.8em;
     text-align: center;
     font-weight: 700;
-}
-
-.errorCampoDiv input{
-    border-bottom: solid 2px red;
 }
 
 /* Esto se esta usando para el Register, para crear productos y para editar productos */
@@ -1955,6 +2220,43 @@ body {
     color: #3866f2;
 }
 
+
+/* estilos para validacion front-Yohanna */
+
+/* validaciones de iconos cuando es correcto */
+.registerForm_errorItem-correcto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color:#00a650;
+    opacity: 1;
+}
+
+/* validaciones de iconos cuando es incorrecto */
+.registerForm_errorItem-incorrecto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color: red;
+    opacity: 1;
+}
+
+/* mensaje error general activo de validacion front-Yohanna */
+.registerForm__menssageError-active {
+    display: block;
+}
+
+/* mensaje de validacion activo front-Yohanna */
+.register_formErrorFrontGeneral-active {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+    display: block;   
+}
 
 
 /*! ════════════════════ FOOTER ════════════════════ !*/
@@ -2137,6 +2439,12 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions article{
+        width: 250px;
+    }
 
     /** ════════════════════ CART ════════════════════ **/
 
@@ -2368,6 +2676,16 @@ footer {
         display: revert;
     }
     
+     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions{
+        margin: 20px;
+        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 

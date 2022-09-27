@@ -5,6 +5,7 @@ const path = require ('path');
 const multer = require('multer');
 const userController = require('../controllers/userController.js');
 const authMiddlewares = require('../middlewares/authMiddlewares');
+const db = require('../../database/models');
 
 const validateLogin = [
     check('email').notEmpty().withMessage('Debes completar el Mail').isEmail().withMessage('Debes completar un email válido'),
@@ -17,7 +18,15 @@ const validateLogin = [
 const validateCreateUser = [
     check('name').notEmpty().withMessage('Debes ingresar un nombre'),
     check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
-    check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com'),
+    check('email').notEmpty().withMessage('Debes ingresar un Email').bail().isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com').bail().custom(value => {
+        return db.User.findOne({ where: {email: value} })
+           .then((user) => {
+                if(!user){
+                    return true;
+                }
+                    return Promise.reject('Este email ya está siendo utilizado')
+           })
+     }),
     check('phone').notEmpty().withMessage('Debes ingresar un número de teléfono'),
     check('password').notEmpty().withMessage('Debes ingresar una contraseña').isLength({min:8}).withMessage('La contraseña debe tener mínimo 8 caracteres'),
     check('confirmPassword').notEmpty().withMessage('Debes confirmar la contraseña').bail().custom((value, { req }) => {
@@ -58,10 +67,10 @@ router.post(
 ); 
 
 router.get(
-    '/profile',authMiddlewares.authMiddleware,userController.profile); 
+    '/profile',/**authMiddlewares.authMiddleware, */userController.profile); 
 
 router.get(
-    '/sales',/** authMiddlewares.authMiddleware, */userController.sales); 
+    '/sale',/** authMiddlewares.authMiddleware, */userController.sales); 
 
 router.get(
     '/list',

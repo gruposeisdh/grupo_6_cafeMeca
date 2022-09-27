@@ -11,7 +11,7 @@
     <section class="generalHome">  
         <div class="container_users">
             <%- include("../partials/menuUser") %>
-            <div class="container__table_sales_user">
+            <div class="container_detail_view_user container__table_sales_user">
                 <p class="title">Mis Pedidos</p>
                 <table id="table__sales_user">          
                     <thead>
@@ -28,7 +28,7 @@
                                 <td class="id_sale"><a href="/sales/<%= item.id %>">#<%= item.id %></a></td>                     
                                 <td><%= item.date %></td>
                                 <td><span class="total_sale">$<%= item.total %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
-                                <td><a href="/sales/<%= item.id %>">Ver</a></td>
+                                <td><a class="button_go_to_sale" href="/sales/<%= item.id %>">Ver</a></td>
                             </tr>
                         <% }) %>
                     </tbody>             
@@ -37,8 +37,8 @@
         </div> 
        
     </section>
-
     <!-- Pie de Pagina -->
     <%- include("../partials/footerNico") %>
 </body>
 </html>
+<script src="../../../../../../../../js/menuUser.js"></script>

@@ -226,6 +226,8 @@ let productController = {
 
     update: (req, res) => {
 
+        
+
         let id = req.params.id
         let nameProduct = req.body.nameProduct
         let weightProduct1 = req.body.weightProduct1
@@ -241,7 +243,6 @@ let productController = {
         // If ternario: Condicion ? Si se cumple : Sino esto
         let categories = req.body.idCategories
         let idCategories = categories.length == 1 ? [categories] : categories 
-    
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
         let descriptionProduct = req.body.descriptionProduct
