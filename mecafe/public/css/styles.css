@@ -70,6 +70,14 @@ a:active {
     color: red;
 }
 
+.hidden{
+    visibility:hidden;
+}
+
+.display-none{
+    display: none !important;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
@@ -787,6 +795,12 @@ tr:hover td{
     text-align: center;
     padding: 5px;
     font-weight: 700;
+    height: 50px;
+    display: flex;
+}
+
+.listProduct__titleProduct p{
+    margin: auto;
 }
 
 .listProduct__boxProducts {
@@ -840,12 +854,19 @@ tr:hover td{
 }
 
 .listProduct__masInfo {
-    font-size: 0.8em;
+    font-size: 0.9em;
     background-color: var(--lox);
     text-align: center;
     padding: 5px;
     font-weight: 700;
+    height: 30px;
+    display: flex;
 }
+
+.listProduct__masInfo p {
+    margin: auto;
+}
+
 
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
@@ -881,23 +902,16 @@ tr:hover td{
     font-size: 12px;
 }
 
-.createProduct__containerForm div {
+.createProduct__styleDivs {
     font-size: .8em;
     align-items: center;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 .createProduct__containerForm div p{
     color: gray;
     font-size: 12px;
-}
-
-.createProduct__inputBox {
-    border: none;
-    margin: 10px 0;
-    padding-bottom: 6px;
-    border-bottom: solid 1px var(--gray-pastel);
-    width: 100%;
 }
 
 .createProduct__containerForm section {
@@ -938,6 +952,80 @@ tr:hover td{
     margin-right: 8px;
 }
 
+.createProduct__errorsContainer{
+    margin-bottom: 20px;
+    border-radius: 3px;
+    border: solid 1px var(--lox);
+}
+
+
+.createProduct__errorsContainer ul{
+    padding: 5px 10px;
+    font-size:  16px;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-align: center;
+    
+}
+
+.createProduct__errorsContainer li{
+    padding: 4px 10px;
+    font-size:  14px;
+}
+
+.createProduct__containerForm-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+}
+
+.createProduct__errorValidation{
+    display: none;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+}
+
+.createProduct__errorValidationActive{
+    display: block;
+}
+
+.createProduct__inputBox {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.createProduct__inputBox-isInvalid{
+    border-bottom: solid 2px red;
+}
+
+.createProduct__inputBox-isValid{
+    border-bottom: solid 2px green;
+}
+
+
+.createProduct__errorFormularioInactive {
+    display: none
+}
+
+.createProduct__errorFormularioActive {
+    display: flex;
+    background-color: var(--lox);
+    color: black;
+    height: 50px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 3px 5px;
+    padding: 0.8em;
+    font-weight: 700;
+    font-size: 16px;
+}
 
 /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -1326,125 +1414,441 @@ tr:hover td{
 /** ════════════════════ CART ════════════════════ **/
 
 #cart-products {
-    max-width: 900px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     overflow-x:auto;
     font-size:14px;
+    padding: 10px;    
+    margin-top:15px;
 }
 
 /*? -------------- BAR PROGRESS  ------------ ?*/
 
 .cart__progress {
     position: relative;
-    color: var(--naranja-ligero);
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     padding: 10px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 25px;
+    width: 60%;
+    align-items: center;
+    color: black !important;
 }
 
 .cart__progress hr {
-    position: absolute;
-    width: 50%;
-    height: 0;
+    width: 15%;
     border: medium none;
-    border-top: 5px solid var(--naranja-oscuro);
-    top: 20px;
+    border-top: 5px dotted black;
+}
+
+.cart__progress div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cart__progress i {
     display: flex;
     position: relative;
     align-items: center;
-    font-size: 25px;
+    font-size: 50px;
+    flex-direction: column-reverse;
+    margin-bottom: 15px;    
 }
 
-.cart__progress i span {
-    /**position: relative;*/
-    color: black;
-    font-weight: bold;
-    vertical-align: middle;
-    font-size: 14px;
-    right: 16px;
-    bottom: 1px;
-}
-
-.progress__active {
-    color: var(--naranja-oscuro) !important;
-}
-
-.progress__description {
-    position: absolute;
-    top: 40px;
-    left: 0px;
+.progress__not_active {
+    opacity: 0.4;
 }
 
 /*? -------------- PRODUCTS LIST --------- ?*/
-#table__cart {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 50px;
-}
 
-#table__cart tbody  tr:hover  td {
+#table__cart tbody  tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
 }
 
 .img__table_cart{
-    width: 100%;
+    min-width: 80px;
+    max-width: 80px;
 }
 
-#table__cart th, #table__cart td {
-    padding: 5px;
+#table__cart th, #table__cart td, #table__sales_user th, #table__sales_user td {
+    padding: 15px 12px;
     border: none;
-    border-bottom: 2px solid var(--lox);
+    border-bottom: 2px solid #f1e4e1;
 }
 
-#table__cart tr:nth-child(even){ 
-    background-color: transparent;
+.product_name_table_cart{
+    text-align: left;
 }
 
-#table__cart thead th:nth-child(1) {
-    width: 20%;
+div.quantity__table_cart input[type=button] {
+    padding: 0 5px;
+    min-width: 25px;
+    height: 42px;
+    border: 2px solid #ddd1d0;
+    background: 0 0;
+    box-shadow: none;
+}
+div.quantity__table_cart input[type=button], div.quantity__table_cart input[type=number] {
+    display: inline-block;
+    color: #777;
 }
 
-#table__cart tfoot td{
+div.quantity__table_cart .minus {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 20px;
+}
+
+div.quantity__table_cart .plus {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     font-size: 15px;
 }
 
-.cart__more-less {
-    position: relative;
+div.quantity__table_cart {
+    display: inline-flex;
+    vertical-align: top;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+div.quantity__table_cart input[type=button]{
+    border: 2px solid #ddd1d0;
+    font-weight: bold;
+    color: black;
+}
+
+div.quantity__table_cart input[type=number] {
+    color: black;
+    width: 30px;
+    height: 42px;
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    border-top: 2px solid #ddd1d0;
+    border-bottom: 2px solid #ddd1d0;
+    padding: 0;
+    text-align: center;
+}
+
+.total-cart{
+    padding: 15px;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
+    width: 100%;
+    margin: auto;
+    background-color:white;
 }
 
-.cart__more-less i{
-    color: var(--lox);
+tbody tr .product_subtotal__table_cart , .total-cart .price{
+    color:  rgb(255,51,36);
+    font-weight: bold;
 }
 
-.cart__more-less span{
-    color: var(--black);
+.total-cart .title {
+    font-size: 15px;   
 }
 
-.cart__continue-buy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-    margin: 10px;
-}
-
-.cart__continue-buy button {    
-    padding: 8px;
+.total-cart .button{
+    width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    border-style: hidden;
+    padding: 5px;
+}
+
+#table__cart tr:nth-child(even), #table__sales_user tr:nth-child(even){ 
+    background-color: transparent;
+}
+
+/** ════════════════════ MENU USER ════════════════════ **/
+#menu_user{
+    background-color:white;
+    width: 100%;
+    border-bottom: 1px solid var(--lox);
+    font-weight: bold;
+}
+
+.selected_menu_user_item{
+    background-color: var(--lox)
+}
+
+#menu_user ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#menu_user a{
+    color:black;
+}
+
+#menu_user li{
+    padding: 15px;
+}
+
+/** ════════════════════ CONTAINER USER SALES ════════════════════ **/
+
+.container_users{
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/** ════════════════════ USER SALES ════════════════════ **/
+.container_detail_view_user, container__table_sales_user{
+    width: 100%;
+    /** width:70%;*/
+    /** margin-left:10px; */
+    background: white;
+}
+
+#table__sales_user{
+    width: 100%;
+}
+
+#table__sales_user a{
+    color: black;
+}
+
+#table__sales_user .total_sale{
+    color: rgb(255,51,36);
+    font-weight: bold;
+}
+
+#table__sales_user .description_total_sale{
+    display: none;
+}
+ 
+.container__table_sales_user .title{
+    margin: 20px;
+    font-weight: bold;
+    font-size:25px;
+}
+
+#table__sales_user .button_go_to_sale {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+/** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+.container_user_directions .title{
+    margin: 20px;
+    font-weight: bold;
+    font-size:25px;
+}
+
+.header_direction_detail{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
+    background-color: var(--black);
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+.list_directions{
+    margin: 20px;
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list_directions article{
+    width: 100%;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 0px 1px 15px 15px;
+}
+
+article .header_list_direction_detail .direction_default{
+    margin: 2px 5px 2px 0;
+    font-size: 11px;    
+    text-align: end;
+}
+
+article .header_list_direction_detail{
+    font-weight: bold;
+    border-bottom: 1px solid var(--lox);
+    margin-bottom: 10px;
+}
+
+.body_list_direction_detail p{
+    margin-bottom: 5px;
+}
+
+.footer_list_direction_detail .button_delete_direction {
+    background-color: var(--lox);
+    color: black;
+    font-weight: bold;
+    padding: 8px;
+    border: 0;
+}
+
+/** ════════════ FORM DIRECTION ══════════ **/
+
+.formDirection__container-form{
+    margin-top: 3em;
+}
+
+.formDirection__form {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.formDirection__form div {
+    padding: 5px;
+    margin: 1.3em 0;
+}
+
+.formDirection__form label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
+    display: block;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+}
+
+.formDirection__form input {
+    font-family: proximanova;
+    padding: .5em 0;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.formDirection__form input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+.formDirection__btn {
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 0.8em;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    color: black;
+    font-weight: 600;
+}
+
+.formDirection__btn:hover {
+    box-shadow: 2px 5px 16px 0px #cdcdcd;
+}
+
+/*.errorCampoDiv input {
+    box-shadow: 0px 0px 6px red;
+}*/
+
+.btnSendRegister {
+    background: #0f82fc;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.register__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.errorCampoDiv input{
+    border-bottom: solid 2px red;
+}
+
+/* Esto se esta usando para el Register, para crear productos y para editar productos */
+
+.formDirection__titleForm{
+    text-align: center;
+    border-radius: 1px;
+}
+
+.formDirection__titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.formDirection__titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
+
+/* Aca termina su uso en esas 3 paginas */
+
+.errorCampoDiv input::placeholder{
+    color: red ;
+    font-weight: 700;
+}
+
+.formDirection__formInput:focus + .formDirection__formLabel,
+.formDirection__formInput:not(:placeholder-shown) + .formDirection__formLabel{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.formDirection__form label {
+    margin-bottom: 0;
+}
+
+.formDirection__form input {
+    padding: .5em 0;
+}
+
+.formDirection__Btns {
+    text-align: right;
+    display: flex;
+}
+
+.formDirection__Btns .btnsDirection {    
+    color: white;
+    letter-spacing: 1px;
+    margin: 10px;
+    text-align: center;
+}
+
+.formDirection__Btns .btnSend {    
+    background: #0f82fc;
+}
+
+.formDirection__Btns .btnCancel {    
+    background: grey;
 }
 
 /** ════════════════════ HOME ════════════════════ **/
@@ -1699,6 +2103,26 @@ body {
     transition: transform .5s;
 }
 
+/* iconos de validacion cada campo front-Yohanna */
+.registerForm_errorItem_name{
+    opacity: 0;
+}
+.registerForm_errorItem_lastName{
+    opacity: 0;
+}
+.registerForm_errorItem_email{
+    opacity: 0;
+}
+.registerForm_errorItem_phone{
+    opacity: 0;
+}
+.registerForm_errorItem_password{
+    opacity: 0;
+}
+.registerForm_errorItem_confirmPassword{
+    opacity: 0;
+}
+
 .registerForm__form input {
     font-family: proximanova;
     padding: .5em 0;
@@ -1738,16 +2162,26 @@ body {
     letter-spacing: 1px;
 }
 
+/* mensaje de validacion front-Yohanna */
+.register_formErrorFrontGeneral {
+   display: none;
+}
+
+/* mensaje error general de validacion front-Yohanna */
+.registerForm__menssageError {
+    height: 40px;
+    color: red;
+    padding: 0 15px;
+    text-align: center;
+    display: none;
+}
+
 .register__formError {
     margin-top: 0.7em;
     color: red;
     font-size: 0.8em;
     text-align: center;
     font-weight: 700;
-}
-
-.errorCampoDiv input{
-    border-bottom: solid 2px red;
 }
 
 /* Esto se esta usando para el Register, para crear productos y para editar productos */
@@ -1786,6 +2220,43 @@ body {
     color: #3866f2;
 }
 
+
+/* estilos para validacion front-Yohanna */
+
+/* validaciones de iconos cuando es correcto */
+.registerForm_errorItem-correcto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color:#00a650;
+    opacity: 1;
+}
+
+/* validaciones de iconos cuando es incorrecto */
+.registerForm_errorItem-incorrecto{
+    position: absolute;
+    right: 22px;
+    z-index: 100;
+    font-size: 16px;
+    color: red;
+    opacity: 1;
+}
+
+/* mensaje error general activo de validacion front-Yohanna */
+.registerForm__menssageError-active {
+    display: block;
+}
+
+/* mensaje de validacion activo front-Yohanna */
+.register_formErrorFrontGeneral-active {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+    display: block;   
+}
 
 
 /*! ════════════════════ FOOTER ════════════════════ !*/
@@ -1969,6 +2440,12 @@ footer {
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions article{
+        width: 250px;
+    }
+
     /** ════════════════════ CART ════════════════════ **/
 
     /*? --------------  TOTAL CART ------------ ?*/
@@ -2020,6 +2497,9 @@ footer {
 
     /*? -------------- BAR PROGRESS  ------------ ?*/
 
+    .wd-checkout-steps{
+        display: flex;
+    }
     .cart__progress hr {
         top: 23px;
     }
@@ -2167,7 +2647,7 @@ footer {
         border-bottom: none;
     }
 
-    .nav-link :hover {
+    .link-hover :hover {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
@@ -2184,6 +2664,28 @@ footer {
     }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ MENU USER ════════════════════ **/
+    #menu_user{
+        display: revert;
+    }
+
+    /** ════════════════════ USER SALES ════════════════════ **/
+      
+    #table__sales_user .description_total_sale{
+        display: revert;
+    }
+    
+     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions{
+        margin: 20px;
+        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
@@ -2209,6 +2711,9 @@ footer {
 
     /** ════════════════════ CART ════════════════════ **/
 
+    .cart__progress{
+        display: flex;
+    }
     /*? --------------  TOTAL CART ------------ ?*/
 
     #table__cart th, #table__cart td {
@@ -2306,8 +2811,8 @@ footer {
         display: inline-block;
         border-bottom: none;
     }
-
-    .nav-link :hover {
+    
+    .link-hover :hover {
         background: var(--lox);
         border: solid 10px var(--lox);
         border-radius: 5px;
@@ -2571,13 +3076,22 @@ footer {
     /** ════════════════════ CART ════════════════════ **/
 
     /*? --------------  TOTAL CART ------------ ?*/
-
-    .cart__continue-buy .cart__total {
-        font-size: 20px;
+    
+    #cart-products {
+        display: flex;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .total-cart{
+        flex-wrap: wrap;
+        margin: initial;
+        margin-left: 20px;
+        max-width: 350px;       
     }
 
-    .cart__continue-buy button {
-        font-size: 18px;
+    .total-cart .button{
+        margin-top: 10px;
+        width: 100%;
     }
 
     /** ════════════════════ HOME ════════════════════ **/
@@ -2749,6 +3263,11 @@ footer {
     }
     /*! ════════════════════ MAIN ════════════════════ !*/
 
+    /** ════════════════════ CART ════════════════════ **/
+    #cart-products {
+        padding: 30px;
+    }
+
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
@@ -2781,23 +3300,6 @@ footer {
     
     .redesSocialesBanner__icons{
         column-gap: 9px;
-    }
-
-    /** ════════════════════ CART ════════════════════ **/
-
-    /*? -------------- BAR PROGRESS  ------------ ?*/
-    
-    .cart__progress hr {
-        top: 26px;
-    }
-    
-    .cart__progress i {
-        position: relative;
-        font-size: 35px;
-    }
-    
-    .cart__progress i span {
-        right: 20px;
     }
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
@@ -2873,6 +3375,11 @@ footer {
 
 @media (min-width: 1200px) {
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+    /** ════════════════════ CART ════════════════════ **/
+    #table__cart {
+        width: 80%;
+    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 

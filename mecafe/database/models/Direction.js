@@ -37,6 +37,9 @@ module.exports = (sequelize, DataTypes) => {
     region: {
       type: DataTypes.STRING(250)
     },
+    country: {
+      type: DataTypes.STRING(250)
+    },
     address_code: {
       type: DataTypes.STRING(250),
       allowNull: false

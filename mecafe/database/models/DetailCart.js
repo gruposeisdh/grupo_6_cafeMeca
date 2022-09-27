@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    product_type_grinding: {
+    product_type_grinding_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },

@@ -17,8 +17,9 @@ let userController = {
     register: (_req,res) => res.render(path.resolve(__dirname,"../views/user/register.ejs")),
 
     //Ver perfil usuario
-    profile: (req,res) => {
-        let id= req.params.id;
+    profile: (req,res) => {   
+        let id= 1;    
+        //let id=  req.session.user.id;
         db.User.findByPk(id).then(userEncontrado => {
             res.render(path.resolve(__dirname,"../views/user/profile.ejs"),{userProfile:userEncontrado});
         });
@@ -43,8 +44,7 @@ let userController = {
             return res.render(path.resolve(__dirname,"../views/user/register.ejs"),{
                 errorMessage: errors.mapped(),
                 oldData: req.body
-            }) 
-
+            })
         }else {
             db.User.create({
                 firstName:req.body.name,
@@ -58,7 +58,7 @@ let userController = {
                 //Aqui debe hacerse login
                 req.session.user = userCreado;
                 req.session.errorsLogin = undefined;
-                res.redirect('/user/profile/' + userCreado.id);
+                res.redirect('/user/profile');
             });
         }
     },    
@@ -78,6 +78,9 @@ let userController = {
             if(userEncontrado && bcrypt.compareSync(pass, userEncontrado.password)){
                 req.session.user = userEncontrado;
                 req.session.errorsLogin = undefined;
+                if(route == '/'){
+                    return res.redirect('/user/profile');
+                }
                 return res.redirect(route);
             }
 
@@ -89,6 +92,34 @@ let userController = {
     logout:(req,res) => {
         req.session.destroy();
         return res.redirect('/');
+    },
+
+    sales: function(req,res){
+        //let userId =  req.session.user.id;
+        let userId= 1;
+
+        db.Sale.findAll( {
+            where: {'user_id': userId},
+            include: [
+                {model: db.ProductGrame, as: "products_grames",  through: { attributes: ['quantity'],}, attributes: ['price']},
+            ] 
+        }).then(function(sales){     
+            let response = [];
+            sales.forEach(sale =>{
+                let total = 0;
+                let totalItems = 0;
+
+                sale.products_grames.forEach(item => {
+                    total += item.price * item.DetailSale.quantity;
+                    totalItems += item.DetailSale.quantity;
+                });
+
+                response.push({'id': sale.id, 'date':sale.date, 'total' : total, 'totalItems' : totalItems});
+            })
+            
+            //res.send(response);
+            res.render(path.resolve(__dirname,"../views/user/sales.ejs"),{sales:response})
+        })
     }
 }
 
