@@ -39,3 +39,11 @@
 
 **Puntos a mejorar:**
 - No se encontraron puntos a mejorar.
+
+**Restropectiva Sprint 7**
+
+**Puntos positivos:**
+- Buena comunicación y trabajo en equipo.
+
+**Puntos a mejorar:**
+- No se encontraron puntos a mejorar.
