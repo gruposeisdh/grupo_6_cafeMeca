@@ -4,12 +4,13 @@
 .createProduct__errorValidationActive : Si hay un error en la validacion agrega el texto. */
 
 const expresiones = {
+    
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     nameProduct: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
     descripcionProducto: /^[a-zA-ZÀ-ÿ\s]{16,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
-    price: /^\d{0,5}$/, // 4 a 12 digitos.
+    price: /^\d{1,5}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
@@ -45,16 +46,20 @@ let enabledIdCategories = []
 // Crearemos un array con esos inputs
 const inputsArray = [nameProduct, weightProduct1, priceProduct1, weightProduct2, priceProduct2, weightProduct3, priceProduct3, imageProduct, descriptionProduct]
 
-// Fin de las Pruebas
-
+// Estoy iterando sobre todos los input tipo checkbox con name idCategories para poder filtrar los de valor checked y guardalos en un array.
 idCategoriesNew.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
         enabledIdCategories = 
         Array.from(idCategoriesNew) // Convertir los checkbox en un array con map.
         .filter(i => i.checked) // Filtrar los que no estan siendo usados.
         .map(i => i.value) //  map para extraer solo los valores de casilla verificados.
+        console.log(enabledIdCategories)
     })
 });
+
+// Hago un evento sobre el documento que tiene todos los inputs de idCategoriesDiv que es el div, cada vez que eso cambie corroboro si en el array que cree antes "enabledIdCategories"
+// Existe algun dato, en ese caso quiere decir que hay algun valor con checked, entonces ahi paso el campo idCategoriesDiv del objeto "campos" a true, con el fin de avisar que todavia no se pasaron 
+// todas las validaciones.
 
 idCategoriesDiv.addEventListener("change", () => {
     
@@ -69,10 +74,7 @@ idCategoriesDiv.addEventListener("change", () => {
     }
 
 })
-
-// Fin de las Pruebas
-
-
+ 
 const validarFormulario = (e) => {
     
     // Vamos primeramente a comprobar que se ejecute la funcion SOLO en el input donde estamos parados.
@@ -128,27 +130,80 @@ const validarCampo = (expresion, input, campo) => {
 
 }
 
+// Eventos para los Checked que se ejecuta solo cuando la pagina se recarga.
+// Comprueba si cuando la pagina se carga hay checked marcados, en caso de que los haya no los haya agrega los estilos para cambiar los mensajes
+
+let cantidadNew = 0 
+
+for (let i = 0 ; i < idCategoriesNew.length ; i++) {
+    
+    if(idCategoriesNew[i].checked == false){
+        cantidadNew = cantidadNew + 1
+    }
+}
+
+if (cantidadNew == 6) {
+    document.getElementById(`createProduct__lineError`).classList.add("createProduct__inputBox-isInvalid")
+    document.querySelector(`#idCategoriesDiv .createProduct__errorValidation`).classList.add("createProduct__errorValidationActive")
+}
+
+// Finaliza la comprobacion de las categorias cuando carga la pagina.
+
 
 // Vamos a quitar primeramente el envio.
 formulario.addEventListener("submit", (e) => {
     
     e.preventDefault()
     
+
     if (campos.nameProduct && campos.priceProduct1 && campos.priceProduct2 && campos.priceProduct3 && campos.descriptionProduct && campos.idCategoriesDiv) {
+
         document.getElementById('formProductCreate').submit();
+
     } else {
         document.getElementById("createProduct__errorFormularioCreateProduct").classList.add("createProduct__errorFormularioActive")
-        console.log("Sos un Pelotudo")
+       
+
+        if(nameProduct.value != null) {
+            nameProduct.focus()
+        }
+
+        if(priceProduct1.value != null) {
+            priceProduct1.focus()
+        }
+
+        if(priceProduct2.value != null) {
+            priceProduct2.focus()
+        }
+
+        if(priceProduct3.value != null) {
+            priceProduct3.focus()
+        }
+
+        if(descriptionProduct.value != null) {
+            descriptionProduct.focus()
+        }
+        
+        if(imageProduct.value != null) {
+            imageProduct.focus()
+        }
+
+        
+        console.log(campos)
+
     }
     
 })
 
 
 // Ejecutamos un evento por cada input recorrido
+
 inputsArray.forEach( input => {
 
     // Esto lo que hace es ejecutar una funcion en varios eventos, los monitorea.
+
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
 
 })
+
