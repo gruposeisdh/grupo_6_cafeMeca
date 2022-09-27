@@ -7,8 +7,6 @@ const userController = require('../controllers/userController.js');
 const authMiddlewares = require('../middlewares/authMiddlewares');
 const db = require('../../database/models');
 
-
-
 const validateLogin = [
     check('email').notEmpty().withMessage('Debes completar el Mail').isEmail().withMessage('Debes completar un email válido'),
     check('password').notEmpty().withMessage('Debes completar el Password')
@@ -16,6 +14,7 @@ const validateLogin = [
 
 
 //Validaciones del formulario de registro
+
 const validateCreateUser = [
     check('name').notEmpty().withMessage('Debes ingresar un nombre'),
     check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
@@ -40,6 +39,7 @@ const validateCreateUser = [
 
 
 //Storage del formulario de registro
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) =>{
         let RouteImgProfile = path.join(__dirname, "../../public/img/profiles")
