@@ -21,7 +21,7 @@
 
 a:link,
 a:visited,
-a:hover,
+a:hover
 a:active {
     color: #ffffff;
     text-decoration: none;
@@ -80,8 +80,8 @@ a:active {
 
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
-.redesSocialesBanner {
-    /*border: solid 2px var(--lox);*/
+/* .redesSocialesBanner {
+
     background-color: var(--negro-pastel);
     width: 85vw;
     max-width: 1000px;
@@ -138,7 +138,9 @@ a:active {
 .fa-github-square:hover{
     color: #9642A2;
     transition: all .7s;
-}
+} 
+
+*/
 
 /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
 
@@ -341,11 +343,10 @@ a:active {
     padding: 20px 40px;
 }
 
-.nav-link {
+.nav-link{
     list-style: none;
-    margin: 25px 5px;
+    margin-top: 18px;
     width: auto;
-    padding-left: 8px;
 }
 
 .navbar {
@@ -354,17 +355,20 @@ a:active {
     top: 0;
     width: 100%;
     z-index: 5;
+
 }
 
 .flex-nav {
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Esto cambia a visible en 768*/
 }
 
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nav-toggle {
@@ -372,16 +376,36 @@ a:active {
     background: transparent;
     color: white;
     font-size: 1.5em;
+
 }
 
 .nav-links {
     height: 0;
-    overflow: hidden;
 }
 
 .nav-open {
     height: 100%;
 }
+
+
+.nav-link-desplagable{
+    display: flex;
+    padding-top: 10px;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--negro-pastel);
+    z-index: 9999
+}
+
+.nav-link-desplagable a {
+    padding: 10px 0 ;
+    color: var(--lox);
+}
+
+.nav-link-aparecer{
+    display: none;
+}
+
 
 /** ═══════ GENERAL MODALS ═════════════ */
 
@@ -1856,6 +1880,7 @@ article .header_list_direction_detail{
 .home__containerColumns {
     width: 85%;
     margin: auto;
+    padding: 25px 0;
 }
 
 .home__containerColumns img {
@@ -1947,15 +1972,15 @@ body {
 
 .home__logoAndTextBanner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: absolute;
-    line-height: 1.2;
     height: 100%;
     width: 100%;
-    color: #ffffff;
     z-index: 3;
-    font-size: .7em;
+}
+
+.home__logoAndTextBanner img{
+    width: 27%;
+    margin: auto;
 }
 
 .opacity {
@@ -1973,7 +1998,29 @@ body {
     margin: auto;
 }
 
-.home__carrousel {
+.home__clusterCenter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+.home__clusterCenter h5{
+    width: 99.8%;
+    background-color: var(--negro-pastel);
+    padding: 1%;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* .home__carrousel {
     text-align: center;
     display: block;
     margin: 20px 20px;
@@ -1993,7 +2040,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-}
+} */
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
@@ -2015,7 +2062,7 @@ body {
 /** ════════════════════ PRODUCT ════════════════════ **/
 
 
-.home__carrousel-picture i {
+/* .home__carrousel-picture i {
     border: solid 1px var(--blue-pastel);
     border-radius: 50%;
     padding: 10px;
@@ -2036,7 +2083,7 @@ body {
 .home__carrousel-picture div {
     padding: 5px;
     width: 100%;
-}
+} */
 
 .home__containerColumns img {
     width: 100%;
@@ -2054,7 +2101,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .home__containerColumns-container {
@@ -2063,11 +2110,10 @@ body {
     gap: 15px;
     margin: auto;
 
-
     grid-template-areas:
-        "home__clusterOne home__clusterTwo"
+        "home__clusterOne home__clusterFive"
         "home__clusterThree home__clusterFor"
-        "home__clusterFive home__clusterFive";
+        "home__clusterTwo home__clusterTwo";
 }
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
@@ -2541,7 +2587,11 @@ footer {
         height: 150px;
     }
 
-    .home__carrousel {
+    .home__clusterCenter h5{
+        font-size: 14px;
+    }
+
+    /* .home__carrousel {
         text-align: center;
         display: block;
         margin: 20px 20px;
@@ -2569,7 +2619,7 @@ footer {
     .home__carrousel-picture p {
         display: none;
         font-size: 12px;
-    }
+    } */
 
     .home__containerBanner {
         height: 300px;
@@ -2579,7 +2629,7 @@ footer {
         font-size: .9em;
     }
     
-    .redesSocialesBanner {
+    /* .redesSocialesBanner {
         column-gap: 0;
         padding: .5em .2em;
     }
@@ -2594,7 +2644,7 @@ footer {
 
     .redesSocialesBanner h5{
         font-size: .9em;
-    }
+    } */
 
     /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
 
@@ -2645,16 +2695,26 @@ footer {
     .nav-link {
         display: inline-block;
         border-bottom: none;
+        margin: 25px 5px;
     }
 
-    .link-hover :hover {
-        background: var(--lox);
-        border: solid 10px var(--lox);
-        border-radius: 5px;
-        transition: 0.5s;
-        color: #000000;
-        font-weight: 800;
+    .selector-Nav{
+        position: relative;
     }
+
+    .nav-link-desplagable{ 
+        padding: 0px 0px 0px 8px;
+        transition: all 1s;
+        position: absolute;
+        top: 40px;
+        border-radius: 3px;
+    }
+
+    .flex-nav {
+        overflow: visible; /* Revisar esto va en hidden*/
+    }
+
+
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -2731,7 +2791,7 @@ footer {
         height: 200px;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-weight: bold;
         font-size: 16px;
         margin: 10px 0;
@@ -2741,6 +2801,8 @@ footer {
         display: block;
         font-size: 12px;
     }
+
+    */
 
     .home__containerColumns-container {
         display: grid;
@@ -2752,9 +2814,9 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive";
     }
 
-    .home__carrousel-picture div {
+    /* .home__carrousel-picture div {
         padding: 10px;
-    }
+    } */
 
     .home__containerBanner {
         height: 400px;
@@ -2764,9 +2826,9 @@ footer {
         font-size: 1.3em;
     }
 
-    .redesSocialesBanner h5{
+    /* .redesSocialesBanner h5{
         font-size: 1em;
-    }
+    } */
     
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -2812,14 +2874,35 @@ footer {
         border-bottom: none;
     }
     
-    .link-hover :hover {
-        background: var(--lox);
-        border: solid 10px var(--lox);
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    /* nav ul > .link-hover*/
+    
+    nav ul > .link-hover :hover {
         border-radius: 5px;
-        transition: 1s;
+        background: var(--lox);
+        transition: .5s;
         color: #000000;
         font-weight: 800;
     }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: white;
+        font-weight: 800;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
+
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -3105,7 +3188,7 @@ footer {
         height: 200px;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-weight: bold;
         font-size: 16px;
         margin: 10px 0;
@@ -3114,7 +3197,7 @@ footer {
     .home__carrousel-picture p {
         display: block;
         font-size: 12px;
-    }
+    } */
 
     .home__containerColumns-container {
         display: grid;
@@ -3127,13 +3210,13 @@ footer {
         ;
     }
 
-    .home__carrousel-picture div {
+    /* .home__carrousel-picture div {
         padding: 10px;
-    }
+    } */
 
-    .redesSocialesBanner {
+    /* .redesSocialesBanner {
         width: 77vw;
-    }
+    } */
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -3268,6 +3351,12 @@ footer {
         padding: 30px;
     }
 
+    /** ════════════════════ HOME ════════════════════ **/
+
+    .home__clusterCenter h5{
+        font-size: 18px;
+    }
+
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
@@ -3284,7 +3373,7 @@ footer {
         font-size: 1.5em;
     }
 
-    .redesSocialesBanner h5{
+    /* .redesSocialesBanner h5{
         padding: 8px;
         font-size: 1.3em;
     }
@@ -3301,6 +3390,8 @@ footer {
     .redesSocialesBanner__icons{
         column-gap: 9px;
     }
+
+    */
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
 
@@ -3400,17 +3491,17 @@ footer {
         margin: auto;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-size: 20px;
     }
 
     .home__carrousel-picture p {
         font-size: 14px;
-    }
+    } */
 
-    .redesSocialesBanner h5 {
+    /* .redesSocialesBanner h5 {
         letter-spacing: 4px;
-    }
+    } */
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
 

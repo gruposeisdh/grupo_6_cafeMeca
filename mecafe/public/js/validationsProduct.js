@@ -10,9 +10,9 @@ const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     nameProduct: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
-    descripcionProducto: /^[a-zA-ZÀ-ÿ\s]{16,500}$/, // Letras y espacios, pueden llevar acentos.
+    descripcionProducto: /^[a-zA-ZÀ-ÿ\s_.+-]{16,500}$/, // Letras y espacios, pueden llevar acentos. Tambien guion bajo, medio y mas
     password: /^.{4,12}$/, // 4 a 12 digitos.
-    price: /^\d{1,5}$/, // 4 a 12 digitos.
+    price: /^[0-9]+\.?[0-9]*$/, // 4 a 12 digitos. Se admiten numeros decimales.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
