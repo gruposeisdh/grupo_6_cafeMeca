@@ -1464,7 +1464,7 @@ tr:hover td{
 
 /*? -------------- PRODUCTS LIST --------- ?*/
 
-#table__cart tbody  tr:hover  td,  #table__sales_user tbody  tr:hover  td{
+#table__cart tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
 }
 
@@ -1553,12 +1553,16 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size: 15px;   
 }
 
-.total-cart .button{
+.total-cart .button, #table__cart button{
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
     padding: 5px;
+}
+
+#table__cart button{
+    width: 100%;
 }
 
 #table__cart tr:nth-child(even), #table__sales_user tr:nth-child(even){ 

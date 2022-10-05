@@ -8,5 +8,11 @@ router.get(
     //authMiddlewares.authMiddleware,
     cartController.index
 );
+router.post(
+    '/', 
+    //authMiddlewares.authMiddleware,
+    cartController.update
+);
+
 
 module.exports = router;
