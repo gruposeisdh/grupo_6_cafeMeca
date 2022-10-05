@@ -9,7 +9,6 @@
             </button>
         </div>
 
-
         <nav class="nav-links" id="nav-links">
             <ul>
                 <li class="nav-link link-hover"><a href="/">Inicio</a></li>
@@ -24,9 +23,8 @@
                 <% if(locals.user) { %> 
                     <li class="nav-link link-hover"><a href="#" onclick="openModal('modalPassword')">Cambiar contraseña</a></li>
                     <li class="nav-link"><form class="link-hover" action="/user/logout" method="post"><a href='#' onclick='this.parentNode.submit(); return false;'>Logout</a></form></li> 
-                    <li class="nav-link link-hover"><a href="#" ><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    
-                    <% } %> 
+                    <li class="nav-link link-hover"><a href="/cart" ><i class="fa-solid fa-cart-shopping"></i></a></li>                    
+                <% } %> 
                     
             </ul>
         </nav>
