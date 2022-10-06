@@ -430,11 +430,7 @@ a:active {
 }
 
 .modal__container form {
-    margin-top: 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+
 }
 
 .modal__container form label {
@@ -442,7 +438,7 @@ a:active {
 }
 
 .modal__container form .form-group {
-    padding: 10px;
+    padding: 25px;
 }
 
 .modal__formError {
@@ -453,8 +449,8 @@ a:active {
     font-weight: 700;
 }
 
-.modal__container form input {
-    width: 100%;
+.modal__container form input { /* QUIZAS BORRAR DESPUES */
+    /* width: 100%;
     padding: 8px;
     font-size: 17px;
     background-color: #ffffff;
@@ -462,7 +458,7 @@ a:active {
     border-radius: 11px;
     box-shadow: 0px 0px 6px var(--black);
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
 }
 
 .modal__container form input[type="button"] {
@@ -475,10 +471,6 @@ a:active {
     margin-bottom: 30px;
 }
 
-.modal__container a {
-    color: var(--lox);
-    font-weight: bold;
-}
 /*! ════════════ MODAL CHANGE PASSWORD ═══════════════════ !*/
 
 .changePassword__container {
@@ -528,37 +520,125 @@ a:active {
 
 }
 
-.login__container form input[type="checkbox"] {
+/* .login__container form input[type="checkbox"] {
     width: auto;
-}
+} */
 
-.login__container form div a {
+/*.login__container form div a {
     margin-left: 20px;
-}
+} */
 
 .login_logo{
-    width: 100%;
-    margin-top: 40px;
+    padding: 20px 0;
 }
 
 .login_logo img{
+    padding: 10px 0;
     object-fit: cover;
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 60%;
+    margin: auto;
     display: block;
-    margin-top: 35px;
 }
 
 .login__container form input[type="submit"] {
-    margin-top: 10px;
-    align-self: center;
+    display: flex;
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 2px;
 }
+
+
+.check_login{
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    width: 40%;
+    gap: 8px;
+}
+
+.borderBottomLogin{
+    border-bottom: solid 1px var(--lox);
+}
+
+.registerForm__form-login {
+    width: 85%;
+    max-width: 500px;
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.registerForm__form-login div {
+    padding: 5px;
+    margin: auto;
+}
+
+.registerForm__form-login label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
+    display: block;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+}
+
+.registerForm__form-login input {
+    font-family: proximanova;
+    padding: .5em 0;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.registerForm__form-login input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+.registerForm__formInput-login:focus + .registerForm__formLabel-login,
+.registerForm__formInput-login:not(:placeholder-shown) + .registerForm__formLabel-login{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.containerLoginOne{
+    border: solid 2px red;
+}
+
+.LoginContainerTwo a{
+    color: var(--lox);
+    font-weight: bold;
+}
+
+.LoginContainerTwo{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px 0;
+}
+
+.LoginContainerOne{
+    display: flex;
+    align-items: center;
+}
+
+.LoginContainerOne a{
+    color: var(--lox);
+    font-weight: bold;
+}
+
 
 /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -2187,6 +2267,7 @@ body {
         "home__clusterTwo home__clusterTwo";
 }
 
+
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
 .registerForm__container-form{
@@ -2220,7 +2301,8 @@ body {
     transition: transform .5s;
 }
 
-/* iconos de validacion cada campo front-Yohanna */
+/* Iconos de validacion cada campo front-Yohanna */
+
 .registerForm_errorItem_name{
     opacity: 0;
 }
