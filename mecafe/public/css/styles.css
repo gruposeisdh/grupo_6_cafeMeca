@@ -1670,6 +1670,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 #table__sales_user{
     width: 100%;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
 }
 
 #table__sales_user a{
