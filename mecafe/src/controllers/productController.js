@@ -281,6 +281,7 @@ let productController = {
                     name: nameProduct,
                     rating: ratingProduct,
                     description: descriptionProduct,
+                    brand_id: idBrand
                 },{
                     where: {
                         id: product.id
@@ -335,18 +336,11 @@ let productController = {
                 
                 if (req.file) {
 
-                    /*db.ImageProduct.destroy({
-                        where: {
-                            product_id: id
-                        }
-                    })*/
-
                     db.ImageProduct.update({
-                        path: fileproducts.imageProductNew(req.file),
-                        product_id: product.id,
+                        path: req.file.filename,
                     },{
                         where: {
-                            id: product.id
+                            product_id: product.id
                         }
                     })
 

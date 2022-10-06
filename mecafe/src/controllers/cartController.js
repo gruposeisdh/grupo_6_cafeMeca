@@ -4,7 +4,7 @@ const { Cart } = require("../../database/models");
 
 let cartController = {
     index: (_req,res) => {
-        //let id =  req.session.user.id;
+        //let userId =  req.session.user.id;
         let userId= 1;
 
         db.DetailCart.findAll(          
@@ -36,7 +36,41 @@ let cartController = {
             //res.send(detailsCart);
             res.render(path.resolve(__dirname,"../views/cart.ejs"),{detailsCart:detailsCart})
         });
+    },
+
+    update: (req, res) => {
+        //let userId =  req.session.user.id;
+        let userId= 1;
+
+        let detailsCart = Object.entries(req.body);
+
+        detailsCart.forEach((item) => {
+            //envío como name detailCart_id siendo id el id de detailCart
+            let idDetailCart = item[0].split('_')[1]; //(no es lo mas bonito pero no se me ocurrió nada mas)
+            let quantity = item[1];           
+
+            if(quantity > 0){ //actualizar
+                db.DetailCart.update({
+                    quantity: quantity,
+                },{where : {id: idDetailCart}})
+            }else{ //eliminar
+                db.DetailCart.destroy({
+                    where: {
+                        id: idDetailCart
+                    }
+                })
+            }
+        })
+
+        //hago esperar 1 sengudo para que se termine de actualizar el carrito (obvio falta un await porque esto no es bonito :c)
+        sleep(1000).then(() => { 
+            res.redirect('/cart'); 
+        });       
     }
+}
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 module.exports = cartController;

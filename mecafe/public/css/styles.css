@@ -21,7 +21,7 @@
 
 a:link,
 a:visited,
-a:hover,
+a:hover
 a:active {
     color: #ffffff;
     text-decoration: none;
@@ -71,7 +71,7 @@ a:active {
 }
 
 .hidden{
-    visibility:hidden;
+    display: none;
 }
 
 .display-none{
@@ -80,8 +80,8 @@ a:active {
 
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
-.redesSocialesBanner {
-    /*border: solid 2px var(--lox);*/
+/* .redesSocialesBanner {
+
     background-color: var(--negro-pastel);
     width: 85vw;
     max-width: 1000px;
@@ -138,7 +138,9 @@ a:active {
 .fa-github-square:hover{
     color: #9642A2;
     transition: all .7s;
-}
+} 
+
+*/
 
 /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
 
@@ -341,11 +343,10 @@ a:active {
     padding: 20px 40px;
 }
 
-.nav-link {
+.nav-link{
     list-style: none;
-    margin: 25px 5px;
+    margin-top: 18px;
     width: auto;
-    padding-left: 8px;
 }
 
 .navbar {
@@ -354,17 +355,20 @@ a:active {
     top: 0;
     width: 100%;
     z-index: 5;
+
 }
 
 .flex-nav {
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Esto cambia a visible en 768*/
 }
 
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nav-toggle {
@@ -372,16 +376,36 @@ a:active {
     background: transparent;
     color: white;
     font-size: 1.5em;
+
 }
 
 .nav-links {
     height: 0;
-    overflow: hidden;
 }
 
 .nav-open {
     height: 100%;
 }
+
+
+.nav-link-desplagable{
+    display: flex;
+    padding-top: 10px;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--negro-pastel);
+    z-index: 9999
+}
+
+.nav-link-desplagable a {
+    padding: 10px 0 ;
+    color: var(--lox);
+}
+
+.nav-link-aparecer{
+    display: none;
+}
+
 
 /** ═══════ GENERAL MODALS ═════════════ */
 
@@ -541,8 +565,6 @@ a:active {
 /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 .AdminProducts__title{
-    text-transform: full-width;
-    letter-spacing: 1px;
     line-height: 1.5em;
     width: 90vw;
     max-width: 1200px;
@@ -1464,7 +1486,27 @@ tr:hover td{
 
 /*? -------------- PRODUCTS LIST --------- ?*/
 
-#table__cart tbody  tr:hover  td,  #table__sales_user tbody  tr:hover  td{
+.container_detail_view_user_sales{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.header_direction_detail_sales{
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin: 0 0 20px;
+}
+
+#cart-products form {
+    width: 100%; 
+}
+
+#table__cart tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
 }
 
@@ -1474,9 +1516,13 @@ tr:hover td{
 }
 
 #table__cart th, #table__cart td, #table__sales_user th, #table__sales_user td {
-    padding: 15px 12px;
+    padding: 15px 10px;
     border: none;
-    border-bottom: 2px solid #f1e4e1;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+#table__sales_user thead {
+    border-bottom: solid 2px var(--lox);
 }
 
 .product_name_table_cart{
@@ -1553,12 +1599,16 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size: 15px;   
 }
 
-.total-cart .button{
+.total-cart .button, #table__cart button{
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
     padding: 5px;
+}
+
+#table__cart button{
+    width: 100%;
 }
 
 #table__cart tr:nth-child(even), #table__sales_user tr:nth-child(even){ 
@@ -1569,8 +1619,10 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 #menu_user{
     background-color:white;
     width: 100%;
-    border-bottom: 1px solid var(--lox);
     font-weight: bold;
+    border: solid 1px var(--gray-pastel); /* Un simple border suave */
+    border-radius: 2px; /* Minimo border Radius */
+    border-bottom: 2px solid var(--lox);
 }
 
 .selected_menu_user_item{
@@ -1578,6 +1630,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 #menu_user ul{
+    text-align: center; /* Centre los items de texto */
     padding: 0;
     list-style: none;
     display: flex;
@@ -1595,23 +1648,30 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
 
 .container_users{
-    padding: 20px;
     margin: auto;
+    padding: 20px;
     max-width: 1200px;
-    display: flex;
-    flex-direction: column;
 }
 
 /** ════════════════════ USER SALES ════════════════════ **/
-.container_detail_view_user, container__table_sales_user{
+
+.container_detail_view_user{
     width: 100%;
-    /** width:70%;*/
-    /** margin-left:10px; */
     background: white;
+    margin-top: 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+.container_detail_view_user .title{
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #table__sales_user{
     width: 100%;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
 }
 
 #table__sales_user a{
@@ -1627,11 +1687,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: none;
 }
  
-.container__table_sales_user .title{
-    margin: 20px;
-    font-weight: bold;
-    font-size:25px;
-}
 
 #table__sales_user .button_go_to_sale {
     background-color: black;
@@ -1644,15 +1699,19 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
 .container_user_directions .title{
-    margin: 20px;
     font-weight: bold;
-    font-size:25px;
+    font-size: 20px;
+    text-align: center; /* Centre el titulo */
 }
 
 .header_direction_detail{
     display: flex;
     align-items: center;
+    padding: 10px 20px;
     justify-content: flex-start;
+    gap: 15px;
+    border-bottom: solid 1px var(--gray-pastel);
+    margin-bottom: 20px;
 }
 
 .header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
@@ -1660,39 +1719,58 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     color: white;
     font-weight: bold;
     padding: 8px;
-    border: 0;
+    border: 0
 }
 
 .list_directions{
     margin: 20px;
     margin-top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .list_directions article{
-    width: 100%;
-    border: 1px solid black;
+    border: 1px solid var(--gray-pastel);
     margin: 10px;
-    padding: 0px 1px 15px 15px;
+    padding: 10px;
+    border-radius: 2px;
 }
 
 article .header_list_direction_detail .direction_default{
-    margin: 2px 5px 2px 0;
-    font-size: 11px;    
-    text-align: end;
+    font-size: 12px;    
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px;
+    background-color: var(--lox);
+    margin-bottom: 10px;
+}
+
+.direction_name{
+    text-align: center;
 }
 
 article .header_list_direction_detail{
+    display: grid;
+    align-items: center;
+    height: 50px;
+    text-align: center;
     font-weight: bold;
     border-bottom: 1px solid var(--lox);
     margin-bottom: 10px;
 }
 
+.direction_default_text{
+    color: orangered;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.body_list_direction_detail{
+    margin-bottom: 10px;
+    height: 95px;
+    display: grid;
+}
+
 .body_list_direction_detail p{
-    margin-bottom: 5px;
+    padding: 5px 0;
 }
 
 .footer_list_direction_detail .button_delete_direction {
@@ -1702,6 +1780,23 @@ article .header_list_direction_detail{
     padding: 8px;
     border: 0;
 }
+
+.footer_list_direction_detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.button_name_direction{
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: var(--green-pastel-btn);
+}
+
 
 /** ════════════ FORM DIRECTION ══════════ **/
 
@@ -1856,6 +1951,7 @@ article .header_list_direction_detail{
 .home__containerColumns {
     width: 85%;
     margin: auto;
+    padding: 25px 0;
 }
 
 .home__containerColumns img {
@@ -1947,15 +2043,15 @@ body {
 
 .home__logoAndTextBanner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: absolute;
-    line-height: 1.2;
     height: 100%;
     width: 100%;
-    color: #ffffff;
     z-index: 3;
-    font-size: .7em;
+}
+
+.home__logoAndTextBanner img{
+    width: 27%;
+    margin: auto;
 }
 
 .opacity {
@@ -1973,7 +2069,29 @@ body {
     margin: auto;
 }
 
-.home__carrousel {
+.home__clusterCenter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+.home__clusterCenter h5{
+    width: 99.8%;
+    background-color: var(--negro-pastel);
+    padding: 1%;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* .home__carrousel {
     text-align: center;
     display: block;
     margin: 20px 20px;
@@ -1993,7 +2111,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-}
+} */
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
@@ -2015,7 +2133,7 @@ body {
 /** ════════════════════ PRODUCT ════════════════════ **/
 
 
-.home__carrousel-picture i {
+/* .home__carrousel-picture i {
     border: solid 1px var(--blue-pastel);
     border-radius: 50%;
     padding: 10px;
@@ -2036,7 +2154,7 @@ body {
 .home__carrousel-picture div {
     padding: 5px;
     width: 100%;
-}
+} */
 
 .home__containerColumns img {
     width: 100%;
@@ -2054,7 +2172,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 .home__containerColumns-container {
@@ -2063,11 +2181,10 @@ body {
     gap: 15px;
     margin: auto;
 
-
     grid-template-areas:
-        "home__clusterOne home__clusterTwo"
+        "home__clusterOne home__clusterFive"
         "home__clusterThree home__clusterFor"
-        "home__clusterFive home__clusterFive";
+        "home__clusterTwo home__clusterTwo";
 }
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
@@ -2423,6 +2540,7 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 480PX ════════════════════ TODO */
 
 @media (min-width: 480px) {
+
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
     .changePassword__container {       
@@ -2442,8 +2560,9 @@ footer {
 
     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
-    .list_directions article{
-        width: 250px;
+    .list_directions{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /** ════════════════════ CART ════════════════════ **/
@@ -2541,7 +2660,11 @@ footer {
         height: 150px;
     }
 
-    .home__carrousel {
+    .home__clusterCenter h5{
+        font-size: 14px;
+    }
+
+    /* .home__carrousel {
         text-align: center;
         display: block;
         margin: 20px 20px;
@@ -2569,7 +2692,7 @@ footer {
     .home__carrousel-picture p {
         display: none;
         font-size: 12px;
-    }
+    } */
 
     .home__containerBanner {
         height: 300px;
@@ -2579,7 +2702,7 @@ footer {
         font-size: .9em;
     }
     
-    .redesSocialesBanner {
+    /* .redesSocialesBanner {
         column-gap: 0;
         padding: .5em .2em;
     }
@@ -2594,7 +2717,7 @@ footer {
 
     .redesSocialesBanner h5{
         font-size: .9em;
-    }
+    } */
 
     /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
 
@@ -2645,16 +2768,26 @@ footer {
     .nav-link {
         display: inline-block;
         border-bottom: none;
+        margin: 25px 5px;
     }
 
-    .link-hover :hover {
-        background: var(--lox);
-        border: solid 10px var(--lox);
-        border-radius: 5px;
-        transition: 0.5s;
-        color: #000000;
-        font-weight: 800;
+    .selector-Nav{
+        position: relative;
     }
+
+    .nav-link-desplagable{ 
+        padding: 0px 0px 0px 8px;
+        transition: all 1s;
+        position: absolute;
+        top: 40px;
+        border-radius: 3px;
+    }
+
+    .flex-nav {
+        overflow: visible; /* Revisar esto va en hidden*/
+    }
+
+
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -2678,14 +2811,10 @@ footer {
     
      /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
-    .list_directions{
-        margin: 20px;
-        margin-top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
+        .list_directions{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
@@ -2731,7 +2860,7 @@ footer {
         height: 200px;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-weight: bold;
         font-size: 16px;
         margin: 10px 0;
@@ -2741,6 +2870,8 @@ footer {
         display: block;
         font-size: 12px;
     }
+
+    */
 
     .home__containerColumns-container {
         display: grid;
@@ -2752,9 +2883,9 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive";
     }
 
-    .home__carrousel-picture div {
+    /* .home__carrousel-picture div {
         padding: 10px;
-    }
+    } */
 
     .home__containerBanner {
         height: 400px;
@@ -2764,9 +2895,9 @@ footer {
         font-size: 1.3em;
     }
 
-    .redesSocialesBanner h5{
+    /* .redesSocialesBanner h5{
         font-size: 1em;
-    }
+    } */
     
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -2812,14 +2943,35 @@ footer {
         border-bottom: none;
     }
     
-    .link-hover :hover {
-        background: var(--lox);
-        border: solid 10px var(--lox);
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    /* nav ul > .link-hover*/
+    
+    nav ul > .link-hover :hover {
         border-radius: 5px;
-        transition: 1s;
+        background: var(--lox);
+        transition: .5s;
         color: #000000;
         font-weight: 800;
     }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: white;
+        font-weight: 800;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
+
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -3105,7 +3257,7 @@ footer {
         height: 200px;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-weight: bold;
         font-size: 16px;
         margin: 10px 0;
@@ -3114,7 +3266,7 @@ footer {
     .home__carrousel-picture p {
         display: block;
         font-size: 12px;
-    }
+    } */
 
     .home__containerColumns-container {
         display: grid;
@@ -3127,13 +3279,13 @@ footer {
         ;
     }
 
-    .home__carrousel-picture div {
+    /* .home__carrousel-picture div {
         padding: 10px;
-    }
+    } */
 
-    .redesSocialesBanner {
+    /* .redesSocialesBanner {
         width: 77vw;
-    }
+    } */
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -3255,6 +3407,13 @@ footer {
 
 @media (min-width: 992px) {
 
+        /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+        .list_directions{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
     .changePassword__container {       
@@ -3266,6 +3425,12 @@ footer {
     /** ════════════════════ CART ════════════════════ **/
     #cart-products {
         padding: 30px;
+    }
+
+    /** ════════════════════ HOME ════════════════════ **/
+
+    .home__clusterCenter h5{
+        font-size: 18px;
     }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
@@ -3284,7 +3449,7 @@ footer {
         font-size: 1.5em;
     }
 
-    .redesSocialesBanner h5{
+    /* .redesSocialesBanner h5{
         padding: 8px;
         font-size: 1.3em;
     }
@@ -3301,6 +3466,8 @@ footer {
     .redesSocialesBanner__icons{
         column-gap: 9px;
     }
+
+    */
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
 
@@ -3377,8 +3544,9 @@ footer {
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ CART ════════════════════ **/
+
     #table__cart {
-        width: 80%;
+        width: 100%;
     }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
@@ -3400,17 +3568,17 @@ footer {
         margin: auto;
     }
 
-    .home__carrousel-picture h4 {
+    /* .home__carrousel-picture h4 {
         font-size: 20px;
     }
 
     .home__carrousel-picture p {
         font-size: 14px;
-    }
+    } */
 
-    .redesSocialesBanner h5 {
+    /* .redesSocialesBanner h5 {
         letter-spacing: 4px;
-    }
+    } */
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
 
