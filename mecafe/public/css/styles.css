@@ -565,8 +565,6 @@ a:active {
 /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 .AdminProducts__title{
-    text-transform: full-width;
-    letter-spacing: 1px;
     line-height: 1.5em;
     width: 90vw;
     max-width: 1200px;
@@ -1487,6 +1485,10 @@ tr:hover td{
 }
 
 /*? -------------- PRODUCTS LIST --------- ?*/
+
+#cart-products form {
+    width: 100%; 
+}
 
 #table__cart tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
@@ -3472,8 +3474,9 @@ footer {
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ CART ════════════════════ **/
+
     #table__cart {
-        width: 80%;
+        width: 100%;
     }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
