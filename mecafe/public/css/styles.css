@@ -71,7 +71,7 @@ a:active {
 }
 
 .hidden{
-    visibility:hidden;
+    display: none;
 }
 
 .display-none{
@@ -1486,6 +1486,22 @@ tr:hover td{
 
 /*? -------------- PRODUCTS LIST --------- ?*/
 
+.container_detail_view_user_sales{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.header_direction_detail_sales{
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin: 0 0 20px;
+}
+
 #cart-products form {
     width: 100%; 
 }
@@ -1500,9 +1516,13 @@ tr:hover td{
 }
 
 #table__cart th, #table__cart td, #table__sales_user th, #table__sales_user td {
-    padding: 15px 12px;
+    padding: 15px 10px;
     border: none;
-    border-bottom: 2px solid #f1e4e1;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+#table__sales_user thead {
+    border-bottom: solid 2px var(--lox);
 }
 
 .product_name_table_cart{
@@ -1599,8 +1619,10 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 #menu_user{
     background-color:white;
     width: 100%;
-    border-bottom: 1px solid var(--lox);
     font-weight: bold;
+    border: solid 1px var(--gray-pastel); /* Un simple border suave */
+    border-radius: 2px; /* Minimo border Radius */
+    border-bottom: 2px solid var(--lox);
 }
 
 .selected_menu_user_item{
@@ -1608,6 +1630,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 #menu_user ul{
+    text-align: center; /* Centre los items de texto */
     padding: 0;
     list-style: none;
     display: flex;
@@ -1625,19 +1648,24 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
 
 .container_users{
-    padding: 20px;
     margin: auto;
+    padding: 20px;
     max-width: 1200px;
-    display: flex;
-    flex-direction: column;
 }
 
 /** ════════════════════ USER SALES ════════════════════ **/
-.container_detail_view_user, container__table_sales_user{
+
+.container_detail_view_user{
     width: 100%;
-    /** width:70%;*/
-    /** margin-left:10px; */
     background: white;
+    margin-top: 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+.container_detail_view_user .title{
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #table__sales_user{
@@ -1657,11 +1685,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: none;
 }
  
-.container__table_sales_user .title{
-    margin: 20px;
-    font-weight: bold;
-    font-size:25px;
-}
 
 #table__sales_user .button_go_to_sale {
     background-color: black;
@@ -1674,15 +1697,19 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
 .container_user_directions .title{
-    margin: 20px;
     font-weight: bold;
-    font-size:25px;
+    font-size: 20px;
+    text-align: center; /* Centre el titulo */
 }
 
 .header_direction_detail{
     display: flex;
     align-items: center;
+    padding: 10px 20px;
     justify-content: flex-start;
+    gap: 15px;
+    border-bottom: solid 1px var(--gray-pastel);
+    margin-bottom: 20px;
 }
 
 .header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
@@ -1690,39 +1717,58 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     color: white;
     font-weight: bold;
     padding: 8px;
-    border: 0;
+    border: 0
 }
 
 .list_directions{
     margin: 20px;
     margin-top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .list_directions article{
-    width: 100%;
-    border: 1px solid black;
+    border: 1px solid var(--gray-pastel);
     margin: 10px;
-    padding: 0px 1px 15px 15px;
+    padding: 10px;
+    border-radius: 2px;
 }
 
 article .header_list_direction_detail .direction_default{
-    margin: 2px 5px 2px 0;
-    font-size: 11px;    
-    text-align: end;
+    font-size: 12px;    
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px;
+    background-color: var(--lox);
+    margin-bottom: 10px;
+}
+
+.direction_name{
+    text-align: center;
 }
 
 article .header_list_direction_detail{
+    display: grid;
+    align-items: center;
+    height: 50px;
+    text-align: center;
     font-weight: bold;
     border-bottom: 1px solid var(--lox);
     margin-bottom: 10px;
 }
 
+.direction_default_text{
+    color: orangered;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.body_list_direction_detail{
+    margin-bottom: 10px;
+    height: 95px;
+    display: grid;
+}
+
 .body_list_direction_detail p{
-    margin-bottom: 5px;
+    padding: 5px 0;
 }
 
 .footer_list_direction_detail .button_delete_direction {
@@ -1732,6 +1778,23 @@ article .header_list_direction_detail{
     padding: 8px;
     border: 0;
 }
+
+.footer_list_direction_detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.button_name_direction{
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: var(--green-pastel-btn);
+}
+
 
 /** ════════════ FORM DIRECTION ══════════ **/
 
@@ -2475,6 +2538,7 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 480PX ════════════════════ TODO */
 
 @media (min-width: 480px) {
+
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
     .changePassword__container {       
@@ -2494,8 +2558,9 @@ footer {
 
     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
-    .list_directions article{
-        width: 250px;
+    .list_directions{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /** ════════════════════ CART ════════════════════ **/
@@ -2744,14 +2809,10 @@ footer {
     
      /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
-    .list_directions{
-        margin: 20px;
-        margin-top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
+        .list_directions{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
@@ -3343,6 +3404,13 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 992PX ════════════════════ TODO */
 
 @media (min-width: 992px) {
+
+        /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+        .list_directions{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
