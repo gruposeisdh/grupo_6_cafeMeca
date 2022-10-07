@@ -1,0 +1,102 @@
+<!-- * Encabezado de la pagina -->
+<%- include ("../partials/head") %>
+
+<title>Edicion de un producto</title>
+</head>
+
+<body class="bodyHome">
+    
+    <!-- Cabecera -->
+    <%- include ("../partials/header") %>
+
+    <!-- Contenido -->
+
+    <section class="generalHome">
+
+        <div class="ProductNew">
+
+            <div class="ProductNew__Container">
+
+                <div class="ProductNew__clusterZeroTitle">
+                    <h1><%=product.name%></h1>
+                </div>
+
+                <div class="Nicolas ProductNew__clusterOneImage">
+                    <div class="ProductNew__imageProduct">
+                        <img src="/img/productos/<%=product.images_products[0].path%>" alt="Cafe-la-morenita">
+                    </div>
+                </div>
+
+                <div class="ProductNew__detailProduct Nicolas ProductNew__clusterTwoDetailProduct">
+                    <h3>Descripcion del Producto</h3>
+                    <p><%=product.description%> ¡Hacemos el café más rico para que vos puedas disfrutarlo! <b>Mecafe es seguridad y bienestar</b></p>
+                </div>
+
+                <div class="ProductNew__selectorCharacteristics Nicolas ProductNew__clusterThreeSelectorCharacteristics">
+
+                    <h3>Eleccion de Caracteristicas</h3>
+
+                    <div class="ProductNew__selector">
+                        <label for="ProductNew__grams">Gramos:</label>
+                        <select name="ProductNew__grams" id="ProductNew__grams"> 
+                            <option selected disabled>Seleccion de Gramos</option>
+                            <option value="250" >250 grs</option>
+                            <option value="500" >500 grs</option>
+                            <option value="1000" >1 Kg</option>
+                        </select> 
+                    </div>
+
+                    <div class="ProductNew__selector">
+                        <label for="ProductNew__brand">Molienda:</label>
+                        <select name="ProductNew__brand" id="ProductNew__brand"> 
+                            <option selected disabled>Selecciona la Molienda</option>
+
+                            <% product.type_grindings.forEach( element => { %>
+                                <option value="<%=element.id%>"><%=element.name%></option>
+                            <% }); %>
+
+                        </select> 
+                    </div>
+
+                    <div class="ProductNew__selector ProductNew__amount">
+                        <label for="ProductNew__brand">Cantidad:</label>
+                        <div>
+                            <i id="ProductNew__removeOne" class="fa-solid fa-minus"></i>
+                            <input id="ProductNew__valueAmount" placeholder="Ingresa la cantidad" name="ProductNew__brand" type="number" value="" readonly>
+                            <i id="ProductNew__addOne" class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+
+                </div>
+                    
+                <div class="paymentMethodsImageProduct Nicolas ProductNew__clusterForPaymentMethods">
+                    <div class="ProductNew__paymentMethodsImageProduct">
+                        <img src="/img/DetailsProduct/formas-pago-blanco.png" alt="Cafe-la-morenita">
+                    </div>
+                </div>
+                
+                <div class="ProductNew__detailProduct Nicolas ProductNew__clusterFive">
+                    <h3>Lo queres ¿Que esperas? 😍</h3>
+                    <p>¡No lo pienses tanto! | <b>Es Sano, Rico y Barato.</b> ¿En serio vas a dejar pasar la oportunidad de tener en tu casa el mejor cafe que podes conseguir? <b>Date el gusto ¡Para eso trabajamos!</b></p>
+
+                    <form action="" method="POST">
+                        <button type="submit">Comprar</button>
+                    </form>
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("../partials/footerNico") %>
+    <script src="../../../../../../../../js/productDetails.js"></script>
+
+
+</body>
+</html>
