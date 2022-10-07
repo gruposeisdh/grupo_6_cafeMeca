@@ -18,18 +18,18 @@
             <div class="ProductNew__Container">
 
                 <div class="ProductNew__clusterZeroTitle">
-                    <h1>Cafe Lavazza Descafeinado Organico</h1>
+                    <h1><%=product.name%></h1>
                 </div>
 
                 <div class="Nicolas ProductNew__clusterOneImage">
                     <div class="ProductNew__imageProduct">
-                        <img src="/img/productos/cafe-molido-morenita.jpg" alt="Cafe-la-morenita">
+                        <img src="/img/productos/<%=product.images_products[0].path%>" alt="Cafe-la-morenita">
                     </div>
                 </div>
 
                 <div class="ProductNew__detailProduct Nicolas ProductNew__clusterTwoDetailProduct">
                     <h3>Descripcion del Producto</h3>
-                    <p>Es un cafe con un aroma suave pero su sabor es intenso. Se cultiva y recolecta manualmente, es completamente organico. No posee gluten (Sin TACC) y el proceso de descafeinacion es por agua terminando en un producto 100% natural. Hacemos el cafe mas sano y mas rico para que vos puedas disfrutarlo. Viene en varios tipos de molienda. <b>Mecafe es seguridad y bienestar</b></p>
+                    <p><%=product.description%> ¡Hacemos el café más rico para que vos puedas disfrutarlo! <b>Mecafe es seguridad y bienestar</b></p>
                 </div>
 
                 <div class="ProductNew__selectorCharacteristics Nicolas ProductNew__clusterThreeSelectorCharacteristics">
@@ -50,18 +50,20 @@
                         <label for="ProductNew__brand">Molienda:</label>
                         <select name="ProductNew__brand" id="ProductNew__brand"> 
                             <option selected disabled>Selecciona la Molienda</option>
-                            <option value="" >Iteracion de las moliendas de BD</option>
-                            <option value="" >Iteracion de las moliendas de BD</option>
-                            <option value="" >Iteracion de las moliendas de BD</option>
+
+                            <% product.type_grindings.forEach( element => { %>
+                                <option value="<%=element.id%>"><%=element.name%></option>
+                            <% }); %>
+
                         </select> 
                     </div>
 
                     <div class="ProductNew__selector ProductNew__amount">
                         <label for="ProductNew__brand">Cantidad:</label>
                         <div>
-                            <i class="fa-solid fa-minus"></i>
-                            <input placeholder="Ingresa la cantidad" name="ProductNew__brand" type="number" value="" readonly>
-                            <i class="fa-solid fa-plus"></i>
+                            <i id="ProductNew__removeOne" class="fa-solid fa-minus"></i>
+                            <input id="ProductNew__valueAmount" placeholder="Ingresa la cantidad" name="ProductNew__brand" type="number" value="" readonly>
+                            <i id="ProductNew__addOne" class="fa-solid fa-plus"></i>
                         </div>
                     </div>
 
@@ -93,6 +95,7 @@
 
     <!-- Pie de Pagina -->
     <%- include("../partials/footerNico") %>
+    <script src="../../../../../../../../js/productDetails.js"></script>
 
 
 </body>

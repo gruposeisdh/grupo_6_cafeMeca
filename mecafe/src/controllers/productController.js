@@ -353,10 +353,31 @@ let productController = {
 
     },
 
-    detail: (_req, res) => {
-        let id = _req.params.id;
-        let detalleproductos = fileproducts.getProductById(id);
-        res.render(path.resolve(__dirname, "../views/product/productNew"), { productdetail: detalleproductos })
+    detail: (req, res) => {
+
+        let id = req.params.id;
+
+        let pedidoProducto = db.Product.findByPk(id, {
+            include: [
+                {association: "type_grindings"},
+                {association: "brands"},
+                {association: "images_products"},
+                {association: "products_grames"}
+            ]
+        })
+
+        let allTProductGrame = db.ProductGrame.findAll()
+
+        let allTypeGrindings = db.TypeGrinding.findAll()
+
+        let allBrands = db.Brand.findAll()
+
+        Promise.all([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame])
+            .then(([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame]) => {
+                // res.send(allTProductGrame)
+                // res.send(pedidoProducto)
+                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings, allProductGrame: allTProductGrame })
+            })
     },
 
     // Elimina un Producto - LISTO

@@ -231,6 +231,7 @@ a:active {
 .ProductNew__amount input{
     outline: none;
     border: solid 1px var(--gray-pastel);
+    text-align: center;
 }
 
 .ProductNew__amount input::placeholder{
