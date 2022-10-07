@@ -6,7 +6,7 @@ const validateEmail = (email) => {
       );
   };
 
-const idModals = ['modalLogin','modalPassword'];
+const idModals = ['modalLogin'];
 
 function openModal(id){
     let modal = document.getElementById(id);

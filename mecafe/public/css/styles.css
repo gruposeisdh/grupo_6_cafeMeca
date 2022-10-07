@@ -594,7 +594,7 @@ a:active {
 
 .registerForm__form-login input {
     font-family: proximanova;
-    padding: .5em 0;
+    padding: .5em .5em;
     border: none;
     width: 100%;
     border-bottom: solid 1px var(--gray-pastel);

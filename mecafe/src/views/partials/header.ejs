@@ -29,8 +29,7 @@
                     <li class="nav-link link-hover"><a class="link-hover-link" href="/user/register" >Registrarme</a></li>
                 <% } %>
                 
-                <% if(locals.user) { %> 
-                    <li class="nav-link link-hover"><a class="link-hover-link" href="#" onclick="openModal('modalPassword')">Cambiar contraseña</a></li>
+                <% if(locals.user) { %>                    
                     <li class="nav-link link-hover"><form action="/user/logout" method="post"><a class="link-hover-link" href='#' onclick='this.parentNode.submit(); return false;'>Logout</a></form></li> 
                     <li class="nav-link link-hover"><a class="link-hover-link" href="/cart" ><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <% } %> 
@@ -41,5 +40,4 @@
 <div id="openCloseSide" class="open-close-side"></div>
 
 <%- include("./login") %>
-<%- include("./changePassword") %>
 
