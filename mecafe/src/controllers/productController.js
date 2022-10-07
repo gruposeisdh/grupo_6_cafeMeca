@@ -56,6 +56,7 @@ Sigo en la hoja de controllers
 let productController = {
 
     // Muestra todos los productos - LISTO
+    // TODO - Pedirle a Joha que me explique esto porque recuerdo que lo hicimos pero me olvide el association.
 
     index: (req, res) => {
 
@@ -355,7 +356,7 @@ let productController = {
     detail: (_req, res) => {
         let id = _req.params.id;
         let detalleproductos = fileproducts.getProductById(id);
-        res.render(path.resolve(__dirname, "../views/product/product.ejs"), { productdetail: detalleproductos })
+        res.render(path.resolve(__dirname, "../views/product/productNew"), { productdetail: detalleproductos })
     },
 
     // Elimina un Producto - LISTO

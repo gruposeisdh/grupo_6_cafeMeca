@@ -142,6 +142,147 @@ a:active {
 
 */
 
+/*! ════════════════════ Pagina Detalle de Producto New ════════════════════ !*/
+
+.ProductNew {
+    width: 100%;
+    min-height: calc(100vh - var(--tamanoFooter) - 66px);
+}
+
+.ProductNew__Container{
+    background-color: white;
+    border: solid 1px var(--gray-pastel);
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0px auto;
+    border-radius: 3px;
+}
+
+.ProductNew__Container h1{
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 20px 20px 10px;
+    text-align: center;
+    border-bottom: solid 2px var(--lox);
+    margin-bottom: 20px;
+}
+
+.ProductNew__imageProduct{
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 657px;
+    margin: auto;
+    background-color: white;
+}
+
+.ProductNew__imageProduct img{
+    width: 100%
+}
+
+.ProductNew__detailProduct h3{
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 2px;
+    background-color: rgb(236, 229, 229);
+}
+
+.ProductNew__detailProduct p{
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.ProductNew__selectorCharacteristics h3{
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 2px;
+    background-color: rgb(236, 229, 229);
+}
+
+.ProductNew__selector{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.ProductNew__selector label{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+.ProductNew__selector select{
+    height: 30px;
+    margin: auto;
+    width: calc(80% - 15px);
+    border: solid 1px var(--gray-pastel);
+    outline: none
+}
+
+.ProductNew__amount input{
+    outline: none;
+    border: solid 1px var(--gray-pastel);
+}
+
+.ProductNew__amount input::placeholder{
+    text-align: center;
+}
+
+.ProductNew__amount div{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: 30px;
+    margin: auto;
+    width: 80%;
+}
+
+.ProductNew__amount i{
+    border: solid 1px var(--gray-pastel);
+    margin: auto;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.ProductNew__paymentMethodsImageProduct{
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 657px;
+    margin: auto;
+    background-color: white;
+    padding: 15px;
+    margin: 20px auto;
+}
+
+.paymentMethodsImageProduct img{
+    width: 100%
+}
+
+.ProductNew__detailProduct form{
+    text-align: center;
+    margin: 12px 0;
+}
+
+.ProductNew__detailProduct form button{
+    font-size: 18px;
+    background-color: var(--negro-pastel);
+    color: white;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: solid 1px var(--negro-pastel);
+    border-radius: 2px;
+}
+
+
 /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
 
 .error404{
@@ -429,9 +570,6 @@ a:active {
     border-bottom: 1px solid var(--lox);
 }
 
-.modal__container form {
-
-}
 
 .modal__container form label {
     margin-bottom: 5px;
@@ -447,18 +585,6 @@ a:active {
     font-size: 0.8em;
     text-align: center;
     font-weight: 700;
-}
-
-.modal__container form input { /* QUIZAS BORRAR DESPUES */
-    /* width: 100%;
-    padding: 8px;
-    font-size: 17px;
-    background-color: #ffffff;
-    border-style: hidden;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    margin-top: 10px;
-    margin-bottom: 10px; */
 }
 
 .modal__container form input[type="button"] {
@@ -2623,7 +2749,22 @@ footer {
 
 @media (min-width: 480px) {
 
-    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+    /** ═════════════════ DETAILS PRODUCT 480PX ═════════════════ !*/
+
+    .ProductNew__Container{
+        padding: 50px;
+    }
+
+    .ProductNew__amount div {
+        grid-template-columns: 0.7fr 3fr 0.7fr;
+    }
+
+    .ProductNew__Container h1{
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════════════ !*/
 
     .changePassword__container {       
         width: 70%;
@@ -2821,6 +2962,69 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 768PX ════════════════════ TODO */
 
 @media (min-width: 768px) {
+
+    /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
+
+    .ProductNew__detailProduct p{
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .ProductNew__Container h1{
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .ProductNew__selectorCharacteristics h3 {
+        margin: 0 auto 10px;
+    }
+
+   .ProductNew__paymentMethodsImageProduct{
+        margin: 0 auto;
+        padding: 8px;
+        border: none;
+   }
+
+   .ProductNew__amount div {
+        grid-template-columns: 0.6fr 3fr 0.6fr;
+    }
+
+    .ProductNew__clusterZeroTitle {
+        grid-area: ProductNew__clusterZeroTitle;
+    }
+
+    .ProductNew__clusterOneImage {
+        grid-area: ProductNew__clusterOneImage;
+    }
+    
+    .ProductNew__clusterTwoDetailProduct {
+        grid-area: ProductNew__clusterTwoDetailProduct;
+    }
+    
+    .ProductNew__clusterThreeSelectorCharacteristics {
+        grid-area: ProductNew__clusterThreeSelectorCharacteristics;
+    }
+    
+    .ProductNew__clusterForPaymentMethods {
+        grid-area: ProductNew__clusterForPaymentMethods;
+    }
+    
+    .ProductNew__clusterFive {
+        grid-area: ProductNew__clusterFive;
+    }
+
+    .ProductNew__Container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        grid-template-areas:
+        "ProductNew__clusterZeroTitle ProductNew__clusterZeroTitle"
+        "ProductNew__clusterOneImage ProductNew__clusterThreeSelectorCharacteristics"
+        "ProductNew__clusterOneImage ProductNew__clusterForPaymentMethods"
+        "ProductNew__clusterTwoDetailProduct ProductNew__clusterTwoDetailProduct"
+        "ProductNew__clusterFive ProductNew__clusterFive"
+    }
 
     /*! ════════════════════ HEADER ════════════════════ !*/
 
@@ -3489,12 +3693,30 @@ footer {
 
 @media (min-width: 992px) {
 
-        /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+    /** ═════════════════ DETAILS PRODUCT 992PX ═════════════════ !*/
 
-        .list_directions{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
+    .ProductNew__selector{
+        padding: 15px;
+    }
+
+    .ProductNew__selector select{
+        height: 40px;
+    }
+
+    .ProductNew__selector label{
+        height: 40px;
+    }
+
+    .ProductNew__amount div {
+        height: 40px;
+    }
+
+    /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -3623,6 +3845,63 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 1200PX ════════════════════ TODO */
 
 @media (min-width: 1200px) {
+
+    /** ═════════════════ DETAILS PRODUCT 1200PX ═════════════════ !*/
+
+    .ProductNew{
+        padding: 40px;
+    }
+    
+    .ProductNew__selector{
+        padding: 5px;
+    }
+    
+    .ProductNew__selector select{
+        height: 30px;
+    }
+    
+    .ProductNew__selector label{
+        height: 30px;
+    }
+    
+    .ProductNew__amount div {
+        height: 30px;
+    }
+    
+    /*
+    
+    .ProductNew__clusterThreeSelectorCharacteristics{
+        border: solid 1px var(--gray-pastel);
+    }
+    
+    .ProductNew__clusterFive{
+        border: solid 1px var(--gray-pastel);
+    }
+    
+    .ProductNew__clusterForPaymentMethods{
+        border: solid 1px var(--gray-pastel);
+    }
+
+    */
+    
+    .ProductNew__paymentMethodsImageProduct {
+        max-width: 300px;
+    }
+
+    
+    .ProductNew__Container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        row-gap: 0;
+        grid-template-areas:
+        "ProductNew__clusterZeroTitle ProductNew__clusterZeroTitle"
+        "ProductNew__clusterOneImage ProductNew__clusterThreeSelectorCharacteristics"
+        "ProductNew__clusterOneImage ProductNew__clusterForPaymentMethods"
+        "ProductNew__clusterOneImage ProductNew__clusterFive"
+        "ProductNew__clusterTwoDetailProduct ProductNew__clusterTwoDetailProduct"
+    }
+
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ CART ════════════════════ **/
