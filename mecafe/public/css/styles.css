@@ -1733,6 +1733,131 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     max-width: 1200px;
 }
 
+
+/** ════════════════════ USER PROFILE ════════════════════ **/
+
+.profile_container_infoGeneral {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+
+.profile_container_imageProfile {
+    max-width: 500px;
+    padding: 0.5em;
+    margin: 15px;
+    background-color: white;
+    position: relative;
+}
+
+.profile_title_welcome {
+    margin: 10px 0px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--naranja-oscuro);
+}
+
+.profile_img_profile {
+    width: 60%;
+    margin: 0px 50px;
+}
+
+.profileForm_form {
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+
+.profile_personalInformation_label {
+    position: relative;
+    padding: 5px;
+    margin: 8px 0;
+}
+
+.profile_container_personalInformation {
+    margin: 0px 15px 10px 15px
+}
+
+.profile_personalInformation{
+    display: grid;
+    grid-template-columns: 2fr;
+}
+
+.profile_password_modification h3{
+    margin-bottom: 15px; 
+    margin-left: 5px;
+}
+
+
+.profile_password_modification {
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 15px;
+    margin-top: 10px
+}
+
+.profile_Btns {
+    margin-top: 15px;
+    border-radius: 3px;
+    
+}
+
+.profile_sendBtn {
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 0.8em;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    background-color: var(--black);
+    font-weight: 600;
+}
+
+.profile_sendBtn:hover {
+    box-shadow: 2px 5px 16px 0px #cdcdcd;
+}
+
+.profile_Input_form:focus + .profile_Label_form,
+.profile_Input_form:not(:placeholder-shown) + .profile_Label_form{
+    transform: translateY(-40px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.profileForm_form label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    display: block;
+    padding: .1em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+   
+}
+
+.profileForm_form input  {
+    font-family: proximanova;
+    padding: .3em 0;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.profile_Input_form:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+
+
+
 /** ════════════════════ USER SALES ════════════════════ **/
 
 .container_detail_view_user{
@@ -2885,6 +3010,41 @@ footer {
         display: revert;
     }
 
+
+    /** ════════════════════ USER PROFILE ════════════════════ **/
+
+    .profile_container_infoGeneral {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 5px;
+    }
+
+    .profile_container_imageProfile {
+        width: 100%;
+        margin: 25px;
+    }
+
+    .profile_title_welcome {
+        margin: 20px 0px;
+        font-size: 20px;
+    }
+    
+    .profile_img_profile {
+        width: 80%;
+        margin: 10px 25px;
+    }
+
+    .profileForm_form {
+        width: 100%;
+    }
+
+    .profile_container_personalInformation {
+        margin: 25px
+    }
+
+
+
+  
     /** ════════════════════ USER SALES ════════════════════ **/
       
     #table__sales_user .description_total_sale{
@@ -3624,6 +3784,17 @@ footer {
 
 @media (min-width: 1200px) {
     /*! ════════════════════ MAIN ════════════════════ !*/
+
+     /** ════════════════════ USER PROFILE ════════════════════ **/
+
+     .profile_container_imageProfile {
+        margin: 25px 0px 25px 80px;
+    }
+
+    .profile_img_profile {
+        width: 50%;
+        margin: 0px 90px;
+    }  
 
     /** ════════════════════ CART ════════════════════ **/
 
