@@ -1,6 +1,6 @@
 <!-- Encabezado de la pagina -->
 <%- include("../partials/head") %>
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body class="bodyHome">
 
@@ -12,7 +12,90 @@
         <div class="container_users">
             <%- include("../partials/menuUser") %>
             <div class="container_detail_view_user">
-                //aqui contenido user Profile
+
+                <!-- contenido user Profile -->
+                <section class="profile_container_infoGeneral">
+
+                    <div class="profile_container_imageProfile">
+                        <h2 class="profile_title_welcome">Hola <%= userProfile.firstName%>, Bienvenid@!!! </h2>
+                        <img src="/img/profiles/<%= userProfile.image%>" class="profile_img_profile" />
+                    </div>
+            
+                    <div class="profile_container_personalInformation">
+
+                        <form action="/user/profile" id ="profile_form" class="profileForm_form" method="POST">
+
+                            <div class ="profile_personalInformation">
+
+                                <div class="profile_personalInformation_label">
+                                    <input type="text" name="name" 
+                                    class="profile_Input_form" 
+                                    value="<%= userProfile.firstName%>" id="name" placeholder=" ">
+                                    <label for="name" 
+                                    class="profile_Label_form">Nombre:</label>
+                                </div>
+                                
+                                <div class="profile_personalInformation_label">
+                                    <input type="text" name="lastName" 
+                                    class="profile_Input_form"
+                                    value="<%= userProfile.lastName%>" id="lastName" placeholder=" " >
+                                    <label for="lastName"
+                                    class="profile_Label_form">Apellido:</label>
+                                </div>
+                                
+                                <div class="profile_personalInformation_label">
+                                    <input type="email" name="email" 
+                                    class="profile_Input_form" 
+                                    value="<%= userProfile.email%>" id="email" placeholder=" " >
+                                    <label for="email" 
+                                    class="profile_Label_form">Correo Electrónico:</label>
+                                </div>
+                                
+                                <div class="profile_personalInformation_label">
+                                    <input type="text" name="phone" 
+                                    class="profile_Input_form" 
+                                    value="<%= userProfile.phone%>" id="phone" placeholder=" " >
+                                    <label for="text" 
+                                    class="profile_Label_form">Número de Telefono:</label>
+                                </div>
+
+                            </div>
+            
+                            <div class ="profile_password_modification">
+
+                                <h3>Cambio de contraseña</h3>
+
+                                <div class="profile_personalInformation_label">
+                                    <input type="password" name="password" 
+                                    class="profile_Input_form" id="password" placeholder=" " >
+                                    <label for="text" 
+                                    class="profile_Label_form">Contraseña actual (Déjalo en blanco para no cambiarla):</label>  
+                                </div>
+
+                                <div class="profile_personalInformation_label">
+                                    <input type="password" name="newPassword" class="profile_Input_form" id="newPassword" placeholder=" " >
+                                    <label for="text" 
+                                    class="profile_Label_form">Nueva contraseña (Déjalo en blanco para no cambiarla):</label> 
+                                </div> 
+                                
+                                <div class="profile_personalInformation_label">
+                                    <input type="password" name="confirmPassword" class="profile_Input_form" id="confirmPassword" placeholder=" " > 
+                                    <label for="text" 
+                                    class="profile_Label_form">confirma la nueva contraseña (Déjalo en blanco para no cambiarla):</label>
+                                </div>
+                                
+                            </div>
+
+                            <div class="profile_Btns">
+                                <button type="submit" class="profile_sendBtn" >Guardar los cambios</button>
+                            </div>
+
+                        </form>
+                    </div>
+                                
+            
+                </section>
+
             </div>
         </div> 
        
