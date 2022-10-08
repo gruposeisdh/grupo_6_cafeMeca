@@ -1703,8 +1703,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 /** ════════════════════ MENU ADMIN  ════════════════════ **/
 
-/** ════════════════════ MENU USER  ════════════════════ **/
-#menu_user, #menu_admin{
+/** ════════════════════ MENU PARTIAL  ════════════════════ **/
+#menu_partial{
     background-color:white;
     width: 100%;
     font-weight: bold;
@@ -1713,11 +1713,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-bottom: 2px solid var(--lox);
 }
 
-.selected_menu_user_item, .selected_menu_admin_item{
+.selected_menu_partial_item{
     background-color: var(--lox)
 }
 
-#menu_user ul, #menu_admin ul{
+#menu_partial ul{
     text-align: center; /* Centre los items de texto */
     padding: 0;
     list-style: none;
@@ -1725,11 +1725,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     align-items: center;
 }
 
-#menu_user a, #menu_admin a{
+#menu_partial a{
     color:black;
 }
 
-#menu_user li, #menu_admin li{
+#menu_partial li{
     padding: 15px;
 }
 
@@ -2890,7 +2890,7 @@ footer {
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ MENU USER ════════════════════ **/
-    #menu_user, #menu_admin{
+    #menu_partial{
         display: revert;
     }
 

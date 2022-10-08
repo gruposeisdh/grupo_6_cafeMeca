@@ -244,5 +244,5 @@ window.addEventListener("load", () => {
     if(nameProduct.value != "") {
         corroborarFocusInputs()
         corroborarCheked()
-    }
+    }    
 })
