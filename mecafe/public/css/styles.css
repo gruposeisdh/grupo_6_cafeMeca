@@ -78,6 +78,10 @@ a:active {
     display: none !important;
 }
 
+.display-flex{
+    display: flex;
+}
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 /* .redesSocialesBanner {
@@ -1698,14 +1702,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 /** ════════════════════ MENU ADMIN  ════════════════════ **/
-
-.container_detail_view_admin_create_product{
-    width: 60%;
-    background: white;
-    margin-top: 20px;
-    border: solid 1px var(--gray-pastel);
-    border-radius: 2px;
-}
 
 /** ════════════════════ MENU USER  ════════════════════ **/
 #menu_user, #menu_admin{

@@ -12,9 +12,9 @@
         <div class="container_users">
             <%- include("../partials/menuAdmin") %>
             <div class="container_detail_view_admin"> 
-                <p class="title">Productos</p>               
+                <p class="title">Crear Producto</p>               
             </div>
-            <div class="container_detail_view_admin_create_product">
+            <div class="container_detail_view_admin">
                 <div class="createProduct">
                     <form id="formProductCreate" class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
 
@@ -118,7 +118,6 @@
                                 <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.descriptionProduct.msg%></span>
                             <% } %>
                         </div>
-
                         <div id="idCategoriesDiv" class="createProduct__styleDivs createProduct__idCategoriesDiv">                  
 
                             <p>Categorias:</p><br>
@@ -199,6 +198,9 @@
                             <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
                             <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
                         </div>
+
+
+
 
                         <section class="btn createProduct-btn">
                             <button type="submit" class="submit">Enviar</button>
