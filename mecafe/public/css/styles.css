@@ -659,7 +659,7 @@ a:active {
 .AdminProducts__containerNewProduct{
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto 0;
+    /**margin: 20px auto 0; */
 }
 
 .AdminProducts__create{
@@ -699,10 +699,11 @@ a:active {
 }
 
 .AdminProducts__containerTable{
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
-    margin: 20px auto 0;
+    /** margin: 20px auto 0; */
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .AdminProducts__table{
@@ -821,10 +822,11 @@ tr:hover td{
 
 
 .AdminUsers__containerTable{
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
     margin: 20px auto 0;
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .AdminUsers__table{
@@ -1695,8 +1697,18 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     background-color: transparent;
 }
 
-/** ════════════════════ MENU USER ════════════════════ **/
-#menu_user{
+/** ════════════════════ MENU ADMIN  ════════════════════ **/
+
+.container_detail_view_admin_create_product{
+    width: 60%;
+    background: white;
+    margin-top: 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+/** ════════════════════ MENU USER  ════════════════════ **/
+#menu_user, #menu_admin{
     background-color:white;
     width: 100%;
     font-weight: bold;
@@ -1705,11 +1717,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-bottom: 2px solid var(--lox);
 }
 
-.selected_menu_user_item{
+.selected_menu_user_item, .selected_menu_admin_item{
     background-color: var(--lox)
 }
 
-#menu_user ul{
+#menu_user ul, #menu_admin ul{
     text-align: center; /* Centre los items de texto */
     padding: 0;
     list-style: none;
@@ -1717,11 +1729,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     align-items: center;
 }
 
-#menu_user a{
+#menu_user a, #menu_admin a{
     color:black;
 }
 
-#menu_user li{
+#menu_user li, #menu_admin li{
     padding: 15px;
 }
 
@@ -1735,7 +1747,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 /** ════════════════════ USER SALES ════════════════════ **/
 
-.container_detail_view_user{
+.container_detail_view_user, .container_detail_view_admin {
     width: 100%;
     background: white;
     margin-top: 20px;
@@ -1743,9 +1755,10 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-radius: 2px;
 }
 
-.container_detail_view_user .title{
+.container_detail_view_user .title, .container_detail_view_admin .title{
     font-weight: bold;
     font-size: 20px;
+    padding: 10px;
 }
 
 #table__sales_user{
@@ -2881,7 +2894,7 @@ footer {
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ MENU USER ════════════════════ **/
-    #menu_user{
+    #menu_user, #menu_admin{
         display: revert;
     }
 
