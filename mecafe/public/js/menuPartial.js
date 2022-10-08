@@ -24,8 +24,14 @@ function selectMenuPartial(){
 //en caso de que deba pintar href != route
 function specialCases(href, route){
     switch(href){
-        case '/product/administracion':
+        case '/product/list':
             if(route.includes('/product/edit/')){
+                return true;
+            }
+
+            return false;
+        case '/type-grinding/list':
+            if(route.includes('/type-grinding/edit/')){
                 return true;
             }
 
