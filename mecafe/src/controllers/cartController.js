@@ -70,31 +70,48 @@ let cartController = {
     addProduct: (req, res) => {
         //let userId =  req.session.user.id;
         let userId= 1;
-
-        let idProductGrame = req.body.idProductGrames;
+        let idProductGrame = req.body.idProductGrame;
         let idProductTypeGrinding = req.body.idProductTypeGrinding;
-        let quantity = req.body.idProductGrames;
+        let quantity = req.body.quantity;
 
         //para obtener idCarrito :
         let cart = db.Cart.findOne({where: { user_id: userId }});
-        //para obtener idProducto :
+        //para obtener idProducto y poder redireccionar a la vista detalle :
         let productGrame = db.ProductGrame.findByPk(idProductGrame);
 
         Promise.all([cart,productGrame])
             .then(([cart,productGrame]) => {
                 db.DetailCart.findOne(
-                    { 
-                        where: {
+                { 
+                    where: {
+                        cart_id: cart.id,
+                        product_grame_id: idProductGrame,
+                        product_type_grinding_id: idProductTypeGrinding
+                    }
+                })
+                .then((detailCart) => {
+                    if(detailCart){ //si el producto ya está añadido en el carrito, solo añadimos las unidades que se quieres agregar
+                        db.DetailCart.update({
+                            quantity: parseInt(detailCart.quantity) + parseInt(quantity)
+                        },{
+                            where: {
+                                id: detailCart.id
+                            }                                
+                        })
+                    }else{ //si no esta el producto en el carrito, creamos el registro
+                        db.DetailCart.create({
                             cart_id: cart.id,
                             product_grame_id: idProductGrame,
                             product_type_grinding_id: idProductTypeGrinding,
-                            product_id: productGrame.product_id
-                        }
-                    })
-                res.redirect('/product/detail/' + idProduct);
+                            quantity: quantity
+                        })
+                    }
+
+                    sleep(1000).then(() => { 
+                        res.redirect('/product/detail/' + productGrame.product_id);
+                    }); 
+                })
             })
-        
-        //saber si actualizar o crear registro
     }
 }
 

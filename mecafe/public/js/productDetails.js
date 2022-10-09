@@ -24,3 +24,21 @@ addOne.addEventListener("click", () => {
 removeOne.addEventListener("click", () => {
     disminuir()
 })
+
+let formulario = document.getElementById("addProductCart");
+
+formulario.addEventListener("submit", (e) => {
+    console.log("pepe")
+    e.preventDefault()
+
+    let inputIdProductGrame = document.getElementById('idProductGrame');
+    let inputIdProductTypeGrinding = document.getElementById('idProductTypeGrinding');
+    let quantity = document.getElementById('quantity');
+
+    if(isNaN(inputIdProductGrame.value) || isNaN(inputIdProductTypeGrinding.value)){
+        alert("Elige las opciones del producto antes de añadir este producto a tu carrito.");
+    }else{
+        formulario.submit();
+    }
+
+})
