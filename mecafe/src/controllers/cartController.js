@@ -112,11 +112,22 @@ let cartController = {
                     }); 
                 })
             })
-    }
-}
+    },
 
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    getQuantity: (req, res) => {
+         //let userId =  req.session.user.id;
+         let userId= 1;
+
+        db.Cart.findOne({where: { user_id: req.session.user.id }}).then((cart) => {
+            db.DetailCart.findAll({where: { cart_id: cart.id }}).then((detailsCarts) =>{
+                let total = detailsCarts.reduce(function (previousValue, currentValue) {
+                    return previousValue + currentValue.quantity;
+                }, 0);
+
+                res.send(total);
+            })
+        })
+    }
 }
 
 module.exports = cartController;
