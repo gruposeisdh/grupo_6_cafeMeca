@@ -115,8 +115,8 @@ let cartController = {
     },
 
     getQuantity: (req, res) => {
-         //let userId =  req.session.user.id;
-         let userId= 1;
+        //let userId =  req.session.user.id;
+        let userId= 1;
 
         db.Cart.findOne({where: { user_id: req.session.user.id }}).then((cart) => {
             db.DetailCart.findAll({where: { cart_id: cart.id }}).then((detailsCarts) =>{
@@ -128,6 +128,10 @@ let cartController = {
             })
         })
     }
+}
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 module.exports = cartController;
