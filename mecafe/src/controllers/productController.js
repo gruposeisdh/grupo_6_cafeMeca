@@ -349,7 +349,7 @@ let productController = {
 
             })
 
-        res.redirect("/product/administracion");
+        res.redirect("/product/list");
 
     },
 
@@ -415,7 +415,7 @@ let productController = {
         })
 
 
-        res.redirect("/product/administracion");
+        res.redirect("/product/list");
     }
 }
 
