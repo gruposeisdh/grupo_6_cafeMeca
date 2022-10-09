@@ -25,6 +25,14 @@ removeOne.addEventListener("click", () => {
     disminuir()
 })
 
+let inputIdProductGrame = document.getElementById('idProductGrame');
+
+inputIdProductGrame.addEventListener("change", () => {
+    let option = inputIdProductGrame.options[inputIdProductGrame.selectedIndex];
+    let productPrice = document.getElementById('productPrice');
+    productPrice.textContent = option.getAttribute('priceValue');
+})
+
 let formulario = document.getElementById("addProductCart");
 
 formulario.addEventListener("submit", (e) => {

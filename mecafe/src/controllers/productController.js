@@ -368,8 +368,15 @@ let productController = {
 
         Promise.all([detailProduct])
             .then(([detailProduct]) => {
+
+                let prices = detailProduct.products_grames.map((productGrame) =>{
+                    return productGrame.price > 0 ? productGrame.price : false;
+                }).filter((price) => { return price})
+              
+                console.log(prices);
+                let minorPrice = parseFloat(Math.min.apply(null, prices)).toFixed(2);
                 //res.send(detailProduct)
-                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct })
+                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct, minorPrice: minorPrice })
             })
     },
 

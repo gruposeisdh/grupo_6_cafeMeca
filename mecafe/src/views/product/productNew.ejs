@@ -27,6 +27,9 @@
                     </div>
                 </div>
 
+                <!-- al cargar pagina mostramos el menor precio -->
+                <h3  >PRECIO : <span id="productPrice"><%= minorPrice %></span></h3>
+
                 <div class="ProductNew__detailProduct Nicolas ProductNew__clusterTwoDetailProduct">
                     <h3>Descripcion del Producto</h3>
                     <p><%=product.description%> ¡Hacemos el café más rico para que vos puedas disfrutarlo! <b>Mecafe es seguridad y bienestar</b></p>
@@ -43,7 +46,7 @@
                                 <option selected disabled>Seleccion de Gramos</option>
                                 <% product.products_grames.forEach( element => { %>
                                     <% if(element.price > 0) {%>
-                                        <option value="<%=element.id%>"><%= element.grames == 1000 ? '1kg' : element.grames + ' grs' %></option>
+                                        <option value="<%=element.id%>" priceValue="<%= element.price %>" ><%= element.grames == 1000 ? '1kg' : element.grames + ' grs' %></option>
                                     <% } %>
                                 <% }); %>
                             </select> 
