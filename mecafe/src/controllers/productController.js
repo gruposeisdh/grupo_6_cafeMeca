@@ -366,15 +366,9 @@ let productController = {
             ]
         })
 
-        let allTProductGrame = db.ProductGrame.findAll()
-
-        let allTypeGrindings = db.TypeGrinding.findAll()
-
-        let allBrands = db.Brand.findAll()
-
         Promise.all([detailProduct])
             .then(([detailProduct]) => {
-                res.send(detailProduct)
+                //res.send(detailProduct)
                 res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct })
             })
     },
