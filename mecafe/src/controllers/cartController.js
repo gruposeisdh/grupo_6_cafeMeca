@@ -41,7 +41,6 @@ let cartController = {
     update: (req, res) => {
         //let userId =  req.session.user.id;
         let userId= 1;
-
         let detailsCart = Object.entries(req.body);
 
         detailsCart.forEach((item) => {
@@ -66,6 +65,36 @@ let cartController = {
         sleep(1000).then(() => { 
             res.redirect('/cart'); 
         });       
+    },
+
+    addProduct: (req, res) => {
+        //let userId =  req.session.user.id;
+        let userId= 1;
+
+        let idProductGrame = req.body.idProductGrames;
+        let idProductTypeGrinding = req.body.idProductTypeGrinding;
+        let quantity = req.body.idProductGrames;
+
+        //para obtener idCarrito :
+        let cart = db.Cart.findOne({where: { user_id: userId }});
+        //para obtener idProducto :
+        let productGrame = db.ProductGrame.findByPk(idProductGrame);
+
+        Promise.all([cart,productGrame])
+            .then(([cart,productGrame]) => {
+                db.DetailCart.findOne(
+                    { 
+                        where: {
+                            cart_id: cart.id,
+                            product_grame_id: idProductGrame,
+                            product_type_grinding_id: idProductTypeGrinding,
+                            product_id: productGrame.product_id
+                        }
+                    })
+                res.redirect('/product/detail/' + idProduct);
+            })
+        
+        //saber si actualizar o crear registro
     }
 }
 

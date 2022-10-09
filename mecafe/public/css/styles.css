@@ -181,6 +181,10 @@ a:active {
     width: 100%
 }
 
+.ProductNew__detailProduct{
+    text-align: center;
+}
+
 .ProductNew__detailProduct h3{
     font-size: 18px;
     padding: 10px;
@@ -268,12 +272,8 @@ a:active {
     width: 100%
 }
 
-.ProductNew__detailProduct form{
-    text-align: center;
+.ProductNew__detailProduct button{
     margin: 12px 0;
-}
-
-.ProductNew__detailProduct form button{
     font-size: 18px;
     background-color: var(--negro-pastel);
     color: white;
@@ -3090,7 +3090,7 @@ footer {
 @media (min-width: 768px) {
 
     /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
-
+   
     .ProductNew__detailProduct p{
         font-size: 15px;
         line-height: 22px;

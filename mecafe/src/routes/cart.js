@@ -10,8 +10,13 @@ router.get(
 );
 router.post(
     '/', 
-    //authMiddlewares.authMiddleware,
+    //authMiddlewares.authMiddlewarePost,
     cartController.update
+);
+router.post(
+    '/addProduct', 
+    //authMiddlewares.authMiddlewarePost,
+    cartController.addProduct
 );
 
 

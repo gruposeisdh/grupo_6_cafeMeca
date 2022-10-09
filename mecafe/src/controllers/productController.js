@@ -357,7 +357,7 @@ let productController = {
 
         let id = req.params.id;
 
-        let pedidoProducto = db.Product.findByPk(id, {
+        let detailProduct = db.Product.findByPk(id, {
             include: [
                 {association: "type_grindings"},
                 {association: "brands"},
@@ -372,11 +372,10 @@ let productController = {
 
         let allBrands = db.Brand.findAll()
 
-        Promise.all([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame])
-            .then(([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame]) => {
-                // res.send(allTProductGrame)
-                // res.send(pedidoProducto)
-                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings, allProductGrame: allTProductGrame })
+        Promise.all([detailProduct])
+            .then(([detailProduct]) => {
+                res.send(detailProduct)
+                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct })
             })
     },
 
