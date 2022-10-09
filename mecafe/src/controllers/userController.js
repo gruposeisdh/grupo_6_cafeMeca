@@ -121,7 +121,6 @@ let userController = {
             res.render(path.resolve(__dirname,"../views/user/sales.ejs"),{sales:response})
         })
     }
-
 }
 
 module.exports = userController;
