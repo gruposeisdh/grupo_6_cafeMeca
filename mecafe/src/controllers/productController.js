@@ -65,19 +65,18 @@ let productController = {
                 {model: db.ProductGrame, as: "products_grames" },
                 {model: db.ImageProduct, as: "images_products" }, 
                 {association : "brands"}
-            ]}
+            ], where: {active: true}}
         )
 
             .then((allProducts) => {
-               
-                console.log(allProducts)
+                //res.send(allProducts)
                 res.render(path.resolve(__dirname, "../views/product/list.ejs"), { allProducts:allProducts })
             })
     },
 
     adminProducts: (_req, res) => {
 
-        db.Product.findAll()
+        db.Product.findAll({where: {active: true}})
             .then(allProducts => {
                 res.render((path.resolve(__dirname, "../views/product/adminProduct.ejs")), { allProducts: allProducts })
             })
@@ -194,9 +193,6 @@ let productController = {
                 .then(([allBrands, typeGrindings]) => {
                     res.render(path.resolve(__dirname, "../views/product/create.ejs"), { brands: allBrands, typeGrindings: typeGrindings, errors: errors.mapped(), oldData: req.body, idCategoriesArray: idCategories })
                 })
-
-            
-
         }
 
     },
@@ -224,8 +220,7 @@ let productController = {
 
         Promise.all([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame])
             .then(([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame]) => {
-                // res.send(allTProductGrame)
-                console.log(allBrands)
+                //res.send(pedidoProducto)
                 res.render(path.resolve(__dirname, "../views/product/edit.ejs"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings, allProductGrame: allTProductGrame })
             })
 
@@ -235,8 +230,6 @@ let productController = {
     // Edita un Producto - Lo Edita literalmente - LISTO
 
     update: (req, res) => {
-
-        
 
         let id = req.params.id
         let nameProduct = req.body.nameProduct
@@ -255,36 +248,9 @@ let productController = {
         let idCategories = categories.length == 1 ? [categories] : categories 
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
-        let descriptionProduct = req.body.descriptionProduct
-
-        /* db.ProductGrame.destroy({
-            where: {
-                product_id: id
-            }
-        }) */
-
-        /* db.ImageProduct.destroy({
-            where: {
-                product_id: id
-            }
-        }) */ 
-
-        
-        /* db.Product.destroy({
-            where: {
-                id: id
-            }
-        }) */
-        
-        /* db.Product.create({
-            name: nameProduct,
-            rating: ratingProduct,
-            description: descriptionProduct,
-            brand_id: idBrand }) */
+        let descriptionProduct = req.body.descriptionProduct       
             
-            
-            db.Product.findByPk(id)
-            
+        db.Product.findByPk(id)            
             .then(product => {
                 
                 db.Product.update({
@@ -295,12 +261,11 @@ let productController = {
                 },{
                     where: {
                         id: product.id
-                    }
-                    
+                    }                    
                 })
                 
                 db.ProductGrame.update({
-                    product_id: product.id, // Este id viene del objeto de arriba recien creado.
+                    product_id: product.id,
                     grames: weightProduct1,
                     price: priceProduct1,
                 }, {
@@ -330,20 +295,6 @@ let productController = {
                     }
                 })
                 
-                db.ProductTypeGrinding.destroy({
-                    where: {
-                        product_id: id
-                    }
-                })
-
-                idCategories.forEach(idCategory => {
-                    db.ProductTypeGrinding.create({
-                        product_id: product.id,
-                        type_grinding_id: idCategory
-                    })
-                })
-                
-                
                 if (req.file) {
 
                     db.ImageProduct.update({
@@ -356,9 +307,61 @@ let productController = {
 
                 }
 
+                /***************  BEGIN ProductTypeGrinding ******************/
+
+                //ver cuales desactivar (traer todos los que ya no estan en el listado de idCategorias) )
+                let toDisabled = db.ProductTypeGrinding.findAll({                    
+                    where: {
+                        product_id: product.id,
+                        active: true,
+                        [Op.not]: [
+                            { type_grinding_id: idCategories }                           
+                        ]
+                    }
+                })
+
+                Promise.all([toDisabled]).then(([toDisabled]) => {
+
+                    toDisabled.forEach(productTypeGrinding => {
+                        db.ProductTypeGrinding.update({
+                            active: false,
+                        },{where : {id: productTypeGrinding.id}})
+
+                        //vaciar los carritos que usen esta categoria
+                        db.DetailCart.destroy({
+                            where : {product_type_grinding_id: productTypeGrinding}
+                        })
+                    })
+
+                    idCategories.forEach(idCategory => {
+                        db.ProductTypeGrinding.findOne({ 
+                            where: { 
+                                product_id:product.id, 
+                                type_grinding_id: idCategory
+                            }
+                        }).then((productTypeGrinding) => {
+                            //si el registro existe se actualiza, sino se crea
+                            if(productTypeGrinding){
+                                db.ProductTypeGrinding.update({
+                                    active: true,
+                                },{where : {id: productTypeGrinding.id}})
+                            }else{
+                                db.ProductTypeGrinding.create({
+                                    product_id: product.id,
+                                    type_grinding_id: idCategory
+                                })
+                            }
+                        })
+                    })                 
+                })
+
+                /***************  END ProductTypeGrinding ******************/
+
             })
 
-        res.redirect("/product/list");
+        sleep(1000).then(() => { 
+            res.redirect("/product/edit/" + id);
+        });        
 
     },
 
@@ -381,8 +384,7 @@ let productController = {
                 let prices = detailProduct.products_grames.map((productGrame) =>{
                     return productGrame.price > 0 ? productGrame.price : false;
                 }).filter((price) => { return price})
-              
-                console.log(prices);
+
                 let minorPrice = parseFloat(Math.min.apply(null, prices)).toFixed(2);
                 //res.send(detailProduct)
                 res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct, minorPrice: minorPrice })
@@ -393,31 +395,9 @@ let productController = {
 
     destroy: (req, res) => {
 
-        let id = req.params.id;
-
-        // Al tener una asociacion primero debemos eliminar todos los productos de la tabla que tiene asociado su FK, luego podemos eliminar el registro central
-
-        db.ProductGrame.destroy({
-            where: {
-                product_id: id
-            }
-        })
-
-        db.ImageProduct.destroy({
-            where: {
-                product_id: id
-            }
-        })
-
-        db.ProductTypeGrinding.destroy({
-            where: {
-                product_id: id
-            }
-        })
-
-        // Aca eliminamos el registro central despues de eliminar todos los registros que tenian el ID como FK
-
-        db.Product.destroy({
+        db.Product.update({
+            active: false
+        },{
             where: {
                 id: id
             }
@@ -426,6 +406,10 @@ let productController = {
 
         res.redirect("/product/list");
     }
+}
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 module.exports = productController;
