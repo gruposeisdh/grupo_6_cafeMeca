@@ -118,13 +118,13 @@ let cartController = {
         //let userId =  req.session.user.id;
         let userId= 1;
 
-        db.Cart.findOne({where: { user_id: req.session.user.id }}).then((cart) => {
+        db.Cart.findOne({where: { user_id: userId }}).then((cart) => {
             db.DetailCart.findAll({where: { cart_id: cart.id }}).then((detailsCarts) =>{
                 let total = detailsCarts.reduce(function (previousValue, currentValue) {
                     return previousValue + currentValue.quantity;
                 }, 0);
 
-                res.send(total);
+                return res.status(200).json({total: total, status: 200});
             })
         })
     }
