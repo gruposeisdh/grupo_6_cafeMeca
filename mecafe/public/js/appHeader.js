@@ -25,6 +25,8 @@ const divQuienesSomos = document.querySelector("#quienesSomos .nav-link-desplaga
 const divAdmin = document.querySelector("#navbarAdmin .nav-link-desplagable")
 const divPerfil = document.querySelector("#navbarPerfil .nav-link-desplagable")
 
+
+
 // Funcion para Reutilizar
 
 function desplegar (selectorId, divDesplegar) {
@@ -39,4 +41,3 @@ function desplegar (selectorId, divDesplegar) {
 desplegar(quienesSomos, divQuienesSomos)
 desplegar(navbarAdmin, divAdmin)
 desplegar(navbarPerfil, divPerfil)
-
