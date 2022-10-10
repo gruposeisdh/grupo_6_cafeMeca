@@ -10,9 +10,18 @@ router.get(
 );
 router.post(
     '/', 
-    //authMiddlewares.authMiddleware,
+    //authMiddlewares.authMiddlewarePost,
     cartController.update
 );
-
+router.post(
+    '/addProduct', 
+    //authMiddlewares.authMiddlewarePost,
+    cartController.addProduct
+);
+router.get(
+    '/quantity', 
+    //authMiddlewares.authMiddleware,
+    cartController.getQuantity
+);
 
 module.exports = router;

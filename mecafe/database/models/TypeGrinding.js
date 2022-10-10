@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
 
         TypeGrinding.belongsToMany(models.Product, { // Tabla con la que se va a RELACIONAR
             as: "products",
-            through: "products_type_grindings", // Tabla INTERMEDIA
+            through: models.ProductTypeGrinding, // Tabla INTERMEDIA
             foreignKey: "type_grinding_id",
             otherKey: "product_id",
             timestamps: false

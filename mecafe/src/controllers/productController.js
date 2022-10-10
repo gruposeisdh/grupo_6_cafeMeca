@@ -56,6 +56,7 @@ Sigo en la hoja de controllers
 let productController = {
 
     // Muestra todos los productos - LISTO
+    // TODO - Pedirle a Joha que me explique esto porque recuerdo que lo hicimos pero me olvide el association.
 
     index: (req, res) => {
 
@@ -348,14 +349,35 @@ let productController = {
 
             })
 
-        res.redirect("/product/administracion");
+        res.redirect("/product/list");
 
     },
 
-    detail: (_req, res) => {
-        let id = _req.params.id;
-        let detalleproductos = fileproducts.getProductById(id);
-        res.render(path.resolve(__dirname, "../views/product/product.ejs"), { productdetail: detalleproductos })
+    detail: (req, res) => {
+
+        let id = req.params.id;
+
+        let detailProduct = db.Product.findByPk(id, {
+            include: [
+                {association: "type_grindings"},
+                {association: "brands"},
+                {association: "images_products"},
+                {association: "products_grames"}
+            ]
+        })
+
+        Promise.all([detailProduct])
+            .then(([detailProduct]) => {
+
+                let prices = detailProduct.products_grames.map((productGrame) =>{
+                    return productGrame.price > 0 ? productGrame.price : false;
+                }).filter((price) => { return price})
+              
+                console.log(prices);
+                let minorPrice = parseFloat(Math.min.apply(null, prices)).toFixed(2);
+                //res.send(detailProduct)
+                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct, minorPrice: minorPrice })
+            })
     },
 
     // Elimina un Producto - LISTO
@@ -393,7 +415,7 @@ let productController = {
         })
 
 
-        res.redirect("/product/administracion");
+        res.redirect("/product/list");
     }
 }
 

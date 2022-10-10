@@ -78,7 +78,14 @@ a:active {
     display: none !important;
 }
 
+.display-flex{
+    display: flex;
+}
+
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
+
+
 
 /* .redesSocialesBanner {
 
@@ -142,6 +149,177 @@ a:active {
 
 */
 
+/*! ════════════════════ Pagina Detalle de Producto New ════════════════════ !*/
+
+.ProductNew {
+    width: 100%;
+    min-height: calc(100vh - var(--tamanoFooter) - 66px);
+}
+
+.ProductNew__Container{
+    background-color: white;
+    border: solid 1px var(--gray-pastel);
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0px auto;
+    border-radius: 3px;
+}
+
+.ProductNew__Container h1{
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 20px 20px 10px;
+    text-align: center;
+    border-bottom: solid 2px var(--lox);
+    margin-bottom: 20px;
+}
+
+.ProductNew__imageProduct{
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 657px;
+    margin: auto;
+    background-color: white;
+}
+
+.ProductNew__imageProduct img{
+    width: 100%
+}
+
+.ProductNew__detailProduct{
+    text-align: center;
+}
+
+.ProductNew__detailProduct h3{
+    height: 45px;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 2px;
+    background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProductNew__detailProduct p{
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.ProductNew__selectorCharacteristics h3{
+    height: 45px;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 2px;
+    background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProductNew__selector{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.ProductNew__selector label{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+.ProductNew__selector select{
+    height: 30px;
+    margin: auto;
+    width: calc(80% - 15px);
+    border: solid 1px var(--gray-pastel);
+    outline: none
+}
+
+.ProductNew__amount input{
+    outline: none;
+    border: solid 1px var(--gray-pastel);
+    text-align: center;
+}
+
+.ProductNew__amount input::placeholder{
+    text-align: center;
+}
+
+.ProductNew__amount div{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: 30px;
+    margin: auto;
+    width: 75%;
+}
+
+.ProductNew__amount button{
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--lox);
+    color: var(--negro-pastel);
+    text-transform: uppercase;
+    border: solid 1px var(--lox);
+    border-radius: 2px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+
+.ProductNew__amount i{
+    border: solid 1px var(--gray-pastel);
+    margin: auto;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.ProductNew__paymentMethodsImageProduct{
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 657px;
+    margin: auto;
+    background-color: white;
+    padding: 15px;
+    margin: 20px auto;
+}
+
+.paymentMethodsImageProduct img{
+    width: 100%
+}
+
+.ProductNew__detailProduct button{
+    margin: 12px 0;
+}
+
+.ProductNew__detailProduct form button{ /* SEGURO BORRAR DESPUES */
+    display: none;
+    font-size: 18px;
+    background-color: var(--negro-pastel);
+    color: white;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: solid 1px var(--negro-pastel);
+    border-radius: 2px;
+}
+
+
 /*! ════════════════════ Pagina de ERROR 404 ════════════════════ !*/
 
 .error404{
@@ -150,7 +328,6 @@ a:active {
     background-attachment: fixed;  
     background-size: cover;
     min-height: calc(100vh - var(--tamanoFooter) - 66px);
-    /*overflow: auto;*/
 }
 
 .error404__container{
@@ -394,16 +571,51 @@ a:active {
     flex-direction: column;
     width: 100%;
     background-color: var(--negro-pastel);
-    z-index: 9999
+    z-index: 9999;
 }
 
 .nav-link-desplagable a {
-    padding: 10px 0 ;
-    color: var(--lox);
+    padding: 7px 20px 7px 8px;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.nav-link-desplagable form{
+    padding-bottom: 5px;
 }
 
 .nav-link-aparecer{
     display: none;
+}
+
+#cartLogo__container{
+    position: relative;
+}
+
+#cartLogo__container a:hover {
+    border-radius: 4px;
+    background: var(--lox);
+    transition: .5s;
+    color: #000000;
+    font-weight: 800;
+}
+
+#cartLogo__number{
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 11px;
+    background-color: var(--lox);
+    border: solid 1px white;
+    color: #000000;
+    border-radius: 50%;
+    bottom: 9px;
+    right: -5px;
+    padding: 4px;
 }
 
 
@@ -429,20 +641,13 @@ a:active {
     border-bottom: 1px solid var(--lox);
 }
 
-.modal__container form {
-    margin-top: 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
 
 .modal__container form label {
     margin-bottom: 5px;
 }
 
 .modal__container form .form-group {
-    padding: 10px;
+    padding: 25px;
 }
 
 .modal__formError {
@@ -451,18 +656,6 @@ a:active {
     font-size: 0.8em;
     text-align: center;
     font-weight: 700;
-}
-
-.modal__container form input {
-    width: 100%;
-    padding: 8px;
-    font-size: 17px;
-    background-color: #ffffff;
-    border-style: hidden;
-    border-radius: 11px;
-    box-shadow: 0px 0px 6px var(--black);
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .modal__container form input[type="button"] {
@@ -475,10 +668,6 @@ a:active {
     margin-bottom: 30px;
 }
 
-.modal__container a {
-    color: var(--lox);
-    font-weight: bold;
-}
 /*! ════════════ MODAL CHANGE PASSWORD ═══════════════════ !*/
 
 .changePassword__container {
@@ -528,37 +717,118 @@ a:active {
 
 }
 
-.login__container form input[type="checkbox"] {
-    width: auto;
-}
-
-.login__container form div a {
-    margin-left: 20px;
-}
-
 .login_logo{
-    width: 100%;
-    margin-top: 40px;
+    padding: 20px 0;
 }
 
 .login_logo img{
+    padding: 10px 0;
     object-fit: cover;
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 60%;
+    margin: auto;
     display: block;
-    margin-top: 35px;
 }
 
 .login__container form input[type="submit"] {
-    margin-top: 10px;
-    align-self: center;
+    display: flex;
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 2px;
 }
+
+
+.check_login{
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    width: 40%;
+    gap: 8px;
+}
+
+.borderBottomLogin{
+    border-bottom: solid 1px var(--lox);
+}
+
+.registerForm__form-login {
+    width: 85%;
+    max-width: 500px;
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.registerForm__form-login div {
+    padding: 5px;
+    margin: auto;
+}
+
+.registerForm__form-login label {
+    color: var(--gray-pastel);
+    font-size: 14px;
+    position: absolute;
+    display: block;
+    padding: .8em 0;
+    margin-left: 0;
+    transform: translateY(-40px);
+    transition: transform .5s;
+}
+
+.registerForm__form-login input {
+    font-family: proximanova;
+    padding: .5em .5em;
+    border: none;
+    width: 100%;
+    border-bottom: solid 1px var(--gray-pastel);
+}
+
+.registerForm__form-login input:focus{
+    transition: all .1s;
+    outline: none;
+    border-bottom: solid 2px var(--lox);
+}
+
+.registerForm__formInput-login:focus + .registerForm__formLabel-login,
+.registerForm__formInput-login:not(:placeholder-shown) + .registerForm__formLabel-login{
+    transform: translateY(-55px) scale(.75);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.containerLoginOne{
+    border: solid 2px red;
+}
+
+.LoginContainerTwo a{
+    color: var(--lox);
+    font-weight: bold;
+}
+
+.LoginContainerTwo{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px 0;
+}
+
+.LoginContainerOne{
+    display: flex;
+    align-items: center;
+}
+
+.LoginContainerOne a{
+    color: var(--lox);
+    font-size: 15px;
+    font-weight: bold;
+}
+
 
 /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -579,7 +849,7 @@ a:active {
 .AdminProducts__containerNewProduct{
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto 0;
+    /**margin: 20px auto 0; */
 }
 
 .AdminProducts__create{
@@ -619,10 +889,11 @@ a:active {
 }
 
 .AdminProducts__containerTable{
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
-    margin: 20px auto 0;
+    /** margin: 20px auto 0; */
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .AdminProducts__table{
@@ -741,10 +1012,11 @@ tr:hover td{
 
 
 .AdminUsers__containerTable{
-    width: 90vw;
+    width: 100%;
     max-width: 1200px;
     margin: 20px auto 0;
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .AdminUsers__table{
@@ -756,7 +1028,6 @@ tr:hover td{
     background-color: #000000;
     color: white;
 }
-
 
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
@@ -981,7 +1252,7 @@ tr:hover td{
 }
 
 
-.createProduct__errorsContainer ul{
+.createProduct__errorsContainer h6{
     padding: 5px 10px;
     font-size:  16px;
     color: red;
@@ -1353,8 +1624,6 @@ tr:hover td{
     display: none;
 }
 
-
-
 /*? --------------  MEDIOS DE PAGO  ------------ ?*/
 
 .product-buttons-payment {
@@ -1615,8 +1884,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     background-color: transparent;
 }
 
-/** ════════════════════ MENU USER ════════════════════ **/
-#menu_user{
+/** ════════════════════ MENU ADMIN  ════════════════════ **/
+
+/** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
+#menu_partial{
     background-color:white;
     width: 100%;
     font-weight: bold;
@@ -1625,24 +1897,28 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-bottom: 2px solid var(--lox);
 }
 
-.selected_menu_user_item{
-    background-color: var(--lox)
+.selected_menu_partial_item{
+    background-color: var(--lox);
+    width: 100%;
 }
 
-#menu_user ul{
+#menu_partial ul{
     text-align: center; /* Centre los items de texto */
     padding: 0;
     list-style: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-#menu_user a{
+#menu_partial a{
     color:black;
 }
 
-#menu_user li{
+#menu_partial li{
     padding: 15px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
@@ -1818,12 +2094,9 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-bottom: solid 2px var(--lox);
 }
 
-
-
-
 /** ════════════════════ USER SALES ════════════════════ **/
 
-.container_detail_view_user{
+.container_detail_view_user, .container_detail_view_admin {
     width: 100%;
     background: white;
     margin-top: 20px;
@@ -1831,9 +2104,11 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-radius: 2px;
 }
 
-.container_detail_view_user .title{
+.container_detail_view_user .title, .container_detail_view_admin .title{
+    text-align: center;
     font-weight: bold;
     font-size: 20px;
+    padding: 10px;
 }
 
 #table__sales_user{
@@ -1855,7 +2130,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: none;
 }
  
-
 #table__sales_user .button_go_to_sale {
     background-color: black;
     color: white;
@@ -2027,10 +2301,6 @@ article .header_list_direction_detail{
 .formDirection__btn:hover {
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
-
-/*.errorCampoDiv input {
-    box-shadow: 0px 0px 6px red;
-}*/
 
 .btnSendRegister {
     background: #0f82fc;
@@ -2258,29 +2528,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-
-/* .home__carrousel {
-    text-align: center;
-    display: block;
-    margin: 20px 20px;
-}
-
-.home__carrousel-picture {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 7px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-
-.home__carrousel-picture li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-} */
-
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 
@@ -2299,30 +2546,6 @@ body {
 }
 
 /** ════════════════════ PRODUCT ════════════════════ **/
-
-
-/* .home__carrousel-picture i {
-    border: solid 1px var(--blue-pastel);
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 12px;
-    color: var(--blue-pastel);
-}
-
-.home__carrousel-picture p {
-    display: none;
-}
-
-.home__carrousel-picture h4 {
-    font-weight: bold;
-    font-size: 0.5em;
-    margin: 5px;
-}
-
-.home__carrousel-picture div {
-    padding: 5px;
-    width: 100%;
-} */
 
 .home__containerColumns img {
     width: 100%;
@@ -2354,6 +2577,7 @@ body {
         "home__clusterThree home__clusterFor"
         "home__clusterTwo home__clusterTwo";
 }
+
 
 /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -2388,7 +2612,8 @@ body {
     transition: transform .5s;
 }
 
-/* iconos de validacion cada campo front-Yohanna */
+/* Iconos de validacion cada campo front-Yohanna */
+
 .registerForm_errorItem_name{
     opacity: 0;
 }
@@ -2437,10 +2662,6 @@ body {
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
 
-/*.errorCampoDiv input {
-    box-shadow: 0px 0px 6px red;
-}*/
-
 .btnSendRegister {
     background: #0f82fc;
     color: white;
@@ -2448,11 +2669,13 @@ body {
 }
 
 /* mensaje de validacion front-Yohanna */
+
 .register_formErrorFrontGeneral {
    display: none;
 }
 
 /* mensaje error general de validacion front-Yohanna */
+
 .registerForm__menssageError {
     height: 40px;
     color: red;
@@ -2509,6 +2732,7 @@ body {
 /* estilos para validacion front-Yohanna */
 
 /* validaciones de iconos cuando es correcto */
+
 .registerForm_errorItem-correcto{
     position: absolute;
     right: 22px;
@@ -2519,6 +2743,7 @@ body {
 }
 
 /* validaciones de iconos cuando es incorrecto */
+
 .registerForm_errorItem-incorrecto{
     position: absolute;
     right: 22px;
@@ -2529,11 +2754,13 @@ body {
 }
 
 /* mensaje error general activo de validacion front-Yohanna */
+
 .registerForm__menssageError-active {
     display: block;
 }
 
 /* mensaje de validacion activo front-Yohanna */
+
 .register_formErrorFrontGeneral-active {
     margin-top: 0.7em;
     color: red;
@@ -2709,7 +2936,27 @@ footer {
 
 @media (min-width: 480px) {
 
-    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
+    /** ═════════════════ DETAILS PRODUCT 480PX ═════════════════ !*/
+
+    .ProductNew__Container{
+        padding: 50px;
+    }
+
+    .ProductNew__amount div {
+        grid-template-columns: 0.7fr 3fr 0.7fr;
+        width: 75%;
+    }
+
+    .ProductNew__Container h1{
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .ProductNew__amount button{
+    width: 100%;
+    }
+
+    /*! ═════════════════ MODAL CHANGE PASSWORD ═════════════════ !*/
 
     .changePassword__container {       
         width: 70%;
@@ -2766,7 +3013,6 @@ footer {
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 
-
     /** ════════════════════ PRODUCT ════════════════════ **/
 
 
@@ -2778,18 +3024,14 @@ footer {
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 
-
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
 
     /** ════════════════════ DETAIL PRODUCTS  ════════════════════ **/
 
-    /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
-
     .product-img {
         width: 95%;
     }
-
 
     /** ════════════════════ CART ════════════════════ **/
 
@@ -2843,36 +3085,6 @@ footer {
         font-size: 14px;
     }
 
-    /* .home__carrousel {
-        text-align: center;
-        display: block;
-        margin: 20px 20px;
-    }
-
-    .home__carrousel-picture {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        background-color: white;
-        border: solid 1px rgb(235, 235, 235);
-        border-radius: 10px;
-    }
-
-    .home__carrousel-picture i {
-        padding: 15px;
-        font-size: 18px;
-    }
-
-    .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 12px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: none;
-        font-size: 12px;
-    } */
-
     .home__containerBanner {
         height: 300px;
     }
@@ -2880,23 +3092,6 @@ footer {
     .home__logoAndTextBanner {
         font-size: .9em;
     }
-    
-    /* .redesSocialesBanner {
-        column-gap: 0;
-        padding: .5em .2em;
-    }
-    
-    .redesSocialesBanner__icon{
-        font-size: 2.2em;
-    }
-    
-    .redesSocialesBanner__icons{
-        column-gap: 6px;
-    }
-
-    .redesSocialesBanner h5{
-        font-size: .9em;
-    } */
 
     /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
 
@@ -2918,6 +3113,229 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 768PX ════════════════════ TODO */
 
 @media (min-width: 768px) {
+
+    /** ════════════════════ PRODUCTS CREATE  ════════════════════ **/
+
+    .createProduct__containerForm{
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .createProduct__errorFormularioActive {
+        margin: 10px 5px;
+    }
+
+    .registerForm__clusterOne-titleForm {
+        grid-area: registerForm__clusterOne-titleForm;
+    }
+
+    .registerForm__clusterTwo-errorsContainer{
+        grid-area: registerForm__clusterTwo-errorsContainer;
+    }
+
+    .registerForm__clusterThree-nameProduct{
+        grid-area: registerForm__clusterThree-nameProduct;
+    }
+
+    .registerForm__clusterFor-priceOne{
+        grid-area: registerForm__clusterFor-priceOne;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterFive-priceTwo{
+        grid-area: registerForm__clusterFive-priceTwo;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSix-priceThree{
+        grid-area: registerForm__clusterSix-priceThree;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSeven-descriptionProduct{
+        grid-area: registerForm__clusterSeven-descriptionProduct;
+    }
+
+    .registerForm__clusterEight-idCategoriesDiv{
+        grid-area: registerForm__clusterEight-idCategoriesDiv;
+    }
+
+    .registerForm__clusterNine-brand{
+        grid-area: registerForm__clusterNine-brand;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTeen-rating{
+        grid-area: registerForm__clusterTeen-rating;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterEleven-image{
+        grid-area: registerForm__clusterEleven-image;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTwelve-buttons{
+        grid-area: registerForm__clusterTwelve-buttons;
+    }
+
+    .registerForm__clusterThirteen-errorsBack{
+        grid-area: registerForm__clusterThirteen-errorsBack;
+    }
+
+    #createProduct__descriptionProduct {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    #idCategoriesDiv{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    .createProduct__textArea {
+        height: 173px;
+    }
+
+    #imageProduct{
+        border: none;
+        padding: 0;
+    }
+
+    #createProduct__nameProduct{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+    }
+
+    .createProduct__containerForm{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+
+        grid-template-areas:
+        "registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm" /* Titulo */
+        
+        "registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct"
+        
+        "registerForm__clusterFor-priceOne registerForm__clusterFive-priceTwo registerForm__clusterSix-priceThree"
+        
+        "registerForm__clusterEight-idCategoriesDiv registerForm__clusterSeven-descriptionProduct registerForm__clusterSeven-descriptionProduct"
+        
+        
+        "registerForm__clusterNine-brand registerForm__clusterTeen-rating registerForm__clusterEleven-image"
+        "registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer" /* Errores */
+        "registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack"
+        ". registerForm__clusterTwelve-buttons registerForm__clusterTwelve-buttons"
+
+    }
+
+    /** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
+    #menu_partial ul{
+        flex-direction: row;
+    }
+
+    .selected_menu_partial_item{
+        width: auto;
+    }
+
+    #menu_partial li{
+        border-bottom: none;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
+   
+    .ProductNew__detailProduct p{
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .ProductNew__Container h1{
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .ProductNew__selectorCharacteristics h3 {
+        margin: 0 auto 10px;
+    }
+
+   .ProductNew__paymentMethodsImageProduct{
+        margin: 0 auto;
+        padding: 8px;
+        border: none;
+   }
+
+   /**/
+
+   .ProductNew__amount div {
+        grid-template-columns: 0.6fr 3fr 0.6fr;
+        width: 75%;
+        gap: 8px;
+    }
+
+    .ProductNew__amount button{
+    width: 100%;
+    }
+
+    /**/
+
+    .ProductNew__clusterZeroTitle {
+        grid-area: ProductNew__clusterZeroTitle;
+    }
+
+    .ProductNew__clusterOneImage {
+        grid-area: ProductNew__clusterOneImage;
+    }
+    
+    .ProductNew__clusterTwoDetailProduct {
+        grid-area: ProductNew__clusterTwoDetailProduct;
+    }
+    
+    .ProductNew__clusterThreeSelectorCharacteristics {
+        grid-area: ProductNew__clusterThreeSelectorCharacteristics;
+    }
+    
+    .ProductNew__clusterForPaymentMethods {
+        grid-area: ProductNew__clusterForPaymentMethods;
+    }
+    
+    .ProductNew__clusterFive {
+        grid-area: ProductNew__clusterFive;
+    }
+
+    .ProductNew__Container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        grid-template-areas:
+        "ProductNew__clusterZeroTitle ProductNew__clusterZeroTitle"
+        "ProductNew__clusterOneImage ProductNew__clusterThreeSelectorCharacteristics"
+        "ProductNew__clusterOneImage ProductNew__clusterForPaymentMethods"
+        "ProductNew__clusterTwoDetailProduct ProductNew__clusterTwoDetailProduct"
+        "ProductNew__clusterFive ProductNew__clusterFive"
+    }
 
     /*! ════════════════════ HEADER ════════════════════ !*/
 
@@ -2955,18 +3373,73 @@ footer {
     }
 
     .nav-link-desplagable{ 
-        padding: 0px 0px 0px 8px;
-        transition: all 1s;
+        padding: 0px 0px 5px 8px;
         position: absolute;
         top: 40px;
         border-radius: 3px;
+        min-width: 100%;
+        width: max-content;
+        max-width: 300px;
     }
 
     .flex-nav {
-        overflow: visible; /* Revisar esto va en hidden*/
+        overflow: visible;
     }
 
+    .nav-header {
+        display: block;
+    }
 
+    .flex-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    nav-links ul {
+        text-align: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        border-bottom: none;
+    }
+    
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    nav ul > .link-hover :hover {
+        border-radius: 4px;
+        background: var(--lox);
+        transition: .5s;
+        color: #000000;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: var(--lox);
+        transition: all .5s;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
+
+    .fa-caret-down{
+        padding-left: 5px;
+    }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -2978,7 +3451,7 @@ footer {
     /*! ════════════════════ MAIN ════════════════════ !*/
 
     /** ════════════════════ MENU USER ════════════════════ **/
-    #menu_user{
+    #menu_partial{
         display: revert;
     }
 
@@ -3013,7 +3486,7 @@ footer {
     .profile_container_personalInformation {
         margin: 25px
     }
-
+    
     .profile_contactUs_down {
         display: none;
     }
@@ -3056,10 +3529,7 @@ footer {
         border-radius: 3px;
         font-size: 14px;
     }
-
-
-
-  
+    
     /** ════════════════════ USER SALES ════════════════════ **/
       
     #table__sales_user .description_total_sale{
@@ -3117,19 +3587,6 @@ footer {
         height: 200px;
     }
 
-    /* .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: block;
-        font-size: 12px;
-    }
-
-    */
-
     .home__containerColumns-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -3140,10 +3597,6 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive";
     }
 
-    /* .home__carrousel-picture div {
-        padding: 10px;
-    } */
-
     .home__containerBanner {
         height: 400px;
     }
@@ -3151,10 +3604,6 @@ footer {
     .home__logoAndTextBanner {
         font-size: 1.3em;
     }
-
-    /* .redesSocialesBanner h5{
-        font-size: 1em;
-    } */
     
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -3204,8 +3653,6 @@ footer {
         padding: 8px 8px;
     }
     
-    /* nav ul > .link-hover*/
-    
     nav ul > .link-hover :hover {
         border-radius: 5px;
         background: var(--lox);
@@ -3221,14 +3668,12 @@ footer {
     }
 
     div .nav-link-desplagable :hover{
-        color: white;
-        font-weight: 800;
+        color: var(--lox);
     }
 
     .nav-link-aparecer{
         color: withe;
     }
-
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -3239,10 +3684,6 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
-
-
-    /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
-
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -3514,17 +3955,6 @@ footer {
         height: 200px;
     }
 
-    /* .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: block;
-        font-size: 12px;
-    } */
-
     .home__containerColumns-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -3535,14 +3965,6 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive"
         ;
     }
-
-    /* .home__carrousel-picture div {
-        padding: 10px;
-    } */
-
-    /* .redesSocialesBanner {
-        width: 77vw;
-    } */
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -3665,6 +4087,7 @@ footer {
 @media (min-width: 992px) {
 
 
+
          /** ════════════════════ USER PROFILE ════════════════════ **/
 
     .profile_img_contactUs_up {
@@ -3679,10 +4102,37 @@ footer {
 
         /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
-        .list_directions{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
+    /** ═════════════════ DETAILS PRODUCT 992PX ═════════════════ !*/
+
+
+    .ProductNew__selector{
+        padding: 9px;
+    }
+
+    .ProductNew__selector select{
+        height: 40px;
+    }
+
+    .ProductNew__selector label{
+        height: 40px;
+    }
+
+    .ProductNew__amount div {
+        height: 40px;
+        width: 75%;
+    }
+
+    .ProductNew__amount button{
+        margin-top: 12px;
+    }
+
+
+    /** ════════════════════ USER DIRECTIONS ════════════════════ **/
+
+    .list_directions{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -3718,26 +4168,6 @@ footer {
     .home__logoAndTextBanner {
         font-size: 1.5em;
     }
-
-    /* .redesSocialesBanner h5{
-        padding: 8px;
-        font-size: 1.3em;
-    }
-
-    .redesSocialesBanner {
-        width: 77vw;
-        padding: .5em .2em;
-    }
-    
-    .redesSocialesBanner__icon{
-        font-size: 3em;
-    }
-    
-    .redesSocialesBanner__icons{
-        column-gap: 9px;
-    }
-
-    */
 
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
 
@@ -3811,6 +4241,47 @@ footer {
 /* TODO ════════════════════ MEDIA QUERY 1200PX ════════════════════ TODO */
 
 @media (min-width: 1200px) {
+
+    /** ═════════════════ DETAILS PRODUCT 1200PX ═════════════════ !*/
+
+    .ProductNew{
+        padding: 40px;
+    }
+    
+    .ProductNew__selector{
+        padding: 5px;
+    }
+    
+    .ProductNew__selector select{
+        height: 30px;
+    }
+    
+    .ProductNew__selector label{
+        height: 30px;
+    }
+    
+    .ProductNew__amount div {
+        height: 30px;
+    }
+    
+    .ProductNew__paymentMethodsImageProduct {
+        max-width: 350px;
+    }
+
+    
+    .ProductNew__Container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        row-gap: 0;
+        grid-template-areas:
+        "ProductNew__clusterZeroTitle ProductNew__clusterZeroTitle"
+        "ProductNew__clusterOneImage ProductNew__clusterThreeSelectorCharacteristics"
+        "ProductNew__clusterOneImage ProductNew__clusterForPaymentMethods"
+        "ProductNew__clusterOneImage ProductNew__clusterFive"
+        "ProductNew__clusterTwoDetailProduct ProductNew__clusterTwoDetailProduct"
+    }
+
     /*! ════════════════════ MAIN ════════════════════ !*/
 
      /** ════════════════════ USER PROFILE ════════════════════ **/
@@ -3860,18 +4331,6 @@ footer {
         max-width: 80vw;
         margin: auto;
     }
-
-    /* .home__carrousel-picture h4 {
-        font-size: 20px;
-    }
-
-    .home__carrousel-picture p {
-        font-size: 14px;
-    } */
-
-    /* .redesSocialesBanner h5 {
-        letter-spacing: 4px;
-    } */
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
 
