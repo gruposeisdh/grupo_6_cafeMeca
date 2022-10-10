@@ -191,7 +191,7 @@ a:active {
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
-    background-color: rgb(236, 229, 229);
+    background-color: var(--negro-pastel);
 }
 
 .ProductNew__detailProduct p{
