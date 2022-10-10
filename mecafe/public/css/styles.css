@@ -3568,8 +3568,7 @@ footer {
     }
 
     div .nav-link-desplagable :hover{
-        color: white;
-        font-weight: 800;
+        color: var(--lox);
     }
 
     .nav-link-aparecer{

@@ -19,11 +19,17 @@ const quienesSomos = document.getElementById("quienesSomos")
 const navbarAdmin = document.getElementById("navbarAdmin")
 const navbarPerfil = document.getElementById("navbarPerfil")
 
+console.log(quienesSomos, "Quienes somos")
+console.log(navbarAdmin, "Admin")
+console.log(navbarPerfil, "pERFIL")
+
 // Variables de Divs que queremos desplegar (Combinacion de ID con clase .nav-link-desplagable)
 
 const divQuienesSomos = document.querySelector("#quienesSomos .nav-link-desplagable")
 const divAdmin = document.querySelector("#navbarAdmin .nav-link-desplagable")
 const divPerfil = document.querySelector("#navbarPerfil .nav-link-desplagable")
+
+
 
 // Funcion para Reutilizar
 
@@ -39,4 +45,3 @@ function desplegar (selectorId, divDesplegar) {
 desplegar(quienesSomos, divQuienesSomos)
 desplegar(navbarAdmin, divAdmin)
 desplegar(navbarPerfil, divPerfil)
-
