@@ -1,7 +1,7 @@
 <!-- * Encabezado de la pagina -->
 <%- include ("../partials/head") %>
 
-<title>Edicion de un producto</title>
+<title>Detalle producto</title>
 </head>
 
 <body class="bodyHome">
@@ -27,35 +27,52 @@
                     </div>
                 </div>
 
+                <!-- al cargar pagina mostramos el menor precio -->
+                <h3  >PRECIO : <span id="productPrice"><%= minorPrice %></span></h3>
+
                 <div class="ProductNew__detailProduct Nicolas ProductNew__clusterTwoDetailProduct">
                     <h3>Descripcion del Producto</h3>
                     <p><%=product.description%> ¡Hacemos el café más rico para que vos puedas disfrutarlo! <b>Mecafe es seguridad y bienestar</b></p>
                 </div>
 
-                <div class="ProductNew__selectorCharacteristics Nicolas ProductNew__clusterThreeSelectorCharacteristics">
+                <form action="/cart/addProduct" method="POST" id="addProductCart">
+                    <div class="ProductNew__selectorCharacteristics Nicolas ProductNew__clusterThreeSelectorCharacteristics">
 
-                    <h3>Eleccion de Caracteristicas</h3>
+                        <h3>Eleccion de Caracteristicas</h3>
+                        
+                        <div class="ProductNew__selector">
+                            <label for="idProductGrame">Gramos:</label>
+                            <select name="idProductGrame" id="idProductGrame"> 
+                                <option selected disabled>Seleccion de Gramos</option>
+                                <% product.products_grames.forEach( element => { %>
+                                    <% if(element.price > 0) {%>
+                                        <option value="<%=element.id%>" priceValue="<%= element.price %>" ><%= element.grames == 1000 ? '1kg' : element.grames + ' grs' %></option>
+                                    <% } %>
+                                <% }); %>
+                            </select> 
+                        </div>
 
-                    <div class="ProductNew__selector">
-                        <label for="ProductNew__grams">Gramos:</label>
-                        <select name="ProductNew__grams" id="ProductNew__grams"> 
-                            <option selected disabled>Seleccion de Gramos</option>
-                            <option value="250" >250 grs</option>
-                            <option value="500" >500 grs</option>
-                            <option value="1000" >1 Kg</option>
-                        </select> 
-                    </div>
+                        <div class="ProductNew__selector">
+                            <label for="idProductTypeGrinding">Molienda:</label>
+                            <select name="idProductTypeGrinding" id="idProductTypeGrinding"> 
+                                <option selected disabled>Selecciona la Molienda</option>
 
-                    <div class="ProductNew__selector">
-                        <label for="ProductNew__brand">Molienda:</label>
-                        <select name="ProductNew__brand" id="ProductNew__brand"> 
-                            <option selected disabled>Selecciona la Molienda</option>
+                                <% product.type_grindings.forEach( element => { %>
+                                    <option value="<%=element.ProductTypeGrinding.id%>"><%=element.name%></option>
+                                <% }); %>
 
-                            <% product.type_grindings.forEach( element => { %>
-                                <option value="<%=element.id%>"><%=element.name%></option>
-                            <% }); %>
+                            </select> 
+                        </div>
 
-                        </select> 
+                        <div class="ProductNew__selector ProductNew__amount">
+                            <label for="quantity">Cantidad:</label>
+                            <div>
+                                <i id="removeOne" class="fa-solid fa-minus"></i>
+                                <input id="quantity" placeholder="Ingresa la cantidad" name="quantity" type="number" value="1" readonly min="1">
+                                <i id="addOne" class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="ProductNew__selector ProductNew__amount">
@@ -64,28 +81,31 @@
                             <i id="ProductNew__removeOne" class="fa-solid fa-minus"></i>
                             <input id="ProductNew__valueAmount" placeholder="Cantidad" name="ProductNew__brand" type="number" value="" readonly>
                             <i id="ProductNew__addOne" class="fa-solid fa-plus"></i>
+
+                    <div class="paymentMethodsImageProduct Nicolas ProductNew__clusterForPaymentMethods">
+                        <div class="ProductNew__paymentMethodsImageProduct">
+                            <img src="/img/DetailsProduct/formas-pago-blanco.png" alt="Cafe-la-morenita">
+
                         </div>
                         <button type="submit">Comprar</button>
                     </div>
-
-                </div>
                     
-                <div class="paymentMethodsImageProduct Nicolas ProductNew__clusterForPaymentMethods">
-                    <div class="ProductNew__paymentMethodsImageProduct">
-                        <img src="/img/DetailsProduct/formas-pago-blanco.png" alt="Cafe-la-morenita">
+                    <div class="ProductNew__detailProduct Nicolas ProductNew__clusterFive">
+                        <h3>Lo queres ¿Que esperas? 😍</h3>
+                        <p>¡No lo pienses tanto! | <b>Es Sano, Rico y Barato.</b> ¿En serio vas a dejar pasar la oportunidad de tener en tu casa el mejor cafe que podes conseguir? <b>Date el gusto ¡Para eso trabajamos!</b></p>
+
+                    
+                        <button type="submit">Añadir al carrito</button>
                     </div>
                 </div>
 
                 <div class="ProductNew__detailProduct Nicolas ProductNew__clusterFive">
                     <h3>Lo queres ¿Que esperas? 😍</h3>
                     <p>¡No lo pienses tanto! | <b>Es Sano, Rico y Barato.</b> ¿En serio vas a dejar pasar la oportunidad de tener en tu casa el mejor cafe que podes conseguir? <b>Date el gusto ¡Para eso trabajamos!</b></p>
-
-                    <form action="" method="POST">
                         <button type="submit">Comprar</button>
-                    </form>
                 </div>
 
-
+                </form>
                 
 
             </div>

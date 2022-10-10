@@ -357,7 +357,7 @@ let productController = {
 
         let id = req.params.id;
 
-        let pedidoProducto = db.Product.findByPk(id, {
+        let detailProduct = db.Product.findByPk(id, {
             include: [
                 {association: "type_grindings"},
                 {association: "brands"},
@@ -366,17 +366,17 @@ let productController = {
             ]
         })
 
-        let allTProductGrame = db.ProductGrame.findAll()
+        Promise.all([detailProduct])
+            .then(([detailProduct]) => {
 
-        let allTypeGrindings = db.TypeGrinding.findAll()
-
-        let allBrands = db.Brand.findAll()
-
-        Promise.all([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame])
-            .then(([pedidoProducto, allBrands, allTypeGrindings, allTProductGrame]) => {
-                // res.send(allTProductGrame)
-                // res.send(pedidoProducto)
-                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: pedidoProducto , allBrands: allBrands, allTypeGrindings: allTypeGrindings, allProductGrame: allTProductGrame })
+                let prices = detailProduct.products_grames.map((productGrame) =>{
+                    return productGrame.price > 0 ? productGrame.price : false;
+                }).filter((price) => { return price})
+              
+                console.log(prices);
+                let minorPrice = parseFloat(Math.min.apply(null, prices)).toFixed(2);
+                //res.send(detailProduct)
+                res.render(path.resolve(__dirname, "../views/product/productNew"), { product: detailProduct, minorPrice: minorPrice })
             })
     },
 

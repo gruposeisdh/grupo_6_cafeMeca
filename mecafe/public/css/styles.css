@@ -185,6 +185,10 @@ a:active {
     width: 100%
 }
 
+.ProductNew__detailProduct{
+    text-align: center;
+}
+
 .ProductNew__detailProduct h3{
     height: 45px;
     color: white;
@@ -297,8 +301,7 @@ a:active {
     width: 100%
 }
 
-.ProductNew__detailProduct form{
-    text-align: center;
+.ProductNew__detailProduct button{
     margin: 12px 0;
 }
 
@@ -3288,7 +3291,7 @@ footer {
     }
 
     /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
-
+   
     .ProductNew__detailProduct p{
         font-size: 15px;
         line-height: 22px;

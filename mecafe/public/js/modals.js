@@ -111,8 +111,20 @@ function eventsInputs(){
     })
 }
 
+async function getTotalCart() {
+    // Solicitud GET (Request).
+    let spanTotalCart = document.getElementById('totalCart');
+    if(spanTotalCart){
+        let response = await fetch('http://localhost:3030/cart/quantity');
+        let totalCart = await response.json();
+        
+        spanTotalCart.textContent = totalCart.total;
+    }
+}
+
 //ejecutar estas funciones al cargar pagina
-window.onload = function() {
+window.addEventListener('load', function() {
+    getTotalCart();    
     validateOpenLoginErrors();
     insertRouteInputLogin();
     eventsInputs();
@@ -120,5 +132,5 @@ window.onload = function() {
     /** cerrar modal si se hace click fuera de ella */
     let openCloseSide = document.getElementById("openCloseSide");    
     openCloseSide.addEventListener('click', checkModalToClose);
-};
+});
 
