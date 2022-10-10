@@ -11,8 +11,6 @@ navToggle.addEventListener("click", () => {
     nav.classList.toggle('nav-open')
 })
 
-// NavBar Desplegables
-
 // Variables de cada uno de los items que quiero desplegar
 
 const quienesSomos = document.getElementById("quienesSomos")
@@ -25,15 +23,31 @@ const divQuienesSomos = document.querySelector("#quienesSomos .nav-link-desplaga
 const divAdmin = document.querySelector("#navbarAdmin .nav-link-desplagable")
 const divPerfil = document.querySelector("#navbarPerfil .nav-link-desplagable")
 
+// TODO --------- Quitar Desplegable al moverse ----------
 
+let desaparecerDesplegable = document.querySelector(".selector-Nav")
+console.log(divPerfil, "Aca ta")
+
+desaparecerDesplegable.addEventListener("focus", () => {
+    console.log("Holis")
+})
+
+// TODO --------- NavBar Desplegables ----------
 
 // Funcion para Reutilizar
 
 function desplegar (selectorId, divDesplegar) {
+
+    
     selectorId.addEventListener("click", () => {
+        
+        let nicolas = document.querySelectorAll(".nav-link-desplagable")
+
         divDesplegar.classList.toggle("nav-link-aparecer")
         selectorId.classList.toggle("link-hover")
+
     })
+
 }
 
 // Llamado a Funciones
@@ -41,3 +55,4 @@ function desplegar (selectorId, divDesplegar) {
 desplegar(quienesSomos, divQuienesSomos)
 desplegar(navbarAdmin, divAdmin)
 desplegar(navbarPerfil, divPerfil)
+

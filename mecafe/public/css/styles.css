@@ -309,7 +309,6 @@ a:active {
 }
 
 .ProductNew__detailProduct form button{ /* SEGURO BORRAR DESPUES */
-    display: none;
     font-size: 18px;
     background-color: var(--negro-pastel);
     color: white;
@@ -317,6 +316,38 @@ a:active {
     padding: 8px 20px;
     border: solid 1px var(--negro-pastel);
     border-radius: 2px;
+}
+
+#productPrice__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#productPrice__container button{
+    border-radius: 2px;
+    background-color: var(--lox);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 10px;
+    width: 100px;
+    border: none;
+    height: 30px;
+}
+
+.ProductNew__selectorCharacteristics h5{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    margin: 7px 0;
+    gap: 3%;
+    width: 55%;
+}
+
+#productPrice{
+    color: green;
 }
 
 
