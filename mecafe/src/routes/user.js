@@ -12,7 +12,6 @@ const validateLogin = [
     check('password').notEmpty().withMessage('Debes completar el Password')
 ];
 
-
 //Validaciones del formulario de registro
 
 const validateCreateUser = [
@@ -65,6 +64,14 @@ router.post(
     validateCreateUser, 
     userController.store
 ); 
+
+//procesa actualizacion datos de usuario
+router.post(
+    '/profile',
+    // authMiddlewares.guestMiddleware,
+    userController.update
+); 
+
 
 router.get(
     '/profile',/**authMiddlewares.authMiddleware, */userController.profile); 
