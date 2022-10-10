@@ -3060,7 +3060,6 @@ footer {
 
 @media (min-width: 768px) {
 
-
     /** ════════════════════ PRODUCTS CREATE  ════════════════════ **/
 
     .createProduct__containerForm{
@@ -3382,6 +3381,10 @@ footer {
 
     .nav-link-aparecer{
         color: withe;
+    }
+
+    .fa-caret-down{
+        padding-left: 5px;
     }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
