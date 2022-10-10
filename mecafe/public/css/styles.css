@@ -318,9 +318,8 @@ a:active {
     border-radius: 2px;
     background-color: var(--lox);
     font-weight: bold;
-    text-transform: uppercase;
     padding: 0 10px;
-    width: 100px;
+    width: max-content;
     border: none;
     height: 30px;
 }
