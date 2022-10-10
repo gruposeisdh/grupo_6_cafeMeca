@@ -40,7 +40,7 @@ app.use('/product',productRoutes);
 app.use('/user',userRoutes);
 app.use('/sale',saleRoutes);
 app.use('/user',directionRoutes);
+app.use('/type-grinding',typeGrindingRoutes); // Corri esto para arriba del error404 porque sino no funcaba.
 app.use(globalMiddleware.error404);
-app.use('/type-grinding',typeGrindingRoutes);
 
 app.listen(3030,() => console.log("Servidor escuchando en puerto 3030"));
