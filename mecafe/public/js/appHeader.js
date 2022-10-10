@@ -41,3 +41,19 @@ function desplegar (selectorId, divDesplegar) {
 desplegar(quienesSomos, divQuienesSomos)
 desplegar(navbarAdmin, divAdmin)
 desplegar(navbarPerfil, divPerfil)
+
+async function getTotalCart() {
+    // Solicitud GET (Request).
+    let spanTotalCart = document.getElementById('totalCart');
+    if(spanTotalCart){
+        let response = await fetch('http://localhost:3030/cart/quantity');
+        let totalCart = await response.json();
+        
+        spanTotalCart.textContent = totalCart.total;
+    }
+}
+
+//ejecutar estas funciones al cargar pagina
+window.addEventListener('load', function() {
+    getTotalCart();
+});

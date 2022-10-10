@@ -110,27 +110,8 @@ function eventsInputs(){
         input.addEventListener('blur',validateFormLogin);
     })
 }
-
-async function getTotalCart() {
-    // Solicitud GET (Request).
-    let spanTotalCart = document.getElementById('totalCart');
-    if(spanTotalCart){
-        let response = await fetch('http://localhost:3030/cart/quantity');
-        let totalCart = await response.json();
-        
-        spanTotalCart.textContent = totalCart.total;
-    }
-}
-
 //ejecutar estas funciones al cargar pagina
 window.addEventListener('load', function() {
-    getTotalCart();    
-    validateOpenLoginErrors();
-    insertRouteInputLogin();
-    eventsInputs();
-
-    /** cerrar modal si se hace click fuera de ella */
-    let openCloseSide = document.getElementById("openCloseSide");    
-    openCloseSide.addEventListener('click', checkModalToClose);
+    getTotalCart();
 });
 
