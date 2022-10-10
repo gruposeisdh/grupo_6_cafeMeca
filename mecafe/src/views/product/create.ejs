@@ -18,24 +18,19 @@
                 <div class="createProduct">
                     <form id="formProductCreate" class="createProduct__containerForm" enctype="multipart/form-data" action="/product" method="POST">
 
-                        <div class="registerForm__titleForm">
+                        <div class="registerForm__titleForm registerForm__clusterOne-titleForm">
                             <h2>¿Necesitas crear un producto?</h2>
                             <h3>Adelante! 😀</h3>
                         </div>
 
                         <% if (locals.errors) { %>
-
-                            <div class="createProduct__errorsContainer">
-                                
-                            <ul>Errores a corregir en el Formulario</ul>
-
+                            <div class="createProduct__errorsContainer registerForm__clusterTwo-errorsContainer">  
+                                <h6>Errores a corregir en el Formulario</h6>
                             </div>
-
                         <% } %> 
 
-                    
 
-                        <div id="createProduct__nameProduct" class="createProduct__styleDivs">
+                        <div id="createProduct__nameProduct" class="createProduct__styleDivs registerForm__clusterThree-nameProduct">
                             <label for="nameProduct" class="createProduct__labelBox">Nombre del Producto:</label>
                             <input class="createProduct__inputBox" type="text" name="nameProduct" id="nameProduct" placeholder=" " value="<%= locals.oldData ? oldData.nameProduct : null %>" >
                             <span class="createProduct__errorValidation">El nombre del producto debe contener mas de 3 caracteres y no puede contener numeros.</span>
@@ -44,9 +39,9 @@
                             <% } %>
                         </div>
 
-                        <div class="createProduct__containerForm-grid">
+                        <div class="createProduct__containerForm-grid registerForm__clusterFor-priceOne">
                             <div id="createProduct__weightProduct1" class="createProduct__styleDivs">
-                                <label for="weightProduct1" class="createProduct__labelBox">Peso (Gramos):</label>
+                                <label for="weightProduct1" class="createProduct__labelBox">Gramos:</label>
                                 <input class="createProduct__inputBox" type="text" name="weightProduct1" id="weightProduct1" placeholder=" " value="250" readonly>
                                 <span class="createProduct__errorValidation">Mensaje</span>
                                 <% if (locals.errors && errors.weightProduct1) { %>
@@ -55,7 +50,7 @@
                             </div>
 
                             <div id="createProduct__priceProduct1" class="createProduct__styleDivs">
-                                <label for="priceProduct1" class="createProduct__labelBox">* Precio (USD): </label>
+                                <label for="priceProduct1" class="createProduct__labelBox">Precio (USD): </label>
                                 <input class="createProduct__inputBox" type="text" name="priceProduct1" id="priceProduct1" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct1 : null %>">
                                 <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                                 <% if (locals.errors && errors.priceProduct1) { %>
@@ -64,10 +59,10 @@
                             </div>
                         </div>
 
-                        <div class="createProduct__containerForm-grid">
+                        <div class="createProduct__containerForm-grid registerForm__clusterFive-priceTwo">
 
                             <div id="createProduct__weightProduct2" class="createProduct__styleDivs">
-                                <label for="weightProduct2" class="createProduct__labelBox">Peso (Gramos):</label>
+                                <label for="weightProduct2" class="createProduct__labelBox">Gramos:</label>
                                 <input class="createProduct__inputBox" type="text" name="weightProduct2" id="weightProduct2" placeholder=" " value="500" readonly>
                                 <span class="createProduct__errorValidation">Mensaje</span>
                                 <% if (locals.errors && errors.weightProduct2) { %>
@@ -76,7 +71,7 @@
                             </div>
 
                             <div id="createProduct__priceProduct2" class="createProduct__styleDivs">
-                                <label for="priceProduct2" class="createProduct__labelBox">* Precio (USD): </label>
+                                <label for="priceProduct2" class="createProduct__labelBox">Precio (USD): </label>
                                 <input class="createProduct__inputBox" type="text" name="priceProduct2" id="priceProduct2" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct2 : null %>">
                                 <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                                 <% if (locals.errors && errors.priceProduct2) { %>
@@ -86,10 +81,10 @@
 
                         </div>
 
-                        <div class="createProduct__containerForm-grid">
+                        <div class="createProduct__containerForm-grid registerForm__clusterSix-priceThree">
 
                             <div id="createProduct__weightProduct3" class="createProduct__styleDivs">
-                                <label for="weightProduct3" class="createProduct__labelBox">Peso (Gramos):</label>
+                                <label for="weightProduct3" class="createProduct__labelBox">Gramos:</label>
                                 <input class="createProduct__inputBox" type="text" name="weightProduct3" id="weightProduct3" placeholder=" " value="1000" readonly>
                                 <span class="createProduct__errorValidation">Mensaje</span>
                                 <% if (locals.errors && errors.weightProduct3) { %>
@@ -98,7 +93,7 @@
                             </div>
 
                             <div id="createProduct__priceProduct3" class="createProduct__styleDivs">
-                                <label for="priceProduct3" class="createProduct__labelBox">* Precio (USD): </label>
+                                <label for="priceProduct3" class="createProduct__labelBox">Precio (USD): </label>
                                 <input class="createProduct__inputBox" type="text" name="priceProduct3" id="priceProduct3" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct3 : null %>">
                                 <span class="createProduct__errorValidation">Solo numeros. Max 5 caracteres.</span>
                                 <% if (locals.errors && errors.priceProduct3) { %>
@@ -107,10 +102,8 @@
                             </div>
 
                         </div>
-                        
-                    
 
-                        <div id="createProduct__descriptionProduct" class="createProduct__styleDivs"> 
+                        <div id="createProduct__descriptionProduct" class="createProduct__styleDivs registerForm__clusterSeven-descriptionProduct"> 
                             <label for="descriptionProduct" class="createProduct__labelBox">Descripcion del producto:</label>
                             <textarea class="createProduct__inputBox createProduct__textArea" name="descriptionProduct" id="descriptionProduct"><%= locals.oldData ? oldData.descriptionProduct : null %></textarea>
                             <span class="createProduct__errorValidation">Debera contar con al menos 15 caracteres. No puede quedar en blanco. Max 100 caracteres</span>
@@ -118,7 +111,8 @@
                                 <span class="createProduct__errorValidation createProduct__errorValidationActive"><%=errors.descriptionProduct.msg%></span>
                             <% } %>
                         </div>
-                        <div id="idCategoriesDiv" class="createProduct__styleDivs createProduct__idCategoriesDiv">                  
+
+                        <div id="idCategoriesDiv" class="createProduct__styleDivs createProduct__idCategoriesDiv registerForm__clusterEight-idCategoriesDiv">                  
 
                             <p>Categorias:</p><br>
                         
@@ -151,7 +145,7 @@
                                                         
                         </div>
 
-                        <div class="createProduct__styleDivs">
+                        <div class="createProduct__styleDivs registerForm__clusterNine-brand">
                             
                             <label for="idBrand" class="createProduct__labelBox">Marca del Producto:</label>
                             <select class="createProduct__inputBox" name="idBrand" id="idBrand"> 
@@ -173,10 +167,8 @@
 
 
                         </div>
-
-                        
-
-                        <div class="createProduct__styleDivs">
+                       
+                        <div class="createProduct__styleDivs registerForm__clusterTeen-rating">
                             <label for="ratingProduct" class="createProduct__labelBox">Rating:</label>
                             <select class="createProduct__inputBox" name="ratingProduct" id="ratingProduct"> 
                                     <option selected disabled>Selecciona un Rating</option>
@@ -193,21 +185,17 @@
 
                         </div>
 
-
-                        <div class="createProduct__styleDivs">
+                        <div class="createProduct__styleDivs registerForm__clusterEleven-image">
                             <label for="imageProduct" class="createProduct__labelBox">Imagen (JPG, PNG):</label>
                             <input class="createProduct__inputBox" type="file" name="imageProduct" id="imageProduct" accept=".JPG,.PNG">
                         </div>
 
-
-
-
-                        <section class="btn createProduct-btn">
+                        <section class="btn createProduct-btn registerForm__clusterTwelve-buttons">
                             <button type="submit" class="submit">Enviar</button>
                             <button type="reset" class="reset">Restablecer</button>
                         </section>
                         
-                        <p id="createProduct__errorFormularioCreateProduct" class="createProduct__errorFormularioInactive">Completa todos los campos requeridos.</p>
+                        <p id="createProduct__errorFormularioCreateProduct" class="createProduct__errorFormularioInactive registerForm__clusterThirteen-errorsBack">Completa todos los campos requeridos.</p>
 
                     </form>
                 </div>

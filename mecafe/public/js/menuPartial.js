@@ -21,14 +21,15 @@ function selectMenuPartial(){
 
 }
 
-//en caso de que deba pintar href != route
+// En caso de que deba pintar href != route
+
 function specialCases(href, route){
+
     switch(href){
         case '/product/list':
             if(route.includes('/product/edit/')){
                 return true;
             }
-
             return false;
         case '/type-grinding/list':
             if(route.includes('/type-grinding/edit/')){

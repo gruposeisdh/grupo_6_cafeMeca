@@ -767,6 +767,7 @@ a:active {
 
 .LoginContainerOne a{
     color: var(--lox);
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -1194,7 +1195,7 @@ tr:hover td{
 }
 
 
-.createProduct__errorsContainer ul{
+.createProduct__errorsContainer h6{
     padding: 5px 10px;
     font-size:  16px;
     color: red;
@@ -1831,6 +1832,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ MENU ADMIN  ════════════════════ **/
 
 /** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
 #menu_partial{
     background-color:white;
     width: 100%;
@@ -1841,7 +1843,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .selected_menu_partial_item{
-    background-color: var(--lox)
+    background-color: var(--lox);
+    width: 100%;
 }
 
 #menu_partial ul{
@@ -1849,6 +1852,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     padding: 0;
     list-style: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -1858,6 +1862,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 #menu_partial li{
     padding: 15px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
@@ -2004,6 +2010,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .container_detail_view_user .title, .container_detail_view_admin .title{
+    text-align: center;
     font-weight: bold;
     font-size: 20px;
     padding: 10px;
@@ -3098,6 +3105,157 @@ footer {
 
 @media (min-width: 768px) {
 
+
+    /** ════════════════════ PRODUCTS CREATE  ════════════════════ **/
+
+    .createProduct__containerForm{
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .createProduct__errorFormularioActive {
+        margin: 10px 5px;
+    }
+
+    .registerForm__clusterOne-titleForm {
+        grid-area: registerForm__clusterOne-titleForm;
+    }
+
+    .registerForm__clusterTwo-errorsContainer{
+        grid-area: registerForm__clusterTwo-errorsContainer;
+    }
+
+    .registerForm__clusterThree-nameProduct{
+        grid-area: registerForm__clusterThree-nameProduct;
+    }
+
+    .registerForm__clusterFor-priceOne{
+        grid-area: registerForm__clusterFor-priceOne;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterFive-priceTwo{
+        grid-area: registerForm__clusterFive-priceTwo;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSix-priceThree{
+        grid-area: registerForm__clusterSix-priceThree;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSeven-descriptionProduct{
+        grid-area: registerForm__clusterSeven-descriptionProduct;
+    }
+
+    .registerForm__clusterEight-idCategoriesDiv{
+        grid-area: registerForm__clusterEight-idCategoriesDiv;
+    }
+
+    .registerForm__clusterNine-brand{
+        grid-area: registerForm__clusterNine-brand;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTeen-rating{
+        grid-area: registerForm__clusterTeen-rating;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterEleven-image{
+        grid-area: registerForm__clusterEleven-image;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTwelve-buttons{
+        grid-area: registerForm__clusterTwelve-buttons;
+    }
+
+    .registerForm__clusterThirteen-errorsBack{
+        grid-area: registerForm__clusterThirteen-errorsBack;
+    }
+
+    #createProduct__descriptionProduct {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    #idCategoriesDiv{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    .createProduct__textArea {
+        height: 173px;
+    }
+
+    #imageProduct{
+        border: none;
+        padding: 0;
+    }
+
+    #createProduct__nameProduct{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+    }
+
+    .createProduct__containerForm{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+
+        grid-template-areas:
+        "registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm" /* Titulo */
+        
+        "registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct"
+        
+        "registerForm__clusterFor-priceOne registerForm__clusterFive-priceTwo registerForm__clusterSix-priceThree"
+        
+        "registerForm__clusterEight-idCategoriesDiv registerForm__clusterSeven-descriptionProduct registerForm__clusterSeven-descriptionProduct"
+        
+        
+        "registerForm__clusterNine-brand registerForm__clusterTeen-rating registerForm__clusterEleven-image"
+        "registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer" /* Errores */
+        "registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack"
+        ". registerForm__clusterTwelve-buttons registerForm__clusterTwelve-buttons"
+
+    }
+
+    /** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
+    #menu_partial ul{
+        flex-direction: row;
+    }
+
+    .selected_menu_partial_item{
+        width: auto;
+    }
+
+    #menu_partial li{
+        border-bottom: none;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        justify-content: center;
+    }
+
     /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
 
     .ProductNew__detailProduct p{
@@ -3256,9 +3414,6 @@ footer {
         margin: 25px
     }
 
-
-
-  
     /** ════════════════════ USER SALES ════════════════════ **/
       
     #table__sales_user .description_total_sale{
@@ -3316,19 +3471,6 @@ footer {
         height: 200px;
     }
 
-    /* .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: block;
-        font-size: 12px;
-    }
-
-    */
-
     .home__containerColumns-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -3339,10 +3481,6 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive";
     }
 
-    /* .home__carrousel-picture div {
-        padding: 10px;
-    } */
-
     .home__containerBanner {
         height: 400px;
     }
@@ -3350,10 +3488,6 @@ footer {
     .home__logoAndTextBanner {
         font-size: 1.3em;
     }
-
-    /* .redesSocialesBanner h5{
-        font-size: 1em;
-    } */
     
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -3403,8 +3537,6 @@ footer {
         padding: 8px 8px;
     }
     
-    /* nav ul > .link-hover*/
-    
     nav ul > .link-hover :hover {
         border-radius: 5px;
         background: var(--lox);
@@ -3438,10 +3570,6 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
-
-
-    /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
-
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
