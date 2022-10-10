@@ -186,12 +186,17 @@ a:active {
 }
 
 .ProductNew__detailProduct h3{
+    height: 45px;
+    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
     background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProductNew__detailProduct p{
@@ -201,12 +206,17 @@ a:active {
 }
 
 .ProductNew__selectorCharacteristics h3{
+    height: 45px;
+    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
-    background-color: rgb(236, 229, 229);
+    background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProductNew__selector{
@@ -215,6 +225,8 @@ a:active {
     align-items: center;
     justify-content: center;
     padding: 8px 0;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 .ProductNew__selector label{
@@ -247,8 +259,21 @@ a:active {
     grid-template-columns: 1fr 3fr 1fr;
     height: 30px;
     margin: auto;
-    width: 80%;
+    width: 75%;
 }
+
+.ProductNew__amount button{
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--lox);
+    color: var(--negro-pastel);
+    text-transform: uppercase;
+    border: solid 1px var(--lox);
+    border-radius: 2px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
 
 .ProductNew__amount i{
     border: solid 1px var(--gray-pastel);
@@ -277,7 +302,8 @@ a:active {
     margin: 12px 0;
 }
 
-.ProductNew__detailProduct form button{
+.ProductNew__detailProduct form button{ /* SEGURO BORRAR DESPUES */
+    display: none;
     font-size: 18px;
     background-color: var(--negro-pastel);
     color: white;
@@ -2899,11 +2925,16 @@ footer {
 
     .ProductNew__amount div {
         grid-template-columns: 0.7fr 3fr 0.7fr;
+        width: 75%;
     }
 
     .ProductNew__Container h1{
         font-size: 22px;
         line-height: 26px;
+    }
+
+    .ProductNew__amount button{
+    width: 100%;
     }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════════════ !*/
@@ -3278,9 +3309,19 @@ footer {
         border: none;
    }
 
+   /**/
+
    .ProductNew__amount div {
         grid-template-columns: 0.6fr 3fr 0.6fr;
+        width: 75%;
+        gap: 8px;
     }
+
+    .ProductNew__amount button{
+    width: 100%;
+    }
+
+    /**/
 
     .ProductNew__clusterZeroTitle {
         grid-area: ProductNew__clusterZeroTitle;
@@ -3994,7 +4035,7 @@ footer {
     /** ═════════════════ DETAILS PRODUCT 992PX ═════════════════ !*/
 
     .ProductNew__selector{
-        padding: 15px;
+        padding: 9px;
     }
 
     .ProductNew__selector select{
@@ -4007,7 +4048,13 @@ footer {
 
     .ProductNew__amount div {
         height: 40px;
+        width: 75%;
     }
+
+    .ProductNew__amount button{
+        margin-top: 12px;
+    }
+
 
     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
@@ -4166,24 +4213,8 @@ footer {
         height: 30px;
     }
     
-    /*
-    
-    .ProductNew__clusterThreeSelectorCharacteristics{
-        border: solid 1px var(--gray-pastel);
-    }
-    
-    .ProductNew__clusterFive{
-        border: solid 1px var(--gray-pastel);
-    }
-    
-    .ProductNew__clusterForPaymentMethods{
-        border: solid 1px var(--gray-pastel);
-    }
-
-    */
-    
     .ProductNew__paymentMethodsImageProduct {
-        max-width: 300px;
+        max-width: 350px;
     }
 
     
