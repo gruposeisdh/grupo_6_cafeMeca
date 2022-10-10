@@ -159,7 +159,7 @@ router.post(
 );
 
 router.get(
-    '/administracion',
+    '/list',
     //authMiddlewares.authMiddleware,
     //authMiddlewares.adminMiddleware,
     productController.adminProducts
