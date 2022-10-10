@@ -19,7 +19,17 @@
                     <div class="profile_container_imageProfile">
                         <h2 class="profile_title_welcome">Hola <%= userProfile.firstName%>, Bienvenid@!!! </h2>
                         <img src="/img/profiles/<%= userProfile.image%>" class="profile_img_profile" />
+                    
+                        <div class="profile_contactUs_up">
+                            <img src="/img/contactUs/grano_de_cafe.png" class="profile_img_contactUs_up" />
+                            <h2 class="profile_contactUs_title_up">¿Necesitas ayuda?</h2>
+                            <p class="profile_contactUs_parraf_up">¡Hablemos por WhatsApp!</p>
+                            <a class="profile_contactUs_button_up" href="#">¡Hablemos!</a>
+                        </div>
+                    
                     </div>
+
+                    
             
                     <div class="profile_container_personalInformation">
 
@@ -49,6 +59,12 @@
                                     value="<%= userProfile.email%>" id="email" placeholder=" " >
                                     <label for="email" 
                                     class="profile_Label_form">Correo Electrónico:</label>
+                                    <% if(locals.ErrorMsg && ErrorMsg.email){ %>
+                                        <p class="register__formError">
+                                            <%= ErrorMsg.email.msg %> 
+                                        </p>
+                                    <% } %> 
+                                        
                                 </div>
                                 
                                 <div class="profile_personalInformation_label">
@@ -85,9 +101,16 @@
                                 </div>
                                 
                             </div>
-
+                                
                             <div class="profile_Btns">
                                 <button type="submit" class="profile_sendBtn" >Guardar los cambios</button>
+                            </div>
+
+                            <div class="profile_contactUs_down">
+                                <img src="/img/contactUs/grano_de_cafe.png" class="profile_img_contactUs_down" />
+                                <h2 class="profile_contactUs_title_down">¿Necesitas ayuda?</h2>
+                                <p class="profile_contactUs_parraf_down">¡Hablemos por WhatsApp!</p>
+                                <a class="profile_contactUs_button_down" href="#">¡Hablemos!</a>
                             </div>
 
                         </form>

@@ -25,6 +25,93 @@ let userController = {
         });
     },
 
+    //actualiza datos del usuario con formulario de perfil
+
+    update: (req,res) => {
+        let id = 1;
+        let name = req.body.name;
+        let lastName = req.body.lastName;
+        let email = req.body.email;
+        let phone = req.body.phone;
+        let password = req.body.password;
+        let newPassword = req.body.newPassword;
+        let confirmPassword = req.body.confirmPassword;
+        const ErrorMsg = {
+            "email":{
+                "msg": 'El email ya está siendo utilizado ',
+                "value": "email"
+            },
+
+            "password": {
+                "msg": "La contraseña no coincide con la actual",
+                "value": "password"
+            },
+
+            "newPassword": {
+                "msg": "La nueva contraseña debe ser distinta a la anterior",
+                "value": "newPassword"
+            },
+
+            "confirmPassword": {
+                "msg": "Las contraseñas no coinciden",
+                "value": "newPassword"
+            },
+        }
+        
+        db.User.findOne({ where: { id: id } }).then((usuarioEcontrado => {
+
+            if(usuarioEcontrado.firstName != name){
+                db.User.update({
+                    firstName: name
+                },{
+                    where: {id:id}}).then(pass => {
+                        res.redirect('/user/profile');
+                    })
+            }
+
+            if(usuarioEcontrado.lastName !== lastName){
+                db.User.update({
+                    lastName: lastName
+                },{
+                    where: {id:id}}).then(pass => {
+                        res.redirect('/user/profile');
+                    })
+            }
+
+            if(usuarioEcontrado.email !== email){
+                if(email !== usuarioEcontrado.email){
+                    db.User.update({
+                        email: email
+                    },{
+                        where: {id:id}}).then(pass => {
+                            res.redirect('/user/profile');
+                        })
+                 }   
+            }
+
+            if(usuarioEcontrado.phone !== phone){
+                db.User.update({
+                    phone: phone
+                },{
+                    where: {id:id}}).then(pass => {
+                        res.redirect('/user/profile');
+                    })
+            }
+
+            if(usuarioEcontrado && bcrypt.compareSync(password, usuarioEcontrado.password)){
+                if(confirmPassword == newPassword){
+                    db.User.update({
+                        password:bcrypt.hashSync(req.body.newPassword, 10),
+                    },{
+                        where: {id:id}}).then(pass => {
+                            res.redirect('/user/profile');
+                        })
+                }
+            }      
+        } 
+        ))
+    },
+
     //crea usuario con el formulario de registro 
     store: (req,res) => {
 
