@@ -1,11 +1,11 @@
 /*  JavaScript del Header */
 
-// nav toggle - select button and links 
+// Seleccion del Boton - Seleccion de los links para mostrarlos
 
 const navToggle = document.querySelector("#navToggle")
 const nav = document.querySelector("#nav-links")
 
-// add event listener
+// Agregar evento de click para el menu.
 
 navToggle.addEventListener("click", () => {
     nav.classList.toggle('nav-open')
