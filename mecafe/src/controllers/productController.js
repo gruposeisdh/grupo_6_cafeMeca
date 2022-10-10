@@ -2,7 +2,6 @@ const path = require('path');
 const db = require('../../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-const fileproducts = require('../models/product');
 const { validationResult } = require('express-validator');
 
 //Aqui tienen una forma de llamar a cada uno de los modelos
