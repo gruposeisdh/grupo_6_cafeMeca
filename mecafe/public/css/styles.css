@@ -82,7 +82,10 @@ a:active {
     display: flex;
 }
 
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
+
+
 
 /* .redesSocialesBanner {
 
@@ -325,7 +328,6 @@ a:active {
     background-attachment: fixed;  
     background-size: cover;
     min-height: calc(100vh - var(--tamanoFooter) - 66px);
-    /*overflow: auto;*/
 }
 
 .error404__container{
@@ -569,16 +571,51 @@ a:active {
     flex-direction: column;
     width: 100%;
     background-color: var(--negro-pastel);
-    z-index: 9999
+    z-index: 9999;
 }
 
 .nav-link-desplagable a {
-    padding: 10px 0 ;
-    color: var(--lox);
+    padding: 7px 20px 7px 8px;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.nav-link-desplagable form{
+    padding-bottom: 5px;
 }
 
 .nav-link-aparecer{
     display: none;
+}
+
+#cartLogo__container{
+    position: relative;
+}
+
+#cartLogo__container a:hover {
+    border-radius: 4px;
+    background: var(--lox);
+    transition: .5s;
+    color: #000000;
+    font-weight: 800;
+}
+
+#cartLogo__number{
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 11px;
+    background-color: var(--lox);
+    border: solid 1px white;
+    color: #000000;
+    border-radius: 50%;
+    bottom: 9px;
+    right: -5px;
+    padding: 4px;
 }
 
 
@@ -679,14 +716,6 @@ a:active {
     overflow: scroll;
 
 }
-
-/* .login__container form input[type="checkbox"] {
-    width: auto;
-} */
-
-/*.login__container form div a {
-    margin-left: 20px;
-} */
 
 .login_logo{
     padding: 20px 0;
@@ -999,7 +1028,6 @@ tr:hover td{
     background-color: #000000;
     color: white;
 }
-
 
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
@@ -1596,8 +1624,6 @@ tr:hover td{
     display: none;
 }
 
-
-
 /*? --------------  MEDIOS DE PAGO  ------------ ?*/
 
 .product-buttons-payment {
@@ -2025,9 +2051,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-bottom: solid 2px var(--lox);
 }
 
-
-
-
 /** ════════════════════ USER SALES ════════════════════ **/
 
 .container_detail_view_user, .container_detail_view_admin {
@@ -2064,7 +2087,6 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: none;
 }
  
-
 #table__sales_user .button_go_to_sale {
     background-color: black;
     color: white;
@@ -2236,10 +2258,6 @@ article .header_list_direction_detail{
 .formDirection__btn:hover {
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
-
-/*.errorCampoDiv input {
-    box-shadow: 0px 0px 6px red;
-}*/
 
 .btnSendRegister {
     background: #0f82fc;
@@ -2467,29 +2485,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-
-/* .home__carrousel {
-    text-align: center;
-    display: block;
-    margin: 20px 20px;
-}
-
-.home__carrousel-picture {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 7px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-
-.home__carrousel-picture li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-} */
-
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 
@@ -2508,30 +2503,6 @@ body {
 }
 
 /** ════════════════════ PRODUCT ════════════════════ **/
-
-
-/* .home__carrousel-picture i {
-    border: solid 1px var(--blue-pastel);
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 12px;
-    color: var(--blue-pastel);
-}
-
-.home__carrousel-picture p {
-    display: none;
-}
-
-.home__carrousel-picture h4 {
-    font-weight: bold;
-    font-size: 0.5em;
-    margin: 5px;
-}
-
-.home__carrousel-picture div {
-    padding: 5px;
-    width: 100%;
-} */
 
 .home__containerColumns img {
     width: 100%;
@@ -2648,10 +2619,6 @@ body {
     box-shadow: 2px 5px 16px 0px #cdcdcd;
 }
 
-/*.errorCampoDiv input {
-    box-shadow: 0px 0px 6px red;
-}*/
-
 .btnSendRegister {
     background: #0f82fc;
     color: white;
@@ -2659,11 +2626,13 @@ body {
 }
 
 /* mensaje de validacion front-Yohanna */
+
 .register_formErrorFrontGeneral {
    display: none;
 }
 
 /* mensaje error general de validacion front-Yohanna */
+
 .registerForm__menssageError {
     height: 40px;
     color: red;
@@ -2720,6 +2689,7 @@ body {
 /* estilos para validacion front-Yohanna */
 
 /* validaciones de iconos cuando es correcto */
+
 .registerForm_errorItem-correcto{
     position: absolute;
     right: 22px;
@@ -2730,6 +2700,7 @@ body {
 }
 
 /* validaciones de iconos cuando es incorrecto */
+
 .registerForm_errorItem-incorrecto{
     position: absolute;
     right: 22px;
@@ -2740,11 +2711,13 @@ body {
 }
 
 /* mensaje error general activo de validacion front-Yohanna */
+
 .registerForm__menssageError-active {
     display: block;
 }
 
 /* mensaje de validacion activo front-Yohanna */
+
 .register_formErrorFrontGeneral-active {
     margin-top: 0.7em;
     color: red;
@@ -2986,7 +2959,6 @@ footer {
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 
-
     /** ════════════════════ PRODUCT ════════════════════ **/
 
 
@@ -2998,18 +2970,14 @@ footer {
     /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
 
-
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
 
     /** ════════════════════ DETAIL PRODUCTS  ════════════════════ **/
 
-    /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
-
     .product-img {
         width: 95%;
     }
-
 
     /** ════════════════════ CART ════════════════════ **/
 
@@ -3063,36 +3031,6 @@ footer {
         font-size: 14px;
     }
 
-    /* .home__carrousel {
-        text-align: center;
-        display: block;
-        margin: 20px 20px;
-    }
-
-    .home__carrousel-picture {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        background-color: white;
-        border: solid 1px rgb(235, 235, 235);
-        border-radius: 10px;
-    }
-
-    .home__carrousel-picture i {
-        padding: 15px;
-        font-size: 18px;
-    }
-
-    .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 12px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: none;
-        font-size: 12px;
-    } */
-
     .home__containerBanner {
         height: 300px;
     }
@@ -3100,23 +3038,6 @@ footer {
     .home__logoAndTextBanner {
         font-size: .9em;
     }
-    
-    /* .redesSocialesBanner {
-        column-gap: 0;
-        padding: .5em .2em;
-    }
-    
-    .redesSocialesBanner__icon{
-        font-size: 2.2em;
-    }
-    
-    .redesSocialesBanner__icons{
-        column-gap: 6px;
-    }
-
-    .redesSocialesBanner h5{
-        font-size: .9em;
-    } */
 
     /** ════════════════════════════  New FOOTER  ════════════════════════════════ **/
 
@@ -3399,18 +3320,69 @@ footer {
     }
 
     .nav-link-desplagable{ 
-        padding: 0px 0px 0px 8px;
-        transition: all 1s;
+        padding: 0px 0px 5px 8px;
         position: absolute;
         top: 40px;
         border-radius: 3px;
+        min-width: 100%;
+        width: max-content;
+        max-width: 300px;
     }
 
     .flex-nav {
-        overflow: visible; /* Revisar esto va en hidden*/
+        overflow: visible;
     }
 
+    .nav-header {
+        display: block;
+    }
 
+    .flex-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    nav-links ul {
+        text-align: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        border-bottom: none;
+    }
+    
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    nav ul > .link-hover :hover {
+        border-radius: 4px;
+        background: var(--lox);
+        transition: .5s;
+        color: #000000;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: var(--lox);
+        transition: all .5s;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -3603,7 +3575,6 @@ footer {
     .nav-link-aparecer{
         color: withe;
     }
-
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -3885,17 +3856,6 @@ footer {
         height: 200px;
     }
 
-    /* .home__carrousel-picture h4 {
-        font-weight: bold;
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .home__carrousel-picture p {
-        display: block;
-        font-size: 12px;
-    } */
-
     .home__containerColumns-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -3906,14 +3866,6 @@ footer {
             "home__clusterFor home__clusterTwo home__clusterFive"
         ;
     }
-
-    /* .home__carrousel-picture div {
-        padding: 10px;
-    } */
-
-    /* .redesSocialesBanner {
-        width: 77vw;
-    } */
 
     /** ════════════════════ FORMULARIO DE REGISTRO >> REGISTER ════════════════════ **/
 
@@ -4101,26 +4053,6 @@ footer {
         font-size: 1.5em;
     }
 
-    /* .redesSocialesBanner h5{
-        padding: 8px;
-        font-size: 1.3em;
-    }
-
-    .redesSocialesBanner {
-        width: 77vw;
-        padding: .5em .2em;
-    }
-    
-    .redesSocialesBanner__icon{
-        font-size: 3em;
-    }
-    
-    .redesSocialesBanner__icons{
-        column-gap: 9px;
-    }
-
-    */
-
     /** ════════════════════ DESCRIPCION DE PRODUCTO ════════════════════ **/
 
     /*? --------------  DETALLE DEL PRODUCTO ------------ ?*/
@@ -4271,18 +4203,6 @@ footer {
         max-width: 80vw;
         margin: auto;
     }
-
-    /* .home__carrousel-picture h4 {
-        font-size: 20px;
-    }
-
-    .home__carrousel-picture p {
-        font-size: 14px;
-    } */
-
-    /* .redesSocialesBanner h5 {
-        letter-spacing: 4px;
-    } */
 
     /** ════════════════════ DETAIL PRODUCT ════════════════════ **/
 
