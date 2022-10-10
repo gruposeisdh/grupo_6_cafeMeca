@@ -193,12 +193,17 @@ a:active {
 }
 
 .ProductNew__detailProduct h3{
+    height: 45px;
+    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
-    background-color: rgb(236, 229, 229);
+    background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProductNew__detailProduct p{
@@ -208,12 +213,17 @@ a:active {
 }
 
 .ProductNew__selectorCharacteristics h3{
+    height: 45px;
+    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
-    background-color: rgb(236, 229, 229);
+    background-color: var(--negro-pastel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ProductNew__selector{
@@ -222,6 +232,8 @@ a:active {
     align-items: center;
     justify-content: center;
     padding: 8px 0;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 .ProductNew__selector label{
@@ -254,8 +266,21 @@ a:active {
     grid-template-columns: 1fr 3fr 1fr;
     height: 30px;
     margin: auto;
-    width: 80%;
+    width: 75%;
 }
+
+.ProductNew__amount button{
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--lox);
+    color: var(--negro-pastel);
+    text-transform: uppercase;
+    border: solid 1px var(--lox);
+    border-radius: 2px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
 
 .ProductNew__amount i{
     border: solid 1px var(--gray-pastel);
@@ -281,6 +306,10 @@ a:active {
 
 .ProductNew__detailProduct button{
     margin: 12px 0;
+}
+
+.ProductNew__detailProduct form button{ /* SEGURO BORRAR DESPUES */
+    display: none;
     font-size: 18px;
     background-color: var(--negro-pastel);
     color: white;
@@ -796,6 +825,7 @@ a:active {
 
 .LoginContainerOne a{
     color: var(--lox);
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -1222,7 +1252,7 @@ tr:hover td{
 }
 
 
-.createProduct__errorsContainer ul{
+.createProduct__errorsContainer h6{
     padding: 5px 10px;
     font-size:  16px;
     color: red;
@@ -1857,6 +1887,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 /** ════════════════════ MENU ADMIN  ════════════════════ **/
 
 /** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
 #menu_partial{
     background-color:white;
     width: 100%;
@@ -1867,7 +1898,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .selected_menu_partial_item{
-    background-color: var(--lox)
+    background-color: var(--lox);
+    width: 100%;
 }
 
 #menu_partial ul{
@@ -1875,6 +1907,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     padding: 0;
     list-style: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -1884,6 +1917,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 #menu_partial li{
     padding: 15px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
 }
 
 /** ════════════════════ CONTAINER USER SALES ════════════════════ **/
@@ -2027,6 +2062,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .container_detail_view_user .title, .container_detail_view_admin .title{
+    text-align: center;
     font-weight: bold;
     font-size: 20px;
     padding: 10px;
@@ -2865,11 +2901,16 @@ footer {
 
     .ProductNew__amount div {
         grid-template-columns: 0.7fr 3fr 0.7fr;
+        width: 75%;
     }
 
     .ProductNew__Container h1{
         font-size: 22px;
         line-height: 26px;
+    }
+
+    .ProductNew__amount button{
+    width: 100%;
     }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════════════ !*/
@@ -3019,6 +3060,157 @@ footer {
 
 @media (min-width: 768px) {
 
+
+    /** ════════════════════ PRODUCTS CREATE  ════════════════════ **/
+
+    .createProduct__containerForm{
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .createProduct__errorFormularioActive {
+        margin: 10px 5px;
+    }
+
+    .registerForm__clusterOne-titleForm {
+        grid-area: registerForm__clusterOne-titleForm;
+    }
+
+    .registerForm__clusterTwo-errorsContainer{
+        grid-area: registerForm__clusterTwo-errorsContainer;
+    }
+
+    .registerForm__clusterThree-nameProduct{
+        grid-area: registerForm__clusterThree-nameProduct;
+    }
+
+    .registerForm__clusterFor-priceOne{
+        grid-area: registerForm__clusterFor-priceOne;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterFive-priceTwo{
+        grid-area: registerForm__clusterFive-priceTwo;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSix-priceThree{
+        grid-area: registerForm__clusterSix-priceThree;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+    }
+
+    .registerForm__clusterSeven-descriptionProduct{
+        grid-area: registerForm__clusterSeven-descriptionProduct;
+    }
+
+    .registerForm__clusterEight-idCategoriesDiv{
+        grid-area: registerForm__clusterEight-idCategoriesDiv;
+    }
+
+    .registerForm__clusterNine-brand{
+        grid-area: registerForm__clusterNine-brand;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTeen-rating{
+        grid-area: registerForm__clusterTeen-rating;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterEleven-image{
+        grid-area: registerForm__clusterEleven-image;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .registerForm__clusterTwelve-buttons{
+        grid-area: registerForm__clusterTwelve-buttons;
+    }
+
+    .registerForm__clusterThirteen-errorsBack{
+        grid-area: registerForm__clusterThirteen-errorsBack;
+    }
+
+    #createProduct__descriptionProduct {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    #idCategoriesDiv{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    .createProduct__textArea {
+        height: 173px;
+    }
+
+    #imageProduct{
+        border: none;
+        padding: 0;
+    }
+
+    #createProduct__nameProduct{
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+    }
+
+    .createProduct__containerForm{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+
+        grid-template-areas:
+        "registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm registerForm__clusterOne-titleForm" /* Titulo */
+        
+        "registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct registerForm__clusterThree-nameProduct"
+        
+        "registerForm__clusterFor-priceOne registerForm__clusterFive-priceTwo registerForm__clusterSix-priceThree"
+        
+        "registerForm__clusterEight-idCategoriesDiv registerForm__clusterSeven-descriptionProduct registerForm__clusterSeven-descriptionProduct"
+        
+        
+        "registerForm__clusterNine-brand registerForm__clusterTeen-rating registerForm__clusterEleven-image"
+        "registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer registerForm__clusterTwo-errorsContainer" /* Errores */
+        "registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack"
+        ". registerForm__clusterTwelve-buttons registerForm__clusterTwelve-buttons"
+
+    }
+
+    /** ════════════════════ MENU PARTIAL  ════════════════════ **/
+
+    #menu_partial ul{
+        flex-direction: row;
+    }
+
+    .selected_menu_partial_item{
+        width: auto;
+    }
+
+    #menu_partial li{
+        border-bottom: none;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        justify-content: center;
+    }
+
     /** ═════════════════ DETAILS PRODUCT 768PX ═════════════════ !*/
    
     .ProductNew__detailProduct p{
@@ -3041,9 +3233,19 @@ footer {
         border: none;
    }
 
+   /**/
+
    .ProductNew__amount div {
         grid-template-columns: 0.6fr 3fr 0.6fr;
+        width: 75%;
+        gap: 8px;
     }
+
+    .ProductNew__amount button{
+    width: 100%;
+    }
+
+    /**/
 
     .ProductNew__clusterZeroTitle {
         grid-area: ProductNew__clusterZeroTitle;
@@ -3228,9 +3430,6 @@ footer {
         margin: 25px
     }
 
-
-
-  
     /** ════════════════════ USER SALES ════════════════════ **/
       
     #table__sales_user .description_total_sale{
@@ -3326,6 +3525,56 @@ footer {
         padding: .5em 0;
     }
 
+    .nav-header {
+        display: block;
+    }
+
+    .flex-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    nav-links ul {
+        text-align: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        border-bottom: none;
+    }
+    
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    nav ul > .link-hover :hover {
+        border-radius: 5px;
+        background: var(--lox);
+        transition: .5s;
+        color: #000000;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: white;
+        font-weight: 800;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
 
     /*! ════════════════════ MAIN ════════════════════ !*/
 
@@ -3336,10 +3585,6 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
-
-
-    /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
-
 
     /** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
 
@@ -3745,7 +3990,7 @@ footer {
     /** ═════════════════ DETAILS PRODUCT 992PX ═════════════════ !*/
 
     .ProductNew__selector{
-        padding: 15px;
+        padding: 9px;
     }
 
     .ProductNew__selector select{
@@ -3758,7 +4003,13 @@ footer {
 
     .ProductNew__amount div {
         height: 40px;
+        width: 75%;
     }
+
+    .ProductNew__amount button{
+        margin-top: 12px;
+    }
+
 
     /** ════════════════════ USER DIRECTIONS ════════════════════ **/
 
@@ -3898,7 +4149,7 @@ footer {
     }
     
     .ProductNew__paymentMethodsImageProduct {
-        max-width: 300px;
+        max-width: 350px;
     }
 
     
