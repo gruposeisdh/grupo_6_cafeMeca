@@ -103,6 +103,16 @@ let productController = {
 
     store: (req, res) => {
 
+        let imageNewProduct = function (reqFile){
+            let imageProduct = ""
+            if (reqFile == undefined){
+                imageProduct = "default-product-image.png";
+            } else {
+                imageProduct = reqFile.filename;
+            }
+            return imageProduct;
+        }
+
         let nameProduct = req.body.nameProduct
         let weightProduct1 = req.body.weightProduct1
         let priceProduct1 = req.body.priceProduct1
@@ -167,7 +177,7 @@ let productController = {
                 }
     
                 db.ImageProduct.create({
-                    path: fileproducts.imageProductNew(req.file),
+                    path: imageNewProduct(req.file),
                     product_id: product.id,
                 })           
             })
