@@ -12,37 +12,6 @@ const validateLogin = [
     check('password').notEmpty().withMessage('Debes completar el Password')
 ];
 
-//Validaciones del formulario de actualizaciones de perfil 
-
-const validateUpdateuser = [
-    check('email').isEmail().withMessage('Debes ingresar un formato de correo válido. example@example.com').bail().custom(value => {
-        return db.User.findOne({ where: {email: value} })
-           .then((user) => {
-                if(!user){
-                    return true;
-                }
-                    return Promise.reject('Este email ya está siendo utilizado')
-           })
-     }),
-    check('password').custom(value => {
-        return db.User.findOne({ where: {password: value} })
-           .then((id) => {
-                if(id == userProfile.id){
-                    return true;
-                }
-                    return Promise.reject('La contraseña actual es incorrecta')
-           })
-     }),
-    check('newPassword').isLength({min:8}).withMessage('La contraseña debe tener mínimo 8 caracteres'),
-    check('confirmPassword').custom((value, { req }) => {
-        if (value !== req.body.newPassword) {
-          throw new Error('Las contraseñas escritas no coinciden, inténtalo de nuevo');
-        }
-          return true;
-        })
-]
-
-
 //Validaciones del formulario de registro
 
 const validateCreateUser = [
@@ -96,11 +65,10 @@ router.post(
     userController.store
 ); 
 
-//actualiza datos de usuario
+//procesa actualizacion datos de usuario
 router.post(
     '/profile',
-    authMiddlewares.guestMiddleware,
-    validateUpdateuser, 
+    // authMiddlewares.guestMiddleware,
     userController.update
 ); 
 
