@@ -82,7 +82,10 @@ a:active {
     display: flex;
 }
 
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
+
+
 
 /* .redesSocialesBanner {
 
@@ -540,16 +543,42 @@ a:active {
     flex-direction: column;
     width: 100%;
     background-color: var(--negro-pastel);
-    z-index: 9999
+    z-index: 9999;
 }
 
 .nav-link-desplagable a {
-    padding: 10px 0 ;
-    color: var(--lox);
+    padding: 7px 20px 7px 8px;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .nav-link-aparecer{
     display: none;
+}
+
+/*! ════════════════════ Resolviendo problema Logo (HEADER) ════════════════════ !*/
+
+#cartLogo__container{
+    position: relative;
+}
+
+
+#cartLogo__number{
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 11px;
+    background-color: var(--lox);
+    border: solid 1px white;
+    color: #000000;
+    border-radius: 50%;
+    bottom: 9px;
+    right: -5px;
+    padding: 4px;
 }
 
 
@@ -3197,18 +3226,69 @@ footer {
     }
 
     .nav-link-desplagable{ 
-        padding: 0px 0px 0px 8px;
-        transition: all 1s;
+        padding: 0px 0px 5px 8px;
         position: absolute;
         top: 40px;
         border-radius: 3px;
+        min-width: 100%;
+        width: max-content;
+        max-width: 300px;
     }
 
     .flex-nav {
         overflow: visible; /* Revisar esto va en hidden*/
     }
 
+    .nav-header {
+        display: block;
+    }
 
+    .flex-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .nav-links {
+        height: auto;
+    }
+
+    nav-links ul {
+        text-align: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        border-bottom: none;
+    }
+    
+    .link-hover-link{
+        padding: 8px 8px;
+    }
+    
+    nav ul > .link-hover :hover {
+        border-radius: 4px;
+        background: var(--lox);
+        transition: .5s;
+        color: #000000;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable{
+        background: var(--negro-pastel);
+        color: white;
+        font-weight: 800;
+    }
+
+    div .nav-link-desplagable :hover{
+        color: var(--lox);
+        transition: all .5s;
+    }
+
+    .nav-link-aparecer{
+        color: withe;
+    }
 
     /*! ═════════════════ MODAL CHANGE PASSWORD ═════════ !*/
 
@@ -3373,59 +3453,6 @@ footer {
 
     .registerForm__form input {
         padding: .5em 0;
-    }
-
-    .nav-header {
-        display: block;
-    }
-
-    .flex-nav {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 40px;
-    }
-
-    .nav-links {
-        height: auto;
-    }
-
-    nav-links ul {
-        text-align: center;
-    }
-
-    .nav-link {
-        display: inline-block;
-        border-bottom: none;
-    }
-    
-    .link-hover-link{
-        padding: 8px 8px;
-    }
-    
-    /* nav ul > .link-hover*/
-    
-    nav ul > .link-hover :hover {
-        border-radius: 5px;
-        background: var(--lox);
-        transition: .5s;
-        color: #000000;
-        font-weight: 800;
-    }
-
-    div .nav-link-desplagable{
-        background: var(--negro-pastel);
-        color: white;
-        font-weight: 800;
-    }
-
-    div .nav-link-desplagable :hover{
-        color: white;
-        font-weight: 800;
-    }
-
-    .nav-link-aparecer{
-        color: withe;
     }
 
 
