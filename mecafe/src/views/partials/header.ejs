@@ -14,7 +14,7 @@
                 <li class="nav-link link-hover"><a class="link-hover-link" href="/">Inicio</a></li>
                 <li class="nav-link link-hover"><a class="link-hover-link" href="/product">Productos</a></li>
 
-                <li class="nav-link link-hover selector-Nav" id="quienesSomos" ><a class="link-hover-link" href="#">Informacion <i class="fa-solid fa-caret-down"></i></a>
+                <li class="nav-link selector-Nav link-hover" id="quienesSomos" ><a class="link-hover-link" href="#">Informacion <i class="fa-solid fa-caret-down"></i></a>
 
                     <div class="nav-link-desplagable nav-link-aparecer">
                         <a href="">Historia</a>
@@ -25,7 +25,7 @@
         
                 <% if(locals.user && locals.user.role == 1) { %>
 
-                    <li class="nav-link link-hover selector-Nav" id="navbarAdmin"><a class="link-hover-link" href="#">Admin <i class="fa-solid fa-caret-down"></i> </a>
+                    <li class="nav-link selector-Nav link-hover" id="navbarAdmin"><a class="link-hover-link" href="#">Admin <i class="fa-solid fa-caret-down"></i> </a>
                     
                         <div class="nav-link-desplagable nav-link-aparecer">
                             <a href="/user/list">Usuarios</a>
@@ -37,7 +37,7 @@
 
                     </li> 
 
-                    <li class="nav-link link-hover selector-Nav" id="navbarPerfil"><a class="link-hover-link" href="#">Perfil <i class="fa-solid fa-caret-down"></i></a>
+                    <li class="nav-link selector-Nav link-hover" id="navbarPerfil"><a class="link-hover-link" href="#">Perfil <i class="fa-solid fa-caret-down"></i></a>
 
                         <div class="nav-link-desplagable nav-link-aparecer">
                             <a href="/user/profile">Mis Datos</a>
