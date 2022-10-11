@@ -233,12 +233,9 @@ let productController = {
 
         let id = req.params.id
         let nameProduct = req.body.nameProduct
-        let weightProduct1 = req.body.weightProduct1
-        let priceProduct1 = req.body.priceProduct1
-        let weightProduct2 = req.body.weightProduct2
-        let priceProduct2 = req.body.priceProduct2
-        let weightProduct3 = req.body.weightProduct3
-        let priceProduct3 = req.body.priceProduct3
+
+        let priceProducts = req.body.priceProduct;
+        let weightProducts = req.body.weightProduct;
 
         // Es el req.body.idCategories que utilizo en idCategories para no ser tan repetitivo
         // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
@@ -264,37 +261,33 @@ let productController = {
                     }                    
                 })
                 
-                db.ProductGrame.update({
-                    product_id: product.id,
-                    grames: weightProduct1,
-                    price: priceProduct1,
-                }, {
-                    where: {
-                        grames: weightProduct1,
-                        product_id: product.id
+                priceProducts.forEach((priceProduct, index) => {
+                    if(priceProduct > 0 ){
+                        db.ProductGrame.update({
+                            product_id: product.id,
+                            grames: weightProducts[index],
+                            price: priceProduct,
+                        }, {
+                            where: {
+                                grames: weightProducts[index],
+                                product_id: product.id
+                            }
+                        })
+                    }else{ //vaciar en carrito
+                        db.ProductGrame.findOne({                         
+                            where: {
+                                grames: weightProducts[index],
+                                product_id: product.id
+                            }
+                        }).then((productGrame) => { 
+                            db.DetailCart.destroy({
+                                where : {product_grame_id: productGrame.id}
+                            })
+                        })
                     }
-                })
-                db.ProductGrame.update({
-                    product_id: product.id,
-                    grames: weightProduct2,
-                    price: priceProduct2,
-                }, {
-                    where: {
-                        grames: weightProduct2,
-                        product_id: product.id
-                    }
-                })
-                db.ProductGrame.update({
-                    product_id: product.id,
-                    grames: weightProduct3,
-                    price: priceProduct3,
-                }, {
-                    where: {
-                        grames: weightProduct3,
-                        product_id: product.id
-                    }
-                })
-                
+                    
+                })               
+              
                 if (req.file) {
 
                     db.ImageProduct.update({
