@@ -1,9 +1,8 @@
-
 // seleccion del formulario
 let form = document.getElementById('registerForm__form');
 
 // seleccion de todos los input
-let input = document.querySelectorAll('.registerForm__form input');
+let input = document.querySelectorAll('#registerForm__form input');
 
 
 // Declaraciòn de expresiones regulares
@@ -109,3 +108,4 @@ form.addEventListener('submit', (e) => {
     document.getElementById('menssageError').classList.add('registerForm__menssageError-active');
   }
 })
+
