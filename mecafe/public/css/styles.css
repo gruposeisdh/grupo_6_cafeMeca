@@ -670,6 +670,17 @@ a:active {
     padding: 25px;
 }
 
+.form-group label{
+    z-index: -1;
+}
+
+.form-group input{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+
+
+
 .modal__formError {
     margin-top: 0.7em;
     color: red;
@@ -783,6 +794,7 @@ a:active {
     margin: auto;
     background-color: white;
     position: relative;
+    z-index: 1;
 }
 
 .registerForm__form-login div {

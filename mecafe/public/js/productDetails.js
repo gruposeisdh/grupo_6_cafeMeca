@@ -3,7 +3,7 @@ let removeOne = document.querySelector("#removeOne")
 let quantity = document.querySelector("#quantity")
 
 
-let inicio = 0; //se inicializa una variable en 0
+let inicio = 1; //se inicializa una variable en 0
 
 function aumentar () {
     quantity.value = ++inicio;
@@ -30,13 +30,12 @@ let inputIdProductGrame = document.getElementById('idProductGrame');
 inputIdProductGrame.addEventListener("change", () => {
     let option = inputIdProductGrame.options[inputIdProductGrame.selectedIndex];
     let productPrice = document.getElementById('productPrice');
-    productPrice.textContent = option.getAttribute('priceValue');
+    productPrice.textContent = option.getAttribute('priceValue') + " USD";
 })
 
 let formulario = document.getElementById("addProductCart");
 
 formulario.addEventListener("submit", (e) => {
-    console.log("pepe")
     e.preventDefault()
 
     let inputIdProductGrame = document.getElementById('idProductGrame');
