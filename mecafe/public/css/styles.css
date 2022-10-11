@@ -671,15 +671,12 @@ a:active {
 }
 
 .form-group label{
-    z-index: -1;
+    z-index: -1; /* Cambio Login Nico - Antes no tenia nada aca */
 }
 
 .form-group input{
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0); /* Cambio Login Nico - Antes no tenia nada aca */
 }
-
-
-
 
 .modal__formError {
     margin-top: 0.7em;
@@ -794,7 +791,7 @@ a:active {
     margin: auto;
     background-color: white;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Cambio Login Nico - Antes no tenia nada aca */
 }
 
 .registerForm__form-login div {
