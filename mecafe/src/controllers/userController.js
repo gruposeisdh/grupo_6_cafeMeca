@@ -165,7 +165,7 @@ let userController = {
             if(userEncontrado && bcrypt.compareSync(pass, userEncontrado.password)){
                 req.session.user = userEncontrado;
                 req.session.errorsLogin = undefined;
-                if(route == '/'){
+                if(route == ''){
                     return res.redirect('/user/profile');
                 }
                 return res.redirect(route);

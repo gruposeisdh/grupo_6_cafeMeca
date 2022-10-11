@@ -90,7 +90,7 @@
 
                                     <% product.type_grindings.forEach(type_grindings => { %> 
 
-                                        <% if( element.id == type_grindings.id ) { %> 
+                                        <% if( element.id == type_grindings.id && type_grindings.ProductTypeGrinding.active === true) { %> 
 
                                             checked 
 

@@ -57,7 +57,9 @@
                                 <option selected disabled>Selecciona la Molienda</option>
 
                                 <% product.type_grindings.forEach( element => { %>
-                                    <option value="<%=element.ProductTypeGrinding.id%>"><%=element.name%></option>
+                                    <% if(element.ProductTypeGrinding.active) {%>
+                                        <option value="<%=element.ProductTypeGrinding.id%>"><%=element.name%></option>
+                                    <% } %>                                   
                                 <% }); %>
 
                             </select> 
