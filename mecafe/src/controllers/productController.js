@@ -58,20 +58,33 @@ let productController = {
     // TODO - Pedirle a Joha que me explique esto porque recuerdo que lo hicimos pero me olvide el association.
 
     index: (req, res) => {
+        
+        let categories = req.query.idCategories ? req.query.idCategories : [];
+        let idCategories = categories.length == 1 ? [categories] : categories;
 
-        db.Product.findAll(
+        let where = {};
+        where.active = true;
+
+        console.log(idCategories)
+        if(idCategories.length > 0){
+            //where.firstName = { [Op.in]: idCategories };
+        }
+        
+        let typeGrindings = db.TypeGrinding.findAll();
+        let products = db.Product.findAll(
             {include: [
                 {model: db.TypeGrinding, as: "type_grindings",  through: { attributes: [],}},
                 {model: db.ProductGrame, as: "products_grames" },
                 {model: db.ImageProduct, as: "images_products" }, 
                 {association : "brands"}
-            ], where: {active: true}}
-        )
+            ], where: where })
 
-            .then((allProducts) => {
-                //res.send(allProducts)
-                res.render(path.resolve(__dirname, "../views/product/list.ejs"), { allProducts:allProducts })
-            })
+        Promise.all([products, typeGrindings])
+        .then(([products, typeGrindings]) => {
+            //res.send(products)
+            res.render(path.resolve(__dirname, "../views/product/list.ejs"), { products: products, typeGrindings: typeGrindings })
+        })
+
     },
 
     adminProducts: (_req, res) => {
@@ -128,7 +141,7 @@ let productController = {
 
         // let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
         let categories = req.body.idCategories
-        let idCategories = categories == 1 ? [categories] : categories 
+        let idCategories = categories.length == 1 ? [categories] : categories 
 
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand

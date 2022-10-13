@@ -15,34 +15,46 @@
         <section class="listProduct">
 
             <div class="listProduct__containerFilter">
-
-                <div class="listProduct__titleFilter">
-                    <p>Filtro</p>
-                </div>
-
-                <ul>
-
-                    <div>
-                        <li>Marca</li>
-                        <i class="fa-solid fa-angle-down"></i>
+                <form action="" method="get">
+                    <div class="listProduct__titleFilter">
+                        <p>Filtro</p>
                     </div>
 
-                    <div>
-                        <li>Peso</li>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
+                    <ul>
 
-                    <div>
-                        <li>Caracteristica</li>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
+                        <div>
+                            <li>Peso</li>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <label for="grames" class="createProduct__labelCategory">
+                            <input type="checkbox" id="" name="grames" value="grames" >
+                            
+                            <label for="grames" class="createProduct__labelCategory"></label>
+                            <input type="checkbox" id="" name="grames" value="grames" >
+                            <input type="checkbox" id="" name="grames" value="grames" >
+                        </div>
 
-                    <div>
-                        <li>Molienda</li>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
+                        <div>
+                            <li>Molienda</li>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div>
+                            <% typeGrindings.forEach( element => { %>
+                            
+                                <label for="idCategories" class="createProduct__labelCategory">
+                    
+                                    <input type="checkbox" id="<%= element.id %>" name="idCategories" value="<%= element.id %>">
+                    
+                                <%= element.name %></label>
+                    
+                            <% }); %>  
+                            
+                        </div>
 
-                </ul>
+                    </ul>
+                    <button type="submit">Filtrar</button>
+                </form>
 
             </div>
 
@@ -54,7 +66,7 @@
 
                 <div class="listProduct__boxProducts">
 
-                    <% allProducts.forEach (element => { %>
+                    <% products.forEach (element => { %>
 
                     <a href="/product/detail/<%= element.id %>">
 
@@ -69,7 +81,19 @@
 
                             <div class="listProduct__detailsProducts">
                                 <div>
-                                    <p class="listProduct__price">Precio: <%= element.images_products.path %> USD</p>
+                                    <p class="listProduct__price">Precio Desde: 
+                                        <% // hace un array de precios (omite los precios 0)
+                                            let prices = element.products_grames.map((productGrame) => {
+                                                return productGrame.price > 0 ? productGrame.price : false;
+                                            }).filter((price) => { return price}) 
+                                        %>
+                                        
+                                          <%= parseFloat(Math.min.apply(null, prices)).toFixed(2); %>
+                                            <!-- si quieres el hasta: (puede que solo haya un precio para el producto - en ese caso prices.length == 1) -->
+                                          <% parseFloat(Math.max.apply(null, prices)).toFixed(2); %>
+                                  
+                                        
+                                        USD</p>
                                     <p>Envio gratis</p>
                                 </div>
 
