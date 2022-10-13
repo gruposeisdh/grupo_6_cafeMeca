@@ -77,8 +77,15 @@ let productController = {
 
     adminProducts: (_req, res) => {
 
-        db.Product.findAll()
+        db.Product.findAll( {
+            include: [
+                {model: db.TypeGrinding, as: "type_grindings"},
+                {model: db.ProductGrame, as: "products_grames" },
+                {model: db.ImageProduct, as: "images_products" }, 
+                {association : "brands"}
+            ],where: {active: true}})
             .then(allProducts => {
+                //res.send(allProducts)
                 res.render((path.resolve(__dirname, "../views/product/adminProduct.ejs")), { allProducts: allProducts })
             })
 

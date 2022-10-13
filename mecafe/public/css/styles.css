@@ -78,6 +78,19 @@ a:active {
     display: none !important;
 }
 
+.display-flex{
+    display: flex;
+}
+
+.badge {   
+    background-color: var(--lox);
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 1px;
+    font-weight: bold;
+}
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
 
 .redesSocialesBanner {
