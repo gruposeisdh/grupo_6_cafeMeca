@@ -9,10 +9,18 @@
 
     <!-- Contenido -->
     <section class="generalHome">  
+        
         <div class="container_users">
+
+            <!-- Menu superior -->
             <%- include("../partials/menuUser") %>
-            <div class="container_detail_view_user container__table_sales_user">
-                <p class="title">Mis Pedidos</p>
+
+            <div class="container_detail_view_user_sales container__table_sales_user"> 
+                <div class="header_direction_detail_sales">
+                    <p class="title">Mis Pedidos</p>
+                </div>
+            </div>
+
                 <table id="table__sales_user">          
                     <thead>
                       <tr>
@@ -33,7 +41,7 @@
                         <% }) %>
                     </tbody>             
                 </table>
-            </div>
+           
         </div> 
        
     </section>
@@ -41,4 +49,4 @@
     <%- include("../partials/footerNico") %>
 </body>
 </html>
-<script src="../../../../../../../../js/menuUser.js"></script>
+<script src="../../../../../../../../js/menuPartial.js"></script>

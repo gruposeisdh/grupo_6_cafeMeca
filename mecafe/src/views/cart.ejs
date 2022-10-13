@@ -26,51 +26,62 @@
             </div>               
         </div>
         <main id="cart-products">
-            <table id="table__cart">          
-                <thead>
-                  <tr>
-                    <th>&nbsp;</th>
-                    <th class="product_name_table_cart">PRODUCTO</th>
-                    <th>PRECIO</th>
-                    <th>CANTIDAD</th>
-                    <th>SUBTOTAL</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <% 
-                        let total = 0;
-                        detailsCart.forEach(item => { 
-                            let product = item.products_grames.products;
-                            total += item.quantity * item.products_grames.price;                                                
-                    %>
+            <form action="" method="post">
+                <table id="table__cart">          
+                    <thead>
+                      <tr>
+                        <th>&nbsp;</th>
+                        <th class="product_name_table_cart">PRODUCTO</th>
+                        <th>PRECIO</th>
+                        <th>CANTIDAD</th>
+                        <th>SUBTOTAL</th>
+                        <th>&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                            let total = 0;
+                            detailsCart.forEach(item => { 
+                                let product = item.products_grames.products;
+                                total += item.quantity * item.products_grames.price;                                                
+                        %>
+                            <tr>
+                                <td><img class="img__table_cart" src="/img/productos/<%= product.images_products[0].path %>"  alt=""></td>
+                                <td class="product_name_table_cart"><%= product.name %> - <%= item.products_grames.grames + " grs" %> </td>                     
+                                <td>$<%= item.products_grames.price %></td>
+                                <td>
+                                    <div class="quantity__table_cart" id="item_<%= item.id %>">
+                                        <input type="button" value="-" class="minus" onclick="minusValue(<%= item.id %>)">                                   
+                                        <input type="number" class="input-text qty text" step="1" min="0" name="detailCart_<%= item.id %>" value="<%= item.quantity %>" title="Cantidad" placeholder="" >
+                                        <input type="button" value="+" class="plus" onclick="moreValue(<%= item.id %>)">
+                                    </div>
+                                </td>
+                                <td class="product_subtotal__table_cart">$<%= item.quantity * item.products_grames.price %></td>
+                                <td> <!-- <i class="fas fa-times"> --> </td>
+                            </tr>
+                        <% }) %>
+                    </tbody> 
+                    <tfoot>
                         <tr>
-                            <td><img class="img__table_cart" src="/img/productos/<%= product.images_products[0].path %>"  alt=""></td>
-                            <td class="product_name_table_cart"><%= product.name %> - <%= item.products_grames.grames + " grs" %> </td>                     
-                            <td>$<%= item.products_grames.price %></td>
-                            <td>
-                                <div class="quantity__table_cart">
-                                    <input type="button" value="-" class="minus">                                   
-                                    <input type="number" class="input-text qty text" step="1" min="0" name="" value="<%= item.quantity %>" title="Cantidad" placeholder="" inputmode="numeric">
-                                    <input type="button" value="+" class="plus">
-                                </div>
-                            </td>
-                            <td class="product_subtotal__table_cart">$<%= item.quantity * item.products_grames.price %></td>
-                            <td><i class="fas fa-times"></td>
+                          <td colspan="3"></td>
+                          <td colspan="2">
+                            <button class="button" type="submit">Actualizar carrito</button>          
+                          </td>
                         </tr>
-                    <% }) %>
-                </tbody>             
-            </table>
+                      </tfoot>        
+                </table>
+            </form>            
             <div class="total-cart">
                 <p class="title">Total del Carrito</p>
                 <p class="price">$ <%= total %></p>
-                <button class="button"> Finalizar Compra</button>                
+                <button class="button">Finalizar Compra</button>                
             </div>
         </main>
     </section>
 
     <!-- Pie de Pagina -->
     <%- include("./partials/footerNico") %>
+    <script src="../../../../../../../../js/cart.js"></script>
 
 
 </body>

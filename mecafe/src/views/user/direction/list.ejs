@@ -16,12 +16,14 @@
                     <p class="title">Mis Direcciones</p>
                     <button class="btnAddDirection" onclick="addDirection()">Añadir Dirección</button>
                 </div>
+
                 <div class="list_directions">
+
                     <% directions.forEach((direction) => { %>
                         <article class="direction_detail">
                             <div class="header_list_direction_detail">
-                                <p class="direction_default <%= direction.default ? '' : 'hidden'  %>">Dirección predeterminada</p>
-                                <p><%= direction.name %></p>
+                                <p class="direction_name"><%= direction.name %></p>
+                                <p class="direction_default_text <%= direction.default ? '' : 'hidden'  %>">Dir. predeterminada</p>
                             </div>
                             <div class="body_list_direction_detail">
                                 <p><%= direction.street %></p>
@@ -31,10 +33,13 @@
                             <div class="footer_list_direction_detail">
                                 <button onclick="completeForm(<%= JSON.stringify(direction) %>)" class="button_edit_direction">Editar</button>
                                 <button  class="button_delete_direction">Eliminar</button>
+                                <!--  <p class="button_name_direction <%= direction.default ? '' : 'hidden'  %>">Dirección predeterminada</p>  -->
+                                
                             </div>
                         </article>                
                     <% }) %>
                 </div>
+
                 <div class="form-direction-create display-none">
                     <form action="" class="formDirection__form" method="POST">  
                         <input type="hidden" name="id" class="formDirection__formInput"
@@ -113,7 +118,7 @@
                        
                         <div class="formDirection__Btns">
                             <button type="submit" class="formDirection__btn btnsDirection btnSend">Guardar</button>  
-                            <a onclick="cancelFormDirection()" class="formDirection__btn btnsDirection btnCancel">Cancelar </a>                             
+                            <a onclick="cancelFormRegisterDirection()" class="formDirection__btn btnsDirection btnCancel">Cancelar </a>                             
                         </div>
 
                     </form>
@@ -196,7 +201,7 @@
                        
                         <div class="formDirection__Btns">
                             <button type="submit" class="formDirection__btn btnsDirection btnSend">Guardar</button>  
-                            <a onclick="cancelFormDirection()" class="formDirection__btn btnsDirection btnCancel">Cancelar </a>                             
+                            <a onclick="cancelFormEditDirection()" class="formDirection__btn btnsDirection btnCancel">Cancelar </a>                             
                         </div>
 
                     </form>
@@ -211,4 +216,4 @@
 </html>
 
 <script src="../../../../../../../../js/direction.js"></script>
-<script src="../../../../../../../../js/menuUser.js"></script>
+<script src="../../../../../../../../js/menuPartial.js"></script>

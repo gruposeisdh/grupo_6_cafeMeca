@@ -24,7 +24,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-
+        active: {
+            type: dataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: 1
+        }
     }
 
     let config = {
@@ -42,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.belongsToMany( models.TypeGrinding, { // Tabla con la que se va a RELACIONAR
             as: "type_grindings",
-            through: "products_type_grindings", // Tabla INTERMEDIA
+            through: models.ProductTypeGrinding, // Tabla INTERMEDIA
             foreignKey: "product_id",
             otherKey: "type_grinding_id",
             timestamps: false

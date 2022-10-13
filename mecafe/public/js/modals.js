@@ -6,7 +6,7 @@ const validateEmail = (email) => {
       );
   };
 
-const idModals = ['modalLogin','modalPassword'];
+const idModals = ['modalLogin'];
 
 function openModal(id){
     let modal = document.getElementById(id);
@@ -110,15 +110,8 @@ function eventsInputs(){
         input.addEventListener('blur',validateFormLogin);
     })
 }
-
 //ejecutar estas funciones al cargar pagina
-window.onload = function() {
-    validateOpenLoginErrors();
-    insertRouteInputLogin();
-    eventsInputs();
-
-    /** cerrar modal si se hace click fuera de ella */
-    let openCloseSide = document.getElementById("openCloseSide");    
-    openCloseSide.addEventListener('click', checkModalToClose);
-};
+window.addEventListener('load', function() {
+    getTotalCart();
+});
 

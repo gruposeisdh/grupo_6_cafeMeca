@@ -31,6 +31,7 @@ const productRoutes = require('./src/routes/product');
 const userRoutes = require('./src/routes/user');
 const saleRoutes = require('./src/routes/sale');
 const directionRoutes = require('./src/routes/direction');
+const typeGrindingRoutes = require('./src/routes/typeGrinding');
 const globalMiddleware = require('./src/middlewares/globalMiddlewares');
 
 app.use('/',indexRoutes);
@@ -39,7 +40,7 @@ app.use('/product',productRoutes);
 app.use('/user',userRoutes);
 app.use('/sale',saleRoutes);
 app.use('/user',directionRoutes);
-app.use(globalMiddleware.error404)
-
+app.use('/type-grinding',typeGrindingRoutes); // Corri esto para arriba del error404 porque sino no funcaba.
+app.use(globalMiddleware.error404);
 
 app.listen(3030,() => console.log("Servidor escuchando en puerto 3030"));
