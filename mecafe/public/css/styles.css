@@ -2075,7 +2075,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 .profile_contactUs_button_down {
     margin-left: 6em;
     padding: 6px;
-    background-color: var(--black);
+    background-color: var(--whatsapp);
     border: 2px white solid;
     border-radius: 3px;
     font-size: 14px;
@@ -2113,6 +2113,15 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     outline: none;
     border-bottom: solid 2px var(--lox);
 }
+
+.profile__formError {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
 
 /** ════════════════════ USER SALES ════════════════════ **/
 
@@ -3544,7 +3553,7 @@ footer {
     .profile_contactUs_button_up {
         margin-left: 5em;
         padding: 6px;
-        background-color: var(--black);
+        background-color: var(--whatsapp);
         border: 2px white solid;
         border-radius: 3px;
         font-size: 14px;

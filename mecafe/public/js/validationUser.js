@@ -3,7 +3,7 @@
 let form = document.getElementById('registerForm__form');
 
 // seleccion de todos los input
-let input = document.querySelectorAll('.registerForm__form input');
+let input = document.querySelectorAll('#registerForm__form input');
 
 
 // Declaraciòn de expresiones regulares
@@ -16,7 +16,7 @@ const expressions = {
 }
 
 // Declaracion de objecto para validar si el campo esta correcto al enviar
-const fields = {
+let fields = {
   name: false,
   lastName: false,
   email: false,

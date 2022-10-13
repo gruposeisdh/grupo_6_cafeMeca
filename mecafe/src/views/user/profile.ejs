@@ -28,8 +28,6 @@
                         </div>
                     
                     </div>
-
-                    
             
                     <div class="profile_container_personalInformation">
 
@@ -40,9 +38,16 @@
                                 <div class="profile_personalInformation_label">
                                     <input type="text" name="name" 
                                     class="profile_Input_form" 
-                                    value="<%= userProfile.firstName%>" id="name" placeholder=" ">
+                                    value="<%= userProfile ? userProfile.firstName : locals.oldData.name%>" id="name" placeholder=" ">
                                     <label for="name" 
                                     class="profile_Label_form">Nombre:</label>
+
+                                     <!-- validaciones Back -->
+                                    <% if(locals.errorMessage && errorMessage.name){ %>
+                                        <p class="register__formError">
+                                            <%= errorMessage.name.msg %> 
+                                        </p>
+                                    <% } %> 
                                 </div>
                                 
                                 <div class="profile_personalInformation_label">
@@ -51,6 +56,13 @@
                                     value="<%= userProfile.lastName%>" id="lastName" placeholder=" " >
                                     <label for="lastName"
                                     class="profile_Label_form">Apellido:</label>
+
+                                     <!-- validaciones Back -->
+                                     <% if(locals.errorMessage && errorMessage.lastName){ %>
+                                        <p class="register__formError">
+                                            <%= errorMessage.lastName.msg %> 
+                                        </p>
+                                    <% } %> 
                                 </div>
                                 
                                 <div class="profile_personalInformation_label">
@@ -59,9 +71,11 @@
                                     value="<%= userProfile.email%>" id="email" placeholder=" " >
                                     <label for="email" 
                                     class="profile_Label_form">Correo Electrónico:</label>
-                                    <% if(locals.ErrorMsg && ErrorMsg.email){ %>
+                                    
+                                     <!-- validaciones Back -->
+                                     <% if(locals.errorMessage && errorMessage.email){ %>
                                         <p class="register__formError">
-                                            <%= ErrorMsg.email.msg %> 
+                                            <%= errorMessage.email.msg %> 
                                         </p>
                                     <% } %> 
                                         
@@ -86,20 +100,41 @@
                                     class="profile_Input_form" id="password" placeholder=" " >
                                     <label for="text" 
                                     class="profile_Label_form">Contraseña actual (Déjalo en blanco para no cambiarla):</label>  
+
+                                    <!-- validaciones Back -->
+                                    <% if(locals.errorMessage && errorMessage.password){ %>
+                                        <p class="register__formError">
+                                            <%= errorMessage.password.msg %> 
+                                        </p>
+                                    <% } %> 
+                                    
                                 </div>
 
                                 <div class="profile_personalInformation_label">
                                     <input type="password" name="newPassword" class="profile_Input_form" id="newPassword" placeholder=" " >
                                     <label for="text" 
                                     class="profile_Label_form">Nueva contraseña (Déjalo en blanco para no cambiarla):</label> 
+
+                                    <!-- validaciones Back -->
+                                    <% if(locals.errorMessage && errorMessage.newPassword){ %>
+                                        <p class="register__formError">
+                                            <%= errorMessage.newPassword.msg %> 
+                                        </p>
+                                    <% } %> 
                                 </div> 
                                 
                                 <div class="profile_personalInformation_label">
                                     <input type="password" name="confirmPassword" class="profile_Input_form" id="confirmPassword" placeholder=" " > 
                                     <label for="text" 
                                     class="profile_Label_form">confirma la nueva contraseña (Déjalo en blanco para no cambiarla):</label>
+
+                                    <!-- validaciones Back -->
+                                    <% if(locals.errorMessage && errorMessage.confirmPassword){ %>
+                                        <p class="register__formError">
+                                            <%= errorMessage.confirmPassword.msg %> 
+                                        </p>
+                                    <% } %> 
                                 </div>
-                                
                             </div>
                                 
                             <div class="profile_Btns">

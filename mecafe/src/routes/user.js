@@ -12,6 +12,47 @@ const validateLogin = [
     check('password').notEmpty().withMessage('Debes completar el Password')
 ];
 
+//Validaciones de actualizaciones del formulario de perfil
+
+const validateUpdateUser = [
+    check('name').notEmpty().withMessage('Debes ingresar un nombre'),
+    check('lastName').notEmpty().withMessage('Debes ingresar un apellido'),
+    check('email').notEmpty().withMessage('Debes ingresar un Email').bail()
+    .isEmail().withMessage('Debes ingresar un formato de correo válido')
+    .custom((value, { req }) => {
+        return db.User.findOne({ where: {email: value} })
+           .then((user) => {
+            console.log('aqui llegué')
+                if(!user || user.id == req.session.user.id){
+                    return true;
+                }
+                    return Promise.reject('Este email ya está siendo utilizado')
+           })
+     }), 
+     check('password').custom((value, { req }) => {
+        return db.User.findOne({ where: {password: value} })
+        .then((pass) => {
+                if(pass && bcrypt.compareSync(req.body.password, pass.password)){
+                return true;
+            }
+                    return Promise.reject('La contraseña ingresada no coincide con la contraseña actual')
+            
+        } )
+     }),
+     check('newPassword').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error('Debes ingresar una nueva contraseña');
+          }
+
+     }),
+     check('confirmPassword').custom((value, { req }) => {
+        if (value !== req.body.newPassword) {
+          throw new Error('Las contraseñas escritas no coinciden');
+        }
+          return true;
+        })
+]
+
 //Validaciones del formulario de registro
 
 const validateCreateUser = [
@@ -69,6 +110,7 @@ router.post(
 router.post(
     '/profile',
     // authMiddlewares.guestMiddleware,
+    validateUpdateUser,
     userController.update
 ); 
 
