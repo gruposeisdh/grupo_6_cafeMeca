@@ -42,10 +42,6 @@ let userController = {
     let lastName = req.body.lastName;
     let email = req.body.email;
     let phone = req.body.phone;
-    let password = req.body.password;
-    let newPassword = req.body.newPassword;
-    let confirmPassword = req.body.confirmPassword;
-    // let errores = [];
 
     let errors = validationResult(req);
 
@@ -61,14 +57,13 @@ let userController = {
         );
       });
     } else {console.log('no hay errorres')
-      db.User.findOne({ where: { id: id } }).then((foundUser) => {
+      db.User.findOne({ where: { id: id } }).then(() => {
         db.User.update(
           {
             firstName: name,
             lastName: lastName,
             phone: phone,
             email: email,
-            password: bcrypt.hashSync(req.body.newPassword, 10),
           },
           { where: { id: id } }
         ).then((e) => {
@@ -77,58 +72,40 @@ let userController = {
         });
       });
     }
+  },
 
-    // if (foundUser.email !== email && email.length >1) {
-    //  Validar que el email nuevo no exista en DB
-    //   db.User.findOne({ where: { email: email } }).then((user) => {
-    //     if (user) {
-    //       errores.push({
-    //         email: {
-    //           msg: "El email ya está siendo utilizado ",
-    //           value: "email",
-    //         },
-    //       });
-    //     } else {
-    //       db.User.update(
-    //         {
-    //           email: email,
-    //         },
-    //         {
-    //           where: { id: id },
-    //         }
-    //       )
-    //     }
-    //   });
-    // }
+   //actualiza contraseña del usuario con formulario de perfil
 
-    // if (
-    //   password &&
-    //   newPassword == confirmPassword &&
-    //   foundUser &&
-    //   bcrypt.compareSync(password, foundUser.password)
-    // ) {
-    //   db.User.update(
-    //     {
-    //       password: bcrypt.hashSync(req.body.newPassword, 10),
-    //     },
-    //     {
-    //       where: { id: id },
-    //     }
-    //   );
-    // } else{
-    //   errores.push({password: {
-    //       msg: "Las contraseñas no coinciden",
-    //       value: "password",
-    //     }})
-    // }
+  changePassword: (req, res) =>{console.log('llego aqui a pass')
+    let id = 1;
+    let newPassword = req.body.newPassword;
 
-    // if (errores.length >= 0){
-    //   res.render(path.resolve(__dirname, "../views/user/profile.ejs"), { errors: errores, oldData: req.body })
-    // } else{
-    //   sleep(1000).then(() => {
-    //     res.redirect('/user/profile');
-    // });
-    // }
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) { 
+      db.User.findByPk(id).then((userEncontrado) => {console.log(errors)
+        return res.render(
+          path.resolve(__dirname, "../views/user/profile.ejs"),
+          {
+            errorMessage: errors.mapped(),
+            oldData: req.body, 
+            userProfile: userEncontrado,
+          }
+        );
+      });
+    } else {console.log('pasa bien por contraseña')
+    db.User.findOne({ where: { id: id } }).then(() => {
+      db.User.update(
+        {
+          password: bcrypt.hashSync(newPassword, 10),
+        },
+        { where: { id: id } }
+      ).then((e) => {
+        console.log("aqui pase");
+        res.redirect("/user/profile");
+      });
+    });
+  }
   },
 
   //crea usuario con el formulario de registro

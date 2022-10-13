@@ -1984,10 +1984,10 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border-radius: 5px;
     padding: 1em;
     margin: auto;
+    margin-top: 10px;
     background-color: white;
     position: relative;
 }
-
 
 .profile_personalInformation_label {
     position: relative;
@@ -2006,7 +2006,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 
 .profile_password_modification h3{
     margin-bottom: 15px; 
-    margin-left: 5px;
+    font-size: 20px;
+    text-align: center;
 }
 
 
@@ -2095,7 +2096,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: block;
     padding: .1em 0;
     margin-left: 0;
-    transform: translateY(-40px);
+    transform: translateY(-20px);
     transition: transform .5s;
    
 }
@@ -3525,7 +3526,7 @@ footer {
         width: 100%;
         border: 2px var(--naranja) solid;
         border-radius: 3px;
-        margin-top: 9.5em;
+        margin-top: 12em;
         padding-top: 10px;
         padding-bottom: 20px;
     }
