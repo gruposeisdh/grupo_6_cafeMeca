@@ -15,7 +15,7 @@ const expressions = {
 }
 
 // Declaracion de objecto para validar si el campo esta correcto al enviar
-const fields = {
+let fields = {
   name: false,
   lastName: false,
   email: false,
