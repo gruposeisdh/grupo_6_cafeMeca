@@ -42,17 +42,12 @@ const validateUpdateUser = [
 
 const validateUpdatePassword = [
   check("password").custom((value, { req }) => {
-    console.log("aqui voy con la password");
-    return db.User.findOne({ where: { password: value } }).then((pass) => {
-      console.log("  aquiiiii esta la contraseñaaaa");
-      if (pass && bcrypt.compareSync(req.body.password, pass.password)) {
-        return true;
-      }
-      console.log(pass);
-      return Promise.reject(
-        "La contraseña ingresada no coincide con la contraseña actual"
-      );
-    });
+      return db.User.findOne({ where: { password: value } }).then((pass) => {
+        if (pass && bcrypt.compareSync(req.body.password, pass.password)) {
+            return true;
+          }
+            return Promise.reject("La contraseña ingresada no coincide con la contraseña actual");
+    })
   }),
   check("newPassword")
     .notEmpty()

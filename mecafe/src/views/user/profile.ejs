@@ -36,6 +36,7 @@
                             <div class ="profile_personalInformation">
 
                                 <div class="profile_personalInformation_label">
+
                                     <input type="text" name="name" 
                                     class="profile_Input_form" 
                                     value="<%= userProfile ? userProfile.firstName : locals.oldData.name%>" id="name" placeholder=" ">
@@ -101,6 +102,9 @@
                             <div class ="profile_password_modification">
 
                                 <h3>Cambio de contraseña</h3>
+
+                                <input type="hidden" name="id"  
+                                value="<%= userProfile.id%>" id="id" placeholder=" ">
 
                                 <div class="profile_personalInformation_label">
                                     <input type="password" name="password" 

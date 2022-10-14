@@ -78,18 +78,19 @@ let userController = {
 
   changePassword: (req, res) =>{console.log('llego aqui a pass')
     let id = 1;
-    let newPassword = req.body.newPassword;
+    let newPassword = req.body.newPassword; console.log(newPassword)
 
     let errors = validationResult(req);
 
+    console.log(errors)
     if (!errors.isEmpty()) { 
-      db.User.findByPk(id).then((userEncontrado) => {console.log(errors)
+      db.User.findByPk(id).then((passEncontrada) => {
         return res.render(
           path.resolve(__dirname, "../views/user/profile.ejs"),
           {
             errorMessage: errors.mapped(),
             oldData: req.body, 
-            userProfile: userEncontrado,
+            userProfile: passEncontrada,
           }
         );
       });
