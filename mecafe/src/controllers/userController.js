@@ -11,7 +11,7 @@ let userController = {
     db.User.findAll({ include: [{ association: "roles" }] }).then(
       (allUsers) => {
         res.render(path.resolve(__dirname, "../views/user/list.ejs"), {
-          allUsers: allUsers,
+          allUsers: allUsers
         });
       }
     );

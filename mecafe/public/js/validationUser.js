@@ -1,4 +1,3 @@
-
 // seleccion del formulario
 let form = document.getElementById('registerForm__form');
 
@@ -109,3 +108,4 @@ form.addEventListener('submit', (e) => {
     document.getElementById('menssageError').classList.add('registerForm__menssageError-active');
   }
 })
+
