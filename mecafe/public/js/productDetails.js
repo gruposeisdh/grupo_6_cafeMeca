@@ -1,4 +1,5 @@
-let addOne = document.querySelector("#addOne")
+let addOne = document.querySelector("#addOne");
+let userLogged = addOne.getAttribute("userActive");
 let removeOne = document.querySelector("#removeOne")
 let quantity = document.querySelector("#quantity")
 
@@ -18,7 +19,12 @@ function disminuir () { // se crean la funcion. // Se obtiene el valor del input
 // ----------------------------------
 
 addOne.addEventListener("click", () => {
-    aumentar()
+    if(userLogged == 'true'){
+        aumentar();
+    }else{
+        alert("Debe estar logeado para añadir al carrito");
+        openModal('modalLogin');
+    }
 })
 
 removeOne.addEventListener("click", () => {
@@ -47,5 +53,4 @@ formulario.addEventListener("submit", (e) => {
     }else{
         formulario.submit();
     }
-
 })
