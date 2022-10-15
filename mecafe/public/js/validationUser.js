@@ -5,6 +5,7 @@ let form = document.getElementById('registerForm__form');
 let input = document.querySelectorAll('#registerForm__form input');
 
 
+
 // Declaraciòn de expresiones regulares
 const expressions = {
 	name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -92,6 +93,32 @@ let validationform = (e) => {
 
 }
 
+//Validaciones de cada input
+let validationInputFocus = () => {
+
+  if(name.value != null) {
+    name.focus()
+  }
+ 
+  if(lastName.value != null) {
+    lastName.focus()
+  }
+
+  if(email.value != null) {
+    email.focus()
+  } 
+
+  if(phone.value != null) {
+    phone.focus()
+  }   
+
+  if(password.value != null) {
+    password.focus()
+  }   
+
+
+}
+
 // validacion cuando levantan tecla o le den fuera del formulario se ejecute
   input.forEach((input) => {
   input.addEventListener('keyup', validationform);
@@ -102,10 +129,16 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 // condicional que valida si todos los campos estàn diligenciados correctamente
   if(fields.name && fields.lastName && fields.email && fields.phone && fields.password){
-    console.log(document.getElementById('registerForm__form'))
       document.getElementById('registerForm__form').submit();
   }else {
     document.getElementById('menssageError').classList.add('registerForm__menssageError-active');
+    validationInputFocus();
   }
+})
+
+window.addEventListener("load", () => {
+  if(lastName.value != "" ) {
+    validationInputFocus()
+  }    
 })
 
