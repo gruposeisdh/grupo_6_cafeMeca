@@ -2770,7 +2770,7 @@ body {
 
 .registerForm__formInput:focus + .registerForm__formLabel,
 .registerForm__formInput:not(:placeholder-shown) + .registerForm__formLabel{
-    transform: translateY(-55px) scale(.75);
+    transform: translateY(-45px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
 }
