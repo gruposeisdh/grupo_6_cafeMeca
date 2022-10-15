@@ -48,9 +48,15 @@ formulario.addEventListener("submit", (e) => {
     let inputIdProductTypeGrinding = document.getElementById('idProductTypeGrinding');
     let quantity = document.getElementById('quantity');
 
-    if(isNaN(inputIdProductGrame.value) || isNaN(inputIdProductTypeGrinding.value)){
-        alert("Elige las opciones del producto antes de añadir este producto a tu carrito.");
+    if(userLogged != 'true'){
+        alert("Debe estar logeado para añadir al carrito");
+        openModal('modalLogin');
     }else{
-        formulario.submit();
+        if(isNaN(inputIdProductGrame.value) || isNaN(inputIdProductTypeGrinding.value)){
+            alert("Elige las opciones del producto antes de añadir este producto a tu carrito.");
+        }else{
+            formulario.submit();
+        }
     }
+   
 })
