@@ -70,7 +70,7 @@
                             <div>
                                 <i id="removeOne" class="fa-solid fa-minus"></i>
                                 <input id="quantity" placeholder="Ingresa la cantidad" name="quantity" type="number" value="1" readonly min="1">
-                                <i id="addOne" class="fa-solid fa-plus"></i>
+                                <i id="addOne" userActive=<%= locals.user ? true : false; %> class="fa-solid fa-plus"></i>
                             </div>
                         </div>
 
