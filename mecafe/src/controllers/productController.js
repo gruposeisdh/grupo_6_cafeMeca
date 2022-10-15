@@ -60,24 +60,30 @@ let productController = {
     index: (req, res) => {
         
         let categories = req.query.idCategories ? req.query.idCategories : [];
-        let idCategories = categories.length == 1 ? [categories] : categories;
+        let grames = req.query.grames ? req.query.grames : [];
+        let idCategories = Array.isArray(categories) ?  categories : [categories];
+        grames = Array.isArray(grames) ? grames : [grames];
 
-        let where = {};
-        where.active = true;
+        let whereTypeGrinding = {};
+        let whereProductGrame = {};
+        whereProductGrame.price = { [Op.gt]: 0,}
+        //whereTypeGrinding.active = true ;
 
-        console.log(idCategories)
         if(idCategories.length > 0){
-            //where.firstName = { [Op.in]: idCategories };
+            whereTypeGrinding.id = { [Op.in]: idCategories };
+        }
+        if(grames.length > 0){
+            whereProductGrame.grames = { [Op.in]: grames };            
         }
         
         let typeGrindings = db.TypeGrinding.findAll();
         let products = db.Product.findAll(
             {include: [
-                {model: db.TypeGrinding, as: "type_grindings",  through: { attributes: [],}},
-                {model: db.ProductGrame, as: "products_grames" },
+                {model: db.TypeGrinding, as: "type_grindings", where: whereTypeGrinding, through: { where: {active:true}}},
+                {model: db.ProductGrame, as: "products_grames", where: whereProductGrame},
                 {model: db.ImageProduct, as: "images_products" }, 
                 {association : "brands"}
-            ], where: where })
+            ], where: {active:true} })
 
         Promise.all([products, typeGrindings])
         .then(([products, typeGrindings]) => {
@@ -140,8 +146,8 @@ let productController = {
         let priceProduct3 = req.body.priceProduct3
 
         // let idCategories = req.body.idCategories // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
-        let categories = req.body.idCategories
-        let idCategories = categories.length == 1 ? [categories] : categories 
+        let categories = req.body.idCategories ? req.body.idCategories : [];
+        let idCategories = Array.isArray(categories) ?  categories : [categories];
 
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
@@ -261,15 +267,18 @@ let productController = {
         // El atibuto VALUE es el que trae los datos, si no se pone trae "ON"
         // If ternario donde si trae un solo dato lo convierte en array y sino lo trae como array.
         // If ternario: Condicion ? Si se cumple : Sino esto
-        let categories = req.body.idCategories
-        let idCategories = categories.length == 1 ? [categories] : categories 
+        let categories = req.body.idCategories ? req.body.idCategories : [];
+        let idCategories = Array.isArray(categories) ?  categories : [categories];
+
+        console.log("================================")
+        
         let ratingProduct = req.body.ratingProduct
         let idBrand = req.body.idBrand
-        let descriptionProduct = req.body.descriptionProduct       
+        let descriptionProduct = req.body.descriptionProduct  
+        var allPricesZero = true;
             
         db.Product.findByPk(id)            
             .then(product => {
-                
                 db.Product.update({
                     name: nameProduct,
                     rating: ratingProduct,
@@ -280,20 +289,22 @@ let productController = {
                         id: product.id
                     }                    
                 })
-                
+
                 priceProducts.forEach((priceProduct, index) => {
-                    if(priceProduct > 0 ){
-                        db.ProductGrame.update({
-                            product_id: product.id,
+                    if(!priceProduct) { return; };
+                    
+                    db.ProductGrame.update({
+                        product_id: product.id,
+                        grames: weightProducts[index],
+                        price: priceProduct,
+                    }, {
+                        where: {
                             grames: weightProducts[index],
-                            price: priceProduct,
-                        }, {
-                            where: {
-                                grames: weightProducts[index],
-                                product_id: product.id
-                            }
-                        })
-                    }else{ //vaciar en carrito
+                            product_id: product.id
+                        }
+                    })
+
+                    if(priceProduct == 0){ //vaciar en carrito
                         db.ProductGrame.findOne({                         
                             where: {
                                 grames: weightProducts[index],
@@ -304,6 +315,8 @@ let productController = {
                                 where : {product_grame_id: productGrame.id}
                             })
                         })
+                    }else{
+                        allPricesZero = false;
                     }
                     
                 })               
@@ -322,14 +335,17 @@ let productController = {
 
                 /***************  BEGIN ProductTypeGrinding ******************/
 
+               
+              
                 //ver cuales desactivar (traer todos los que ya no estan en el listado de idCategorias) )
                 let toDisabled = db.ProductTypeGrinding.findAll({                    
                     where: {
                         product_id: product.id,
                         active: true,
-                        [Op.not]: [
-                            { type_grinding_id: idCategories }                           
-                        ]
+                        type_grinding_id: {
+                            [Op.notIn]: idCategories
+                        }
+                        
                     }
                 })
 
@@ -366,16 +382,33 @@ let productController = {
                             }
                         })
                     })                 
-                })
+                }) 
+                    
+            });
+            /***************  END ProductTypeGrinding ******************/
 
-                /***************  END ProductTypeGrinding ******************/
-
+        sleep(1000).then(() => {
+            db.ProductTypeGrinding.findOne({ 
+                where: { 
+                    product_id:id, 
+                    active: true
+                }
+            }).then((productTypeGrindingActive) => {
+                if(allPricesZero || !productTypeGrindingActive){
+                    db.Product.update({
+                       active: false,
+                    },{
+                        where: {
+                            id: id
+                        }                    
+                    }).then(() => {
+                        res.redirect("/product/list");
+                    })
+                }else{
+                    res.redirect("/product/edit/" + id);
+                }
             })
-
-        sleep(1000).then(() => { 
-            res.redirect("/product/edit/" + id);
-        });        
-
+        });
     },
 
     detail: (req, res) => {
