@@ -684,6 +684,7 @@ a:active {
     font-size: 0.8em;
     text-align: center;
     font-weight: 700;
+
 }
 
 .modal__container form input[type="button"] {
@@ -4390,6 +4391,5 @@ footer {
     .fa-twitter {
         margin-right: 45px;
     }
-
 
 }

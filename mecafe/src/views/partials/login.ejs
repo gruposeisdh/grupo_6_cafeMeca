@@ -13,10 +13,8 @@
 
             <div class="form-group form-group-email">
                 <!-- -->
-
                 <input type="email" name="email" class="registerForm__formInput-login" id="emailLogin" placeholder=" " value="">
                 <label for="email" class="registerForm__formLabel-login">Ingresa tu Email:</label>
-                
                 <p class="modal__formError <%= locals.errorsLogin && locals.errorsLogin.email ? '' : 'display-none' %> "><%= locals.errorsLogin && locals.errorsLogin.email ? locals.errorsLogin.email.msg : ''%></p>
             </div>
 
