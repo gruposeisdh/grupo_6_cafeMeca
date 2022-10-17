@@ -37,22 +37,29 @@
 
                     </li> 
 
-                    <li class="nav-link selector-Nav link-hover" id="navbarPerfil"><a class="link-hover-link" href="#">Perfil <i class="fa-solid fa-caret-down"></i></a>
+                <% } %>
 
-                        <div class="nav-link-desplagable nav-link-aparecer">
-                            <a href="/user/profile">Mis Datos</a>
-                            <a href="/user/sale">Mis Pedidos</a>
-                            <a href="/user/direction">Mis Direcciones</a>
-                            <form action="/user/logout" method="post"><a id="logoutStyle" class="link-hover-link" href='#' onclick='this.parentNode.submit(); return false;'>
-                                Logout
-                            </a></form>
-                        </div>
-    
-                    </li>
+                <% if(locals.user) { %> 
+
+                <li class="nav-link selector-Nav link-hover" id="navbarPerfil"><a class="link-hover-link" href="#">Perfil <i class="fa-solid fa-caret-down"></i></a>
+
+                    <div class="nav-link-desplagable nav-link-aparecer">
+                        <a href="/user/profile">Mis Datos</a>
+                        <a href="/user/sale">Mis Pedidos</a>
+                        <a href="/user/direction">Mis Direcciones</a>
+                        <form action="/user/logout" method="post"><a id="logoutStyle" class="link-hover-link" href='#' onclick='this.parentNode.submit(); return false;'>
+                            Logout
+                        </a></form>
+                    </div>
+
+                </li>
 
                 <% } %>
 
                 <% if(!locals.user) { %> 
+
+
+
                     <li class="nav-link link-hover"><a class="link-hover-link" href="#" onclick="openModal('modalLogin')">Inicio Sesion</a></li>
                     <li class="nav-link link-hover"><a class="link-hover-link" href="/user/register" >Registrarme</a></li>
                 <% } %>

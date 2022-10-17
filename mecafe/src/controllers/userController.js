@@ -23,8 +23,8 @@ let userController = {
   //Ver perfil usuario
   profile: (req, res) => {
     console.log("entre a profile");
-    let id = 1;
-    //let id=  req.session.user.id;
+    // let id = 1;
+    let id =  req.session.user.id;
     db.User.findByPk(id).then((userEncontrado) => {
       sleep(1000).then(() => {
         res.render(path.resolve(__dirname, "../views/user/profile.ejs"), {
