@@ -67,7 +67,6 @@ let userController = {
           },
           { where: { id: id } }
         ).then((e) => {
-          console.log("aqui pase");
           res.redirect("/user/profile");
         });
       });
@@ -114,7 +113,7 @@ let userController = {
     let imageNewUser = function (reqFile) {
       let imageProfile = "";
       if (reqFile == undefined) {
-        imageProfile = "default-product-image.png";
+        imageProfile = "userDefault.jpg";
       } else {
         imageProfile = reqFile.filename;
       }
