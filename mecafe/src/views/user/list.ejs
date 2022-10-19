@@ -11,34 +11,39 @@
     <section class="generalHome">  
         <div class="container_users">
             <%- include("../partials/menuAdmin") %>
-            <div class="container_detail_view_admin"> 
-                <p class="title">Usuarios</p>               
+
+            <div class="container_detail_list-users"> 
+                <div class="list_user_title">
+                    <p class="list_title_user">Usuarios</p>      
+                </div>         
             </div>
-            <div class="container_detail_view_admin AdminUsers__containerTable">
+
+            <div class="container_table_adminUsers">
                 <table class="AdminUsers__table">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th class="list_user_hidden">Id</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th class="item-display-none">email</th>
-                            <th class="item-display-none">Rol</th>
-                            <th class="item-display-none">Teléfono</th>                              
+                            <th>email</th>
+                            <th class="list_user_hidden">Rol</th>
+                            <th class="list_user_hidden">Teléfono</th>                              
                         </tr>
                     </thead>
 
-                    <% allUsers.forEach (element => { %>
+                    <tbody>
+                        <% allUsers.forEach (element => { %>
 
-                        <tr>
-                            <td><%= element.id %></td>
-                            <td><%= element.firstName %></td>
-                            <td><%= element.lastName %></td>
-                            <td class="item-display-none"><%= element.email %></td>
-                            <td class="item-display-none"><%= element.roles.name %></td>
-                            <td class="item-display-none"><%= element.phone %></td>
-                        </tr>
-
-                    <% }); %>
+                            <tr>
+                                <td class="list_user_hidden">#<%= element.id %></td>
+                                <td><%= element.firstName %></td>
+                                <td><%= element.lastName %></td>
+                                <td><%= element.email %></td>
+                                <td class="list_user_hidden"><%= element.roles.name %></td>
+                                <td class="list_user_hidden"><%= element.phone %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
 
                 </table>
                 
