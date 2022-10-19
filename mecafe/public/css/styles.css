@@ -1020,7 +1020,7 @@ tr:hover td{
 
 .list_user_title{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     background-color: white;
     padding: 10px 20px;
     border: solid 1px var(--gray-pastel);
@@ -3601,6 +3601,10 @@ footer {
         
         .AdminUsers__table th {
             font-size: 16px;
+        }
+
+        .list_user_title{
+            font-size: 20px;
         }
 
 
