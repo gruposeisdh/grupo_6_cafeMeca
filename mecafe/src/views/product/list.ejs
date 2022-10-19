@@ -12,120 +12,132 @@
     <!-- Contenido -->
     <section class="generalHome">
         
-        <section class="listProduct">
+        <div class="listProductContainerGeneral">
 
-            <div class="listProduct__containerFilter">
-                <form action="" method="get">
-                    <div class="listProduct__titleFilter">
-                        <p>Filtro</p>
+            <section class="listProduct">
+
+                <div class="listProduct__containerFilter">
+
+                    <form action="" method="get">
+
+                        <div class="listProduct__titleFilter">
+                            <p >Filtro</p>
+                            <i id="aparecerFiltro" class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <div class="listProduct__filtersChecks listProduct__filtersHidden">
+
+                            <div>
+                                <p>Peso:</p>
+                            </div>
+
+                            <div class="filtersChecks_boxFilter">
+                                <label for="grames" class="createProduct__labelCategory">
+                                    <input type="checkbox" id="" name="grames" value="250" >
+                                    250 Gramos
+                                </label>
+                                
+                                <label for="grames" class="createProduct__labelCategory">
+                                    <input type="checkbox" id="" name="grames" value="500" >
+                                    500 Gramos
+                                </label>
+                                <label for="grames" class="createProduct__labelCategory">
+                                    <input type="checkbox" id="" name="grames" value="1000" >
+                                    1000 Gramos
+                                </label>
+                            </div>
+
+                            <div>
+                                <p>Molienda:</p>
+                            </div>
+
+                            <div  class="filtersChecks_boxFilter">
+                                <% typeGrindings.forEach( element => { %>
+                                
+                                    <label for="idCategories" class="createProduct__labelCategory">
+                        
+                                        <input type="checkbox" id="<%= element.id %>" name="idCategories" value="<%= element.id %>">
+                        
+                                    <%= element.name %></label>
+                        
+                                <% }); %>  
+                                
+                            </div>
+
+                            <button type="submit">Filtrar</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="listProduct__containerProducts">
+                    
+                    <div class="listProduct__containerProducts-titleProducts">
+                        <p>Listado de Productos</p>
                     </div>
 
-                    <ul>
+                    <div class="listProduct__boxProducts">
 
-                        <div>
-                            <li>Peso</li>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </div>
-                        <div>
-                            <label for="grames" class="createProduct__labelCategory">
-                                250grs
-                                <input type="checkbox" id="" name="grames" value="250" >
-                            </label>
-                            
-                            <label for="grames" class="createProduct__labelCategory">
-                                500grs
-                                <input type="checkbox" id="" name="grames" value="500" >
-                            </label>
-                            <label for="grames" class="createProduct__labelCategory">
-                                1000grs
-                                <input type="checkbox" id="" name="grames" value="1000" >
-                            </label>
-                        </div>
+                        <% products.forEach (element => { %>
 
-                        <div>
-                            <li>Molienda</li>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </div>
-                        <div>
-                            <% typeGrindings.forEach( element => { %>
-                            
-                                <label for="idCategories" class="createProduct__labelCategory">
-                    
-                                    <input type="checkbox" id="<%= element.id %>" name="idCategories" value="<%= element.id %>">
-                    
-                                <%= element.name %></label>
-                    
-                            <% }); %>  
-                            
-                        </div>
+                        <a href="/product/detail/<%= element.id %>">
 
-                    </ul>
-                    <button type="submit">Filtrar</button>
-                </form>
+                            <div class="boxProducts-itemProduct">
 
-            </div>
+                                    <div class="boxProducts__imageProduct">
+                                        <% if(element.images_products.length > 0) { %>
+                                            <img src="/img/productos/<%= element.images_products[0].path %>" alt="">
+                                        <% } %>
+                                    </div>
 
-            <div class="listProduct__containerProducts">
-                
-                <div class="listProduct__containerProducts-titleProducts">
-                    <p>Productos</p>
-                </div>
-
-                <div class="listProduct__boxProducts">
-
-                    <% products.forEach (element => { %>
-
-                    <a href="/product/detail/<%= element.id %>">
-
-                        <div class="boxProducts-itemProduct">
-                                <% if(element.images_products.length > 0) { %>
-                                    <img src="/img/productos/<%= element.images_products[0].path %>" alt="">
-                                <% } %>
-
-                            <div class="listProduct__titleProduct">
-                                <p> <%= element.name %> </p>
-                            </div>
-
-                            <div class="listProduct__detailsProducts">
-                                <div>
-                                    <p class="listProduct__price">Precio Desde: 
-                                        <% // hace un array de precios (omite los precios 0)
-                                            let prices = element.products_grames.map((productGrame) => {
-                                                return productGrame.price > 0 ? productGrame.price : false;
-                                            }).filter((price) => { return price}) 
-                                        %>
-                                        
-                                          <%= parseFloat(Math.min.apply(null, prices)).toFixed(2); %>
-                                            <!-- si quieres el hasta: (puede que solo haya un precio para el producto - en ese caso prices.length == 1) -->
-                                          <% parseFloat(Math.max.apply(null, prices)).toFixed(2); %>
-                                  
-                                        
-                                        USD</p>
-                                    <p>Envio gratis</p>
+                                <div class="listProduct__titleProduct">
+                                    <p> <%= element.name %> </p>
                                 </div>
 
-                                <i class="fa-solid fa-cart-flatbed"></i>
+                                <div class="listProduct__detailsProducts">
+                                    <div>
+                                        <p class="listProduct__price">Precio Desde: 
+                                            <% // hace un array de precios (omite los precios 0)
+                                                let prices = element.products_grames.map((productGrame) => {
+                                                    return productGrame.price > 0 ? productGrame.price : false;
+                                                }).filter((price) => { return price}) 
+                                            %>
+                                            
+                                            <%= parseFloat(Math.min.apply(null, prices)).toFixed(2); %>
+                                                <!-- si quieres el hasta: (puede que solo haya un precio para el producto - en ese caso prices.length == 1) -->
+                                            <% parseFloat(Math.max.apply(null, prices)).toFixed(2); %>
+                                    
+                                            
+                                            USD</p>
+                                        <p>Envio gratis</p>
+                                    </div>
+
+                                    <i class="fa-solid fa-cart-flatbed"></i>
+                                </div>
+
+                                <div class="listProduct__masInfo">
+                                    <p> Descripcion del Producto </p>
+                                </div>
+
                             </div>
+                        </a>
 
-                            <div class="listProduct__masInfo">
-                                <p>Leer mas informacion >></p>
-                            </div>
+                        <% }); %>
 
-                        </div>
-                    </a>
-
-                    <% }); %>
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
+        </div>
 
     </section>
 
     <!-- Pie de Pagina -->
     <%- include("../partials/footerNico") %>
+    <script src="../../../../../../../../js/productList.js"></script>
 
 
 </body>
