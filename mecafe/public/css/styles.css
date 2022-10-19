@@ -1021,6 +1021,7 @@ tr:hover td{
 .list_user_title{
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
     background-color: white;
     padding: 10px 20px;
     border: solid 1px var(--gray-pastel);
@@ -1052,7 +1053,6 @@ tr:hover td{
     border-bottom: solid 1px var(--gray-pastel);
     text-align: center;
     font-size: 11.5px;
-    padding: 10px;
     text-transform: capitalize;
 }
 
