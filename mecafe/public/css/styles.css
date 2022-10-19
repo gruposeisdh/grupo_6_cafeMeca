@@ -84,15 +84,6 @@ a:active {
     display: flex;
 }
 
-.badge {   
-    background-color: var(--lox);
-    color: black;
-    padding: 4px 8px;
-    text-align: center;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
 
 
 /*! ════════════════════ Cambiando LIST PRODUCT ════════════════════ !*/
@@ -102,6 +93,31 @@ a:active {
     cursor: pointer;
 }
 
+/*! ════════════════════ Cambiando Tabla de Productos ════════════════════ !*/
+
+.AdminProducts__containerTable table{
+    table-layout: fixed;
+}
+
+.AdminProducts__containerTable thead th:nth-child(1){
+    width: 15%;
+}
+
+.AdminProducts__containerTable thead th:nth-child(2){
+    width: 40%;
+}
+
+.AdminProducts__containerTable thead th:nth-child(5){
+    width: 35%;
+}
+
+.AdminProducts__containerTable thead th {
+    text-transform: uppercase;
+}
+
+.AdminProducts__containerTable thead tr {
+    text-align: center;
+}
 
 
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
@@ -939,8 +955,8 @@ a:active {
 .AdminProducts__containerTable{
     width: 100%;
     max-width: 1200px;
-    /** margin: 20px auto 0; */
-    text-transform: uppercase;
+    /* margin: 20px auto 0; */
+    /* text-transform: uppercase; */
     padding: 20px;
 }
 
@@ -953,33 +969,34 @@ a:active {
 }
 
 .AdminProducts__table thead{
-    background-color: #000000;
-    color: white;
+    background-color: white;
+    color: var(--negro-pastel);
 }
 
 table {
     border-collapse: collapse;
     background-color: white;
-}
-
-th {
     border: solid 1px var(--gray-pastel);
-    padding: 1em;
 }
 
-td {
-    font-size: .7em;
-    padding: .2em;
+.AdminProducts__table th {
+    border-bottom: solid 2px var(--lox);
+    padding: 15px 5px;
+}
+
+.AdminProducts__table td {
+    padding: 15px 5px;
+    font-size: .8em;
     text-align: center;
-    border: solid 1px var(--gray-pastel)
+    border-bottom: solid 1px var(--gray-pastel)
 }
 
-tr:nth-child(even){
-    background-color: #F0F8FF;
-}
-
-tr:hover td{
-    background-color: #ffffdd
+.AdminProducts__table tbody tr td div{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 
@@ -1891,6 +1908,14 @@ tr:hover td{
 
 #table__cart tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
+}
+
+#table__sales_user tr {
+    font-size: .8em;
+}
+
+#table__sales_user {
+    text-align: center;
 }
 
 .img__table_cart{
@@ -3342,7 +3367,7 @@ footer {
     }
 
     .createProduct__textArea {
-        height: 173px;
+        height: 197px;
     }
 
     #imageProduct{
@@ -3683,6 +3708,30 @@ footer {
 
     .AdminProducts__create{
         width: 50%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(1){
+        width: 6%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(2){
+        width: 28%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(3){
+        width: 37%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(4){
+        width: 20%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(5){
+        width: 14%;
+    }
+
+    .AdminProducts__containerTable td {
+        padding: 15px 10px;
     }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/

@@ -39,43 +39,51 @@
                             </tr>
                         </thead>
     
-                        <% allProducts.forEach (element => { %>
+                        <tbody>
+
+                            <% allProducts.forEach (element => { %>
+        
+                                <tr>
+                                    <td><%= element.id %></td>
+                                    <td><%= element.name %></td>
+                                    <td class="item-display-none">
+                                        <!-- tipos molienda activos -->
+                                        <div>
+                                        <% element.type_grindings.forEach (typeGrinding => { 
+                                            if(typeGrinding.ProductTypeGrinding.active){%>
+                                                    <span class="badge"><%= typeGrinding.name %>,</span>
+                                                    <% }
+                                                }) %>
+                                        </div>
+                                    </td>
+                                    <td class="item-display-none">
+                                        <!-- gramos activos -->
+                                        <div>
+                                            <% element.products_grames.forEach (productGrame => { 
+                                                if(productGrame.price > 0){%>
+                                                    <span class="badge"> <%= productGrame.grames %>,</span>
+                                                <% }
+                                            }) %>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="AdminProducts__btn">
+                                            <form action="/product/edit/<%= element.id %>" method="get"> 
+                                                <button type="submit" class="AdminProducts__btn"><i class="fas fa-edit AdminProducts__btnModify"></i></button>
+                                            </form>
+        
+                                            <form action="/product/delete/<%= element.id %>" method="post"> 
+                                                <button type="submit" class="AdminProducts__btn"><i type="submit" class="fas fa-trash-alt  AdminProducts__btnDelete"></i></button>
+                                            </form>
+                                        </div>
+        
+                                    </th>
+                                </tr>
     
-                            <tr>
-                                <td><%= element.id %></td>
-                                <td><%= element.name %></td>
-                                <td class="item-display-none">
-                                    <!-- tipos molienda activos -->
-                                    <% element.type_grindings.forEach (typeGrinding => { 
-                                        if(typeGrinding.ProductTypeGrinding.active){%>
-                                            <span class="badge"><%= typeGrinding.name %> </span>
-                                        <% }
-                                     }) %>
-                                </td>
-                                <td class="item-display-none">
-                                    <!-- gramos activos -->
-                                    <% element.products_grames.forEach (productGrame => { 
-                                        if(productGrame.price > 0){%>
-                                            <span class="badge"> <%= productGrame.grames %></span>
-                                        <% }
-                                     }) %>
-                                </td>
-                                <td>
-                                    <div class="AdminProducts__btn">
-                                        <form action="/product/edit/<%= element.id %>" method="get"> 
-                                            <button type="submit" class="AdminProducts__btn"><i class="fas fa-edit AdminProducts__btnModify"></i></button>
-                                        </form>
-    
-                                        <form action="/product/delete/<%= element.id %>" method="post"> 
-                                            <button type="submit" class="AdminProducts__btn"><i type="submit" class="fas fa-trash-alt  AdminProducts__btnDelete"></i></button>
-                                        </form>
-                                    </div>
-    
-                                </th>
-                            </tr>
-    
-                        <% }); %>
-    
+                            <% }); %>
+
+                        </tbody>
+
                     </table>
     
                 </div>
