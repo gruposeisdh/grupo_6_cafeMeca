@@ -112,6 +112,12 @@ function eventsInputs(){
 }
 //ejecutar estas funciones al cargar pagina
 window.addEventListener('load', function() {
-    getTotalCart();
+    validateOpenLoginErrors();
+    insertRouteInputLogin();
+    eventsInputs();
+
+    /** cerrar modal si se hace click fuera de ella */
+    let openCloseSide = document.getElementById("openCloseSide");    
+    openCloseSide.addEventListener('click', checkModalToClose);
 });
 

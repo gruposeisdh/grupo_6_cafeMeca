@@ -22,7 +22,7 @@
 
                 <div>
                     <input type="text" name="name" class="registerForm__formInput"
-                    value="<%= locals.oldData ? oldData.name : null %>" id="name" placeholder=" ">
+                    value="<%= locals.oldData ? oldData.name : null %>" id="name_register" placeholder=" ">
                     <label for="name" class="registerForm__formLabel">Ingresa tu Nombre:</label>
                     <i class="registerForm_errorItem_name fas fa-times-circle"></i>
                   
@@ -137,12 +137,13 @@
                     <label for="imageProfile" class="registerForm__formLabel">Avatar (JPG, PNG):</label>
                 </div>
 
+                <!-- mensaje general por si no ha diligenciado todos los campos -->
                 <div class="registerForm__menssageError" id="menssageError">
                     <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor diligenciar todos los campos correctamente.</p>
                 </div>
 
                 <div class="registerForm__Btns">
-                        <button type="submit" class="registerForm__btn btnSendRegister" >Registrarme</button>
+                    <button type="submit" class="registerForm__btn btnSendRegister" >Registrarme</button>
                 </div>
 
             </form>
@@ -155,5 +156,6 @@
     <%- include("../partials/footerNico") %>
 
     <script src="../../../../../../../../js/validationUser.js"></script>
+    
 </body>
 </html>

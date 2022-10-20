@@ -1,9 +1,16 @@
-
 // seleccion del formulario
 let form = document.getElementById('registerForm__form');
 
-// seleccion de todos los input
-let input = document.querySelectorAll('#registerForm__form input');
+// seleccion de cada uno de los input
+let registerName = document.getElementById("name_register");
+let registerLastName = document.getElementById("lastName");
+let registerEmail = document.getElementById("email");
+let registerPhone = document.getElementById("phone");
+let registerPassword = document.getElementById("password");
+let registerConfirmPassword = document.getElementById("confirmPassword");
+
+// Array de todos los input
+let input = [registerName, registerLastName, registerEmail, registerPhone, registerPassword, registerConfirmPassword];
 
 
 // Declaraciòn de expresiones regulares
@@ -49,7 +56,7 @@ const validationConfirmPassword= () =>{
   let inputPassword = document.getElementById('password');
   let inputConfirmPassword = document.getElementById('confirmPassword');
   // se pone la condicion
-  if (inputPassword.value !== inputConfirmPassword.value){
+  if (inputConfirmPassword.value == "" || inputPassword.value !== inputConfirmPassword.value){
     document.querySelector('.registerForm_errorItem_confirmPassword').classList.add('registerForm_errorItem-incorrecto');
     document.querySelector('.registerForm_errorItem_confirmPassword').classList.remove('registerForm_errorItem-correcto')
     document.querySelector('.registerForm_errorItem_confirmPassword').classList.add('fa-times-circle');
@@ -93,6 +100,30 @@ let validationform = (e) => {
 
 }
 
+//Validaciones de cada input
+let validationInputFocus = () => {
+
+  if(name_register.value != null) {
+    name_register.focus()
+  }
+ 
+  if(lastName.value != null) {
+    lastName.focus()
+  }
+
+  if(email.value != null) {
+    email.focus()
+  } 
+
+  if(phone.value != null) {
+    phone.focus()
+  }   
+
+  if(password.value != null) {
+    password.focus()
+  }   
+}
+
 // validacion cuando levantan tecla o le den fuera del formulario se ejecute
   input.forEach((input) => {
   input.addEventListener('keyup', validationform);
@@ -103,9 +134,16 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 // condicional que valida si todos los campos estàn diligenciados correctamente
   if(fields.name && fields.lastName && fields.email && fields.phone && fields.password){
-    console.log(document.getElementById('registerForm__form'))
       document.getElementById('registerForm__form').submit();
   }else {
     document.getElementById('menssageError').classList.add('registerForm__menssageError-active');
+    validationInputFocus();
   }
 })
+
+window.addEventListener("load", () => {
+  if(name_register != "" ) {
+    validationInputFocus()
+  }    
+})
+

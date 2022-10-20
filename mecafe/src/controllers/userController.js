@@ -11,7 +11,7 @@ let userController = {
     db.User.findAll({ include: [{ association: "roles" }] }).then(
       (allUsers) => {
         res.render(path.resolve(__dirname, "../views/user/list.ejs"), {
-          allUsers: allUsers,
+          allUsers: allUsers
         });
       }
     );
@@ -23,8 +23,8 @@ let userController = {
   //Ver perfil usuario
   profile: (req, res) => {
     console.log("entre a profile");
-    let id = 1;
-    //let id=  req.session.user.id;
+    // let id = 1;
+    let id =  req.session.user.id;
     db.User.findByPk(id).then((userEncontrado) => {
       sleep(1000).then(() => {
         res.render(path.resolve(__dirname, "../views/user/profile.ejs"), {
@@ -67,7 +67,6 @@ let userController = {
           },
           { where: { id: id } }
         ).then((e) => {
-          console.log("aqui pase");
           res.redirect("/user/profile");
         });
       });
@@ -114,7 +113,7 @@ let userController = {
     let imageNewUser = function (reqFile) {
       let imageProfile = "";
       if (reqFile == undefined) {
-        imageProfile = "default-product-image.png";
+        imageProfile = "userDefault.jpg";
       } else {
         imageProfile = reqFile.filename;
       }

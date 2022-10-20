@@ -55,7 +55,9 @@ a:active {
     --naranja: #f78b2d;
     --tamanoFooter: 160px;
     --paddingArribaFooter: 90px;
-    --tamanoImageError404: 300px 
+    --tamanoImageError404: 300px;
+    --blue-btn: #4e93fb;
+    --gray-pastel-ligth: #eeeeee;
 }
 
 .text-center {
@@ -83,9 +85,42 @@ a:active {
 }
 
 
+
+/*! ════════════════════ Cambiando LIST PRODUCT ════════════════════ !*/
+
+.fa-angle-down{
+    color: white;
+    cursor: pointer;
+}
+
+/*! ════════════════════ Cambiando Tabla de Productos ════════════════════ !*/
+
+.AdminProducts__containerTable table{
+    table-layout: fixed;
+}
+
+.AdminProducts__containerTable thead th:nth-child(1){
+    width: 15%;
+}
+
+.AdminProducts__containerTable thead th:nth-child(2){
+    width: 40%;
+}
+
+.AdminProducts__containerTable thead th:nth-child(5){
+    width: 35%;
+}
+
+.AdminProducts__containerTable thead th {
+    text-transform: uppercase;
+}
+
+.AdminProducts__containerTable thead tr {
+    text-align: center;
+}
+
+
 /*! ════════════════════ INVENTO DE NICOLAS, REDES SOCIALES ════════════════════ !*/
-
-
 
 /* .redesSocialesBanner {
 
@@ -670,6 +705,14 @@ a:active {
     padding: 25px;
 }
 
+.form-group label{
+    z-index: -1; /* Cambio Login Nico - Antes no tenia nada aca */
+}
+
+.form-group input{
+    background-color: rgba(255, 255, 255, 0); /* Cambio Login Nico - Antes no tenia nada aca */
+}
+
 .modal__formError {
     margin-top: 0.7em;
     color: red;
@@ -783,6 +826,7 @@ a:active {
     margin: auto;
     background-color: white;
     position: relative;
+    z-index: 1; /* Cambio Login Nico - Antes no tenia nada aca */
 }
 
 .registerForm__form-login div {
@@ -795,10 +839,11 @@ a:active {
     font-size: 14px;
     position: absolute;
     display: block;
-    padding: .8em 0;
+    padding: .12em 0;
     margin-left: 0;
-    transform: translateY(-40px);
-    transition: transform .5s;
+    transform: translateY(-20px);
+    transition: transform .5s; 
+    /* margin-top: 5px; */
 }
 
 .registerForm__form-login input {
@@ -807,17 +852,19 @@ a:active {
     border: none;
     width: 100%;
     border-bottom: solid 1px var(--gray-pastel);
+    margin-top: 18px;
 }
 
 .registerForm__form-login input:focus{
     transition: all .1s;
     outline: none;
     border-bottom: solid 2px var(--lox);
+    margin-top: 18px;
 }
 
 .registerForm__formInput-login:focus + .registerForm__formLabel-login,
 .registerForm__formInput-login:not(:placeholder-shown) + .registerForm__formLabel-login{
-    transform: translateY(-55px) scale(.75);
+    transform: translateY(-70px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
 }
@@ -911,8 +958,8 @@ a:active {
 .AdminProducts__containerTable{
     width: 100%;
     max-width: 1200px;
-    /** margin: 20px auto 0; */
-    text-transform: uppercase;
+    /* margin: 20px auto 0; */
+    /* text-transform: uppercase; */
     padding: 20px;
 }
 
@@ -925,33 +972,34 @@ a:active {
 }
 
 .AdminProducts__table thead{
-    background-color: #000000;
-    color: white;
+    background-color: white;
+    color: var(--negro-pastel);
 }
 
 table {
     border-collapse: collapse;
     background-color: white;
-}
-
-th {
     border: solid 1px var(--gray-pastel);
-    padding: 1em;
 }
 
-td {
-    font-size: .7em;
-    padding: .2em;
+.AdminProducts__table th {
+    border-bottom: solid 2px var(--lox);
+    padding: 15px 5px;
+}
+
+.AdminProducts__table td {
+    padding: 15px 5px;
+    font-size: .8em;
     text-align: center;
-    border: solid 1px var(--gray-pastel)
+    border-bottom: solid 1px var(--gray-pastel)
 }
 
-tr:nth-child(even){
-    background-color: #F0F8FF;
-}
-
-tr:hover td{
-    background-color: #ffffdd
+.AdminProducts__table tbody tr td div{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 
@@ -992,77 +1040,97 @@ tr:hover td{
 
 /** ════════════════════ ADMIN USERS  ════════════════════ **/
 
-.AdminUsers__title{
-    text-transform: full-width;
-    letter-spacing: 1px;
-    line-height: 1.5em;
-    width: 90vw;
-    max-width: 1200px;
-    text-align: center;
-    margin: 20px auto 0;
-    padding: .6em;
-    border-radius: 3px;
-    color: var(--blanco-original);
-    background-color: var(--black);
+.container_detail_list-users{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 2px;
 }
 
-.AdminUsers__create{
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-    align-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 100%;
-    max-width: 1200px;
+.list_user_title{
+    font-weight: bold;
+    font-size: 18px;
     text-align: center;
-    padding: .8em;
-    border-radius: 3px;
-    color: black;
-    border: solid 1px var(--gray-pastel);
     background-color: white;
-}
-
-.AdminUsers__create:hover {
-    box-shadow: 1px -1px 18px -3px rgba(0,0,0,0.5);
-    transition: all .5s;
-    border: solid 1px gray;
-}
-
-
-.AdminUsers__containerTable{
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto 0;
-    text-transform: uppercase;
-    padding: 20px;
+    padding: 10px 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin: 0 0 20px;
 }
 
 .AdminUsers__table{
     width: 100%;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+.AdminUsers__table thead {
+    border-bottom: solid 2px var(--lox);
+}
+
+.AdminUsers__table th {
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 10px;
+    text-transform: uppercase;
+}
+
+.AdminUsers__table td {
+    padding: 15px 10px;
+    border: none;
+    border-bottom: solid 1px var(--gray-pastel);
+    text-align: center;
+    font-size: 11.5px;
+    text-transform: capitalize;
+}
+
+.AdminUsers__table tr:hover  td, .AdminUsers__table tbody tr:hover  td {
+    background-color: transparent;
 }
 
 
-.AdminUsers__table thead{
-    background-color: #000000;
-    color: white;
+.AdminUsers__table tr:nth-child(even){ 
+    background-color: transparent;
+}
+
+.list_user_hidden{
+    display: none;
 }
 
 
 /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
+.boxProducts__imageProduct{
+    height: 400px;
+}
+
+.listProductContainerGeneral{
+    padding: 2%;
+}
+
 .listProduct {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 20px 10%;
     gap: 20px;
+    background-color: white;
+    padding: 15px;
+    border: solid 2px var(--gray-pastel);
+    border-radius: 3px;
 }
 
 .listProduct__titleFilter {
-    background-color: #000000;
+    background-color: var(--negro-pastel);
+    height: 50px;
     padding: 7px;
     margin-bottom: 0.5em;
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 2px var(--lox);
+    /* background-color: var(--gray-pastel); */
 }
 
 .listProduct__titleFilter p {
@@ -1070,21 +1138,44 @@ tr:hover td{
     color: #ffffff;
 }
 
-.listProduct__containerFilter ul {
+.listProduct__filtersChecks{
+    background-color: var(--gray-pastel-ligth);
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.listProduct__filtersHidden{
+    display: none;
+}
+
+.filtersChecks_boxFilter{
+    padding: 10px 0;
+}
+
+.listProduct__filtersChecks button{
     width: 100%;
-    background-color: #ebebeb;
-    padding: 5px;
+    border: none;
+    background-color: var(--blue-btn);
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.listProduct__filtersChecks div p {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 8px 0;
+
 }
 
 .listProduct__containerFilter li {
     list-style: none;
     padding: 0.5em;
-}
-
-.listProduct__containerFilter div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .listProduct__containerFilter i {
@@ -1093,14 +1184,22 @@ tr:hover td{
 }
 
 .listProduct__containerProducts-titleProducts {
-    background-color: #000000;
+    /* background-color: var(--gray-pastel); */
+    font-size: 20px;
     padding: 7px;
     margin-bottom: 0.5em;
+    height: 50px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 2px var(--lox);
 }
 
 .listProduct__containerProducts-titleProducts p {
     text-align: center;
-    color: #ffffff;
+    color: black;
+    font-weight: 700;
 }
 
 .listProduct__titleProduct {
@@ -1110,6 +1209,8 @@ tr:hover td{
     font-weight: 700;
     height: 50px;
     display: flex;
+    /* border-top: solid 2px var(--lox); */
+    border-bottom: solid 2px var(--lox);
 }
 
 .listProduct__titleProduct p{
@@ -1128,11 +1229,12 @@ tr:hover td{
 
 .boxProducts-itemProduct {
     border: solid 1px var(--gray-pastel);
+    border-radius: 3px;
 }
 
 .boxProducts-itemProduct img {
     width: 100%;
-    height: 260px;
+    height: 100%;
     padding: 10px;
     object-fit: cover;
 }
@@ -1142,15 +1244,26 @@ tr:hover td{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    margin: 0 auto;
 }
 
-.listProduct__detailsProducts p {
-    font-size: 0.8em;
+.listProduct__detailsProducts p:nth-child(2) {
+    font-size: .9em;
+    padding: 5px 0;
 }
 
 .listProduct__detailsProducts .listProduct__price {
     color: #00a650;
     font-weight: 700;
+    height: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    margin: 8px 0 0 0 ;
 }
 
 .listProduct__detailsProducts {
@@ -1159,7 +1272,6 @@ tr:hover td{
 
 .listProduct__detailsProducts i {
     font-size: 1em;
-    margin-right: 10px;
     color: #00a650;
     padding: 6px;
     border: solid 1px #00a650;
@@ -1168,19 +1280,21 @@ tr:hover td{
 
 .listProduct__masInfo {
     font-size: 0.9em;
-    background-color: var(--lox);
+    background-color: var(--blue-btn);
+    color: white;
     text-align: center;
     padding: 5px;
     font-weight: 700;
-    height: 30px;
+    height: 40px;
     display: flex;
+    width: 90%;
+    margin: 10px auto 10px;
+    border-radius: 2px;
 }
 
 .listProduct__masInfo p {
     margin: auto;
 }
-
-
 
 /** ════════════════════ PRODUCTS CREATE ════════════════════ **/
 
@@ -1257,7 +1371,7 @@ tr:hover td{
 
 .createProduct__labelCategory {
     display: block;
-    padding: 5px;
+    padding: 7px 5px;
     margin: auto;
 }
 
@@ -1797,6 +1911,14 @@ tr:hover td{
 
 #table__cart tr:hover  td,  #table__sales_user tbody  tr:hover  td{
     background-color: transparent;
+}
+
+#table__sales_user tr {
+    font-size: .8em;
+}
+
+#table__sales_user {
+    text-align: center;
 }
 
 .img__table_cart{
@@ -2753,7 +2875,7 @@ body {
 
 .registerForm__formInput:focus + .registerForm__formLabel,
 .registerForm__formInput:not(:placeholder-shown) + .registerForm__formLabel{
-    transform: translateY(-55px) scale(.75);
+    transform: translateY(-45px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
 }
@@ -3036,8 +3158,16 @@ footer {
 
     .listProduct__boxProducts {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 10px;
+    }
+
+    .listProduct__filtersChecks button {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        margin: 5px auto;
     }
 
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
@@ -3240,7 +3370,7 @@ footer {
     }
 
     .createProduct__textArea {
-        height: 173px;
+        height: 197px;
     }
 
     #imageProduct{
@@ -3573,6 +3703,21 @@ footer {
             grid-template-columns: repeat(2, 1fr);
         }
 
+
+/** ════════════════════ ADMIN USERS  ════════════════════ **/
+        .list_user_hidden{
+            display: revert;
+        }
+        
+        .AdminUsers__table th {
+            font-size: 16px;
+        }
+
+        .list_user_title{
+            font-size: 20px;
+        }
+
+
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
     .AdminProducts__table .item-display-none{
@@ -3583,13 +3728,59 @@ footer {
         width: 50%;
     }
 
+    .AdminProducts__containerTable thead th:nth-child(1){
+        width: 6%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(2){
+        width: 28%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(3){
+        width: 37%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(4){
+        width: 20%;
+    }
+
+    .AdminProducts__containerTable thead th:nth-child(5){
+        width: 14%;
+    }
+
+    .AdminProducts__containerTable td {
+        padding: 15px 10px;
+    }
+
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+
+    .filtersChecks_boxFilter{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .createProduct__labelCategory{
+        margin: revert;
+    }
+
+    .filtersChecks_boxFilter label{
+        padding: 10px;
+    }
+    
+    .listProduct__filtersChecks button{
+        margin: revert;
+        margin-left: auto;
+        margin-top: 10px;
+        width: 25%;
+    }
+
+
 
     /** ════════════════════ PRODUCT ════════════════════ **/
 
@@ -3711,7 +3902,7 @@ footer {
 
     .listProduct__boxProducts {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
@@ -4187,7 +4378,7 @@ footer {
 
     .listProduct__boxProducts {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
 
@@ -4346,7 +4537,8 @@ footer {
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct {
-        grid-template-columns: 1fr 4fr;
+        margin: 30px auto;
+        max-width: 1400px;
     }
 
     .listProduct__boxProducts {
