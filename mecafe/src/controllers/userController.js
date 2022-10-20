@@ -81,7 +81,7 @@ let userController = {
     let newPassword = req.body.newPassword; console.log(newPassword)
 
     let errors = validationResult(req);
-
+    console.log('con errores')
     console.log(errors)
     if (!errors.isEmpty()) { 
       db.User.findByPk(id).then((passEncontrada) => {
@@ -94,7 +94,7 @@ let userController = {
           }
         );
       });
-    } else {console.log('pasa bien por contraseña')
+    } else {console.log('sin errores lo lograste') 
     db.User.findOne({ where: { id: id } }).then(() => {
       db.User.update(
         {

@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const router = express.Router();
 const { check } = require("express-validator");
 const path = require("path");
@@ -41,9 +42,9 @@ const validateUpdateUser = [
 //Validaciones de actualizaciones de contraseña del formulario de perfil
 
 const validateUpdatePassword = [
-  check("password").custom((value, { req }) => {
-      return db.User.findOne({ where: { password: value } }).then((pass) => {
-        if (pass && bcrypt.compareSync(req.body.password, pass.password)) {
+  check("password").custom((req) => {
+      return db.User.findOne({ where: { password: bcrypt.compareSync(req.body.password, password) } }).then((passFound) => {
+        if (passFound) {
             return true;
           }
             return Promise.reject("La contraseña ingresada no coincide con la contraseña actual");
