@@ -9,22 +9,9 @@
 
     <!-- Contenido -->
     <section class="generalHome">   
-        <div class="cart__progress">    
-            <div class="">
-                <i class="fas fa-shopping-basket"></i>
-                <span class="progress__description">Carrito</span>
-            </div>
-            <hr class="">
-            <div class="progress__not_active">
-                <i class="fas fa-credit-card"></i>
-                <span class="progress__description">Checkout</span>
-            </div>
-            <hr class="progress__not_active">
-            <div class="progress__not_active">
-                <i class="fas fa-gifts"></i>
-                <span class="progress__description">Pedido Completado</span>
-            </div>               
-        </div>
+
+        <%- include("./partials/progresBarCart") %>
+
         <main id="cart-products">
             <form action="" method="post">
                 <table id="table__cart">          
