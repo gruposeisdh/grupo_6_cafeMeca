@@ -2154,7 +2154,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border: none;
     border-radius: 2px;
     color: white;
-    background-color: var(--black);
+    background-color: var(--blue-btn);
     font-weight: 600;
 }
 

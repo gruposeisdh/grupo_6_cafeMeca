@@ -37,7 +37,7 @@ let userController = {
   //actualiza datos del usuario con formulario de perfil
 
   update: (req, res) => {
-    let id = 1;
+    let id = req.session.user.id;
     let name = req.body.name;
     let lastName = req.body.lastName;
     let email = req.body.email;
@@ -76,7 +76,7 @@ let userController = {
    //actualiza contraseña del usuario con formulario de perfil
 
   changePassword: (req, res) =>{console.log('llego aqui a pass')
-    let id = 1;
+    let id = req.session.user.id;
     let newPassword = req.body.newPassword; console.log(newPassword)
 
     let errors = validationResult(req);

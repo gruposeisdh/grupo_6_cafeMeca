@@ -42,9 +42,10 @@ const validateUpdateUser = [
 //Validaciones de actualizaciones de contraseña del formulario de perfil
 
 const validateUpdatePassword = [
-  check("password").custom((req) => {
-      return db.User.findOne({ where: { password: bcrypt.compareSync(req.body.password, password) } }).then((passFound) => {
-        if (passFound) {
+  check("email"),
+  check("password").custom((value, {req}) => {
+      return db.User.findOne({ where: { id:req.session.user.id } }).then((passFound) => {
+        if (passFound && bcrypt.compareSync(value, passFound.password)) {
             return true;
           }
             return Promise.reject("La contraseña ingresada no coincide con la contraseña actual");
