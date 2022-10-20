@@ -1,0 +1,207 @@
+<!-- Encabezado de la pagina -->
+<%- include("./partials/head") %>
+    <title>Document</title>
+</head>
+<body class="bodyHome">
+
+    <!-- Cabecera -->
+    <%- include("./partials/header") %>
+
+    <!-- Contenido -->
+    <section class="generalHome">   
+        
+        <div class="checkout">
+
+            <div class="checkout__container">
+            
+            <%- include("./partials/progresBarCart") %>
+
+            <form action="">
+
+                <div class="checkout__formContainer">
+
+                    <div class="checkout__alertDirection alertDirectionGreen checkout__clusterZero">
+
+                        <p class="alertDirectionInvalid">Veo que no tenes ninguna direccion cargada 😥 ¿No pensas que cargar una seria una buena idea? Excepto que quieras que tu pedido lo entreguemos en la luna 😒</p>
+
+                        <p class="Aca le agregas la clase valid">Veo que cargaste una o mas direcciones, abajo tenes la libertad de elegir la que mas comoda te queda 😄. Espero disfrutes mucho tu pedido, Gracias!! 🥰</p>
+
+                    </div>
+
+                    <div class="checkout__directions checkout__clusterOne">
+                        <select name="checkout__selectDirection" id="checkout__selectDirection">
+                            <option selected disabled value="">Selecciona tu Direccion:</option>
+                            <option value="DireccionX">Direccion X</option>
+                        </select>
+                    </div>
+                    
+                    <div class="checkout__dataDirectionSelected checkout__clusterTwo">
+
+                        <div class="dataDirectionSelectedHidden">
+                            <h5>Desplegar Direccion</h5>
+                            <i id="dataDirection-btn" class="fa-solid fa-caret-down"></i>
+                        </div>
+
+                        <div id="dataDirectionContainer" class="dataDirectionHidden">
+                            <div>
+                                <label for="checkout__direction">Nombre de Direccion:</label>
+                                <input id="checkout__direction" name="checkout__direction" type="text">
+                            </div>
+
+                            <div>
+                                <label for="checkout__street">Calle:</label>
+                                <input id="checkout__street" name="checkout__street" type="text">
+                            </div>
+
+                            <div>
+                                <label for="checkout__city">Ciudad:</label>
+                                <input id="checkout__city" name="checkout__city" type="text">
+                            </div>
+
+                            <div>
+                                <label for="checkout__region">Region:</label>
+                                <input id="checkout__region" name="checkout__region" type="text">
+                            </div>
+
+                            <div>
+                                <label for="checkout__country">Pais:</label>
+                                <input id="checkout__country" name="checkout__country" type="text">
+                            </div>
+
+                            <div>
+                                <label for="checkout__postalCode">Codigo Postal:</label>
+                                <input id="checkout__postalCode" name="checkout__postalCode" type="text">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="checkout__detailOrder checkout__clusterThree">
+
+                        <div>
+                            <h3>Detalle del Pedido:</h3>
+                            <i id="checkout__tableHidden" class="fa-solid fa-caret-down"></i>
+                        </div>
+
+                        <table class="checkout__table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Tipo de Molienda</th>
+                                    <th>Gramos</th>
+                                    <th>Precio</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Café Club Colombia Vainilla Ibagué</td>
+                                    <td>1</td>
+                                    <td>Grano, Molido Medio, Molido Extra Fino, Molido Grueso, Molido Fino, Molido Super Fino,</td>
+                                    <td>250G, 500G, 1000G</td>
+                                    <td>150 USD</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Café Colombiano Tostado Balanceado</td>
+                                    <td>5</td>
+                                    <td>Grano, Molido Medio, Molido Fino</td>
+                                    <td>250G, 500G, 1000G</td>
+                                    <td>300 USD</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="checkout__orderPayment checkout__clusterFor">
+                        
+                        <div class="checkout__cardContainer">
+
+                            <div class="checkout__CardLeft">
+
+                                <div>
+                                    <p>Order Number</p>
+                                    <p>#12654</p>
+                                </div>
+
+                                <div>
+                                    <p>Precio</p>
+                                    <p>150 USD</p>
+                                </div>
+                                    
+                            </div>
+
+                            <div class="checkout__CardRight">
+
+                                <h4>Pago con Tarjeta de Credito</h4>
+
+                                <div>
+                                    <label for="">Nombre Completo:</label>
+                                    <input type="text">
+                                </div>
+
+                                <div>
+                                    <label for="">Numero de la Tarjeta</label>
+                                    <input type="number">
+                                </div>
+
+                                <div class="checkout__expirationAndCode">
+
+                                    <span>
+                                        <label for="">Expiracion</label>
+                                        <input type="text">
+                                    </span>
+
+                                    <span>
+                                        <label for="">CVV</label>
+                                        <input type="password">
+                                    </span>
+
+                                    <span>
+                                        <button>pagar</button>
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+            </div>
+
+
+        </div>
+        
+
+
+
+
+
+    </section>
+
+    <!-- Pie de Pagina -->
+    <%- include("./partials/footerNico") %>
+    <script src="../../../../../../../../js/cart.js"></script>
+
+
+</body>
+</html>

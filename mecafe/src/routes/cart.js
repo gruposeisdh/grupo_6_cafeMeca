@@ -24,4 +24,9 @@ router.get(
     cartController.getQuantity
 );
 
+router.get(
+    "/checkout",
+    cartController.checkout
+)
+
 module.exports = router;
