@@ -2158,6 +2158,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     color: white;
     background-color: var(--blue-btn);
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .profile_sendBtn:hover {
@@ -2878,13 +2879,11 @@ body {
 
 .registerForm__formInput_register:focus + .registerForm__formLabel_register,
 .registerForm__formInput_register:not(:placeholder-shown) + .registerForm__formLabel_register{
-    transform: translateY(-58px) scale(.75);
+    transform: translateY(-65px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
-    margin: 18px 0;
-
+    margin: 20px 0;
 }
-
 
 /* estilos para validacion front-Yohanna */
 
