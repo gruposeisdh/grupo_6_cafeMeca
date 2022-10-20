@@ -85,7 +85,6 @@ a:active {
 }
 
 
-
 /*! ════════════════════ Cambiando LIST PRODUCT ════════════════════ !*/
 
 .fa-angle-down{
@@ -852,19 +851,17 @@ a:active {
     border: none;
     width: 100%;
     border-bottom: solid 1px var(--gray-pastel);
-    margin-top: 18px;
 }
 
 .registerForm__form-login input:focus{
     transition: all .1s;
     outline: none;
     border-bottom: solid 2px var(--lox);
-    margin-top: 18px;
 }
 
 .registerForm__formInput-login:focus + .registerForm__formLabel-login,
 .registerForm__formInput-login:not(:placeholder-shown) + .registerForm__formLabel-login{
-    transform: translateY(-70px) scale(.75);
+    transform: translateY(-50px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
 }
