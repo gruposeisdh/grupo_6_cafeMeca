@@ -36,6 +36,7 @@
                             <div class ="profile_personalInformation">
 
                                 <div class="profile_personalInformation_label">
+                                    
 
                                     <input type="text" name="name" 
                                     class="profile_Input_form" 
@@ -101,7 +102,8 @@
                         <form action="/user/changePassword" id ="profile_form_password" class="profileForm_form" method="POST">
                             <div class ="profile_password_modification">
 
-                                <h3>Cambio de contraseña</h3>
+                                <h3>¿Deseas cambiar tu contraseña?</h3>
+                                <h4>Adelante! 😀</h4>
 
                                 <input type="hidden" name="id"  
                                 value="<%= userProfile.id%>" id="id" placeholder=" ">
@@ -110,7 +112,7 @@
                                     <input type="password" name="password" 
                                     class="profile_Input_form" id="password" placeholder=" " >
                                     <label for="text" 
-                                    class="profile_Label_form">Contraseña actual (Déjalo en blanco para no cambiarla):</label>  
+                                    class="profile_Label_form">Contraseña actual:</label>  
 
                                     <!-- validaciones Back -->
                                     <% if(locals.errorMessage && errorMessage.password){ %>
@@ -124,7 +126,7 @@
                                 <div class="profile_personalInformation_label">
                                     <input type="password" name="newPassword" class="profile_Input_form" id="newPassword" placeholder=" " >
                                     <label for="text" 
-                                    class="profile_Label_form">Nueva contraseña (Déjalo en blanco para no cambiarla):</label> 
+                                    class="profile_Label_form">Nueva contraseña:</label> 
 
                                     <!-- validaciones Back -->
                                     <% if(locals.errorMessage && errorMessage.newPassword){ %>
@@ -137,7 +139,7 @@
                                 <div class="profile_personalInformation_label">
                                     <input type="password" name="confirmPassword" class="profile_Input_form" id="confirmPassword" placeholder=" " > 
                                     <label for="text" 
-                                    class="profile_Label_form">confirma la nueva contraseña (Déjalo en blanco para no cambiarla):</label>
+                                    class="profile_Label_form">confirma la nueva contraseña:</label>
 
                                     <!-- validaciones Back -->
                                     <% if(locals.errorMessage && errorMessage.confirmPassword){ %>
