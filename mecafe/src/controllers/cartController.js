@@ -127,6 +127,10 @@ let cartController = {
                 return res.status(200).json({total: total, status: 200});
             })
         })
+    },
+
+    checkout: (req, res) => {
+        res.render(path.resolve(__dirname,"../views/checkout.ejs"))
     }
 }
 

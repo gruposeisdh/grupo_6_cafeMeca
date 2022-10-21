@@ -103,32 +103,35 @@ let validationform = (e) => {
 //Validaciones de cada input
 let validationInputFocus = () => {
 
-  if(name_register.value != null) {
+  if(name_register.value !== "") {
     name_register.focus()
   }
  
-  if(lastName.value != null) {
+  if(lastName.value !== "") {
     lastName.focus()
   }
 
-  if(email.value != null) {
+  if(email.value !== "") {
     email.focus()
   } 
 
-  if(phone.value != null) {
+  if(phone.value !== "") {
     phone.focus()
   }   
 
-  if(password.value != null) {
+  if(password.value !== "") {
     password.focus()
   }   
 }
 
 // validacion cuando levantan tecla o le den fuera del formulario se ejecute
-  input.forEach((input) => {
-  input.addEventListener('keyup', validationform);
-  input.addEventListener('blur', validationform);
-})
+//y además monitorea varios eventos
+ let validationmonitor = () => {
+    input.forEach((input) => {
+      input.addEventListener('keyup', validationform);
+      input.addEventListener('blur', validationform);
+  })
+ } 
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -141,8 +144,13 @@ form.addEventListener('submit', (e) => {
   }
 })
 
+// Ejecutamos un evento por cada input recorrido constantemente ya que la pagina se encuentra cargada.
+
+validationmonitor();
+
+// con esta funcion checkea todo de nuevo si el primer input es diferente de vacio
 window.addEventListener("load", () => {
-  if(name_register != "" ) {
+  if(name_register != null ) {
     validationInputFocus()
   }    
 })
