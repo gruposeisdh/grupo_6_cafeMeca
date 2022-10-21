@@ -15,7 +15,24 @@
                 <p class="title">Editar Tipo Molienda</p>               
             </div>
             <div class="container_detail_view_admin">
-                //aqui formulario
+
+            
+                <form class="updateTypeGrinding__containerForm" enctype="multipart/form-data" action="/type-grinding/edit/<%=typeGrindings.id%>" method="POST">
+
+                    <div class="registerForm_typeGrinding_titleForm">
+                        <h2>¿Necesitas editar un tipo de molienda?</h2>
+                        <h3>Adelante! 😀</h3>
+                    </div>
+
+                    <div>
+                        <label for="nameTypeGrinding" class="updateTypeGrinding_labelBox">Nombre del tipo de molienda:</label>
+                        <input class="updateTypeGrinding_inputBox" type="text" name="nameTypeGrinding" id="nameTypeGrinding" value="" required>
+                    </div>
+                    <section class="btn_updateTypeGrinding">
+                        <button type="submit" class="submit">Enviar</button>
+                        <button type="reset" class="reset">Restablecer</button>
+                    </section>
+                </form>
             </div>
         </div> 
        

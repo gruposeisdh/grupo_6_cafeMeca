@@ -14,8 +14,36 @@
             <div class="container_detail_view_admin"> 
                 <p class="title">Tipos De Molienda</p>               
             </div>
-            <div class="container_detail_view_admin">
-                //aqui listado
+
+            <div class="container_table_list_typeGrinding">
+                <table class="typeGrinding__table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Acciones</th>                             
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% typeGrinding.forEach (element => { %>
+
+                            <tr>
+                                <td><%= element.id %></td>
+                                <td><%= element.name %></td>
+                                <td>
+                                    <div class="AdminProducts__btn">
+                                        <form action="/type-grinding/edit/<%= element.id %>" method="get"> 
+                                            <button type="submit" class="AdminTypeGrinding__btn"><i class="fas fa-edit AdminTypeGrinding__btnModify"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+
+                </table>
+                
             </div>
         </div> 
        

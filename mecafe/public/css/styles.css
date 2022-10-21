@@ -1833,6 +1833,72 @@ table {
     display: none;
 }
 
+/** ════════════════════ ADMIN TYPEGRINDING ════════════════════ **/
+
+.container_table_list_typeGrinding{
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+.typeGrinding__table{
+    width: 100%;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.typeGrinding__table thead {
+    border-bottom: solid 2px var(--lox);
+}
+
+.typeGrinding__table th {
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 5px;
+    text-transform: uppercase;
+}
+
+.typeGrinding__table td {
+    padding: 15px 5px;
+    border: none;
+    border-bottom: solid 1px var(--gray-pastel);
+    text-align: center;
+    font-size: .8em;
+    text-transform: capitalize;
+}
+
+.typeGrinding__table tr:hover  td, .typeGrinding__table tbody tr:hover  td {
+    background-color: transparent;
+}
+
+
+.typeGrinding__table tr:nth-child(even){ 
+    background-color: transparent;
+}
+
+.AdminTypeGrinding__btn{
+    border: none;
+    background-color: transparent;
+}
+
+.AdminTypeGrinding__btn i {
+    font-size: 1.15em;
+    padding: 4px;
+}
+
+.AdminTypeGrinding__btnModify:hover {
+    transition:  .5s;
+    background-color: #00F562;
+    border-radius: 3px;
+}
+
+
 /** ════════════════════ CART ════════════════════ **/
 
 #cart-products {
