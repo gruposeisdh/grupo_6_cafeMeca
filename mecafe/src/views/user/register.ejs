@@ -21,9 +21,9 @@
                 </div>
 
                 <div>
-                    <input type="text" name="name" class="registerForm__formInput_register"
+                    <input type="text" name="name" class="registerForm__formInput"
                     value="<%= locals.oldData ? oldData.name : null %>" id="name_register" placeholder=" ">
-                    <label for="name" class="registerForm__formLabel_register">Ingresa tu Nombre:</label>
+                    <label for="name" class="registerForm__formLabel">Ingresa tu Nombre:</label>
                     <i class="registerForm_errorItem_name fas fa-times-circle"></i>
                   
                     <!-- validaciones Front -->
@@ -39,9 +39,9 @@
                 </div>
 
                 <div>
-                    <input type="text" name="lastName" class="registerForm__formInput_register" 
+                    <input type="text" name="lastName" class="registerForm__formInput" 
                     value="<%= locals.oldData ? oldData.lastName : null %>" id="lastName" placeholder=" ">
-                    <label for="lastName" class="registerForm__formLabel_register">Ingresa tu Apellido:</label>
+                    <label for="lastName" class="registerForm__formLabel">Ingresa tu Apellido:</label>
                     <i class="registerForm_errorItem_lastName fas fa-times-circle"></i>
 
                     <!-- validaciones Front -->
@@ -58,9 +58,9 @@
                 </div>
 
                 <div>
-                    <input type="text" name="email" class="registerForm__formInput_register"
+                    <input type="text" name="email" class="registerForm__formInput"
                     value="<%= locals.oldData ? oldData.email : null %>" id="email"  placeholder=" ">
-                    <label for="email" class="registerForm__formLabel_register">Ingresa tu Correo Electrónico</label>
+                    <label for="email" class="registerForm__formLabel">Ingresa tu Correo Electrónico</label>
                     <i class="registerForm_errorItem_email fas fa-times-circle"></i>
 
                     <!-- validaciones Front -->
@@ -78,9 +78,9 @@
                 </div>
 
                 <div>
-                    <input type="text" name="phone" class="registerForm__formInput_register"
+                    <input type="text" name="phone" class="registerForm__formInput"
                     value="<%= locals.oldData ? oldData.phone : null %>" id="phone"  placeholder=" ">
-                    <label for="phone" class="registerForm__formLabel_register">Ingresa tu número de teléfono</label>
+                    <label for="phone" class="registerForm__formLabel">Ingresa tu número de teléfono</label>
                     <i class="registerForm_errorItem_phone fas fa-times-circle"></i>
 
                      <!-- validaciones Front -->
@@ -97,8 +97,8 @@
                 </div>
 
                 <div>
-                    <input type="password" name="password" class="registerForm__formInput_register" id="password" placeholder=" ">
-                    <label for="password" class="registerForm__formLabel_register">Ingresa tu Contraseña</label>
+                    <input type="password" name="password" class="registerForm__formInput" id="password" placeholder=" ">
+                    <label for="password" class="registerForm__formLabel">Ingresa tu Contraseña</label>
                     <i class="registerForm_errorItem_password fas fa-times-circle"></i>
 
                     <!-- validaciones Front -->
@@ -115,8 +115,8 @@
                 </div>
 
                 <div>
-                    <input type="password" name="confirmPassword" class="registerForm__formInput_register" id="confirmPassword" placeholder=" ">
-                    <label for="confirmPassword" class="registerForm__formLabel_register">Confirma tu Contraseña</label>
+                    <input type="password" name="confirmPassword" class="registerForm__formInput" id="confirmPassword" placeholder=" ">
+                    <label for="confirmPassword" class="registerForm__formLabel">Confirma tu Contraseña</label>
                     <i class="registerForm_errorItem_confirmPassword fas fa-times-circle"></i>
 
                     <!-- validaciones Front -->
@@ -133,8 +133,8 @@
                 </div>
 
                 <div>
-                    <input type="file" name="imageProfile" class="registerForm__formInput_register"  id="imageProfile" accept=".JPG,.PNG">
-                    <label for="imageProfile" class="registerForm__formLabel_register">Avatar (JPG, PNG):</label>
+                    <input type="file" name="imageProfile" class="registerForm__formInput"  id="imageProfile" accept=".JPG,.PNG">
+                    <label for="imageProfile" class="registerForm__formLabel">Avatar (JPG, PNG):</label>
                 </div>
 
                 <!-- mensaje general por si no ha diligenciado todos los campos -->

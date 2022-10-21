@@ -2412,14 +2412,9 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .profile_password_modification h3{
-    font-size: 18px;
-    text-align: center;
-}
-
-.profile_password_modification h4{
-    font-size: 16px;
-    text-align: center;
     margin-bottom: 15px; 
+    font-size: 20px;
+    text-align: center;
 }
 
 
@@ -2444,9 +2439,8 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     border: none;
     border-radius: 2px;
     color: white;
-    background-color: var(--blue-btn);
+    background-color: var(--black);
     font-weight: 600;
-    text-transform: uppercase;
 }
 
 .profile_sendBtn:hover {
@@ -2509,7 +2503,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     display: block;
     padding: .1em 0;
     margin-left: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
     transition: transform .5s;
    
 }
@@ -3044,27 +3038,47 @@ body {
     margin: 1.3em 0;
 }
 
-.registerForm__formLabel_register label{
+.registerForm__form label {
     color: var(--gray-pastel);
     font-size: 14px;
     position: absolute;
     display: block;
     padding: .8em 0;
-    margin-top: 5px;
-    transform: translateY(-45px);
+    margin-left: 0;
+    transform: translateY(-40px);
     transition: transform .5s;
 }
 
-.registerForm__formInput_register {
+/* Iconos de validacion cada campo front-Yohanna */
+
+.registerForm_errorItem_name{
+    opacity: 0;
+}
+.registerForm_errorItem_lastName{
+    opacity: 0;
+}
+.registerForm_errorItem_email{
+    opacity: 0;
+}
+.registerForm_errorItem_phone{
+    opacity: 0;
+}
+.registerForm_errorItem_password{
+    opacity: 0;
+}
+.registerForm_errorItem_confirmPassword{
+    opacity: 0;
+}
+
+.registerForm__form input {
     font-family: proximanova;
     padding: .5em 0;
     border: none;
     width: 100%;
     border-bottom: solid 1px var(--gray-pastel);
-    margin-top: 10px;
 }
 
-.registerForm__formInput_register input:focus{
+.registerForm__form input:focus{
     transition: all .1s;
     outline: none;
     border-bottom: solid 2px var(--lox);
@@ -3089,27 +3103,6 @@ body {
     background: #0f82fc;
     color: white;
     letter-spacing: 1px;
-}
-
-/* Iconos de validacion cada campo front-Yohanna */
-
-.registerForm_errorItem_name{
-    opacity: 0;
-}
-.registerForm_errorItem_lastName{
-    opacity: 0;
-}
-.registerForm_errorItem_email{
-    opacity: 0;
-}
-.registerForm_errorItem_phone{
-    opacity: 0;
-}
-.registerForm_errorItem_password{
-    opacity: 0;
-}
-.registerForm_errorItem_confirmPassword{
-    opacity: 0;
 }
 
 /* mensaje de validacion front-Yohanna */
@@ -3165,13 +3158,13 @@ body {
     font-weight: 700;
 }
 
-.registerForm__formInput_register:focus + .registerForm__formLabel_register,
-.registerForm__formInput_register:not(:placeholder-shown) + .registerForm__formLabel_register{
-    transform: translateY(-65px) scale(.75);
+.registerForm__formInput:focus + .registerForm__formLabel,
+.registerForm__formInput:not(:placeholder-shown) + .registerForm__formLabel{
+    transform: translateY(-45px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
-    margin: 20px 0;
 }
+
 
 /* estilos para validacion front-Yohanna */
 
