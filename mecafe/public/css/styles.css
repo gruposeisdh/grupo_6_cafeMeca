@@ -1745,16 +1745,6 @@ table {
     padding: 3em 0;
 }
 
-.updateProduct__title {
-    text-transform: uppercase;
-    padding: 10px;
-    font-size: .8em;
-    background-color: var(--black);
-    color: white;
-    border-radius: 2px;
-    margin: 5px 0;
-}
-
 .updateProduct__containerForm {
     width: 85%;
     max-width: 500px;
@@ -1766,19 +1756,35 @@ table {
     position: relative;
 }
 
-.updateProduct__labelBox {
-    display: block;
-    color: gray;
-    font-size: 12px;
+.updateProductForm__titleForm {
+    text-align: center;
+    border-radius: 1px;
 }
 
-.updateProduct__containerForm div {
+.updateProductForm__titleForm h2 {
+    font-weight: 700;
+    padding: .3em;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.updateProductForm__titleForm h3 {
+    font-weight: 700;
+    padding: .3em;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
+
+.updateProduct__containerForm-grid {
     font-size: .8em;
     align-items: center;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
-.updateProduct__containerForm div p{
+.updateProduct__labelBox {
+    display: block;
     color: gray;
     font-size: 12px;
 }
@@ -1791,44 +1797,26 @@ table {
     width: 100%;
 }
 
-.updateProduct__containerForm section {
-    padding: 5px;
+.updateProduct__inputBox:focus {
+    outline: none;
 }
 
-.updateProduct__containerForm button {
+.updateProduct__containerForm .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+}
+
+.updateProduct-btn button {
     border: none;
     border-radius: 2px;
     margin: 3px 0;
     font-size: .8em;
     text-transform: uppercase;
-    padding: .8em;
-    background-color: #3483fa;
+    padding: 0.8em;
+    background-color: var(--blue-btn);
     color: white;
 }
-
-.updateProduct__inputBox:focus {
-    outline: none;
-} 
-
-.updateProduct__textArea{
-    height: 30px;
-}
-
-.updateProduct__optionCategory{
-    padding: 15px;
-}
-
-
-.updateProduct__labelCategory {
-    display: block;
-    padding: 5px;
-    margin: auto;
-}
-
-.updateProduct__labelCategory input{
-    margin-right: 8px;
-}
-
 
 /** ════════════════════ DETAILS PRODUCTS ════════════════════ **/
 
@@ -2980,14 +2968,6 @@ body {
     column-gap: 15px;
 }
 
-/** ════════════════════ PRODUCTS UPDATE ════════════════════ **/
-
-.updateProduct__containerForm .btn {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 15px;
-}
-
 /** ════════════════════ PRODUCT ════════════════════ **/
 
 .home__containerColumns img {
@@ -3801,6 +3781,113 @@ footer {
         "registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack registerForm__clusterThirteen-errorsBack"
         ". registerForm__clusterTwelve-buttons registerForm__clusterTwelve-buttons"
 
+    }
+
+    /** ════════════════════ PRODUCTS UPDATE 768 ════════════════════ **/
+
+    .updateProduct__containerForm {
+        width: 90%;
+        max-width: 700px;
+    }
+
+    #updateProduct__nameProduct {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+    }
+
+    #updateProduct__descriptionProduct {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    #updateIdCategoriesDiv {
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 15px 15px 10px;
+        margin-top: 8px;
+    }
+
+    .updateProduct__textArea {
+        height: 197px;
+    }
+
+    .productoEditForm__clusterOne-titleForm {
+        grid-area: productoEditForm__clusterOne-titleForm
+    }
+
+    .productoEditForm__clusterFor-nameproduct {
+        grid-area: productoEditForm__clusterFor-nameproduct
+    }
+
+    .productoEditForm__clusterFor-weightproduct {
+        grid-area: productoEditForm__clusterFor-weightproduct;
+        /* border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px; */
+    }
+
+    .productoEditForm__clusterFor-priceProduct {
+        grid-area: productoEditForm__clusterFor-priceProduct;
+        /* border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 5px;
+        margin: 4px 20px; */
+    }
+
+    .productoEditForm__clusterFor-idCategories {
+        grid-area: productoEditForm__clusterFor-idCategories
+    }
+
+    .productoEditForm__clusterFor-descriptionProduct {
+        grid-area: productoEditForm__clusterFor-descriptionProduct
+    }
+
+    .productoEditForm__clusterFor-idBrand {
+        grid-area: productoEditForm__clusterFor-idBrand;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px
+    }
+
+    .productoEditForm__clusterFor-ratingProduct {
+        grid-area: productoEditForm__clusterFor-ratingProduct;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .productoEditForm__clusterFor-imageProduct {
+        grid-area: productoEditForm__clusterFor-imageProduct;
+        border: solid 1px var(--gray-pastel);
+        border-radius: 2px;
+        padding: 10px;
+    }
+
+    .productoEditForm__clusterFor-buttonsproduct {
+        grid-area: productoEditForm__clusterFor-buttonsproduct
+    }
+
+
+    .updateProduct__containerForm {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+
+        grid-template-areas:
+        "productoEditForm__clusterOne-titleForm productoEditForm__clusterOne-titleForm productoEditForm__clusterOne-titleForm" /* Titulo */
+
+        "productoEditForm__clusterFor-nameproduct productoEditForm__clusterFor-nameproduct productoEditForm__clusterFor-nameproduct"
+
+        ". productoEditForm__clusterFor-weightproduct productoEditForm__clusterFor-priceProduct"
+
+        "productoEditForm__clusterFor-idCategories productoEditForm__clusterFor-descriptionProduct productoEditForm__clusterFor-descriptionProduct"
+
+        "productoEditForm__clusterFor-idBrand productoEditForm__clusterFor-ratingProduct productoEditForm__clusterFor-imageProduct"
+
+        ". productoEditForm__clusterFor-buttonsproduct productoEditForm__clusterFor-buttonsproduct"
     }
 
     /** ════════════════════ MENU PARTIAL  ════════════════════ **/
