@@ -36,6 +36,7 @@ const typeGrindingRoutes = require('./src/routes/typeGrinding');
 const apisRoutes = require('./src/routes/api/apis');
 const globalMiddleware = require('./src/middlewares/globalMiddlewares');
 
+
 app.use('/',indexRoutes);
 app.use('/cart',cartRoutes);
 app.use('/product',productRoutes);

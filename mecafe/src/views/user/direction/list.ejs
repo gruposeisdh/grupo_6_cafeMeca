@@ -32,7 +32,10 @@
                             </div>
                             <div class="footer_list_direction_detail">
                                 <button onclick="completeForm(<%= JSON.stringify(direction) %>)" class="button_edit_direction">Editar</button>
-                                <button  class="button_delete_direction">Eliminar</button>
+                                <form action="/user/direction/<%= direction.id %>/delete" method="post">
+                                    <button  class="button_delete_direction">Eliminar</button>
+                                </form>
+                                
                                 <!--  <p class="button_name_direction <%= direction.default ? '' : 'hidden'  %>">Dirección predeterminada</p>  -->
                                 
                             </div>

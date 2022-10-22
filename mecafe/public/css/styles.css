@@ -232,35 +232,35 @@ a:active {
 
 .checkout__detailOrder table tr th:nth-child(1),
 .checkout__detailOrder table tr td:nth-child(1) {
-    width: 4%;
+    width: 15%;
 }
 
 .checkout__detailOrder table tr th:nth-child(2),
 .checkout__detailOrder table tr td:nth-child(2) {
-    width: 15%;
+    width: 6%;
 }
 
 .checkout__detailOrder table tr th:nth-child(3),
 .checkout__detailOrder table tr td:nth-child(3) {
     display: none;
-    width: 6%;
+    width: 20%;
 }
 
 .checkout__detailOrder table tr th:nth-child(4),
 .checkout__detailOrder table tr td:nth-child(4) {
     display: none;
-    width: 20%;
+    width: 10%;
 }
 
 .checkout__detailOrder table tr th:nth-child(5),
 .checkout__detailOrder table tr td:nth-child(5) {
     display: none;
-    width: 10%;
+    width: 6%;
 }
 
 .checkout__detailOrder table tr th:nth-child(6),
 .checkout__detailOrder table tr td:nth-child(6) {
-    width: 8%;
+    width: 6%;
 }
 
 .checkout__table{
@@ -1325,6 +1325,7 @@ table {
 
 /** ════════════════════ ADMIN USERS  ════════════════════ **/
 
+
 .container_detail_list-users{
     width: 100%;
     margin-top: 20px;
@@ -1365,7 +1366,7 @@ table {
     border: none;
     border-bottom: solid 1px var(--gray-pastel);
     text-align: center;
-    font-size: 11.5px;
+    font-size: 11px;
     text-transform: capitalize;
 }
 
@@ -2109,6 +2110,237 @@ table {
     display: none;
 }
 
+/** ════════════════════ ADMIN LIST TYPEGRINDING ════════════════════ **/
+
+.container_table_list_typeGrinding{
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+}
+
+.typeGrinding__table{
+    width: 100%;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.typeGrinding__table thead {
+    border-bottom: solid 2px var(--lox);
+}
+
+.typeGrinding__table th {
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 5px;
+    text-transform: uppercase;
+}
+
+.typeGrinding__table td {
+    padding: 15px 5px;
+    border: none;
+    border-bottom: solid 1px var(--gray-pastel);
+    text-align: center;
+    font-size: .8em;
+    text-transform: capitalize;
+}
+
+.typeGrinding__table tr:hover  td, .typeGrinding__table tbody tr:hover  td {
+    background-color: transparent;
+}
+
+
+.typeGrinding__table tr:nth-child(even){ 
+    background-color: transparent;
+}
+
+.AdminTypeGrinding__btn{
+    border: none;
+    background-color: transparent;
+}
+
+.AdminTypeGrinding__btn i {
+    font-size: 1.15em;
+    padding: 4px;
+}
+
+.AdminTypeGrinding__btnModify:hover {
+    transition:  .5s;
+    background-color: #00F562;
+    border-radius: 3px;
+}
+
+/** ════════════════════ ADMIN EDIT TYPEGRINDING ════════════════════ **/
+
+.containerUpdateTypeGrinding__containerForm {
+    padding: 3em 0;
+}
+
+.updateTypeGrinding__containerForm {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.typeGrindingForm_typeGrinding_titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.typeGrindingForm_typeGrinding_titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.updateTypeGrinding_labelBox {
+    display: block;
+    color: gray;
+    font-size: 12px;
+}
+
+.updateTypeGrinding__containerForm div {
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+}
+
+.updateTypeGrinding_inputBox {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.updateTypeGrinding_inputBox:focus {
+    outline: none;
+} 
+
+.updateTypeGrinding__containerForm section {
+    padding: 5px;
+}
+
+.btn_updateTypeGrinding{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+}
+
+.btn_updateTypeGrinding button {
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .8em;
+    background-color: var(--blue-btn);
+    color: white;
+}
+
+.register__formError_grinding {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+/** ════════════════════ ADMIN CREATE TYPEGRINDING ════════════════════ **/
+
+.containerCreateTypeGrinding__containerForm {
+    padding: 3em 0;
+}
+
+.createGrinding__containerForm {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.typeGrindingForm_title_form h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.typeGrindingForm_title_form h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.typeGrindingForm__formLabel_typeGrinding {
+    display: block;
+    color: gray;
+    font-size: 12px;
+}
+
+.createGrinding__containerForm div {
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+}
+
+.typeGrindingForm__formInput_typeGrinding {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.typeGrindingForm__formInput_typeGrinding:focus {
+    outline: none;
+} 
+
+.createGrinding__containerForm section {
+    padding: 5px;
+}
+
+.createTypeGrinding-btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+}
+
+.createTypeGrinding-btn button {
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .8em;
+    background-color: var(--blue-btn);
+    color: white;
+}
+
 /** ════════════════════ CART ════════════════════ **/
 
 #cart-products {
@@ -2283,12 +2515,13 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size: 15px;   
 }
 
-.total-cart .button, #table__cart button{
+.total-cart a, #table__cart button{
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
     padding: 5px;
+    text-align: center;
 }
 
 #table__cart button{
@@ -2652,6 +2885,7 @@ article .header_list_direction_detail{
     font-weight: bold;
     padding: 8px;
     border: 0;
+    width: 100%;
 }
 
 .footer_list_direction_detail{
@@ -3452,6 +3686,12 @@ footer {
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 
+    /** ════════════════════ ADMIN USERS  ════════════════════ **/
+
+    .AdminUsers__table td {
+        font-size: 14PX;
+    }
+
     /** ════════════════════ PRODUCT ════════════════════ **/
 
 
@@ -3619,35 +3859,35 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(1),
     .checkout__detailOrder table tr td:nth-child(1) {
-        width: 4%;
+        width: 15%;
     }
 
     .checkout__detailOrder table tr th:nth-child(2),
     .checkout__detailOrder table tr td:nth-child(2) {
-        width: 15%;
+        width: 9%;
     }
 
     .checkout__detailOrder table tr th:nth-child(3),
     .checkout__detailOrder table tr td:nth-child(3) {
         display: revert;
-        width: 9%;
+        width: 20%;
     }
 
     .checkout__detailOrder table tr th:nth-child(4),
     .checkout__detailOrder table tr td:nth-child(4) {
         display: none;
-        width: 20%;
+        width: 10%;
     }
 
     .checkout__detailOrder table tr th:nth-child(5),
     .checkout__detailOrder table tr td:nth-child(5) {
         display: none;
-        width: 10%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(6),
     .checkout__detailOrder table tr td:nth-child(6) {
-        width: 8%;
+        width: 6%;
     }
 
 
@@ -4192,6 +4432,19 @@ footer {
         .list_user_hidden{
             display: revert;
         }
+
+        .container_table_adminUsersList {
+            padding: 1em 0;
+            background-color: white;
+        }
+        
+        .container_table_adminUsers {
+            margin: 2px 20px;
+        }
+        
+        .AdminUsers__table td {
+            font-size: 0.8em;
+        }
         
         .AdminUsers__table th {
             font-size: 16px;
@@ -4264,7 +4517,25 @@ footer {
         width: 25%;
     }
 
+    /** ════════════════════ ADMIN EDIT TYPEGRINDING ════════════════════ **/
 
+    .typeGrindingForm_typeGrinding_titleForm h2{
+        font-size: 18px;
+    }
+
+    .typeGrindingForm_typeGrinding_titleForm h3{
+        font-size: 16px;
+    }
+
+    /** ════════════════════ ADMIN CREATE TYPEGRINDING ════════════════════ **/
+
+    .typeGrindingForm_title_form h2{
+        font-size: 18px;
+    }
+    
+    .typeGrindingForm_title_form h3{
+        font-size: 16px;
+    }
 
     /** ════════════════════ PRODUCT ════════════════════ **/
 
@@ -4644,7 +4915,7 @@ footer {
         max-width: 350px;       
     }
 
-    .total-cart .button{
+    .total-cart a{
         margin-top: 10px;
         width: 100%;
     }
@@ -4796,35 +5067,35 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(1),
     .checkout__detailOrder table tr td:nth-child(1) {
-        width: 4%;
+        width: 15%;
     }
 
     .checkout__detailOrder table tr th:nth-child(2),
     .checkout__detailOrder table tr td:nth-child(2) {
-        width: 15%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(3),
     .checkout__detailOrder table tr td:nth-child(3) {
         display: revert;
-        width: 6%;
+        width: 20%;
     }
 
     .checkout__detailOrder table tr th:nth-child(4),
     .checkout__detailOrder table tr td:nth-child(4) {
         display: revert;
-        width: 20%;
+        width: 10%;
     }
 
     .checkout__detailOrder table tr th:nth-child(5),
     .checkout__detailOrder table tr td:nth-child(5) {
         display: revert;
-        width: 10%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(6),
     .checkout__detailOrder table tr td:nth-child(6) {
-        width: 8%;
+        width: 6%;
     }
 
 
