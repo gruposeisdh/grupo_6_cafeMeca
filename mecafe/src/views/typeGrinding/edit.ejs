@@ -18,7 +18,7 @@
 
                 <div class="containerUpdateTypeGrinding__containerForm">
             
-                    <form class="updateTypeGrinding__containerForm" enctype="multipart/form-data" action="/type-grinding/edit/<%= typeGrinding.id %>" method="POST">
+                    <form action="/type-grinding/edit/<%= typeGrinding.id %>" method="POST" class="updateTypeGrinding__containerForm">
 
                         <div class="typeGrindingForm_typeGrinding_titleForm">
                             <h2>¿Necesitas editar un tipo de molienda?</h2>
@@ -27,7 +27,12 @@
 
                         <div>
                             <label for="nameTypeGrinding" class="updateTypeGrinding_labelBox">Nombre del tipo de molienda:</label>
-                            <input type="text" name="nameTypeGrinding" class="updateTypeGrinding_inputBox" value="<%= typeGrinding.name %>" id="nameTypeGrinding" >
+                            <input 
+                            type="text" 
+                            name="nameTypeGrinding" 
+                            class="updateTypeGrinding_inputBox" 
+                            value="<%= typeGrinding.name %>" 
+                            id="nameTypeGrinding">
 
                             <!-- validaciones Back -->
                             <% if(locals.errorMessage && errorMessage.nameTypeGrinding){ %>

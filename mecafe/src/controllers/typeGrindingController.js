@@ -7,13 +7,12 @@ let typeGrindingController = {
     //listado de moliendas
     index: function(_req,res){
         db.TypeGrinding.findAll({ attributes: ['id', 'name'] }).then(
-            (typeGrinding) => {
+            (allTypeGrinding) => {
                 res.render(path.resolve(__dirname,"../views/typeGrinding/list.ejs"), {
-                    typeGrinding: typeGrinding
+                  allTypeGrinding: allTypeGrinding
                 });
             }
         );
-        
     },
 
     
@@ -27,6 +26,7 @@ let typeGrindingController = {
     store: function(req,res){
 
         let errors = validationResult(req);
+        console.log(req.body)
         console.log(req.body.nameGrinding)
 
         if (!errors.isEmpty()) { console.log(errors)
@@ -34,6 +34,7 @@ let typeGrindingController = {
             errorMessage: errors.mapped(),
             oldData: req.body,
           });
+          
         } else {
           db.TypeGrinding.create({
             name: req.body.nameGrinding,
