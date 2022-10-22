@@ -16,20 +16,29 @@
             
             <%- include("./partials/progresBarCart") %>
 
-            <form action="/user/sale" method="post">
+            <form action="/sale" method="post">
 
                 <div class="checkout__formContainer">
 
-                    <div class="checkout__alertDirection <%= directions.length > 0 ? 'alertDirectionGreen': 'alertDirectionRed' %> checkout__clusterZero">
-                        <%  if(directions.length > 0){ %>
-                            <p class="">Veo que cargaste una o mas direcciones, abajo tenes la libertad de elegir la que mas comoda te queda 😄. Espero disfrutes mucho tu pedido, Gracias!! 🥰</p>
-                        <% } else {%>
-                            <p class="">Veo que no tenes ninguna direccion cargada 😥 ¿No pensas que cargar una seria una buena idea? Excepto que quieras que tu pedido lo entreguemos en la luna 😒</p>
-                        <% } %>
-                    </div>
+                    <%  if(detailCart.length == 0){ %>
+                        <div class="checkout__alertDirection alertDirectionRed checkout__clusterZero">
+                            <p class="">Tienes tu Carrito vacío 😥, agrega cosas al carrito para comprar 🥰</p>
+                        </div>
+                    <% } else { %>
+                        <div class="checkout__alertDirection <%= directions.length > 0 ? 'alertDirectionGreen': 'alertDirectionRed' %> checkout__clusterZero">
+                       
+                            <%  if(directions.length > 0){ %>
+                                <p class="">Veo que cargaste una o mas direcciones, abajo tenes la libertad de elegir la que mas comoda te queda 😄. Espero disfrutes mucho tu pedido, Gracias!! 🥰</p>
+                            <% } else { %>
+                                <p class="">Veo que no tenes ninguna direccion cargada 😥 ¿No pensas que cargar una seria una buena idea? Excepto que quieras que tu pedido lo entreguemos en la luna 😒</p>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    
+                  
 
                     <div class="checkout__directions checkout__clusterOne">
-                        <select name="selectDirection" id="checkout__selectDirection" required>
+                        <select name="idDirection" id="checkout__selectDirection" required>
                             <% directions.forEach(item => { %>
                                 <option dataValue="<%= JSON.stringify(item) %>" value="<%= item.id%> " <%= item.default ? 'selected' : ''%> ><%= item.name %></option>
                             <% }) %>
@@ -147,12 +156,12 @@
 
                                 <div>
                                     <label for="">Nombre Completo:</label>
-                                    <input type="text" required>
+                                    <input type="text" required >
                                 </div>
 
                                 <div>
                                     <label for="">Numero de la Tarjeta</label>
-                                    <input type="number" required>
+                                    <input type="number" required >
                                 </div>
 
                                 <div class="checkout__expirationAndCode">
@@ -168,7 +177,7 @@
                                     </span>
 
                                     <span>
-                                        <button type="submit">pagar</button>
+                                        <button type="submit"  <%= detailCart.length == 0 || directions.length == 0? 'disabled' : '' %>>pagar</button>
                                     </span>
 
                                 </div>

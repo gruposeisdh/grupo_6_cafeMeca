@@ -8,10 +8,10 @@ const { Op } = require("sequelize");
 
 let directionController = {
     index: (req,res) => {
-        // let id= 1;    
-        let id= req.session.user.id;
+        let id= 1;    
+        //let id= req.session.user.id;
         db.Direction.findAll({
-            where:{user_id:id}, 
+            where:{user_id:id, active:true}, 
             order: [['default', 'desc']]})
         .then((directions) => {
             //res.send(directions);
@@ -30,7 +30,6 @@ let directionController = {
         let address_code = req.body.address_code;
         let default_value = req.body.defaultValue == "on" ? true : false;
 
-        console.log(default_value);
         //let id=  req.session.user.id;
         db.Direction.findAll({where: {user_id: userId}}).then(directions => {
             let total = directions.length;

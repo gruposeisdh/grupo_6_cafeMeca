@@ -132,7 +132,7 @@ let cartController = {
     checkout: (req, res) => {
         let userId= 1;    
         //let userId= req.session.user.id;
-        let directions =  db.Direction.findAll({ where:{user_id:userId}, order: [['default', 'desc']]})
+        let directions =  db.Direction.findAll({ where:{user_id:userId, active: true}, order: [['default', 'desc']]})
         let detailCart =  db.DetailCart.findAll(          
             {include: [
                 {
