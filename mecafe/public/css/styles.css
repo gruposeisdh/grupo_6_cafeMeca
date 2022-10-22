@@ -2665,6 +2665,7 @@ article .header_list_direction_detail{
     font-weight: bold;
     padding: 8px;
     border: 0;
+    width: 100%;
 }
 
 .footer_list_direction_detail{
