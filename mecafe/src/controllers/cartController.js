@@ -130,7 +130,57 @@ let cartController = {
     },
 
     checkout: (req, res) => {
-        res.render(path.resolve(__dirname,"../views/checkout.ejs"))
+        let userId= 1;    
+        //let userId= req.session.user.id;
+        let directions =  db.Direction.findAll({ where:{user_id:userId}, order: [['default', 'desc']]})
+        let detailCart =  db.DetailCart.findAll(          
+            {include: [
+                {
+                    model: db.Cart, as: "carts", where: {'user_id': userId}, attributes: []
+                },
+                {
+                    model: db.ProductGrame, as: "products_grames", 
+                    attributes: ['grames','price'], 
+                    include: [{
+                        model: db.Product, as: "products", attributes:['name']
+                    }]
+                },
+                {
+                    model: db.ProductTypeGrinding, as: "products_type_grindings", 
+                    attributes:['type_grinding_id'], 
+                    include : [{
+                        model: db.TypeGrinding, as: "type_grindings" , attributes: ['name']}
+                    ]
+                },
+            ]}        
+        );
+
+        Promise.all([directions,detailCart]).then(([directions,detailCart]) => {
+            let direction = {
+                "id": '',
+                "name": '',
+                "street": '',
+                "city": '',
+                "region": '',
+                "country": '',
+                "address_code": ''
+            }
+
+            if(directions.length == 1) {
+                direction = directions[0];
+            }else{
+                //buscar default
+                directions.forEach(item => {
+                    if(item.default){
+                        direction = item; 
+                    }
+                })
+            } 
+            res.render(path.resolve(__dirname,"../views/checkout.ejs"),{directions:directions,detailCart:detailCart, direction:direction })
+        })
+
+
+        
     }
 }
 

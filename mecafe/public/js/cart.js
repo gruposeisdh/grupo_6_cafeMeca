@@ -27,3 +27,24 @@ let directionHidden = document.getElementById("dataDirectionContainer")
 dataDirectionBtn.addEventListener ("click", () => {
     directionHidden.classList.toggle("dataDirectionHidden")
 })
+
+
+
+let selectDirection = document.getElementById("checkout__selectDirection");
+selectDirection.addEventListener ("change", () => {    
+    let optionSelected = selectDirection.options[selectDirection.selectedIndex];
+    let direction = JSON.parse(optionSelected.getAttribute('dataValue'));
+
+    //llenar form direccion
+
+    document.getElementById("checkout__direction").value = direction.name;
+    document.getElementById("checkout__street").value = direction.street;
+    document.getElementById("checkout__city").value = direction.city;
+    document.getElementById("checkout__region").value = direction.region;
+    document.getElementById("checkout__country").value = direction.country;
+    document.getElementById("checkout__postalCode").value = direction.address_code;
+    
+
+
+})
+

@@ -16,22 +16,23 @@
             
             <%- include("./partials/progresBarCart") %>
 
-            <form action="">
+            <form action="/user/sale" method="post">
 
                 <div class="checkout__formContainer">
 
-                    <div class="checkout__alertDirection alertDirectionGreen checkout__clusterZero">
-
-                        <p class="alertDirectionInvalid">Veo que no tenes ninguna direccion cargada 😥 ¿No pensas que cargar una seria una buena idea? Excepto que quieras que tu pedido lo entreguemos en la luna 😒</p>
-
-                        <p class="Aca le agregas la clase valid">Veo que cargaste una o mas direcciones, abajo tenes la libertad de elegir la que mas comoda te queda 😄. Espero disfrutes mucho tu pedido, Gracias!! 🥰</p>
-
+                    <div class="checkout__alertDirection <%= directions.length > 0 ? 'alertDirectionGreen': 'alertDirectionRed' %> checkout__clusterZero">
+                        <%  if(directions.length > 0){ %>
+                            <p class="">Veo que cargaste una o mas direcciones, abajo tenes la libertad de elegir la que mas comoda te queda 😄. Espero disfrutes mucho tu pedido, Gracias!! 🥰</p>
+                        <% } else {%>
+                            <p class="">Veo que no tenes ninguna direccion cargada 😥 ¿No pensas que cargar una seria una buena idea? Excepto que quieras que tu pedido lo entreguemos en la luna 😒</p>
+                        <% } %>
                     </div>
 
                     <div class="checkout__directions checkout__clusterOne">
-                        <select name="checkout__selectDirection" id="checkout__selectDirection">
-                            <option selected disabled value="">Selecciona tu Direccion:</option>
-                            <option value="DireccionX">Direccion X</option>
+                        <select name="selectDirection" id="checkout__selectDirection" required>
+                            <% directions.forEach(item => { %>
+                                <option dataValue="<%= JSON.stringify(item) %>" value="<%= item.id%> " <%= item.default ? 'selected' : ''%> ><%= item.name %></option>
+                            <% }) %>
                         </select>
                     </div>
                     
@@ -45,32 +46,32 @@
                         <div id="dataDirectionContainer" class="dataDirectionHidden">
                             <div>
                                 <label for="checkout__direction">Nombre de Direccion:</label>
-                                <input id="checkout__direction" name="checkout__direction" type="text">
+                                <input id="checkout__direction" type="text" value="<%= direction.name %>" readonly>
                             </div>
 
                             <div>
                                 <label for="checkout__street">Calle:</label>
-                                <input id="checkout__street" name="checkout__street" type="text">
+                                <input id="checkout__street" type="text" value="<%= direction.street %>" readonly>
                             </div>
 
                             <div>
                                 <label for="checkout__city">Ciudad:</label>
-                                <input id="checkout__city" name="checkout__city" type="text">
+                                <input id="checkout__city" type="text" value="<%= direction.city %>" readonly>
                             </div>
 
                             <div>
                                 <label for="checkout__region">Region:</label>
-                                <input id="checkout__region" name="checkout__region" type="text">
+                                <input id="checkout__region" type="text" value="<%= direction.region %>" readonly>
                             </div>
 
                             <div>
                                 <label for="checkout__country">Pais:</label>
-                                <input id="checkout__country" name="checkout__country" type="text">
+                                <input id="checkout__country" type="text" value="<%= direction.country %>" readonly>
                             </div>
 
                             <div>
                                 <label for="checkout__postalCode">Codigo Postal:</label>
-                                <input id="checkout__postalCode" name="checkout__postalCode" type="text">
+                                <input id="checkout__postalCode" type="text" value="<%= direction.address_code %>" readonly>
                             </div>
 
                         </div>
@@ -89,35 +90,32 @@
                             <thead>
 
                                 <tr>
-                                    <th>Id</th>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Tipo de Molienda</th>
                                     <th>Gramos</th>
                                     <th>Precio</th>
+                                    <th>Total</th>
                                 </tr>
 
                             </thead>
 
                             <tbody>
+                                <% 
+                                detailCart.forEach(item => { 
+                                    let product = item.products_grames.products;
+                                    let totalProduct = item.quantity * item.products_grames.price;                                                
+                                %>
 
                                 <tr>
-                                    <td>1</td>
-                                    <td>Café Club Colombia Vainilla Ibagué</td>
-                                    <td>1</td>
-                                    <td>Grano, Molido Medio, Molido Extra Fino, Molido Grueso, Molido Fino, Molido Super Fino,</td>
-                                    <td>250G, 500G, 1000G</td>
-                                    <td>150 USD</td>
+                                    <td><%= product.name %></td>
+                                    <td><%= item.quantity %></td>
+                                    <td><%= item.products_type_grindings.type_grindings.name %></td>
+                                    <td><%= item.products_grames.grames %>G</td>
+                                    <td><%= item.products_grames.price %> USD</td>
+                                    <td><%= item.quantity * item.products_grames.price %> USD</td>
                                 </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Café Colombiano Tostado Balanceado</td>
-                                    <td>5</td>
-                                    <td>Grano, Molido Medio, Molido Fino</td>
-                                    <td>250G, 500G, 1000G</td>
-                                    <td>300 USD</td>
-                                </tr>
+                            <% }) %>
 
                             </tbody>
 
@@ -149,28 +147,28 @@
 
                                 <div>
                                     <label for="">Nombre Completo:</label>
-                                    <input type="text">
+                                    <input type="text" required>
                                 </div>
 
                                 <div>
                                     <label for="">Numero de la Tarjeta</label>
-                                    <input type="number">
+                                    <input type="number" required>
                                 </div>
 
                                 <div class="checkout__expirationAndCode">
 
                                     <span>
                                         <label for="">Expiracion</label>
-                                        <input type="text">
+                                        <input type="text" required>
                                     </span>
 
                                     <span>
                                         <label for="">CVV</label>
-                                        <input type="password">
+                                        <input type="text" required>
                                     </span>
 
                                     <span>
-                                        <button>pagar</button>
+                                        <button type="submit">pagar</button>
                                     </span>
 
                                 </div>
