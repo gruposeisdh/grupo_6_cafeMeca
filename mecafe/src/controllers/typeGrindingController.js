@@ -5,7 +5,7 @@ const { validationResult } = require("express-validator");
 
 let typeGrindingController = {
     //listado de moliendas
-    index: function(req,res){
+    index: function(_req,res){
         db.TypeGrinding.findAll({ attributes: ['id', 'name'] }).then(
             (typeGrinding) => {
                 res.render(path.resolve(__dirname,"../views/typeGrinding/list.ejs"), {
@@ -15,15 +15,20 @@ let typeGrindingController = {
         );
         
     },
+
+    
     // muestra vista creacion
-    create: function(req,res){
+    create: function(_req,res){
         res.render(path.resolve(__dirname,"../views/typeGrinding/create.ejs"))
     },
+
+
     //el que crea el registro
     store: function(req,res){
 
         let errors = validationResult(req);
         console.log(req.body.nameGrinding)
+
         if (!errors.isEmpty()) { console.log(errors)
           return res.render(path.resolve(__dirname, "../views/typeGrinding/create.ejs"), {
             errorMessage: errors.mapped(),
@@ -31,7 +36,6 @@ let typeGrindingController = {
           });
         } else {
           db.TypeGrinding.create({
-
             name: req.body.nameGrinding,
 
           }).then(() => { console.log('aqui lo logre')
@@ -39,9 +43,18 @@ let typeGrindingController = {
           });
         }
     },
+
+
     //muestra vista edicion
     edit: function(req,res){
-        res.render(path.resolve(__dirname,"../views/typeGrinding/edit.ejs"))
+
+    let id =  req.params.id;
+    db.TypeGrinding.findByPk(id).then((foundGrinding) => {
+        res.render(path.resolve(__dirname,"../views/typeGrinding/edit.ejs"), {
+          typeGrinding: foundGrinding,
+        });
+    });
+        
     },
     //actualiza registro
     update: function(req,res){
