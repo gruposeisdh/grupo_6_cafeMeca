@@ -18,35 +18,37 @@
                 </div>         
             </div>
 
-            <div class="container_table_adminUsers">
-                <table class="AdminUsers__table">
-                    <thead>
-                        <tr>
-                            <th class="list_user_hidden">Id</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th class="list_user_hidden">Rol</th>
-                            <th class="list_user_hidden">Teléfono</th>                              
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <% allUsers.forEach (element => { %>
-
+            <div class="container_table_adminUsersList">
+                <div class="container_table_adminUsers">
+                    <table class="AdminUsers__table">
+                        <thead>
                             <tr>
-                                <td class="list_user_hidden">#<%= element.id %></td>
-                                <td><%= element.firstName %></td>
-                                <td><%= element.lastName %></td>
-                                <td><%= element.email %></td>
-                                <td class="list_user_hidden"><%= element.roles.name %></td>
-                                <td class="list_user_hidden"><%= element.phone %></td>
+                                <th class="list_user_hidden">Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th class="list_user_hidden">Rol</th>
+                                <th class="list_user_hidden">Teléfono</th>                              
                             </tr>
-                        <% }); %>
-                    </tbody>
+                        </thead>
 
-                </table>
+                        <tbody>
+                            <% allUsers.forEach (element => { %>
+
+                                <tr>
+                                    <td class="list_user_hidden">#<%= element.id %></td>
+                                    <td><%= element.firstName %></td>
+                                    <td><%= element.lastName %></td>
+                                    <td><%= element.email %></td>
+                                    <td class="list_user_hidden"><%= element.roles.name %></td>
+                                    <td class="list_user_hidden"><%= element.phone %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+
+                    </table>
                 
+                </div>
             </div>
         </div> 
        

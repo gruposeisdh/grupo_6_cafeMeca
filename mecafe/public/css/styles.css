@@ -1325,6 +1325,7 @@ table {
 
 /** ════════════════════ ADMIN USERS  ════════════════════ **/
 
+
 .container_detail_list-users{
     width: 100%;
     margin-top: 20px;
@@ -1365,7 +1366,7 @@ table {
     border: none;
     border-bottom: solid 1px var(--gray-pastel);
     text-align: center;
-    font-size: 11.5px;
+    font-size: 11px;
     text-transform: capitalize;
 }
 
@@ -2121,7 +2122,7 @@ table {
     display: none;
 }
 
-/** ════════════════════ ADMIN TYPEGRINDING ════════════════════ **/
+/** ════════════════════ ADMIN LIST TYPEGRINDING ════════════════════ **/
 
 .container_table_list_typeGrinding{
     width: 100%;
@@ -2186,6 +2187,171 @@ table {
     border-radius: 3px;
 }
 
+/** ════════════════════ ADMIN EDIT TYPEGRINDING ════════════════════ **/
+
+.containerUpdateTypeGrinding__containerForm {
+    padding: 3em 0;
+}
+
+.updateTypeGrinding__containerForm {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.typeGrindingForm_typeGrinding_titleForm h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.typeGrindingForm_typeGrinding_titleForm h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.updateTypeGrinding_labelBox {
+    display: block;
+    color: gray;
+    font-size: 12px;
+}
+
+.updateTypeGrinding__containerForm div {
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+}
+
+.updateTypeGrinding_inputBox {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.updateTypeGrinding_inputBox:focus {
+    outline: none;
+} 
+
+.updateTypeGrinding__containerForm section {
+    padding: 5px;
+}
+
+.btn_updateTypeGrinding{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+}
+
+.btn_updateTypeGrinding button {
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .8em;
+    background-color: var(--blue-btn);
+    color: white;
+}
+
+.register__formError_grinding {
+    margin-top: 0.7em;
+    color: red;
+    font-size: 0.8em;
+    text-align: center;
+    font-weight: 700;
+}
+
+/** ════════════════════ ADMIN CREATE TYPEGRINDING ════════════════════ **/
+
+.containerCreateTypeGrinding__containerForm {
+    padding: 3em 0;
+}
+
+.createGrinding__containerForm {
+    width: 85%;
+    max-width: 500px;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 5px;
+    padding: 1em;
+    margin: auto;
+    background-color: white;
+    position: relative;
+}
+
+.typeGrindingForm_title_form h2{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.typeGrindingForm_title_form h3{
+    font-weight: 700;
+    padding: .3em;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.typeGrindingForm__formLabel_typeGrinding {
+    display: block;
+    color: gray;
+    font-size: 12px;
+}
+
+.createGrinding__containerForm div {
+    font-size: .8em;
+    align-items: center;
+    padding: 5px;
+}
+
+.typeGrindingForm__formInput_typeGrinding {
+    border: none;
+    margin: 10px 0;
+    padding-bottom: 6px;
+    border-bottom: solid 1px var(--gray-pastel);
+    width: 100%;
+}
+
+.typeGrindingForm__formInput_typeGrinding:focus {
+    outline: none;
+} 
+
+.createGrinding__containerForm section {
+    padding: 5px;
+}
+
+.createTypeGrinding-btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+}
+
+.createTypeGrinding-btn button {
+    border: none;
+    border-radius: 2px;
+    margin: 3px 0;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: .8em;
+    background-color: var(--blue-btn);
+    color: white;
+}
 
 /** ════════════════════ CART ════════════════════ **/
 
@@ -3538,6 +3704,12 @@ footer {
     /** ════════════════════ ADMIN PRODUCTS  ════════════════════ **/
 
 
+    /** ════════════════════ ADMIN USERS  ════════════════════ **/
+
+    .AdminUsers__table td {
+        font-size: 14PX;
+    }
+
     /** ════════════════════ PRODUCT ════════════════════ **/
 
 
@@ -4171,6 +4343,19 @@ footer {
         .list_user_hidden{
             display: revert;
         }
+
+        .container_table_adminUsersList {
+            padding: 1em 0;
+            background-color: white;
+        }
+        
+        .container_table_adminUsers {
+            margin: 2px 20px;
+        }
+        
+        .AdminUsers__table td {
+            font-size: 0.8em;
+        }
         
         .AdminUsers__table th {
             font-size: 16px;
@@ -4243,7 +4428,25 @@ footer {
         width: 25%;
     }
 
+    /** ════════════════════ ADMIN EDIT TYPEGRINDING ════════════════════ **/
 
+    .typeGrindingForm_typeGrinding_titleForm h2{
+        font-size: 18px;
+    }
+
+    .typeGrindingForm_typeGrinding_titleForm h3{
+        font-size: 16px;
+    }
+
+    /** ════════════════════ ADMIN CREATE TYPEGRINDING ════════════════════ **/
+
+    .typeGrindingForm_title_form h2{
+        font-size: 18px;
+    }
+    
+    .typeGrindingForm_title_form h3{
+        font-size: 16px;
+    }
 
     /** ════════════════════ PRODUCT ════════════════════ **/
 

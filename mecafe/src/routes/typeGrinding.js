@@ -6,6 +6,14 @@ const multer = require('multer');
 const typeGrindingController = require('../controllers/typeGrindingController.js');
 const authMiddlewares = require('../middlewares/authMiddlewares');
 
+const validateUpdateGrinding = [ 
+    check("nameTypeGrinding").notEmpty().withMessage("Debes ingresar un nombre"),
+]
+
+const validateCreateGrinding = [ 
+    check("nameGrinding").notEmpty().withMessage("Debes ingresar un nombre"),
+]
+
 router.get(
     '/list',
     //authMiddlewares.authMiddleware,
@@ -28,9 +36,10 @@ router.get(
 );
 
 router.post(
-    '/',
+    '/create',
     //authMiddlewares.authMiddlewarePost,
     //authMiddlewares.adminMiddleware,
+    validateCreateGrinding,
     typeGrindingController.store
 );
 
@@ -38,6 +47,7 @@ router.post(
     '/edit/:id',
     //authMiddlewares.authMiddlewarePost,
     //authMiddlewares.adminMiddleware,
+    validateUpdateGrinding,
     typeGrindingController.update
 );
 

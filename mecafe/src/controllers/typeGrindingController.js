@@ -1,5 +1,7 @@
 const db = require('../../database/models');
 const path = require('path');
+const { validationResult } = require("express-validator");
+
 
 let typeGrindingController = {
     //listado de moliendas
@@ -20,6 +22,22 @@ let typeGrindingController = {
     //el que crea el registro
     store: function(req,res){
 
+        let errors = validationResult(req);
+        console.log(req.body.nameGrinding)
+        if (!errors.isEmpty()) { console.log(errors)
+          return res.render(path.resolve(__dirname, "../views/typeGrinding/create.ejs"), {
+            errorMessage: errors.mapped(),
+            oldData: req.body,
+          });
+        } else {
+          db.TypeGrinding.create({
+
+            name: req.body.nameGrinding,
+
+          }).then(() => { console.log('aqui lo logre')
+            res.redirect("/type-grinding/list");
+          });
+        }
     },
     //muestra vista edicion
     edit: function(req,res){
@@ -29,34 +47,34 @@ let typeGrindingController = {
     update: function(req,res){
         let id = req.params.id;
         let nameGrinding = req.body.nameTypeGrinding;
+        console.log(nameGrinding)
+        console.log(id)
 
-        db.TypeGrinding.findByPk(id)
-        .then(typeGrindings => {
+        let errors = validationResult(req);
 
-            if (typeGrindings){
-                res.render(path.resolve(__dirname,"../views/typeGrinding/list.ejs"), {
-                    typeGrindings: typeGrindings
-                });
-
+        if (!errors.isEmpty()) { console.log(errors)
+          db.TypeGrinding.findByPk(id).then((foundGrinding) => {
+            return res.render(
+              path.resolve(__dirname,"../views/typeGrinding/edit.ejs"),
+              {
+                errorMessage: errors.mapped(),
+                oldData: req.body,
+                typeGrinding: foundGrinding,
+              }
+            );
+          });
+        } else { console.log('no hay errorres')
+            db.TypeGrinding.findOne({ where: { id: id } }).then(() => {
                 db.TypeGrinding.update({
                     name: nameGrinding
-                },{
-                    where: {
-                        id: typeGrindings.id
-                    } 
-                }).then(() => {
+                },
+                { where: { id: id } }
+                ).then(() => { console.log('aqui lo lograste')
                     res.redirect("/type-grinding/list")
                 })
-            } else {
-                    res.redirect("/type-grinding/edit/:id")
-              }
-            
-        })
-
-        
-
-          
+            })
+          }
+        }        
     }
-}
 
 module.exports = typeGrindingController;
