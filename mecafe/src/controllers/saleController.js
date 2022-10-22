@@ -3,8 +3,7 @@ const path = require('path');
 
 let saleController = {
     store: function(req, res){
-        //let userId =  req.session.user.id;
-        let userId= 1;
+        let userId =  req.session.user.id;
         let idDirection = req.body.idDirection;
 
         let createSale = db.Sale.create({

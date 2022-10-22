@@ -7,9 +7,8 @@ const { Op } = require("sequelize");
 
 
 let directionController = {
-    index: (req,res) => {
-        let id= 1;    
-        //let id= req.session.user.id;
+    index: (req,res) => {  
+        let id= req.session.user.id;
         db.Direction.findAll({
             where:{user_id:id, active:true}, 
             order: [['default', 'desc']]})
@@ -21,7 +20,6 @@ let directionController = {
     
     store: (req,res) => {        
         let userId=  req.session.user.id;
-        // et userId = 1;
         let name = req.body.name;
         let street = req.body.street;
         let city = req.body.city;
@@ -60,7 +58,6 @@ let directionController = {
     update: (req,res) => {
         //TODO validar que edito direccion perteneciente al user (no puedo editar una direccion que no es mia)
         let userId=  req.session.user.id;
-        // let userId = 1;
         let id= req.body.id;
         let name = req.body.name;   
         let street = req.body.street;
@@ -95,13 +92,12 @@ let directionController = {
         //TODO validar que elimino direccion perteneciente al user (no puedo eliminar una direccion que no es mia)
         let id= req.params.id;
 
-        db.Direction.destroy({
-            where: {
-                id: id
-            }
+        db.Direction.update(
+            {active: false},
+            {where: {id: id}}
+        ).then(direction => {
+            res.redirect("/user/direction");
         })
-
-        res.redirect("/user/direction");
     }
 }
 

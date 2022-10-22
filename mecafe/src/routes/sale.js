@@ -4,7 +4,7 @@ const saleController = require('../controllers/saleController.js')
 
 router.post(
     '/',
-    //authMiddlewares.authMiddlewarePost,
+    authMiddlewares.authMiddlewarePost,
     saleController.store
 );
 

@@ -160,8 +160,8 @@ router.post(
 
 router.get(
     '/list',
-    //authMiddlewares.authMiddleware,
-    //authMiddlewares.adminMiddleware,
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
     productController.adminProducts
 );
 
