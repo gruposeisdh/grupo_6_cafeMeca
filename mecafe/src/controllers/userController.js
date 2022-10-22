@@ -22,14 +22,11 @@ let userController = {
 
   //Ver perfil usuario
   profile: (req, res) => {
-    console.log("entre a profile");
-    // let id = 1;
-    let id =  req.session.user.id;
-    db.User.findByPk(id).then((userEncontrado) => {
-      sleep(1000).then(() => {
-        res.render(path.resolve(__dirname, "../views/user/profile.ejs"), {
-          userProfile: userEncontrado,
-        });
+    let userId =  req.session.user.id;
+
+    db.User.findByPk(userId).then((userEncontrado) => {
+      res.render(path.resolve(__dirname, "../views/user/profile.ejs"), {
+        userProfile: userEncontrado,
       });
     });
   },
@@ -37,7 +34,7 @@ let userController = {
   //actualiza datos del usuario con formulario de perfil
 
   update: (req, res) => {
-    let id = req.session.user.id;
+    let userId = req.session.user.id;
     let name = req.body.name;
     let lastName = req.body.lastName;
     let email = req.body.email;
@@ -46,7 +43,7 @@ let userController = {
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) { console.log(errors)
-      db.User.findByPk(id).then((userEncontrado) => {
+      db.User.findByPk(userId).then((userEncontrado) => {
         return res.render(
           path.resolve(__dirname, "../views/user/profile.ejs"),
           {
@@ -56,8 +53,8 @@ let userController = {
           }
         );
       });
-    } else {console.log('no hay errorres')
-      db.User.findOne({ where: { id: id } }).then(() => {
+    } else {
+      db.User.findOne({ where: { id: userId } }).then(() => {
         db.User.update(
           {
             firstName: name,
@@ -65,7 +62,7 @@ let userController = {
             phone: phone,
             email: email,
           },
-          { where: { id: id } }
+          { where: { id: userId } }
         ).then((e) => {
           res.redirect("/user/profile");
         });
@@ -75,15 +72,13 @@ let userController = {
 
    //actualiza contraseña del usuario con formulario de perfil
 
-  changePassword: (req, res) =>{console.log('llego aqui a pass')
-    let id = req.session.user.id;
+  changePassword: (req, res) =>{
+    let userId = req.session.user.id;
     let newPassword = req.body.newPassword; console.log(newPassword)
 
     let errors = validationResult(req);
-    console.log('con errores')
-    console.log(errors)
     if (!errors.isEmpty()) { 
-      db.User.findByPk(id).then((passEncontrada) => {
+      db.User.findByPk(userId).then((passEncontrada) => {
         return res.render(
           path.resolve(__dirname, "../views/user/profile.ejs"),
           {
@@ -93,15 +88,14 @@ let userController = {
           }
         );
       });
-    } else {console.log('sin errores lo lograste') 
-    db.User.findOne({ where: { id: id } }).then(() => {
+    } else {
+    db.User.findOne({ where: { id: userId } }).then(() => {
       db.User.update(
         {
           password: bcrypt.hashSync(newPassword, 10),
         },
-        { where: { id: id } }
+        { where: { id: userId } }
       ).then((e) => {
-        console.log("aqui pase");
         res.redirect("/user/profile");
       });
     });
@@ -179,8 +173,7 @@ let userController = {
   },
 
   sales: function (req, res) {
-    //let userId =  req.session.user.id;
-    let userId = 1;
+    let userId =  req.session.user.id;
 
     db.Sale.findAll({
       where: { user_id: userId },

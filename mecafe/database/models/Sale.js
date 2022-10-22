@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         through: models.DetailSale,
         foreignKey: "sale_id",
         timestamps: false
+      }),
+      this.belongsTo(models.Direction,{
+        as: "directions",
+        foreignKey: "direction_id"
       })
     }
   }

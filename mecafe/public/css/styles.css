@@ -232,35 +232,35 @@ a:active {
 
 .checkout__detailOrder table tr th:nth-child(1),
 .checkout__detailOrder table tr td:nth-child(1) {
-    width: 4%;
+    width: 15%;
 }
 
 .checkout__detailOrder table tr th:nth-child(2),
 .checkout__detailOrder table tr td:nth-child(2) {
-    width: 15%;
+    width: 6%;
 }
 
 .checkout__detailOrder table tr th:nth-child(3),
 .checkout__detailOrder table tr td:nth-child(3) {
     display: none;
-    width: 6%;
+    width: 20%;
 }
 
 .checkout__detailOrder table tr th:nth-child(4),
 .checkout__detailOrder table tr td:nth-child(4) {
     display: none;
-    width: 20%;
+    width: 10%;
 }
 
 .checkout__detailOrder table tr th:nth-child(5),
 .checkout__detailOrder table tr td:nth-child(5) {
     display: none;
-    width: 10%;
+    width: 6%;
 }
 
 .checkout__detailOrder table tr th:nth-child(6),
 .checkout__detailOrder table tr td:nth-child(6) {
-    width: 8%;
+    width: 6%;
 }
 
 .checkout__table{
@@ -2295,12 +2295,13 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     font-size: 15px;   
 }
 
-.total-cart .button, #table__cart button{
+.total-cart a, #table__cart button{
     width: 30%;
     background-color: var(--black);
     color: white;
     font-weight: bold;
     padding: 5px;
+    text-align: center;
 }
 
 #table__cart button{
@@ -2664,6 +2665,7 @@ article .header_list_direction_detail{
     font-weight: bold;
     padding: 8px;
     border: 0;
+    width: 100%;
 }
 
 .footer_list_direction_detail{
@@ -3639,35 +3641,35 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(1),
     .checkout__detailOrder table tr td:nth-child(1) {
-        width: 4%;
+        width: 15%;
     }
 
     .checkout__detailOrder table tr th:nth-child(2),
     .checkout__detailOrder table tr td:nth-child(2) {
-        width: 15%;
+        width: 9%;
     }
 
     .checkout__detailOrder table tr th:nth-child(3),
     .checkout__detailOrder table tr td:nth-child(3) {
         display: revert;
-        width: 9%;
+        width: 20%;
     }
 
     .checkout__detailOrder table tr th:nth-child(4),
     .checkout__detailOrder table tr td:nth-child(4) {
         display: none;
-        width: 20%;
+        width: 10%;
     }
 
     .checkout__detailOrder table tr th:nth-child(5),
     .checkout__detailOrder table tr td:nth-child(5) {
         display: none;
-        width: 10%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(6),
     .checkout__detailOrder table tr td:nth-child(6) {
-        width: 8%;
+        width: 6%;
     }
 
 
@@ -4557,7 +4559,7 @@ footer {
         max-width: 350px;       
     }
 
-    .total-cart .button{
+    .total-cart a{
         margin-top: 10px;
         width: 100%;
     }
@@ -4709,35 +4711,35 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(1),
     .checkout__detailOrder table tr td:nth-child(1) {
-        width: 4%;
+        width: 15%;
     }
 
     .checkout__detailOrder table tr th:nth-child(2),
     .checkout__detailOrder table tr td:nth-child(2) {
-        width: 15%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(3),
     .checkout__detailOrder table tr td:nth-child(3) {
         display: revert;
-        width: 6%;
+        width: 20%;
     }
 
     .checkout__detailOrder table tr th:nth-child(4),
     .checkout__detailOrder table tr td:nth-child(4) {
         display: revert;
-        width: 20%;
+        width: 10%;
     }
 
     .checkout__detailOrder table tr th:nth-child(5),
     .checkout__detailOrder table tr td:nth-child(5) {
         display: revert;
-        width: 10%;
+        width: 6%;
     }
 
     .checkout__detailOrder table tr th:nth-child(6),
     .checkout__detailOrder table tr td:nth-child(6) {
-        width: 8%;
+        width: 6%;
     }
 
 

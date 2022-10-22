@@ -143,7 +143,7 @@ router.post(
 //procesa actualizacion datos de usuario
 router.post(
   "/profile",
-  // authMiddlewares.guestMiddleware,
+  authMiddlewares.authMiddleware,
   validateUpdateUser,
   userController.update
 );
@@ -151,25 +151,25 @@ router.post(
 //procesa actualizacion datos de contraseña
 router.post(
   "/changePassword",
-  // authMiddlewares.guestMiddleware,
+  authMiddlewares.authMiddlewarePost,
   validateUpdatePassword,
   userController.changePassword
 );
 
 router.get(
   "/profile",
-  /**authMiddlewares.authMiddleware, */ userController.profile
+  authMiddlewares.authMiddleware, userController.profile
 );
 
 router.get(
   "/sale",
-  /** authMiddlewares.authMiddleware, */ userController.sales
+  authMiddlewares.authMiddleware, userController.sales
 );
 
 router.get(
   "/list",
-  //authMiddlewares.authMiddleware,
-  //authMiddlewares.adminMiddleware,
+  authMiddlewares.authMiddleware,
+  authMiddlewares.adminMiddleware,
   userController.index
 );
 
