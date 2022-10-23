@@ -131,10 +131,16 @@ let userController = {
         image: imageNewUser(req.file),
         phone: req.body.phone,
       }).then((userCreado) => {
-        //Aqui debe hacerse login
-        req.session.user = userCreado;
-        req.session.errorsLogin = undefined;
-        res.redirect("/user/profile");
+        db.Cart.create({
+          user_id: userCreado.id
+        });
+
+        sleep(1000).then(() => {
+          req.session.user = userCreado;
+          req.session.errorsLogin = undefined;
+          res.redirect("/user/profile");
+        }); 
+       
       });
     }
   },
@@ -154,7 +160,7 @@ let userController = {
       if (userEncontrado && bcrypt.compareSync(pass, userEncontrado.password)) {
         req.session.user = userEncontrado;
         req.session.errorsLogin = undefined;
-        if (route == "") {
+        if (route == "" || route == "/") {
           return res.redirect("/user/profile");
         }
         return res.redirect(route);
