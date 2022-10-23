@@ -84,6 +84,8 @@ a:active {
     display: flex;
 }
 
+
+
 /*! ════════════════════ Modificacion de CART ════════════════════ !*/
 
 
@@ -342,6 +344,7 @@ a:active {
     border: none;
     padding: 10px 5px;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .checkout__alertDirection{
@@ -377,6 +380,18 @@ a:active {
 
 .fa-angle-down{
     color: white;
+    cursor: pointer;
+}
+
+.filtersChecks-BoxGeneral{
+    background-color: white;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 2px;
+    margin-bottom: 15px;
+    padding: 8px 16px;
+}
+
+.listProduct__filtersChecks button{
     cursor: pointer;
 }
 
@@ -514,18 +529,37 @@ a:active {
     text-align: center;
 }
 
-.ProductNew__detailProduct h3{
+.ProductNew__detailProduct .ProductNew__detailProduct-Five{
     height: 45px;
-    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
+    /* color: white;
+    background-color: var(--negro-pastel); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    border: solid 1px var(--gray-pastel);
+    border-left: solid 3px var(--blue-btn);
+    display: none;
+}
+
+.ProductNew__detailProduct .ProductNew__detailProduct-Two {
+    height: 45px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 2px;
+    color: white;
     background-color: var(--negro-pastel);
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .ProductNew__detailProduct p{
@@ -536,13 +570,16 @@ a:active {
 
 .ProductNew__selectorCharacteristics h3{
     height: 45px;
-    color: white;
     font-size: 18px;
     padding: 10px;
     text-align: center;
     margin: 20px auto;
     border-radius: 2px;
-    background-color: var(--negro-pastel);
+    /* color: white; */
+    /* background-color: var(--negro-pastel); */
+    color: black;
+    border: solid 1px var(--gray-pastel);
+    border-left: solid 3px var(--blue-btn);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -634,20 +671,26 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--blue-btn);
+    margin-top: 10px;
 }
 
 #productPrice__container button{
     border-radius: 2px;
-    background-color: var(--lox);
+    color: black;
+    background-color: white;
     font-weight: bold;
     padding: 0 10px;
     width: max-content;
     border: none;
     height: 30px;
+    cursor: pointer;
 }
 
 .ProductNew__selectorCharacteristics h5{
     display: flex;
+    text-transform: uppercase;
+    color: white;
     font-size: 18px;
     align-items: center;
     justify-content: center;
@@ -655,10 +698,6 @@ a:active {
     margin: 7px 0;
     gap: 3%;
     width: 55%;
-}
-
-#productPrice{
-    color: green;
 }
 
 
@@ -1089,6 +1128,7 @@ a:active {
     justify-content: center;
     padding: 10px;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 
@@ -1128,7 +1168,7 @@ a:active {
     display: block;
     padding: .12em 0;
     margin-left: 0;
-    transform: translateY(-20px);
+    transform: translateY(-27px);
     transition: transform .5s; 
     /* margin-top: 5px; */
 }
@@ -1309,6 +1349,7 @@ table {
 .AdminProducts__btn i {
     font-size: 1.15em;
     padding: 4px;
+    cursor: pointer;
 }
 
 .AdminProducts__btnModify:hover {
@@ -1408,9 +1449,7 @@ table {
     background-color: var(--negro-pastel);
     height: 50px;
     padding: 7px;
-    margin-bottom: 0.5em;
     font-size: 20px;
-    margin-bottom: 0.5em;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
@@ -1473,7 +1512,7 @@ table {
     /* background-color: var(--gray-pastel); */
     font-size: 20px;
     padding: 7px;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     height: 50px;
     text-transform: uppercase;
     display: flex;
@@ -1640,6 +1679,7 @@ table {
     padding: .8em;
     background-color: #3483fa;
     color: white;
+    cursor: pointer;
 }
 
 .createProduct__inputBox:focus {
@@ -2351,6 +2391,7 @@ table {
     padding: .8em;
     background-color: var(--blue-btn);
     color: white;
+    cursor: pointer;
 }
 
 /** ════════════════════ CART ════════════════════ **/
@@ -2420,6 +2461,10 @@ table {
     border: solid 1px var(--gray-pastel);
     border-radius: 2px;
     margin: 0 0 20px;
+}
+
+.header_direction_detail_sales .title{
+    text-align: center;
 }
 
 #cart-products form {
@@ -2680,6 +2725,7 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
     background-color: var(--blue-btn);
     font-weight: 600;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .profile_sendBtn:hover {
@@ -2833,11 +2879,12 @@ tbody tr .product_subtotal__table_cart , .total-cart .price{
 }
 
 .header_direction_detail button, .footer_list_direction_detail .button_edit_direction {
-    background-color: var(--black);
+    background-color: var(--blue-pastel);
     color: white;
     font-weight: bold;
     padding: 8px;
-    border: 0
+    border: 0;
+    cursor: pointer;
 }
 
 .list_directions{
@@ -2898,6 +2945,7 @@ article .header_list_direction_detail{
     padding: 8px;
     border: 0;
     width: 100%;
+    cursor: pointer;
 }
 
 .footer_list_direction_detail{
@@ -2983,6 +3031,7 @@ article .header_list_direction_detail{
     background: #0f82fc;
     color: white;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .register__formError {
@@ -3051,6 +3100,7 @@ article .header_list_direction_detail{
     letter-spacing: 1px;
     margin: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .formDirection__Btns .btnSend {    
@@ -4134,6 +4184,14 @@ footer {
         "ProductNew__clusterFive ProductNew__clusterFive"
     }
 
+    .ProductNew__detailProduct .ProductNew__detailProduct-Two{
+        color: black;
+        background-color: revert;
+        border-bottom: solid 2px var(--lox);
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
     /*! ════════════════════ HEADER ════════════════════ !*/
 
     .nav-toggle {
@@ -4410,6 +4468,8 @@ footer {
         gap: 10px;
     }
 
+
+
     .filtersChecks_boxFilter{
         display: flex;
         flex-wrap: wrap;
@@ -4426,7 +4486,7 @@ footer {
     .listProduct__filtersChecks button{
         margin: revert;
         margin-left: auto;
-        margin-top: 10px;
+        /* margin-top: 10px; */
         width: 25%;
     }
 
@@ -5189,7 +5249,7 @@ footer {
     }
     
     .ProductNew__paymentMethodsImageProduct {
-        max-width: 350px;
+        max-width: 500px;
     }
 
     
