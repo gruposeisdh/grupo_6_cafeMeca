@@ -32,8 +32,8 @@
                     <tbody>
                         <% sales.forEach(item => { %>
                             <tr>                                
-                                <td class="id_sale"><a href="/sales/<%= item.id %>">#<%= item.id %></a></td>                     
-                                <td><%= item.date %></td>
+                                <td class="id_sale"><%= item.id %></td>                
+                                <td><%= new Date(item.date).toISOString().slice(0, 10) %></td>
                                 <td><span class="total_sale">$<%= item.total %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
                             </tr>
                         <% }) %>
