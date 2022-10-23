@@ -31,10 +31,10 @@
                     </thead>
                     <tbody>
                         <% sales.forEach(item => { %>
-                            <tr>                                
+                            <tr>
                                 <td class="id_sale"><%= item.id %></td>                
                                 <td><%= new Date(item.date).toISOString().slice(0, 10) %></td>
-                                <td><span class="total_sale">$<%= item.total %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
+                                <td><span class="total_sale">$<%= parseFloat(item.total).toFixed(2) %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
                             </tr>
                         <% }) %>
                     </tbody>             

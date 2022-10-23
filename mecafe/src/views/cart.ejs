@@ -34,8 +34,8 @@
                         %>
                             <tr>
                                 <td><img class="img__table_cart" src="/img/productos/<%= product.images_products[0].path %>"  alt=""></td>
-                                <td class="product_name_table_cart"><%= product.name %> - <%= item.products_grames.grames + " grs" %> </td>                     
-                                <td>$<%= item.products_grames.price %></td>
+                                <td class="product_name_table_cart"><%= product.name %> - <%= item.products_grames.grames + " grs" %> - <%= item.products_type_grindings.type_grindings.name %> </td>                     
+                                <td>$<%= parseFloat(item.products_grames.price).toFixed(2) %></td>
                                 <td>
                                     <div class="quantity__table_cart" id="item_<%= item.id %>">
                                         <input type="button" value="-" class="minus" onclick="minusValue(<%= item.id %>)">                                   
@@ -43,7 +43,7 @@
                                         <input type="button" value="+" class="plus" onclick="moreValue(<%= item.id %>)">
                                     </div>
                                 </td>
-                                <td class="product_subtotal__table_cart">$<%= item.quantity * item.products_grames.price %></td>
+                                <td class="product_subtotal__table_cart">$<%= parseFloat(item.quantity * item.products_grames.price).toFixed(2) %></td>
                                 <td> <!-- <i class="fas fa-times"> --> </td>
                             </tr>
                         <% }) %>
@@ -60,7 +60,7 @@
             </form>            
             <div class="total-cart">
                 <p class="title">Total del Carrito</p>
-                <p class="price">$ <%= total %></p>
+                <p class="price">$ <%= parseFloat(total).toFixed(2) %></p>
                 <a class="button" href="/cart/checkout">Finalizar Compra</a>                
             </div>
         </main>

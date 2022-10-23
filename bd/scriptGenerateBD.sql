@@ -97,8 +97,6 @@ create table users
 	phone varchar(45) null,
 	constraint email_UNIQUE
 		unique (email),
-	constraint phone_UNIQUE
-		unique (phone),
 	constraint fk_users_roles1
 		foreign key (role_id) references roles (id)
 );
