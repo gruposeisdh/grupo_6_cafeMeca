@@ -64,7 +64,7 @@ INSERT INTO `detail_sales` (`id`, `sale_id`, `quantity`, `product_grame_id`, `pr
 
 INSERT INTO `directions` (`id`, `name`, `street`, `city`, `region`, `country`, `address_code`, `user_id`, `default`, `active`) VALUES
 (1, 'Guillermo Llona 325', 'Guillermo Llona 325', 'Mirasol', 'Guillermo Llona ', 'Chile', '23248613', 1, 1, 1),
-(2, 'Javiera Carrera 670', 'Javiera Carrera 670', 'Temuco', 'Araucania', 'Chile', '86135165', 1, 0, 0),
+(2, 'Javiera Carrera 670', 'Javiera Carrera 670', 'Temuco', 'Araucania', 'Chile', '86135165', 1, 0, 0);
 
 --
 -- Volcado de datos para la tabla `images_products`
@@ -167,7 +167,8 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `role_i
 (1, 'Juan', 'Perez', 'juan.perez@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56995376489'),
 (2, 'Joh', 'Flores', 'joh.flores@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56937926549'),
 (3, 'Yoh', 'zuluaga', 'yoh.zuluaga@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56931896539'),
-(4, 'Nico', 'Pirello', 'nico.pirello@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56973193693');
+(4, 'Nico', 'Pirello', 'nico.pirello@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56973193693'),
+(5, 'Cliente', 'Cliente', 'cliente@gmail.com', '$2a$10$cxygX4aEvwou6928R.1aPepu.D4GrMf4J6YaJ2XbJsAcUz6LdyUda', 1, 'userDefault.jpg', '56973193699');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
