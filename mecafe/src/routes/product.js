@@ -139,7 +139,12 @@ router.post(
     productController.store
 );
 
-router.get('/edit/:id',productController.edit);
+router.get(
+    '/edit/:id',
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
+    productController.edit
+);
 
 router.post(
     '/edit/:id',
