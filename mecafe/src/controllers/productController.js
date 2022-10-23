@@ -440,6 +440,7 @@ let productController = {
     // Elimina un Producto - LISTO
 
     destroy: (req, res) => {
+        id = req.params.id;
 
         db.Product.update({
             active: false
@@ -447,10 +448,9 @@ let productController = {
             where: {
                 id: id
             }
+        }).then((product) => {
+            res.redirect("/product/list");
         })
-
-
-        res.redirect("/product/list");
     }
 }
 
