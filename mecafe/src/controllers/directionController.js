@@ -67,23 +67,25 @@ let directionController = {
         let address_code = req.body.address_code;
         let default_value = req.body.defaultValue == "on" ? true : false;
 
-        db.Direction.findAll({where: {user_id: userId},attribute: {[Op.not]: id}}).then(directions => {
+        db.Direction.findAll({where: {user_id: userId, active: true},attribute: {[Op.not]: id}}).then(directions => {
             let total = directions.length;
             //si la direccion será predeterminada y hay mas direcciones - verificar si hay otra direccion default y modificarla
             if (total > 0 && default_value) {            
                 db.Direction.update({default: false},{where: {user_id: userId, default: true }})
             }
 
-            db.Direction.update({
-                name: name,
-                street: street,
-                city: city,
-                region: region,
-                country: country,
-                address_code: address_code,
-                default: default_value,
-            },{ where: {id: id} }).then(direction => {
-                res.redirect("/user/direction");
+            sleep(1000).then(() => {
+                db.Direction.update({
+                    name: name,
+                    street: street,
+                    city: city,
+                    region: region,
+                    country: country,
+                    address_code: address_code,
+                    default: default_value,
+                },{ where: {id: id} }).then(direction => {
+                    res.redirect("/user/direction");
+                })
             })
         });
     },
@@ -91,14 +93,26 @@ let directionController = {
     delete: (req,res) => {
         //TODO validar que elimino direccion perteneciente al user (no puedo eliminar una direccion que no es mia)
         let id= req.params.id;
+        let userId=  req.session.user.id;
 
         db.Direction.update(
             {active: false},
             {where: {id: id}}
         ).then(direction => {
-            res.redirect("/user/direction");
+            db.Direction.findOne({where: {user_id: userId, active: true}}).then(direction => {
+                db.Direction.update({default: true},{where: {id: direction.id, active: true }})
+            })
+
+            sleep(1000).then(() => {
+                res.redirect("/user/direction");
+            })
         })
     }
 }
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 
 module.exports = directionController;

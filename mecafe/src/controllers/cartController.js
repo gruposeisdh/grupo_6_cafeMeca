@@ -160,16 +160,10 @@ let cartController = {
                 "address_code": ''
             }
 
-            if(directions.length == 1) {
+            if(directions.length >0 ) {
                 direction = directions[0];
-            }else{
-                //buscar default
-                directions.forEach(item => {
-                    if(item.default){
-                        direction = item; 
-                    }
-                })
-            } 
+            }
+            
             res.render(path.resolve(__dirname,"../views/checkout.ejs"),{directions:directions,detailCart:detailCart, direction:direction })
         })
 
