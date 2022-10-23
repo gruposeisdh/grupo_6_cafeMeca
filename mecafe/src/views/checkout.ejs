@@ -122,7 +122,7 @@
                                     <td><%= item.products_type_grindings.type_grindings.name %></td>
                                     <td><%= item.products_grames.grames %>G</td>
                                     <td><%= item.products_grames.price %> USD</td>
-                                    <td><%= item.quantity * item.products_grames.price %> USD</td>
+                                    <td><%= parseFloat(item.quantity * item.products_grames.price).toFixed(2) %> USD</td>
                                 </tr>
                             <% }) %>
 
