@@ -88,6 +88,9 @@ a:active {
     color: var(--lox);
 }
 
+.registerContainerGeneral{
+    padding-bottom: 50px;
+}
 
 
 /*! ════════════════════ Modificacion de CART ════════════════════ !*/
@@ -3419,7 +3422,7 @@ body {
 
 .registerForm__form-register div {
     padding: 5px;
-    margin: 1.3em 0;
+    margin-bottom: 1.2em;
 }
 
 .registerForm__form-register label {
@@ -3429,8 +3432,9 @@ body {
     display: block;
     padding: .12em 0;
     margin-left: 0;
-    transform: translateY(-21px);
+    transform: translateY(-27px);
     transition: transform .5s; 
+    padding-left: 5px;
 }
 
 .registerForm__form-register input {
