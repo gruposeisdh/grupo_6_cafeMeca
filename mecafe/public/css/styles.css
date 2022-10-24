@@ -88,6 +88,9 @@ a:active {
     color: var(--lox);
 }
 
+.registerContainerGeneral{
+    padding-bottom: 50px;
+}
 
 
 /*! ════════════════════ Modificacion de CART ════════════════════ !*/
@@ -2337,7 +2340,7 @@ div.quantity__table_cart input[type=number] {
 .register__formError_grinding {
     margin-top: 0.7em;
     color: red;
-    font-size: 0.8em;
+    font-size: 1em;
     text-align: center;
     font-weight: 700;
 }
@@ -3406,7 +3409,7 @@ body {
     margin-top: 3em;
 }
 
-.registerForm__form {
+.registerForm__form-register {
     width: 85%;
     max-width: 500px;
     border: solid 1px var(--gray-pastel);
@@ -3417,32 +3420,32 @@ body {
     position: relative;
 }
 
-.registerForm__form div {
+.registerForm__form-register div {
     padding: 5px;
-    margin: 1.3em 0;
+    margin-bottom: 1.2em;
 }
 
-.registerForm__formLabel_register label{
+.registerForm__form-register label {
     color: var(--gray-pastel);
     font-size: 14px;
     position: absolute;
     display: block;
-    padding: .8em 0;
-    margin-top: 5px;
-    transform: translateY(-45px);
-    transition: transform .5s;
+    padding: .12em 0;
+    margin-left: 0;
+    transform: translateY(-27px);
+    transition: transform .5s; 
+    padding-left: 5px;
 }
 
-.registerForm__formInput_register {
+.registerForm__form-register input {
     font-family: proximanova;
-    padding: .5em 0;
+    padding: .5em .5em;
     border: none;
     width: 100%;
     border-bottom: solid 1px var(--gray-pastel);
-    margin-top: 10px;
 }
 
-.registerForm__formInput_register input:focus{
+.registerForm__form-register input:focus{
     transition: all .1s;
     outline: none;
     border-bottom: solid 2px var(--lox);
@@ -3545,11 +3548,11 @@ body {
 
 .registerForm__formInput_register:focus + .registerForm__formLabel_register,
 .registerForm__formInput_register:not(:placeholder-shown) + .registerForm__formLabel_register{
-    transform: translateY(-65px) scale(.75);
+    transform: translateY(-50px) scale(.75);
     transform-origin: left top;
     color: #3866f2;
-    margin: 20px 0;
 }
+
 
 /* estilos para validacion front-Yohanna */
 
@@ -3558,6 +3561,7 @@ body {
 .registerForm_errorItem-correcto{
     position: absolute;
     right: 22px;
+    margin-top: 6px;
     z-index: 100;
     font-size: 16px;
     color:#00a650;
@@ -3569,6 +3573,7 @@ body {
 .registerForm_errorItem-incorrecto{
     position: absolute;
     right: 22px;
+    margin-top: 6px;
     z-index: 100;
     font-size: 16px;
     color: red;
