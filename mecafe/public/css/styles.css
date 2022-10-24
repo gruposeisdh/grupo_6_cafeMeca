@@ -84,6 +84,10 @@ a:active {
     display: flex;
 }
 
+.listProduct__titleFilter .fa-times-circle{
+    color: var(--lox);
+}
+
 
 
 /*! ════════════════════ Modificacion de CART ════════════════════ !*/
