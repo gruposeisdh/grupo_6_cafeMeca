@@ -3,9 +3,14 @@ function addDirection(){
     togglesFormRegister();
 }
 
-function cancelFormDirection(){
+function cancelFormRegisterDirection(){
     togglesButtonList();
-    //FALTA EL FORM QUE CORRESPONDE
+    togglesFormRegister();
+}
+
+function cancelFormEditDirection(){
+    togglesButtonList();
+    togglesFormEdit();
 }
 
 function togglesButtonList(){

@@ -1,6 +1,6 @@
 <!-- Encabezado de la pagina -->
 <%- include("../partials/head") %>
-    <title>Document</title>
+    <title>Mis Pedidos</title>
 </head>
 <body class="bodyHome">
 
@@ -9,31 +9,37 @@
 
     <!-- Contenido -->
     <section class="generalHome">  
+        
         <div class="container_users">
+
+            <!-- Menu superior -->
             <%- include("../partials/menuUser") %>
-            <div class="container_detail_view_user container__table_sales_user">
-                <p class="title">Mis Pedidos</p>
+
+            <div class="container_detail_view_user_sales container__table_sales_user"> 
+                <div class="header_direction_detail_sales">
+                    <p class="title">Mis Pedidos</p>
+                </div>
+            </div>
+
                 <table id="table__sales_user">          
                     <thead>
                       <tr>
                         <th>PEDIDO</th>
                         <th>FECHA</th>
                         <th>TOTAL</th>
-                        <th>ACCIONES</th>
                       </tr>
                     </thead>
                     <tbody>
                         <% sales.forEach(item => { %>
-                            <tr>                                
-                                <td class="id_sale"><a href="/sales/<%= item.id %>">#<%= item.id %></a></td>                     
-                                <td><%= item.date %></td>
-                                <td><span class="total_sale">$<%= item.total %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
-                                <td><a class="button_go_to_sale" href="/sales/<%= item.id %>">Ver</a></td>
+                            <tr>
+                                <td class="id_sale"><%= item.id %></td>                
+                                <td><%= new Date(item.date).toISOString().slice(0, 10) %></td>
+                                <td><span class="total_sale">$<%= parseFloat(item.total).toFixed(2) %></span> <span class="description_total_sale">para <%= item.totalItems %> elementos</span></td>
                             </tr>
                         <% }) %>
                     </tbody>             
                 </table>
-            </div>
+           
         </div> 
        
     </section>
@@ -41,4 +47,4 @@
     <%- include("../partials/footerNico") %>
 </body>
 </html>
-<script src="../../../../../../../../js/menuUser.js"></script>
+<script src="../../../../../../../../js/menuPartial.js"></script>

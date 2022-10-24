@@ -111,7 +111,7 @@ const storage = multer.diskStorage({
     },
 
     filename: function (req, file, cb) {
-    let newFileName = "productImage - " + Date.now() + path.extname(file.originalname)
+    let newFileName = "productImage-" + Date.now() + path.extname(file.originalname)
     cb(null, newFileName)
     }
 
@@ -139,7 +139,12 @@ router.post(
     productController.store
 );
 
-router.get('/edit/:id',productController.edit);
+router.get(
+    '/edit/:id',
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
+    productController.edit
+);
 
 router.post(
     '/edit/:id',
@@ -159,9 +164,9 @@ router.post(
 );
 
 router.get(
-    '/administracion',
-    //authMiddlewares.authMiddleware,
-    //authMiddlewares.adminMiddleware,
+    '/list',
+    authMiddlewares.authMiddleware,
+    authMiddlewares.adminMiddleware,
     productController.adminProducts
 );
 
