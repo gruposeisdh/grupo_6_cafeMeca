@@ -239,7 +239,7 @@ a:active {
 
 .checkout__detailOrder table tr th:nth-child(2),
 .checkout__detailOrder table tr td:nth-child(2) {
-    width: 6%;
+    width: 9%;
 }
 
 .checkout__detailOrder table tr th:nth-child(3),
@@ -1305,6 +1305,29 @@ table {
     border-collapse: collapse;
     background-color: white;
     border: solid 1px var(--gray-pastel);
+}
+
+#table__cart {
+    width: 100%;
+} 
+
+#table__cart tbody td {
+    text-align: center;
+} 
+
+#table__cart thead th{
+    border-bottom: solid 2px var(--lox);
+    font-size: 16px;
+}
+
+div.quantity__table_cart input[type=number]::-webkit-inner-spin-button,
+div.quantity__table_cart input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+div.quantity__table_cart input[type=number] { 
+    -moz-appearance:textfield; 
 }
 
 .AdminProducts__table th {
@@ -2409,19 +2432,29 @@ table {
 /*? -------------- BAR PROGRESS  ------------ ?*/
 
 .cart__progress {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr .5fr 1fr;
+    column-gap: 2%;
     position: relative;
-    display: none;
     justify-content: space-evenly;
     padding: 10px;
     margin: auto;
-    margin-top: 25px;
-    width: 50%;
+    width: 95%;
     align-items: center;
     color: black !important;
+    margin: 10px auto 15px;
+}
+
+
+.progress__description{
+    font-size: 14px;
+    height: 33px;
+    text-align: center;
+    display: none;
 }
 
 .cart__progress hr {
-    width: 15%;
+    width: 100%;
     border: medium none;
     border-top: 5px dotted black;
 }
@@ -2432,18 +2465,23 @@ table {
     align-items: center;
 }
 
-.cart__progress i {
+.cart__progress a {
+    color: black;
     display: flex;
     position: relative;
     align-items: center;
-    font-size: 50px;
+    font-size: 25px;
     flex-direction: column-reverse;
-    margin-bottom: 15px;    
+    /* margin-bottom: 15px; */
 }
 
-.progress__not_active {
-    opacity: 0.4;
+.cart__progress-i{
+    color: black;
 }
+
+/* .progress__not_active {
+    opacity: 0.4;
+} */
 
 /*? -------------- PRODUCTS LIST --------- ?*/
 
@@ -2498,6 +2536,11 @@ table {
     border-bottom: solid 2px var(--lox);
 }
 
+#table__cart tbody td{
+    font-size: 12.8px;
+}
+
+
 .product_name_table_cart{
     text-align: left;
 }
@@ -2506,7 +2549,6 @@ div.quantity__table_cart input[type=button] {
     padding: 0 5px;
     min-width: 25px;
     height: 42px;
-    border: 2px solid #ddd1d0;
     background: 0 0;
     box-shadow: none;
 }
@@ -2516,14 +2558,12 @@ div.quantity__table_cart input[type=button], div.quantity__table_cart input[type
 }
 
 div.quantity__table_cart .minus {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border: none;
     font-size: 20px;
 }
 
 div.quantity__table_cart .plus {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border: none;
     font-size: 15px;
 }
 
@@ -2532,10 +2572,16 @@ div.quantity__table_cart {
     vertical-align: top;
     white-space: nowrap;
     font-size: 0;
+    border: solid 1px var(--gray-pastel);
+    border-radius: 3px;
+}
+
+#table__cart thead th{
+    text-align: center;
 }
 
 div.quantity__table_cart input[type=button]{
-    border: 2px solid #ddd1d0;
+    border: none;
     font-weight: bold;
     color: black;
 }
@@ -2544,46 +2590,89 @@ div.quantity__table_cart input[type=number] {
     color: black;
     width: 30px;
     height: 42px;
+    border:none;
     border-radius: 0;
-    border-right: none;
-    border-left: none;
-    border-top: 2px solid #ddd1d0;
-    border-bottom: 2px solid #ddd1d0;
     padding: 0;
     text-align: center;
+    outline: aliceblue;
 }
 
-.total-cart{
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: auto;
-    background-color:white;
-}
 
 tbody tr .product_subtotal__table_cart , .total-cart .price{
     color:  rgb(255,51,36);
     font-weight: bold;
 }
 
-.total-cart .title {
-    font-size: 15px;   
-}
-
-.total-cart a, #table__cart button{
-    width: 30%;
-    background-color: var(--black);
+#table__cart button{
+    background-color: var(--blue-btn);
+    height: 35px;
     color: white;
     font-weight: bold;
     padding: 5px;
     text-align: center;
+    text-transform: uppercase;
+    font-size: 1.0em;
+    border: none;
+    width: 100%;
+    cursor: pointer;
 }
 
-#table__cart button{
-    width: 100%;
+.title{
+    grid-area: title;
 }
+
+.price{
+    grid-area: price;
+}
+
+.button{
+    grid-area: button;
+}
+
+.total-cart{
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: auto;
+    background-color:white;
+    /* border: solid 1px var(--gray-pastel); */
+    border-radius: 2px;
+    margin-top: 15px;
+    justify-items: center;
+    grid-template-areas: 
+        "title price"
+        "button button"
+    ;
+}
+
+.total-cart p{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    font-weight: 700;
+}
+
+
+.total-cart .button{
+    color: white;
+    background-color: var(--blue-btn);
+    height: 40px;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.0em;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 #table__cart tr:nth-child(even), #table__sales_user tr:nth-child(even){ 
     background-color: transparent;
@@ -3730,13 +3819,8 @@ footer {
 
     /*? --------------  TOTAL CART ------------ ?*/
 
-    #table__cart th, #table__cart td {
-        font-size: 14px;
-    }
 
-    #table__cart tfoot td {
-        font-size: 20px;
-    }
+
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
     .listProduct__boxProducts {
@@ -3793,7 +3877,8 @@ footer {
         top: 23px;
     }
 
-    .cart__progress i {
+    .cart__progress a {
+        color: black;
         position: relative;
         font-size: 30px;
     }
@@ -3929,7 +4014,7 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(1),
     .checkout__detailOrder table tr td:nth-child(1) {
-        width: 15%;
+        width: 12%;
     }
 
     .checkout__detailOrder table tr th:nth-child(2),
@@ -4516,14 +4601,8 @@ footer {
 
     /** ════════════════════ CART ════════════════════ **/
 
-    .cart__progress{
-        display: none;
-    }
     /*? --------------  TOTAL CART ------------ ?*/
 
-    #table__cart th, #table__cart td {
-       font-size: 15px;
-    }
 
     /** ════════════════════ HOME ════════════════════ **/
 
@@ -4877,15 +4956,14 @@ footer {
     /*? --------------  TOTAL CART ------------ ?*/
     
     #cart-products {
-        display: flex;
-        align-items: flex-start;
+        /* display: flex; */
         padding: 20px;
     }
     .total-cart{
+        margin-top: 15px;
         flex-wrap: wrap;
-        margin: initial;
-        margin-left: 20px;
-        max-width: 350px;       
+        margin-right: 0px;
+        max-width: 365px;       
     }
 
     .total-cart a{
@@ -5045,7 +5123,7 @@ footer {
 
     .checkout__detailOrder table tr th:nth-child(2),
     .checkout__detailOrder table tr td:nth-child(2) {
-        width: 6%;
+        width: 9%;
     }
 
     .checkout__detailOrder table tr th:nth-child(3),
@@ -5292,10 +5370,6 @@ footer {
 
 
     /** ════════════════════ CART ════════════════════ **/
-
-    #table__cart {
-        width: 100%;
-    }
 
     /** ════════════════════ LIST PRODUCTS ════════════════════ **/
 
