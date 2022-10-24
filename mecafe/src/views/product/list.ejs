@@ -21,6 +21,7 @@
                     <form action="" method="get">
 
                         <div class="listProduct__titleFilter">
+                            <a href="/product"><i class="fas fa-times-circle"></i></a>
                             <p >Filtro</p>
                             <i id="aparecerFiltro" class="fa-solid fa-angle-down"></i>
                         </div>
@@ -33,17 +34,17 @@
                                 </div>
 
                                 <div class="filtersChecks_boxFilter">
-                                    <label for="grames" class="createProduct__labelCategory">
-                                        <input type="checkbox" id="" name="grames" value="250" >
+                                    <label for="250grames" class="createProduct__labelCategory">
+                                        <input type="checkbox" id="250grames" name="grames" value="250" >
                                         250 Gramos
                                     </label>
                                     
-                                    <label for="grames" class="createProduct__labelCategory">
-                                        <input type="checkbox" id="" name="grames" value="500" >
+                                    <label for="500grames" class="createProduct__labelCategory">
+                                        <input type="checkbox" id="500grames" name="grames" value="500" >
                                         500 Gramos
                                     </label>
-                                    <label for="grames" class="createProduct__labelCategory">
-                                        <input type="checkbox" id="" name="grames" value="1000" >
+                                    <label for="1000grames" class="createProduct__labelCategory">
+                                        <input type="checkbox" id="1000grames" name="grames" value="1000" >
                                         1000 Gramos
                                     </label>
                                 </div>
@@ -58,7 +59,7 @@
                                 <div  class="filtersChecks_boxFilter">
                                     <% typeGrindings.forEach( element => { %>
                                     
-                                        <label for="idCategories" class="createProduct__labelCategory">
+                                        <label for="<%= element.id %>" class="createProduct__labelCategory">
                             
                                             <input type="checkbox" id="<%= element.id %>" name="idCategories" value="<%= element.id %>">
                             
