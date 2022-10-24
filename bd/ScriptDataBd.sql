@@ -77,29 +77,29 @@ INSERT INTO `directions` (`id`, `name`, `street`, `city`, `region`, `country`, `
 --
 
 INSERT INTO `images_products` (`id`, `path`, `product_id`) VALUES
-(1, 'default-product-image.png', 1),
-(2, 'default-product-image.png', 2),
-(3, 'default-product-image.png', 3),
-(4, 'default-product-image.png', 4),
-(5, 'default-product-image.png', 5),
-(6, 'default-product-image.png', 6),
-(7, 'default-product-image.png', 7),
-(8, 'default-product-image.png', 8),
-(9, 'default-product-image.png', 9),
-(10, 'default-product-image.png', 10),
-(11, 'default-product-image.png', 11),
-(12, 'default-product-image.png', 12);
+(1, 'ARGENTINO-DESCAFEINADO-WEB.jpg', 1),
+(2, 'TOSTADO-BALANCEADO-WEB.jpg', 2),
+(3, 'COLOMBIANO-ORIGINAL-WEB.jpg', 3),
+(4, 'ANIS-PEREIRA-WEB.jpg', 4),
+(5, 'CHOCOLATE-WEB.jpg', 5),
+(6, 'VAINILLA-IBAGUE-WEB.jpg', 6),
+(7, 'GUATEMALA-BUENA-VISTA-WEB.jpg', 7),
+(8, 'ETIOPIA-HUNDA-OLI-WEB.jpg', 8),
+(9, 'COSTA-RICA-WEB.jpg', 9),
+(10, 'PINK-HUILA-WEB.jpg', 10),
+(11, 'PERU-LA-PALESTINA-WEB.jpg', 11),
+(12, 'BRASIL-DO-ANIL-WEB.jpg', 12);
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `rating`, `description`, `brand_id`, `active`) VALUES
-(1, 'Colombiano Tostado y Molido', 3, 'Café de aroma intenso, cuerpo alto y notas achocolatadas. De tostión fuerte y molienda fina, exquisito al paladar.', 1, 1),
-(2, 'Colombiano Tostado Balanceado', 4, 'Agradable café de sabor suavemente dulce, acidez media y notas frutales. De tostión media y molienda fina, delicado al paladar.', 1, 1),
+(1, 'Argentino Descafeinado', 5, 'Café de aroma intenso, cuerpo alto y notas achocolatadas. De tostión fuerte, exquisito al paladar. Proviniente de las Yungas Salteñas', 1, 1),
+(2, 'Colombiano Tostado Balanceado', 4, 'Agradable café de sabor suavemente dulce, acidez media y notas frutales. De tostión media, delicado al paladar.', 1, 1),
 (3, 'Colombia Original', 4, 'Café colombiano en grano  Tostado hace 48 horas máximo. Dulce con aroma a caramelo, frutos rojos y sabor achocolatado suave, con cuerpo redondo y buen sabor residual. Café 100% arábigo.', 1, 1),
-(4, 'Colombia Anis Pereira', 5, 'Café colombiano en grano tostado con toques de Anís. Tostado hace 48 horas máximo. Dulce con aroma a caramelo. frutos rojos y sabor achocolatado suave, con cuerpo redondo y buen sabor residual. Café 100% arábigo.', 1, 1),
-(5, 'Colombia Chocolate', 5, 'Café colombiano en grano tostado con sabor chocolate. Tostado hace 48 horas máximo. Dulce con aroma a caramelo. frutos rojos y sabor achocolatado suave', 1, 1),
+(4, 'Colombia Anis Pereira', 3, 'Café colombiano en grano tostado con toques de Anís. Tostado hace 48 horas máximo. Dulce con aroma a caramelo. frutos rojos y sabor achocolatado suave, con cuerpo redondo y buen sabor residual. Café 100% arábigo.', 1, 1),
+(5, 'Colombia Chocolate', 4, 'Café colombiano en grano tostado con sabor chocolate. Tostado hace 48 horas máximo. Dulce con aroma a caramelo. frutos rojos y sabor achocolatado suave', 1, 1),
 (6, 'Colombia Vainilla Ibagué', 5, 'Café colombiano en grano tostado con sabores de Vainilla. Tostado hace 48 horas máximo. Dulce con aroma a caramelo. frutos rojos y sabor achocolatado suave, con cuerpo redondo y buen sabor residual. Café 100% arábigo.', 1, 1),
 (7, 'Guatemala Buena Vista', 5, 'Este café proveniente de Antigua, Guatemala, destaca por su alto dulzor y muy baja acidez.\nTiene un cuerpo alto y de textura cremosa. Retrogusto largo y muy jugoso.', 1, 1),
 (8, 'Etiopia Hunda Oli', 4, 'Este café proveniente de la localidad de Agaro en la zona de Jimma, destaca por su limpieza en taza y acidez baja agradable.\nTiene un cuerpo alto y sedoso. Retrogusto largo y muy jugoso.', 1, 1),

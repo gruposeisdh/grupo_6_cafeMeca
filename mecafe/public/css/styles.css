@@ -1212,6 +1212,7 @@ a:active {
 
 .LoginContainerOne{
     display: flex;
+    display: none;
     align-items: center;
 }
 
